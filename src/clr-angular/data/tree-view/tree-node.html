@@ -1,0 +1,43 @@
+<!--
+  ~ Copyright (c) 2016-2018 VMware, Inc. All Rights Reserved.
+  ~ This software is released under MIT license.
+  ~ The full license information can be found in LICENSE in the root directory of this project.
+  -->
+
+<div class="clr-tree-node-content-container">
+    <button
+        type="button"
+        class="clr-treenode-caret"
+        (click)="toggleExpand()"
+        *ngIf="nodeExpand.expandable && !nodeExpand.loading"
+        [attr.aria-expanded]="nodeExpand.expanded">
+        <clr-icon
+            class="clr-treenode-caret-icon"
+            shape="caret"
+            [attr.dir]="caretDirection"
+            [attr.title]="caretTitle"></clr-icon>
+    </button>
+    <div class="clr-treenode-spinner-container" *ngIf="nodeExpand.expandable && nodeExpand.loading">
+        <span class="clr-treenode-spinner spinner">
+            Loading...
+        </span>
+    </div>
+    <!-- TODO: Move this to new checkboxes. But the indeterminate two-way binding makes it hard. -->
+    <clr-checkbox
+        class="clr-treenode-checkbox"
+        *ngIf="selectable"
+        [(ngModel)]="selected"
+        [(clrIndeterminate)]="indeterminate"
+        [clrAriaLabeledBy]="nodeId"></clr-checkbox>
+    <div class="clr-treenode-content" [id]="nodeId">
+        <ng-content></ng-content>
+    </div>
+</div>
+<!-- FIXME: remove this string concatenation when boolean states are supported -->
+<div
+    class="clr-treenode-children"
+    [@childNodesState]="state"
+    [attr.role]="ariaTreeNodeChildrenRole">
+    <ng-content select="clr-tree-node"></ng-content>
+    <ng-content select="[clrIfExpanded]"></ng-content>
+</div>

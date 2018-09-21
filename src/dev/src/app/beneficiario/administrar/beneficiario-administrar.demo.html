@@ -1,0 +1,99 @@
+<div class="card-header">
+    
+    Administrar Beneficiarios
+
+</div>
+
+<div class="card-block">
+
+    
+
+    <button type="button" class="btn btn-icon btn-outline" [routerLink]="['../../agregar']">
+
+        <clr-icon shape="plus"></clr-icon> Agregar
+
+    </button>
+
+
+
+    <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
+
+        <-- ... -->
+
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+
+
+
+            <clr-dg-column [clrDgField]="'nss'">NSS</clr-dg-column>
+
+            <clr-dg-column [clrDgField]="'name'">Nombre</clr-dg-column>
+
+            <clr-dg-column>
+
+                <ng-container *clrDgHideableColumn="{hidden: false}">
+
+                    Fecha de Afiliación
+
+                </ng-container>
+
+            </clr-dg-column>
+
+
+
+            <clr-dg-row *clrDgItems="let user of users" [clrDgItem]="user">
+
+                <clr-dg-cell>{{user.id}}</clr-dg-cell>
+
+                <clr-dg-cell>{{user.name}}</clr-dg-cell>
+
+                <clr-dg-cell>{{user.creation | date}}</clr-dg-cell>
+
+
+
+                <clr-dg-action-overflow>
+
+                    <button class="action-item" (click)="onEdit(user)">
+
+                        <clr-icon shape="note"></clr-icon> Editar
+
+                    </button>
+
+                    <button class="action-item" (click)="onDelete(user)">
+
+                        <clr-icon shape="trash"></clr-icon> Borrar
+
+                    </button>
+
+                </clr-dg-action-overflow>
+
+                <-- ... -->
+
+            </clr-dg-row>
+
+
+
+            <clr-dg-footer>
+
+                <clr-dg-column-toggle>
+
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+
+                </clr-dg-column-toggle>
+
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+
+                    de {{pagination.totalItems}} registros
+
+                </clr-dg-pagination>
+
+            </clr-dg-footer>
+
+            <-- ... -->
+
+    </clr-datagrid>
+
+</div>

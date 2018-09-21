@@ -1,0 +1,20 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "@clr/angular": ["src/clr-angular"],
+      "@clr/icons": ["src/clr-icons"],
+      "@clr/icons/shapes/*": ["src/clr-icons/shapes", "src/clr-icons/shapes/*"]
+    },
+    "lib": ["es2017", "dom"]
+  }
+}

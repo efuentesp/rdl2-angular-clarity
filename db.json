@@ -1,0 +1,19 @@
+{
+  "afiliados": [
+    { 
+    "id": 1,  
+    "nss": "23454WERTY",
+    "nombre":"Normaysel",
+    "apellidopaterno" : "Carbajal",
+    "apellidomaterno" : "Muñiz",
+    "observaciones": "Ninguna",
+    "fechaafiliacion":"12/10/2018",
+    "foto": "asdasdasd.jpg",
+    "actanacimiento": "12345678",
+    "correo": "asdfghj@gob.mx",
+    "semanascotizadas" : "40",
+    "numero":"123456789"
+    
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<clr-main-container>
+    <clr-header class="header-6">
+        <div class="branding">
+            <a href="#" class="nav-link">
+                <clr-icon shape="vm-bug"></clr-icon>
+                <span class="title">Demo Project</span>
+            </a>
+        </div>
+        <div class="header-actions">
+            <clr-dropdown>
+                <button class="nav-text" clrDropdownTrigger>
+                    <div>juan.perez@softtek.com</div>
+                    <clr-icon shape="cog"></clr-icon>
+                    <clr-icon shape="caret down"></clr-icon>
+                </button>
+                <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+                    <a href="javascript://" clrDropdownItem>Acerca</a>
+                    <a href="javascript://" clrDropdownItem>Configuración</a>
+                    <a href="javascript://" clrDropdownItem>Salir</a>
+                </clr-dropdown-menu>
+            </clr-dropdown>
+        </div>
+    </clr-header>
+    
+    <app-content-container class="content-container"></app-content-container>
+
+</clr-main-container>

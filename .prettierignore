@@ -1,0 +1,7 @@
+package-lock.json
+package.json
+dist/
+reports/
+golden/
+.vscode
+.ng_build

@@ -1,0 +1,177 @@
+  <div class="card-header">
+      Editar Afiliados
+  </div>
+  
+  <div class="card-block">
+      <form class="clr-form clr-form-vertical">
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Nss
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="vertical-basic" placeholder="Nss" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Nombre
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="vertical-basic" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Apellido Paterno
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="vertical-basic" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Apellido Materno
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="vertical-basic" placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Género
+            </label>
+            <div class="clr-radio-wrapper">
+                <input type="radio" name="radio2" id="compact-radio4" placeholder="Enter value here" class="clr-radio">
+                <label for="compact-radio4" class="clr-control-label">Masculino</label>
+                <input type="radio" name="radio2" id="compact-radio5" placeholder="Enter value here" class="clr-radio">
+                <label for="compact-radio5" class="clr-control-label">Femenino</label>
+            </div>
+        </div>
+        <!-- <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+                Beneficiario
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-10': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="vertical-disabled" placeholder="Beneficiario" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <button (click)="basic = true">
+                        <clr-icon shape="search"></clr-icon>
+                    </button>  
+                </div>
+            </div>
+        </div> -->
+        <div class="clr-form-control" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+            <label for="vertical-textarea-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Observaciones
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-10': grid && layout !== 'vertical'}">
+                <div class="clr-textarea-wrapper">
+                    <textarea id="vertical-textarea-basic" rows="5" placeholder="Observaciones" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+                Fecha de Afiliación
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input id="dateControl" type="date" class="clr-input" clrDate (clrDateChange)="dateChanged($event)" formControlName="date"/>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+            <label for="vertical-file3" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Foto
+            </label>
+            <div class="clr-control-container" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-10': grid && layout !== 'vertical'}">
+                <div class="clr-file-wrapper">
+                    <input type="file" id="vertical-file" placeholder="Foto">
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+                Fecha de Nacimiento
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input id="dateControl" type="date" class="clr-input" clrDate (clrDateChange)="dateChanged($event)" formControlName="date"/>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+                Email
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="text" id="vertical-basic" placeholder="Email" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <clr-icon shape="email"></clr-icon>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Semanas Cotizadas
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="number" id="vertical-basic" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
+            Numero
+            </label>
+            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
+                <div class="clr-input-wrapper">
+                    <input type="number" name="mdecimal" ng-model="mdecimal | number : 2" validation="pattern=/[0-9]{2}\.[0-9]{2}$/:alt=Invalid number" id="vertical-basic" placeholder="Numero" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <span class="validation text-danger"></span>
+                </div>
+            </div>
+            
+        </div>
+
+<br/>
+<br/>
+    
+      
+        <p>
+            <button type="submit" class="btn btn-primary" [routerLink]="['../../administrar']"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+            <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']"><clr-icon shape="undo"></clr-icon> Regresar</button>
+        </p>
+        
+
+      </form>
+     
+      
+      <!-- <clr-modal [(clrModalOpen)]="basic">
+        <h3 class="modal-title">I have a nice title</h3>
+        <div class="modal-body">
+            <p>But not much to say...</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+        </div>
+     </clr-modal> -->
+
+
+
+  
+  </div>
