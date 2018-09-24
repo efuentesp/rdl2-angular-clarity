@@ -1,176 +1,165 @@
-  <div class="card-header">
-      Eliminar Afiliados
-  </div>
-  
-  <div class="card-block">
-      <form class="clr-form clr-form-vertical">
+<div class="card-header">
+        Editar Afiliados
+    </div> 
+    
+    <form class="form" [formGroup]="afiliadoForm" (ngSubmit)="eliminaAfiliado()">
+        <div style="margin: 20px;">
         <div class="clr-form-control">
-            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-            Nss
-            </label>
-            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                <div class="clr-input-wrapper">
-                    <input type="text" id="vertical-basic" placeholder="Nss" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-                </div>
+            <label for="nss" class="clr-control-label">Nss<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="nss" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('nss').invalid && (afiliadoForm.get('nss').dirty || afiliadoForm.get('nss').touched)">
+                    <input id="nss" type="text" formControlName="nss" placeholder="Nss" class="clr-input clr-col-sm-11 clr-col-md-12" >
+                    <span class="tooltip-content">
+                        Nss es requerido.
+                    </span>
+                </label>
             </div>
         </div>
         <div class="clr-form-control">
-            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-            Nombre
-            </label>
-            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                <div class="clr-input-wrapper">
-                    <input type="text" id="vertical-basic" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-                </div>
+            <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('nombre').invalid && (afiliadoForm.get('nombre').dirty || afiliadoForm.get('nombre').touched)">
+                    <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <span class="tooltip-content">
+                        Nombre es requerido.
+                    </span>
+                </label>
             </div>
         </div>
         <div class="clr-form-control">
-            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-            Apellido Paterno
-            </label>
-            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                <div class="clr-input-wrapper">
-                    <input type="text" id="vertical-basic" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-                </div>
+            <label for="apellidopaterno" class="clr-control-label">Apellido Paterno<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="apellidopaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('apellidopaterno').invalid && (afiliadoForm.get('apellidopaterno').dirty || afiliadoForm.get('apellidopaterno').touched)">
+                    <input id="apellidopaterno" type="text" formControlName="apellidopaterno" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <span class="tooltip-content">
+                        Apellido Paterno es requerido.
+                    </span>
+                </label>
             </div>
         </div>
         <div class="clr-form-control">
-            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-            Apellido Materno
-            </label>
-            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                <div class="clr-input-wrapper">
-                    <input type="text" id="vertical-basic" placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
-                </div>
+            <label for="apellidomaterno" class="clr-control-label">Apellido Materno<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="apellidomaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('apellidomaterno').invalid && (afiliadoForm.get('apellidomaterno').dirty || afiliadoForm.get('apellidomaterno').touched)">
+                    <input id="apellidomaterno" type="text" formControlName="apellidomaterno" placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <span class="tooltip-content">
+                        Apellido Materno es requerido.
+                    </span>
+                </label>
             </div>
         </div>
-        <div class="clr-form-control">
-            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-            Género
-            </label>
+        <!-- <div class="clr-form-control">
+                <label for="genero" class="clr-control-label">Genero<span class="required">*</span></label>
             <div class="clr-radio-wrapper">
                 <input type="radio" name="radio2" id="compact-radio4" placeholder="Enter value here" class="clr-radio">
                 <label for="compact-radio4" class="clr-control-label">Masculino</label>
                 <input type="radio" name="radio2" id="compact-radio5" placeholder="Enter value here" class="clr-radio">
                 <label for="compact-radio5" class="clr-control-label">Femenino</label>
             </div>
+        </div> -->
+        <div class="clr-form-control">
+            <label for="observaciones" class="clr-control-label">Observaciones<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="observaciones" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('observaciones').invalid && (afiliadoForm.get('observaciones').dirty || afiliadoForm.get('observaciones').touched)">
+                    <textarea id="observaciones" formControlName="observaciones" rows="5" placeholder="Observaciones" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+                    <span class="tooltip-content">
+                        Observaciones es requerido.
+                    </span>
+                </label>
+            </div>
         </div>
         <!-- <div class="clr-form-control">
-            <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-                Beneficiario
-            </label>
-            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-10': grid && layout !== 'vertical'}">
-                <div class="clr-input-wrapper">
-                    <input type="text" id="vertical-disabled" placeholder="Beneficiario" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
-                    <button (click)="basic = true">
-                        <clr-icon shape="search"></clr-icon>
-                    </button>  
-                </div>
+            <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+                        [class.invalid]="afiliadoForm.get('fechaafiliacion').invalid && (afiliadoForm.get('fechaafiliacion').dirty || afiliadoForm.get('fechaafiliacion').touched)">
+                    <input id="fechaafiliacion" type="date" style="width: 905px" class="clr-input" clrDate formControlName="fechaafiliacion"/>
+                    <span class="tooltip-content">
+                        Fecha de afiliación es requerido.
+                    </span>
+                </label>
             </div>
         </div> -->
-        <div class="clr-form-control" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-            <label for="vertical-textarea-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-            Observaciones
+        <div class="clr-form-control">
+            <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <!-- <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('fechaafiliacion').invalid && (afiliadoForm.get('fechaafiliacion').dirty || afiliadoForm.get('fechaafiliacion').touched)"> -->
+                    <input id="fechaafiliacion" type="date" formControlName="fechaafiliacion" placeholder="Fecha de Afiliación" clrDate class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <!-- <span class="tooltip-content">
+                        Fecha de Afiliación es requerido.
+                    </span> -->
+                <!-- </label> -->
+            </div>
+        </div>
+        <!-- <div class="clr-form-control">
+            <label for="vertical-file3" class="clr-control-label" >
+            Foto<span class="required">*</span>
             </label>
-            <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-10': grid && layout !== 'vertical'}">
-                <div class="clr-textarea-wrapper">
-                    <textarea id="vertical-textarea-basic" rows="5" placeholder="Observaciones" class="clr-textarea clr-col-sm-12 clr-col-md-12" disabled></textarea>
-                    <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+            <div class="clr-control-container">
+                <div class="clr-file-wrapper">
+                    <input type="file" id="foto" formControlName="foto" placeholder="Foto">
+                    <control-messages class="control-messages" [control]="afiliadoForm.controls.foto"></control-messages>
                 </div>
             </div>
         </div>
         <div class="clr-form-control">
-                <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-                    Fecha de Afiliación
-                </label>
-                <div class="clr-control-container" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                    <div class="clr-input-wrapper">
-                        <input id="dateControl" type="date" style="width: 905px" class="clr-input" clrDate (clrDateChange)="dateChanged($event)" formControlName="date" disabled/>
-                    </div>
+            <label for="vertical-basic" class="clr-control-label" >
+            Acta de Nacimiento<span class="required">*</span>
+            </label>
+            <div class="clr-control-container">
+                <div class="clr-file-wrapper">
+                    <input type="file" id="actanacimiento" formControlName="actanacimiento" placeholder="Foto">
+                    <control-messages class="control-messages" [control]="afiliadoForm.controls.actanacimiento"></control-messages>
                 </div>
             </div>
-            <div class="clr-form-control" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                <label for="vertical-file3" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-                Foto
+        </div> -->
+        <div class="clr-form-control">
+            <label for="correo" class="clr-control-label">Correo<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="correo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('correo').invalid && (afiliadoForm.get('correo').dirty || afiliadoForm.get('correo').touched)">
+                    <input id="correo" type="text" formControlName="correo" placeholder="Correo" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <span class="tooltip-content">
+                        Correo es requerido.
+                    </span>
                 </label>
-                <div class="clr-control-container" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-10': grid && layout !== 'vertical'}">
-                    <div class="clr-file-wrapper">
-                        <input type="file" id="vertical-file" placeholder="Foto" disabled>
-                    </div>
-                </div>
             </div>
-            <div class="clr-form-control">
-                <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-                    Fecha de Nacimiento
+        </div>
+        <div class="clr-form-control">
+            <label for="semanascotizadas" class="clr-control-label">Semanas Cotizadas<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="semanascotizadas" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('semanascotizadas').invalid && (afiliadoForm.get('semanascotizadas').dirty || afiliadoForm.get('semanascotizadas').touched)">
+                    <input id="correo" type="text" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <span class="tooltip-content">
+                        Semanas Cotizadas es requerido.
+                    </span>
                 </label>
-                <div class="clr-control-container" style="width: 100%" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                    <div class="clr-input-wrapper">
-                        <input id="dateControl" type="date" style="width: 905px" class="clr-input" clrDate (clrDateChange)="dateChanged($event)" formControlName="date" disabled/>
-                    </div>
-                </div>
             </div>
-            <div class="clr-form-control">
-                <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-                    Email
+        </div>
+        <div class="clr-form-control">
+            <label for="numero" class="clr-control-label">Número<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="afiliadoForm.get('numero').invalid && (afiliadoForm.get('numero').dirty || afiliadoForm.get('numero').touched)">
+                    <input id="numero" type="text" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12">
+                    <span class="tooltip-content">
+                        Número es requerido.
+                    </span>
                 </label>
-                <div class="clr-control-container" style="width: 100%" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                    <div class="clr-input-wrapper">
-                        <input type="text" id="vertical-basic" placeholder="Email" class="clr-input" style="width: 98%" disabled>
-                        <clr-icon shape="email"></clr-icon>
-                    </div>
-                </div>
             </div>
-            <div class="clr-form-control">
-                <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-                Semanas Cotizadas
-                </label>
-                <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                    <div class="clr-input-wrapper">
-                        <input type="number" id="vertical-basic" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
-                    </div>
-                </div>
-            </div>
-            <div class="clr-form-control">
-                <label for="vertical-basic" class="clr-control-label" [ngClass]="{'clr-col-xs-12': grid, 'clr-col-md-2': grid && layout !== 'vertical'}">
-                Numero
-                </label>
-                <div class="clr-control-container clr-col-md-12" [ngClass]="{'clr-row': grid && layout !== 'vertical'}">
-                    <div class="clr-input-wrapper">
-                        <input type="number" name="mdecimal" ng-model="mdecimal | number : 2" validation="pattern=/[0-9]{2}\.[0-9]{2}$/:alt=Invalid number" id="vertical-basic" placeholder="Numero" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
-                        <span class="validation text-danger"></span>
-                    </div>
-                </div>  
-            </div>
-
-<br/>
-<br/>
-    
-      
+        </div>
+        <!-- <p>Form value {{ afiliadoForm.value | json }} </p>
+        <p> Form status {{ afiliadoForm.status | json}} </p> -->
         <p>
-            <button type="submit" class="btn btn-danger" [routerLink]="['../../administrar']"><clr-icon shape="trash"> </clr-icon> Eliminar</button>
-            <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']"><clr-icon shape="undo"> </clr-icon> Regresar</button>
+            <button type="submit" class="btn btn-danger" ><clr-icon shape="trash"></clr-icon> Eliminar</button>
+            <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
         </p>
-        
-
-      </form>
-     
-      
-      <!-- <clr-modal [(clrModalOpen)]="basic">
-        <h3 class="modal-title">I have a nice title</h3>
-        <div class="modal-body">
-            <p>But not much to say...</p>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
-            <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
-        </div>
-     </clr-modal> -->
-
-
-
-  
-  </div>
+    </form>

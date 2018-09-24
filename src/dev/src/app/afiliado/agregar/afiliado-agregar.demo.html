@@ -1,85 +1,103 @@
 <div class="card-header">
     Agregar Afiliados
-</div>  
-<form class="clr-form clr-form-vertical" [formGroup]="afiliadoForm" (ngSubmit)="onSubmit()">
+</div> 
+
+<form class="form" [formGroup]="afiliadoForm" (ngSubmit)="guardaAfiliado() && !afiliadoForm.invalid">
+    <div style="margin: 20px;">
     <div class="clr-form-control">
-        <label for="nss" class="clr-control-label">
-        Nss<span class="required">*</span>
-        </label>
-        <div class="clr-control-container clr-col-md-12">
-            <div class="clr-input-wrapper">
-                <input type="text" id="nss" formControlName="nss" placeholder="NSS" class="clr-input form-control clr-col-sm-12 clr-col-md-12">
-            </div>
-            <control-messages class="control-messages"   [control]="afiliadoForm.controls.nss"> </control-messages>
+        <label for="nss" class="clr-control-label">Nss<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="nss" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('nss').invalid && (afiliadoForm.get('nss').dirty || afiliadoForm.get('nss').touched)">
+                <input id="nss" type="text" formControlName="nss" placeholder="Nss" class="clr-input clr-col-sm-11 clr-col-md-12" >
+                <span class="tooltip-content">
+                    Nss es requerido.
+                </span>
+            </label>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="nombre" class="clr-control-label">
-        Nombre<span class="required">*</span>
-        </label>
-        <div class="clr-control-container clr-col-md-12">
-            <div class="clr-input-wrapper">
-                <input type="text" id="nombre" formControlName="nombre"  placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
-            </div>
-            <control-messages class="control-messages" [control]="afiliadoForm.controls.nombre"></control-messages>
-        </div> 
-    </div>
-    <div class="clr-form-control">
-        <label for="apellidopaterno" class="clr-control-label" >
-        Apellido Paterno<span class="required">*</span>
-        </label>
-        <div class="clr-control-container clr-col-md-12">
-            <div class="clr-input-wrapper">
-                <input type="text" id="apellidopaterno" formControlName="apellidopaterno" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12">
-            </div>
-            <control-messages class="control-messages" [control]="afiliadoForm.controls.apellidopaterno"></control-messages>
+        <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('nombre').invalid && (afiliadoForm.get('nombre').dirty || afiliadoForm.get('nombre').touched)">
+                <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Nombre es requerido.
+                </span>
+            </label>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="vertical-basic" class="clr-control-label" >
-        Apellido Materno<span class="required">*</span>
-        </label>
-        <div class="clr-control-container clr-col-md-12">
-            <div class="clr-input-wrapper">
-                <input type="text" id="apellidomaterno" formControlName="apellidomaterno"  placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12">
-            </div>
-            <control-messages class="control-messages" [control]="afiliadoForm.controls.apellidomaterno"></control-messages>
+        <label for="apellidopaterno" class="clr-control-label">Apellido Paterno<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="apellidopaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('apellidopaterno').invalid && (afiliadoForm.get('apellidopaterno').dirty || afiliadoForm.get('apellidopaterno').touched)">
+                <input id="apellidopaterno" type="text" formControlName="apellidopaterno" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Apellido Paterno es requerido.
+                </span>
+            </label>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="vertical-basic" class="clr-control-label" >
-        Género<span class="required">*</span>
-        </label>
+        <label for="apellidomaterno" class="clr-control-label">Apellido Materno<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="apellidomaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('apellidomaterno').invalid && (afiliadoForm.get('apellidomaterno').dirty || afiliadoForm.get('apellidomaterno').touched)">
+                <input id="apellidomaterno" type="text" formControlName="apellidomaterno" placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Apellido Materno es requerido.
+                </span>
+            </label>
+        </div>
+    </div>
+    <!-- <div class="clr-form-control">
+            <label for="genero" class="clr-control-label">Genero<span class="required">*</span></label>
         <div class="clr-radio-wrapper">
             <input type="radio" name="radio2" id="compact-radio4" placeholder="Enter value here" class="clr-radio">
             <label for="compact-radio4" class="clr-control-label">Masculino</label>
             <input type="radio" name="radio2" id="compact-radio5" placeholder="Enter value here" class="clr-radio">
             <label for="compact-radio5" class="clr-control-label">Femenino</label>
         </div>
-    </div>
+    </div> -->
     <div class="clr-form-control">
-        <label for="vertical-textarea-basic" class="clr-control-label" >
-        Observaciones<span class="required">*</span>
-        </label>
-        <div class="clr-control-container clr-col-md-12">
-            <div class="clr-textarea-wrapper">
-                <textarea id="vertical-textarea-basic" id="observaciones" formControlName="observaciones" rows="5" placeholder="Observaciones" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
-                <control-messages class="control-messages" [control]="afiliadoForm.controls.observaciones"></control-messages>
-            </div>
+        <label for="observaciones" class="clr-control-label">Observaciones<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="observaciones" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('observaciones').invalid && (afiliadoForm.get('observaciones').dirty || afiliadoForm.get('observaciones').touched)">
+                <textarea id="observaciones" formControlName="observaciones" rows="5" placeholder="Observaciones" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+                <span class="tooltip-content">
+                    Observaciones es requerido.
+                </span>
+            </label>
         </div>
     </div>
+    <!-- <div class="clr-form-control">
+        <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+                    [class.invalid]="afiliadoForm.get('fechaafiliacion').invalid && (afiliadoForm.get('fechaafiliacion').dirty || afiliadoForm.get('fechaafiliacion').touched)">
+                <input id="fechaafiliacion" type="date" style="width: 905px" class="clr-input" clrDate formControlName="fechaafiliacion"/>
+                <span class="tooltip-content">
+                    Fecha de afiliación es requerido.
+                </span>
+            </label>
+        </div>
+    </div> -->
     <div class="clr-form-control">
-        <label for="vertical-basic" class="clr-control-label" >
-            Fecha de Afiliación<span class="required">*</span>
-        </label>
-        <div class="clr-control-container">
-            <div class="clr-input-wrapper">
-                <input id="fechaafiliacion" type="date" style="width: 905px" class="clr-input" clrDate (clrDateChange)="dateChanged($event)" formControlName="fechaafiliacion"/>
-                <control-messages class="control-messages" [control]="afiliadoForm.controls.fechaafiliacion"></control-messages>
-            </div>
+        <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <!-- <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('fechaafiliacion').invalid && (afiliadoForm.get('fechaafiliacion').dirty || afiliadoForm.get('fechaafiliacion').touched)"> -->
+                <input id="fechaafiliacion" type="date" formControlName="fechaafiliacion" placeholder="Fecha de Afiliación" clrDate class="clr-input clr-col-sm-12 clr-col-md-12">
+                <!-- <span class="tooltip-content">
+                    Fecha de Afiliación es requerido.
+                </span> -->
+            <!-- </label> -->
         </div>
     </div>
-    <div class="clr-form-control">
+    <!-- <div class="clr-form-control">
         <label for="vertical-file3" class="clr-control-label" >
         Foto<span class="required">*</span>
         </label>
@@ -100,41 +118,48 @@
                 <control-messages class="control-messages" [control]="afiliadoForm.controls.actanacimiento"></control-messages>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="clr-form-control">
-        <label for="vertical-basic" class="clr-control-label" >
-            Correo
-        </label>
-        <div class="clr-control-container" style="width: 100%">
-            <div class="clr-input-wrapper">
-                <input type="text" id="correo" formControlName="correo" placeholder="Email" class="clr-input" style="width: 98%">
-                <clr-icon shape="email"></clr-icon>
-            </div>
+        <label for="correo" class="clr-control-label">Correo<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="correo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('correo').invalid && (afiliadoForm.get('correo').dirty || afiliadoForm.get('correo').touched)">
+                <input id="correo" type="text" formControlName="correo" placeholder="Correo" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Correo es requerido.
+                </span>
+            </label>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="vertical-basic" class="clr-control-label" >
-        Semanas Cotizadas
-        </label>
-        <div class="clr-control-container clr-col-md-12">
-            <div class="clr-input-wrapper">
-                <input type="number" id="semanascotizadas" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
-            </div>
+        <label for="semanascotizadas" class="clr-control-label">Semanas Cotizadas<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="semanascotizadas" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('semanascotizadas').invalid && (afiliadoForm.get('semanascotizadas').dirty || afiliadoForm.get('semanascotizadas').touched)">
+                <input id="correo" type="text" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Semanas Cotizadas es requerido.
+                </span>
+            </label>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="vertical-basic" class="clr-control-label" >
-        Numero
-        </label>
-        <div class="clr-control-container clr-col-md-12">
-            <div class="clr-input-wrapper">
-                <input type="number" id="numero" formControlName="numero" name="mdecimal" ng-model="mdecimal | number : 2" validation="pattern=/[0-9]{2}\.[0-9]{2}$/:alt=Invalid number" id="vertical-basic" placeholder="Numero" class="clr-input clr-col-sm-12 clr-col-md-12">
-                <span class="validation text-danger"></span>
-            </div>
+        <label for="numero" class="clr-control-label">Número<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('numero').invalid && (afiliadoForm.get('numero').dirty || afiliadoForm.get('numero').touched)">
+                <input id="numero" type="text" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Número es requerido.
+                </span>
+            </label>
         </div>
     </div>
+    <!-- <p>Form value {{ afiliadoForm.value | json }} </p>
+    <p> Form status {{ afiliadoForm.status | json}} </p> -->
     <p>
         <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Agregar</button>
-        <button type="submit" class="btn btn-outline" ><clr-icon shape="undo"></clr-icon> Regresar</button>
-    </p> 
+        <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    </div>
 </form>

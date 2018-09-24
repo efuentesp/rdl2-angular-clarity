@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ClarityModule } from '@clr/angular';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AfiliadoDemo } from './afiliado.demo';
 import { ROUTING } from './afiliado.demo.routing';
 import { Inventory } from './inventory/inventory';
@@ -17,16 +17,8 @@ import { ValidationService } from '../_validation/validation.service';
 import { AfiliadoService } from './afiliado.demo.service';
 import { HttpModule } from '@angular/http';
 
-
 @NgModule({
-  imports: [
-    CommonModule, 
-    ClarityModule, 
-    ROUTING, 
-    HttpModule,
-    ReactiveFormsModule,
-    FormsModule 
-  ],
+  imports: [CommonModule, ClarityModule, ROUTING, HttpModule, ReactiveFormsModule, FormsModule],
   declarations: [
     AfiliadoDemo,
     AfiliadoAdministrarDemo,
@@ -35,7 +27,7 @@ import { HttpModule } from '@angular/http';
     AfiliadoEditarFormDemo,
     AfiliadoEliminarFormDemo,
     AfiliadoEditarDemo,
-    AfiliadoEliminarDemo
+    AfiliadoEliminarDemo,
   ],
   exports: [
     AfiliadoDemo,
@@ -46,14 +38,8 @@ import { HttpModule } from '@angular/http';
     AfiliadoEliminarFormDemo,
     AfiliadoEditarDemo,
     AfiliadoEliminarDemo,
-  ],  
-  providers:[
-    Inventory,
-    ValidationService,
-    AfiliadoService
   ],
-  schemas: [
-      CUSTOM_ELEMENTS_SCHEMA
-  ],
+  providers: [Inventory, ValidationService, AfiliadoService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AfiliadoDemoModule {}

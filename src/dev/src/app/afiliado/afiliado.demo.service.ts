@@ -1,5 +1,5 @@
-import { Injectable }                              from '@angular/core';
-import { Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Afiliado } from './afiliado.demo.model';
 import { environment } from '../../environments/environment';
@@ -7,18 +7,85 @@ import { HttpModule, Http } from '@angular/http';
 
 @Injectable()
 export class AfiliadoService {
+  private env: any = environment;
+  private afiliado = new Afiliado();
 
-    private env: any = environment;
-    private afiliado = new Afiliado();
+  constructor(private http: Http) {}
 
-    constructor(private http:Http) {
-    }
+  postGuardaAfiliado(afiliado) {
+    return this.http.post(this.env.api + '/afiliado', afiliado).pipe(map(res => res));
+  }
 
-    postGuardarAfiliado(afiliado){
-        
-        return this.http.post(this.env.api + "/afiliado", afiliado).pipe(map(res => res));
-       
-    }
+  getRecuperaAfiliados() {
+    return this.http.get(this.env.api + '/afiliado').pipe(map(res => res.json()));
+  }
 
-   
+  deleteAfiliado(afiliado) {
+    return this.http.delete(this.env.api + '/afiliado', afiliado).pipe(map(res => res.json()));
+  }
+
+  updateEditaAfiliado(afiliado) {
+    return this.http.put(this.env.api + '/afiliado', afiliado).pipe(map(res => res.json()));
+  }
+
+  resetAfiliado(): Afiliado {
+    this.clear();
+    return this.afiliado;
+  }
+
+  getAfiliado(): Afiliado {
+    var afiliado: Afiliado = {
+      nss: this.afiliado.nss,
+      actanacimiento: this.afiliado.actanacimiento,
+      apellidomaterno: this.afiliado.apellidomaterno,
+      apellidopaterno: this.afiliado.apellidopaterno,
+      beneficiario1Id: this.afiliado.beneficiario1Id,
+      beneficiario1Item: this.afiliado.beneficiario1Item,
+      correo: this.afiliado.correo,
+      fechaafiliacion: this.afiliado.fechaafiliacion,
+      foto: this.afiliado.foto,
+      genero1Id: this.afiliado.genero1Id,
+      genero1Item: this.afiliado.genero1Item,
+      nombre: this.afiliado.nombre,
+      numero: this.afiliado.numero,
+      observaciones: this.afiliado.observaciones,
+      semanascotizadas: this.afiliado.semanascotizadas,
+    };
+    return afiliado;
+  }
+
+  setAfiliado(afiliado: Afiliado) {
+    (this.afiliado.nss = this.afiliado.nss),
+      (this.afiliado.actanacimiento = afiliado.actanacimiento),
+      (this.afiliado.apellidomaterno = afiliado.apellidomaterno),
+      (this.afiliado.apellidopaterno = afiliado.apellidopaterno),
+      (this.afiliado.beneficiario1Id = afiliado.beneficiario1Id),
+      (this.afiliado.beneficiario1Item = afiliado.beneficiario1Item),
+      (this.afiliado.correo = afiliado.correo),
+      (this.afiliado.fechaafiliacion = afiliado.fechaafiliacion),
+      (this.afiliado.foto = afiliado.foto),
+      (this.afiliado.genero1Id = afiliado.genero1Id),
+      (this.afiliado.genero1Item = afiliado.genero1Item),
+      (this.afiliado.nombre = afiliado.nombre),
+      (this.afiliado.numero = afiliado.numero),
+      (this.afiliado.observaciones = afiliado.observaciones),
+      (this.afiliado.semanascotizadas = afiliado.semanascotizadas);
+  }
+
+  clear() {
+    (this.afiliado.nss = this.afiliado.nss), (this.afiliado.actanacimiento = null);
+    this.afiliado.apellidomaterno = '';
+    this.afiliado.apellidopaterno = '';
+    this.afiliado.beneficiario1Id = '';
+    this.afiliado.beneficiario1Item = '';
+    this.afiliado.correo = '';
+    this.afiliado.fechaafiliacion = null;
+    this.afiliado.foto = '';
+    this.afiliado.genero1Id = '';
+    this.afiliado.genero1Item = '';
+    this.afiliado.nombre = '';
+    this.afiliado.numero = null;
+    this.afiliado.observaciones = '';
+    this.afiliado.semanascotizadas = null;
+  }
 }

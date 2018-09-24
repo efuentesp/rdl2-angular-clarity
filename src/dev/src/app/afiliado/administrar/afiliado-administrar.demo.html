@@ -6,8 +6,106 @@
     <button type="button" class="btn btn-icon btn-outline" [routerLink]="['../../agregar']">
         <clr-icon shape="plus"></clr-icon> Agregar
     </button>
+
     <clr-datagrid [clrDgLoading]="loading">
-        <-- ... -->
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+        <clr-dg-column [clrDgField]="'nss'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Nss
+            </ng-container>    
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'nombre'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Nombre
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Apellido Paterno
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Apellido Materno
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Observaciones
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Fecha de Afiliación
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Foto
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Acta de Nacimiento
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Correo
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Semanas Cotizadas
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column>
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Número
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column></clr-dg-column>
+        <clr-dg-row *clrDgItems="let afiliado of afiliadosArray" [clrDgItem]="afiliado">
+                <clr-dg-cell>{{afiliado.nss}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.nombre}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.apellidopaterno}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.apellidomaterno}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.observaciones}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.fechaafiliacion | date:'dd/MM/yyyy'}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.foto}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.actanacimiento}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.correo}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.semanascotizadas}}</clr-dg-cell>
+                <clr-dg-cell>{{afiliado.numero}}</clr-dg-cell>
+                <clr-dg-cell>
+                <clr-dg-action-overflow>
+                    <button class="action-item" (click)="setClickedRowEditaAfiliado(i, afiliado)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" (click)="setClickedRowEliminaAfiliado(i, afiliado)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                    <div class="line-list"></div>
+                    <button class="action-item" [routerLink]="['../../../Beneficiario/administrar/administrar/']">
+                        <clr-icon shape="flow-chart"></clr-icon> Beneficiario
+                    </button>
+                </clr-dg-action-overflow>
+                </clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+
+    </clr-datagrid>
+
+    <!-- <clr-datagrid [clrDgLoading]="loading">
             <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
             <clr-dg-column [clrDgField]="'nss'">NSS</clr-dg-column>
             <clr-dg-column [clrDgField]="'name'">Nombre</clr-dg-column>
@@ -30,11 +128,10 @@
                     </button>
                     <div class="line-list"></div>
                     <button class="action-item" [routerLink]="['../../../Beneficiario/administrar/administrar/']">
-                    <!-- <button class="action-item" (click)="onDelete(user)" [routerLink]="['Beneficiario/Administrar/Administrar/']">     -->
                         <clr-icon shape="flow-chart"></clr-icon> Beneficiario
                     </button>
                 </clr-dg-action-overflow>
-                <-- ... -->
+              
             </clr-dg-row>
 
             <clr-dg-footer>
@@ -47,7 +144,7 @@
                     de {{pagination.totalItems}} registros
                 </clr-dg-pagination>
             </clr-dg-footer>
-            <-- ... -->
-    </clr-datagrid>
+            
+    </clr-datagrid> -->
 
 </div>

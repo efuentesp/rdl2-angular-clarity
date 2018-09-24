@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import '@clr/icons/shapes/social-shapes';
 import '@clr/icons/shapes/essential-shapes';
-import { User } from '../inventory/user';
-import { Inventory } from '../inventory/inventory';
+import { Afiliado } from '../afiliado.demo.model';
+import { AfiliadoService } from '../afiliado.demo.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'clr-alert-demo-styles',
@@ -10,13 +11,34 @@ import { Inventory } from '../inventory/inventory';
   templateUrl: './afiliado-administrar.demo.html',
 })
 export class AfiliadoAdministrarDemo {
+  afiliadosArray: Afiliado[];
 
-  users: User[];
+  constructor(private afiliadoService: AfiliadoService, private router: Router, private route: ActivatedRoute) {}
 
-  constructor(inventory: Inventory) {
-    inventory.size = 100;
-    inventory.reset();
-    this.users = inventory.all;
+  ngOnInit() {
+    this.cargaAfiliados();
   }
 
+  cargaAfiliados() {
+    this.afiliadoService.getRecuperaAfiliados().subscribe(
+      res => {
+        if (res) {
+          this.afiliadosArray = res;
+        }
+      },
+      error => {
+        //swal('Error...', 'An error occurred while calling the ordensimplificadas.', 'error');
+      }
+    );
+  }
+
+  setClickedRowEditaAfiliado(index, afiliado) {
+    this.afiliadoService.setAfiliado(afiliado);
+    this.router.navigate(['../../editar'], { relativeTo: this.route });
+  }
+
+  setClickedRowEliminaAfiliado(index, afiliado) {
+    this.afiliadoService.setAfiliado(afiliado);
+    this.router.navigate(['../../eliminar'], { relativeTo: this.route });
+  }
 }
