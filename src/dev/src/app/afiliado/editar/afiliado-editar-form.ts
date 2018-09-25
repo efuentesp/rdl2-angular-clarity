@@ -80,12 +80,13 @@ export class AfiliadoEditarFormDemo implements OnInit {
       this.afiliado.actanacimiento = this.afiliadoForm.controls['actanacimiento'].value;
       this.afiliado.foto = this.afiliadoForm.controls['foto'].value;
 
-      this.afiliadoService.postGuardaAfiliado(this.afiliado).subscribe(res => {
+      console.log('Afiliado:', this.afiliado);
+      this.afiliadoService.updateEditaAfiliado(this.afiliado).subscribe(res => {
         if (res.status == 201 || res.status == 200) {
-          swal('Success...', 'Etiquetaasignada save successfully.', 'success');
+          swal('Success...', 'Afiliado save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {
-          swal('Error...', 'Etiquetaasignada save unsuccessfully.', 'error');
+          swal('Error...', 'Afiliado save unsuccessfully.', 'error');
         }
       });
     }

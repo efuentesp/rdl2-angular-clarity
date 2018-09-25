@@ -1,6 +1,7 @@
 {
   "afiliado": [
     {
+      "id": 11,
       "nss": "2123",
       "actanacimiento": "C:\\fakepath\\PruebasGenerales.txt",
       "apellidomaterno": "sdf",
@@ -15,8 +16,7 @@
       "nombre": "sdfsdf",
       "numero": "12",
       "observaciones": "sdfsdf",
-      "semanascotizadas": "1000",
-      "id": 11
+      "semanascotizadas": "1000"
     },
     {
       "nss": "23454WERTY",
@@ -67,22 +67,22 @@
       "id": 14
     },
     {
-      "nss": "2123",
+      "id": 16,
+      "nss": "123456789",
       "actanacimiento": "C:\\fakepath\\PruebasGenerales.txt",
-      "apellidomaterno": "sdf",
-      "apellidopaterno": "sdf",
+      "apellidomaterno": "Guevara",
+      "apellidopaterno": "Garrido",
       "beneficiario1Id": "",
       "beneficiario1Item": "",
-      "correo": "asdasdasd@asdasd.com",
-      "fechaafiliacion": "09/26/2018",
-      "foto": "C:\\fakepath\\logo.xcf",
+      "correo": "miriam.garridog@softtek.com",
+      "fechaafiliacion": "09/24/2018",
+      "foto": "C:\\fakepath\\PruebasGenerales.txt",
       "genero1Id": "masculino",
       "genero1Item": "",
-      "nombre": "sdfsdf",
-      "numero": "12",
-      "observaciones": "sdfsdf",
-      "semanascotizadas": "1000",
-      "id": 15
+      "nombre": "Miriam",
+      "numero": "456",
+      "observaciones": "Observaciones",
+      "semanascotizadas": "123"
     }
   ]
 }

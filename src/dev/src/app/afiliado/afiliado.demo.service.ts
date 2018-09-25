@@ -21,12 +21,11 @@ export class AfiliadoService {
   }
 
   deleteAfiliado(afiliado) {
-    console.log('Afiliado: ', afiliado.id);
-    return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res.json()));
+    return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res));
   }
 
   updateEditaAfiliado(afiliado) {
-    return this.http.put(this.env.api + '/afiliado', afiliado).pipe(map(res => res.json()));
+    return this.http.put(this.env.api + '/afiliado/' + afiliado.id, afiliado).pipe(map(res => res));
   }
 
   resetAfiliado(): Afiliado {
