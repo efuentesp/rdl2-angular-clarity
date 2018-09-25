@@ -21,7 +21,8 @@ export class AfiliadoService {
   }
 
   deleteAfiliado(afiliado) {
-    return this.http.delete(this.env.api + '/afiliado', afiliado).pipe(map(res => res.json()));
+    console.log('Afiliado: ', afiliado.id);
+    return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res.json()));
   }
 
   updateEditaAfiliado(afiliado) {
@@ -35,6 +36,7 @@ export class AfiliadoService {
 
   getAfiliado(): Afiliado {
     var afiliado: Afiliado = {
+      id: this.afiliado.id,
       nss: this.afiliado.nss,
       actanacimiento: this.afiliado.actanacimiento,
       apellidomaterno: this.afiliado.apellidomaterno,
@@ -55,7 +57,8 @@ export class AfiliadoService {
   }
 
   setAfiliado(afiliado: Afiliado) {
-    (this.afiliado.nss = this.afiliado.nss),
+    (this.afiliado.id = afiliado.id),
+      (this.afiliado.nss = afiliado.nss),
       (this.afiliado.actanacimiento = afiliado.actanacimiento),
       (this.afiliado.apellidomaterno = afiliado.apellidomaterno),
       (this.afiliado.apellidopaterno = afiliado.apellidopaterno),
@@ -73,7 +76,9 @@ export class AfiliadoService {
   }
 
   clear() {
-    (this.afiliado.nss = this.afiliado.nss), (this.afiliado.actanacimiento = null);
+    this.afiliado.id = null;
+    this.afiliado.nss = null;
+    this.afiliado.actanacimiento = '';
     this.afiliado.apellidomaterno = '';
     this.afiliado.apellidopaterno = '';
     this.afiliado.beneficiario1Id = '';

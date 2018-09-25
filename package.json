@@ -24,7 +24,7 @@
     "build:golden": "ts-api-guardian --out dist/golden/clr-angular.d.ts --stripExportPattern 'FocusTrapTracker' dist/clr-angular/index.d.ts",
     "build": "npm-run-all clean build:ui build:icons build:angular build:schematics build:golden",
     "ng": "ng",
-    "start": "ng serve dev --port 3100 --host 0.0.0.0 --disableHostCheck true --open",
+    "start": "ng serve dev --port 3200 --host 0.0.0.0 --disableHostCheck true --open",
     "clean": "del ./dist",
     "golden:fix": "npm run build:angular && ts-api-guardian --out golden/clr-angular.d.ts --stripExportPattern 'FocusTrapTracker' dist/clr-angular/index.d.ts",
     "test:aot": "ng build --prod ks-app",
@@ -65,6 +65,7 @@
     "core-js": "^2.5.5",
     "prismjs": "^1.6.0",
     "rxjs": "6.2.2",
+    "sweetalert2": "^7.28.2",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },

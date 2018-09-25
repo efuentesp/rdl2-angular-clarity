@@ -52,15 +52,21 @@
             </label>
         </div>
     </div>
-    <!-- <div class="clr-form-control">
-            <label for="genero" class="clr-control-label">Genero<span class="required">*</span></label>
-        <div class="clr-radio-wrapper">
-            <input type="radio" name="radio2" id="compact-radio4" placeholder="Enter value here" class="clr-radio">
-            <label for="compact-radio4" class="clr-control-label">Masculino</label>
-            <input type="radio" name="radio2" id="compact-radio5" placeholder="Enter value here" class="clr-radio">
-            <label for="compact-radio5" class="clr-control-label">Femenino</label>
-        </div>
-    </div> -->
+   
+
+    <div class="clr-form-control">
+      <label for="genero1Id" class="clr-control-label">Genero<span class="required">*</span></label>
+      <clr-radio-wrapper><input type="radio" formControlName="genero1Id" value="femenino" required> Femenino</clr-radio-wrapper>
+      <clr-radio-wrapper><input type="radio" formControlName="genero1Id" value="masculino" required> Masculino</clr-radio-wrapper>
+      <!-- <input type="radio" formcontrolname="genero" value="femenino" required>Femenino
+      <input type="radio" formcontrolname="genero" value="masculino" required>Masculino -->
+        <!-- <clr-radio-wrapper>
+          <input clrRadio type="radio" formcontrolname="genero" value="femenino" name="femenino" class="clr-radio" required/><label for="femenino" class="clr-control-label">Femenino</label><br/>
+          <input clrRadio type="radio" formcontrolname="genero" value="masculino" name="masculino" class="clr-radio" required/><label for="masculino" class="clr-control-label">Masculino</label>
+        </clr-radio-wrapper> -->
+
+    </div>
+      
     <div class="clr-form-control">
         <label for="observaciones" class="clr-control-label">Observaciones<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
@@ -97,7 +103,7 @@
             <!-- </label> -->
         </div>
     </div>
-    <!-- <div class="clr-form-control">
+    <div class="clr-form-control">
         <label for="vertical-file3" class="clr-control-label" >
         Foto<span class="required">*</span>
         </label>
@@ -118,7 +124,7 @@
                 <control-messages class="control-messages" [control]="afiliadoForm.controls.actanacimiento"></control-messages>
             </div>
         </div>
-    </div> -->
+    </div>
     <div class="clr-form-control">
         <label for="correo" class="clr-control-label">Correo<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
@@ -136,7 +142,7 @@
         <div class="clr-control-container clr-col-md-12"> 
             <label for="semanascotizadas" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
                     [class.invalid]="afiliadoForm.get('semanascotizadas').invalid && (afiliadoForm.get('semanascotizadas').dirty || afiliadoForm.get('semanascotizadas').touched)">
-                <input id="correo" type="text" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <input id="semanascotizadas" type="text" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
                 <span class="tooltip-content">
                     Semanas Cotizadas es requerido.
                 </span>
@@ -155,8 +161,8 @@
             </label>
         </div>
     </div>
-    <!-- <p>Form value {{ afiliadoForm.value | json }} </p>
-    <p> Form status {{ afiliadoForm.status | json}} </p> -->
+    <p>Form value {{ afiliadoForm.value | json }} </p>
+    <p> Form status {{ afiliadoForm.status | json}} </p>
     <p>
         <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Agregar</button>
         <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
