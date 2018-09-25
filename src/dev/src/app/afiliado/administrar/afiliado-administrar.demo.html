@@ -94,8 +94,8 @@
                 <clr-dg-cell>{{afiliado.semanascotizadas}}</clr-dg-cell>
                 <clr-dg-cell>{{afiliado.numero}}</clr-dg-cell>
                 <clr-dg-cell hidden="true">
-                    <button class="action-item" [routerLink]="['../../editar/editar/', afiliado]">Editar</button> 
-                    <button class="action-item" [routerLink]="['../../eliminar/eliminar/', afiliado]">Eliminar</button>
+                    <button class="action-item" [routerLink]="setClickedRowEditaAfiliado(i, afiliado)">Editar</button> 
+                    <button class="action-item" [routerLink]="setClickedRowEliminaAfiliado(i, afiliado)">Eliminar</button>
                     <button class="action-item" [routerLink]="['../../../Beneficiario/administrar/administrar/', afiliado]">Beneficiario</button> 
                 </clr-dg-cell>
                 <clr-dg-cell>                    
