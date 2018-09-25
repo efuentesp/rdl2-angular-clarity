@@ -65,24 +65,6 @@
       "observaciones": "sdfsdf",
       "semanascotizadas": "1000",
       "id": 14
-    },
-    {
-      "id": 16,
-      "nss": "123456789",
-      "actanacimiento": "C:\\fakepath\\PruebasGenerales.txt",
-      "apellidomaterno": "Guevara",
-      "apellidopaterno": "Garrido",
-      "beneficiario1Id": "",
-      "beneficiario1Item": "",
-      "correo": "miriam.garridog@softtek.com",
-      "fechaafiliacion": "09/24/2018",
-      "foto": "C:\\fakepath\\PruebasGenerales.txt",
-      "genero1Id": "masculino",
-      "genero1Item": "",
-      "nombre": "Miriam",
-      "numero": "456",
-      "observaciones": "Observaciones",
-      "semanascotizadas": "123"
     }
   ]
 }
