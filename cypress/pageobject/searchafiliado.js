@@ -1,23 +1,37 @@
-import Common from '../../pageobject/common.js'
-import EditAfiliado from '../../pageobject/editcliente.js'
-import DeleteAfiliado from '../../pageobject/deletecliente.js'
-import AddAfiliado from '../../pageobject/addcliente.js'
+import EditAfiliado from '../pageobject/editafiliado.js'
+import DeleteAfiliado from '../pageobject/deleteafiliado.js'
+import AddAfiliado from '../pageobject/addafiliado.js'
+import Common from '../pageobject/common.js'
 
-class SearchAfiliado extends CommonPage {
+export default class SearchAfiliado extends Common {
 	
-	this.add = function(values){
-		//Code Here
+	add(values) {
+		const a = new AddAfiliado()
+		a.add(values)
+		a.validateMessage()
 	}
 	
-	this.edit = function(values){
-		//Code Here
+	edit(values) {
+		const e = new EditAfiliado()
+		e.edit(values)
+		e.validateMessage()
 	}
 	
-	this.delete = function(values){
-		//Code Here
+	remove(values) {
+		const r = new EditAfiliado()
+		r.edit(values)
+		r.validateMessage()
 	}
 	
-	this.goToDropdownMenu = function(id){
-		//Code Here
+	goToRelationship(relationshipName){
+		var regex = new RegExp('\\b' + relationshipName + '\\b')
+		
+		cy.get('div.datagrid-body').within(() => {
+			cy.get('.datagrid-row').last().within(() => {
+				cy.get('button')
+				  .contains(regex)
+				  .click({ force: true })
+			})
+		})
 	}
 }
