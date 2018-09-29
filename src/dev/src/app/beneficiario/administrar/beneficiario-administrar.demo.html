@@ -1,99 +1,89 @@
 <div class="card-header">
-    
     Administrar Beneficiarios
-
 </div>
 
 <div class="card-block">
-
-    
-
     <button type="button" class="btn btn-icon btn-outline" [routerLink]="['../../agregar']">
-
         <clr-icon shape="plus"></clr-icon> Agregar
-
     </button>
 
-
-
-    <clr-datagrid (clrDgRefresh)="refresh($event)" [clrDgLoading]="loading">
-
-        <-- ... -->
-
-            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
-
-
-
-            <clr-dg-column [clrDgField]="'nss'">NSS</clr-dg-column>
-
-            <clr-dg-column [clrDgField]="'name'">Nombre</clr-dg-column>
-
-            <clr-dg-column>
-
-                <ng-container *clrDgHideableColumn="{hidden: false}">
-
-                    Fecha de Afiliación
-
-                </ng-container>
-
-            </clr-dg-column>
-
-
-
-            <clr-dg-row *clrDgItems="let user of users" [clrDgItem]="user">
-
-                <clr-dg-cell>{{user.id}}</clr-dg-cell>
-
-                <clr-dg-cell>{{user.name}}</clr-dg-cell>
-
-                <clr-dg-cell>{{user.creation | date}}</clr-dg-cell>
-
-
-
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+        <clr-dg-column [clrDgField]="'id'" hidden="true">
+                Id  
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'curp'">
+            <ng-container *clrDgHideableColumn="{hidden: false}"> 
+                Curp
+            </ng-container>    
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'nombre'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Nombre
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'apellidopaterno'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Apellido Paterno
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'apellidomaterno'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Apellido Materno
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'fechanacimiento'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Fecha Nacimiento
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'afiliado1Id'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Afiliado
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'afiliado1Item'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Afiliado
+            </ng-container>
+        </clr-dg-column>
+        <clr-dg-column></clr-dg-column>
+        <clr-dg-row *clrDgItems="let beneficiario of beneficiariosArray" [clrDgItem]="beneficiario">
+                <clr-dg-cell hidden="true">{{beneficiario.id}}</clr-dg-cell>
+                <clr-dg-cell>{{beneficiario.curp}}</clr-dg-cell>
+                <clr-dg-cell>{{beneficiario.nombre}}</clr-dg-cell>
+                <clr-dg-cell>{{beneficiario.apellidopaterno}}</clr-dg-cell>
+                <clr-dg-cell>{{beneficiario.apellidomaterno}}</clr-dg-cell>
+                <clr-dg-cell>{{beneficiario.fechanacimiento}}</clr-dg-cell>
+                <clr-dg-cell>{{beneficiario.afiliado1Id}}</clr-dg-cell>
+                <clr-dg-cell>{{beneficiario.afiliado1Item}}</clr-dg-cell>
+                <clr-dg-cell hidden="true">
+                    <button class="action-item" (click)="setClickedRowEditaBeneficiario(i, beneficiario)">Editar</button> 
+                    <button class="action-item" (click)="setClickedRowEliminaBeneficiario(i, beneficiario)">Eliminar</button>
+                    <button class="action-item" [routerLink]="['../../../Beneficiario/administrar/administrar/', beneficiario]">Beneficiario</button> 
+                </clr-dg-cell>
+                <clr-dg-cell>                    
                 <clr-dg-action-overflow>
-
-                    <button class="action-item" (click)="onEdit(user)">
-
-                        <clr-icon shape="note"></clr-icon> Editar
-
+                    <button class="action-item" (click)="setClickedRowEditaBeneficiario(i, beneficiario)">
+                        <clr-icon shape="note" ></clr-icon> Editar
                     </button>
-
-                    <button class="action-item" (click)="onDelete(user)">
-
+                    <button class="action-item" (click)="setClickedRowEliminaBeneficiario(i, beneficiario)">
                         <clr-icon shape="trash"></clr-icon> Borrar
-
                     </button>
-
+                    <div class="line-list"></div>
                 </clr-dg-action-overflow>
-
-                <-- ... -->
-
+                </clr-dg-cell>
             </clr-dg-row>
-
-
-
             <clr-dg-footer>
-
                 <clr-dg-column-toggle>
-
                     <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
-
                     <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
-
                 </clr-dg-column-toggle>
-
                 <clr-dg-pagination #pagination [clrDgPageSize]="10">
-
                     {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-
                     de {{pagination.totalItems}} registros
-
                 </clr-dg-pagination>
-
             </clr-dg-footer>
 
-            <-- ... -->
-
     </clr-datagrid>
-
 </div>

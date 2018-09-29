@@ -1,0 +1,165 @@
+<div class="card-header">
+        Editar Beneficiarios
+    </div> 
+    
+    <form class="form" [formGroup]="beneficiarioForm" (ngSubmit)="eliminaBeneficiario()">
+        <div style="margin: 20px;">
+        <div class="clr-form-control">
+            <label for="nss" class="clr-control-label">Nss<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="nss" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('nss').invalid && (beneficiarioForm.get('nss').dirty || beneficiarioForm.get('nss').touched)">
+                    <input id="nss" type="text" formControlName="nss" placeholder="Nss" class="clr-input clr-col-sm-11 clr-col-md-12" disabled>
+                    <span class="tooltip-content">
+                        Nss es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('nombre').invalid && (beneficiarioForm.get('nombre').dirty || beneficiarioForm.get('nombre').touched)">
+                    <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <span class="tooltip-content">
+                        Nombre es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="apellidopaterno" class="clr-control-label">Apellido Paterno<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="apellidopaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('apellidopaterno').invalid && (beneficiarioForm.get('apellidopaterno').dirty || beneficiarioForm.get('apellidopaterno').touched)">
+                    <input id="apellidopaterno" type="text" formControlName="apellidopaterno" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <span class="tooltip-content">
+                        Apellido Paterno es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="apellidomaterno" class="clr-control-label">Apellido Materno<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="apellidomaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('apellidomaterno').invalid && (beneficiarioForm.get('apellidomaterno').dirty || beneficiarioForm.get('apellidomaterno').touched)">
+                    <input id="apellidomaterno" type="text" formControlName="apellidomaterno" placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <span class="tooltip-content">
+                        Apellido Materno es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <!-- <div class="clr-form-control">
+                <label for="genero" class="clr-control-label">Genero<span class="required">*</span></label>
+            <div class="clr-radio-wrapper">
+                <input type="radio" name="radio2" id="compact-radio4" placeholder="Enter value here" class="clr-radio">
+                <label for="compact-radio4" class="clr-control-label">Masculino</label>
+                <input type="radio" name="radio2" id="compact-radio5" placeholder="Enter value here" class="clr-radio">
+                <label for="compact-radio5" class="clr-control-label">Femenino</label>
+            </div>
+        </div> -->
+        <div class="clr-form-control">
+            <label for="observaciones" class="clr-control-label">Observaciones<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="observaciones" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('observaciones').invalid && (beneficiarioForm.get('observaciones').dirty || beneficiarioForm.get('observaciones').touched)">
+                    <textarea id="observaciones" formControlName="observaciones" rows="5" placeholder="Observaciones" class="clr-textarea clr-col-sm-12 clr-col-md-12" disabled></textarea>
+                    <span class="tooltip-content">
+                        Observaciones es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <!-- <div class="clr-form-control">
+            <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+                        [class.invalid]="beneficiarioForm.get('fechaafiliacion').invalid && (beneficiarioForm.get('fechaafiliacion').dirty || beneficiarioForm.get('fechaafiliacion').touched)">
+                    <input id="fechaafiliacion" type="date" style="width: 905px" class="clr-input" clrDate formControlName="fechaafiliacion"/>
+                    <span class="tooltip-content">
+                        Fecha de afiliación es requerido.
+                    </span>
+                </label>
+            </div>
+        </div> -->
+        <div class="clr-form-control">
+            <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <!-- <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('fechaafiliacion').invalid && (beneficiarioForm.get('fechaafiliacion').dirty || beneficiarioForm.get('fechaafiliacion').touched)"> -->
+                    <input id="fechaafiliacion" type="date" formControlName="fechaafiliacion" placeholder="Fecha de Afiliación" clrDate class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <!-- <span class="tooltip-content">
+                        Fecha de Afiliación es requerido.
+                    </span> -->
+                <!-- </label> -->
+            </div>
+        </div>
+        <!-- <div class="clr-form-control">
+            <label for="vertical-file3" class="clr-control-label" >
+            Foto<span class="required">*</span>
+            </label>
+            <div class="clr-control-container">
+                <div class="clr-file-wrapper">
+                    <input type="file" id="foto" formControlName="foto" placeholder="Foto">
+                    <control-messages class="control-messages" [control]="beneficiarioForm.controls.foto"></control-messages>
+                </div>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="vertical-basic" class="clr-control-label" >
+            Acta de Nacimiento<span class="required">*</span>
+            </label>
+            <div class="clr-control-container">
+                <div class="clr-file-wrapper">
+                    <input type="file" id="actanacimiento" formControlName="actanacimiento" placeholder="Foto">
+                    <control-messages class="control-messages" [control]="beneficiarioForm.controls.actanacimiento"></control-messages>
+                </div>
+            </div>
+        </div> -->
+        <div class="clr-form-control">
+            <label for="correo" class="clr-control-label">Correo<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="correo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('correo').invalid && (beneficiarioForm.get('correo').dirty || beneficiarioForm.get('correo').touched)">
+                    <input id="correo" type="text" formControlName="correo" placeholder="Correo" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <span class="tooltip-content">
+                        Correo es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="semanascotizadas" class="clr-control-label">Semanas Cotizadas<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="semanascotizadas" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('semanascotizadas').invalid && (beneficiarioForm.get('semanascotizadas').dirty || beneficiarioForm.get('semanascotizadas').touched)">
+                    <input id="correo" type="text" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <span class="tooltip-content">
+                        Semanas Cotizadas es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="clr-form-control">
+            <label for="numero" class="clr-control-label">Número<span class="required">*</span></label>
+            <div class="clr-control-container clr-col-md-12"> 
+                <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                        [class.invalid]="beneficiarioForm.get('numero').invalid && (beneficiarioForm.get('numero').dirty || beneficiarioForm.get('numero').touched)">
+                    <input id="numero" type="text" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <span class="tooltip-content">
+                        Número es requerido.
+                    </span>
+                </label>
+            </div>
+        </div>
+        <!-- <p>Form value {{ beneficiarioForm.value | json }} </p>
+        <p> Form status {{ beneficiarioForm.status | json}} </p> -->
+        <p>
+            <button type="submit" class="btn btn-danger" ><clr-icon shape="trash"></clr-icon> Eliminar</button>
+            <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
+        </p>
+        </div>
+    </form>

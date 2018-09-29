@@ -66,5 +66,65 @@
       "semanascotizadas": "1000",
       "id": 14
     }
+  ],
+  "beneficiario": [
+    {
+      "id": 1,
+      "curp": "CAMN810117MDFRXR01",
+      "nombre": "Normaysel",
+      "apellidopaterno": "Carbajal",
+      "apellidomaterno": "Muñiz",
+      "fechanacimiento": "17/01/1981",
+      "afiliado1Id": 11
+    },
+    {
+      "id": 2,
+      "curp": "CWERTYUIOPQWERTYUI",
+      "nombre": "Adriana",
+      "apellidopaterno": "Velazquez",
+      "apellidomaterno": "Dominguez",
+      "fechanacimiento": "17/01/2000",
+      "afiliado1Id": 12
+    },
+    {
+      "id": 3,
+      "curp": "ZXCVBNMQWERTYUI234",
+      "nombre": "César",
+      "apellidopaterno": "Carbajal",
+      "apellidomaterno": "Muñiz",
+      "fechanacimiento": "17/01/2004",
+      "afiliado1Id": 13
+    }
+  ],
+  "tipopension": [
+    { "id": 1, "clave": "001", "nombre": "Pensión de Invalidez" },
+    { "id": 2, "clave": "002", "nombre": "Retiro programado" },
+    { "id": 3, "clave": "003", "nombre": "Renta Vitalicia" }
+  ],
+  "solicitudpension": [
+    {
+      "id": 1,
+      "numero": "001",
+      "afiliado1Id": "11",
+      "tipopensionId": "1",
+      "fechasolicitud": "12/12/2000",
+      "observaciones": "ninguna"
+    },
+    {
+      "id": 2,
+      "clave": "002",
+      "afiliado1Id": "11",
+      "tipopensionId": "1",
+      "fechasolicitud": "12/12/2000",
+      "observaciones": "ninguna"
+    },
+    {
+      "id": 3,
+      "clave": "003",
+      "afiliado1Id": "11",
+      "tipopensionId": "1",
+      "fechasolicitud": "12/12/2000",
+      "observaciones": "ninguna"
+    }
   ]
 }

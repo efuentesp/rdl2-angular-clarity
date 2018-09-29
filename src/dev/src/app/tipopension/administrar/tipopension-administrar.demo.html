@@ -1,0 +1,59 @@
+<div class="card-header">
+    Administrar Tipopensions
+</div>
+
+<div class="card-block">
+    <button type="button" class="btn btn-icon btn-outline" [routerLink]="['../../agregar']">
+        <clr-icon shape="plus"></clr-icon> Agregar
+    </button>
+
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+        <clr-dg-column [clrDgField]="'id'" hidden="true">
+                Id  
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'clave'">
+            <ng-container *clrDgHideableColumn="{hidden: false}"> 
+                Clave
+            </ng-container>    
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'nombre'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Nombre
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column></clr-dg-column>
+        <clr-dg-row *clrDgItems="let tipopension of tipopensionsArray" [clrDgItem]="tipopension">
+                <clr-dg-cell hidden="true">{{tipopension.id}}</clr-dg-cell>
+                <clr-dg-cell>{{tipopension.clave}}</clr-dg-cell>
+                <clr-dg-cell>{{tipopension.nombre}}</clr-dg-cell>
+                <clr-dg-cell hidden="true">
+                    <button class="action-item" (click)="setClickedRowEditaTipopension(i, tipopension)">Editar</button> 
+                    <button class="action-item" (click)="setClickedRowEliminaTipopension(i, tipopension)">Eliminar</button>
+                    <button class="action-item" [routerLink]="['../../../Beneficiario/administrar/administrar/', tipopension]">Beneficiario</button> 
+                </clr-dg-cell>
+                <clr-dg-cell>                    
+                <clr-dg-action-overflow>
+                    <button class="action-item" (click)="setClickedRowEditaTipopension(i, tipopension)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" (click)="setClickedRowEliminaTipopension(i, tipopension)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                    <div class="line-list"></div>
+                </clr-dg-action-overflow>
+                </clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+
+    </clr-datagrid>
+</div>

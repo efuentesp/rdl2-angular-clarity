@@ -4,7 +4,7 @@ import '@clr/icons/shapes/essential-shapes';
 
 @Component({
   selector: 'clr-alert-demo',
-  styleUrls: ['./beneficiario.demo.scss'],
-  templateUrl: './beneficiario.demo.html',
+  styleUrls: ['./tipopension.demo.scss'],
+  templateUrl: './tipopension.demo.html',
 })
-export class BeneficiarioDemo {}
+export class TipopensionDemo {}
