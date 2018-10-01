@@ -65,32 +65,66 @@
         <!-- </div>
     </div>  -->
     <div class="clr-form-control">
+        <label for="fechanacimiento" class="clr-control-label">Fecha de Nacimiento<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <!-- <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="afiliadoForm.get('fechaafiliacion').invalid && (afiliadoForm.get('fechaafiliacion').dirty || afiliadoForm.get('fechaafiliacion').touched)"> -->
+                <input id="fechanacimiento" type="date" formControlName="fechanacimiento" placeholder="Fecha de Nacimiento" clrDate class="clr-input clr-col-sm-12 clr-col-md-12">
+                <!-- <span class="tooltip-content">
+                    Fecha de Afiliación es requerido.
+                </span> -->
+            <!-- </label> -->
+        </div>
+    </div>
+    <div class="clr-form-control">
         <label for="afiliado1Item" class="clr-control-label">Afiliado<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
+            <div class="clr-input-wrapper">
             <label for="afiliado1Item" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
                     [class.invalid]="beneficiarioForm.get('afiliado1Item').invalid && (beneficiarioForm.get('afiliado1Item').dirty || beneficiarioForm.get('afiliado1Item').touched)">
-                <input id="afiliado1Item" type="text" formControlName="afiliado1Item" placeholder="Afiliado" class="clr-input clr-col-sm-12 clr-col-md-12">
-                <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button>
-                
+                <input id="afiliado1Id"   type="hidden" formControlName="afiliado1Id" placeholder="Afiliado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                <input id="afiliado1Item" type="text"   formControlName="afiliado1Item" placeholder="Afiliado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                <!-- <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
+                <!-- <clr-icon shape="search" ng-click="basic = true"></clr-icon>
+                <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
+                <button class="btn btn-primary" style="margin-top: -17px" (click)="basic = true"><clr-icon shape="search"></clr-icon></button>
                 <span class="tooltip-content">
                     Afiliado es requerido.
                 </span>
             </label>
+            </div>
         </div>
     </div>
-
-   
-    <!-- <p>Form value {{ beneficiarioForm.value | json }} </p>
-    <p> Form status {{ beneficiarioForm.status | json}} </p> -->
+    <p>Form value {{ beneficiarioForm.value | json }} </p>
+    <p> Form status {{ beneficiarioForm.status | json}} </p> 
     <p>
         <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Agregar</button>
         <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
     </p>
 
+<!--   
+            <clr-modal class="modal-dialog modal-xl" role="dialog" aria-hidden="true"  [(clrModalOpen)]="basic">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" type="button">
+                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                    </button>
+                    <h3 class="modal-title">Extra large modal</h3>
+                </div>
+                <div class="modal-body">
+                    I am an extra large modal.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline" type="button">Cancel</button>
+                    <button class="btn btn-primary" type="button">Ok</button>
+                </div>
+                </div>
+            </clr-modal > -->
+           
+  
 
 
-
-    <clr-modal [(clrModalOpen)]="basic" class="modal-xl">
+    <clr-modal [(clrModalOpen)]="basic" class="modal-dialog modal-xl"  style="width: 700px">
         <h3 class="modal-title">Afiliados</h3>
 
         <div class="modal-body">
@@ -171,22 +205,22 @@
                             Número
                         </ng-container>
                     </clr-dg-column>
-                    <clr-dg-row *clrDgItems="let afiliado of afiliadosArray" [clrDgItem]="afiliado">
-                            <clr-dg-cell><input type="radio"></clr-dg-cell>
-                            <clr-dg-cell hidden="true">{{afiliado.id}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.nss}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.nombre}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.apellidopaterno}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.apellidomaterno}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.genero1Id}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.genero1Item}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.observaciones}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.fechaafiliacion | date:'dd/MM/yyyy'}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.foto}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.actanacimiento}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.correo}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.semanascotizadas}}</clr-dg-cell>
-                            <clr-dg-cell>{{afiliado.numero}}</clr-dg-cell>
+                    <clr-dg-row *clrDgItems="let afiliado1 of afiliados1Array" [clrDgItem]="afiliado1">
+                            <clr-dg-cell><input type="radio" name="afiliado1Id" [checked]="afiliado1.checked" value="{{afiliado1.afiliadoId}}" (click)="setClickedRowAfiliado1(i, afiliado1)"></clr-dg-cell>
+                            <clr-dg-cell hidden="true">{{afiliado1.id}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.nss}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.nombre}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.apellidopaterno}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.apellidomaterno}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.genero1Id}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.genero1Item}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.observaciones}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.fechaafiliacion | date:'dd/MM/yyyy'}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.foto}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.actanacimiento}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.correo}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.semanascotizadas}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.numero}}</clr-dg-cell>
                             
                         </clr-dg-row>
                         <clr-dg-footer>
@@ -205,8 +239,8 @@
             </div>
             
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
-                <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+                <button type="button" class="btn btn-outline" (click)="basic = false">Regresar</button>
+                <button type="button" class="btn btn-primary" (click)="basic = false">Elegir</button>
             </div>
     </clr-modal>
 

@@ -5,6 +5,8 @@ import { Beneficiario } from '../beneficiario.demo.model';
 import { BeneficiarioService } from '../beneficiario.demo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+import { AfiliadoService } from '../../afiliado/afiliado.demo.service';
+import { Afiliado } from '../../afiliado/afiliado.demo.model';
 
 @Component({
   selector: 'clr-alert-demo-styles',
@@ -13,11 +15,13 @@ import swal from 'sweetalert2';
 })
 export class BeneficiarioAdministrarDemo {
   beneficiariosArray: Beneficiario[];
-
+  afiliado: Afiliado;
+  
   constructor(
     private beneficiarioService: BeneficiarioService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private afiliadoService: AfiliadoService
   ) {}
 
   ngOnInit() {
@@ -28,7 +32,19 @@ export class BeneficiarioAdministrarDemo {
     this.beneficiarioService.getRecuperaBeneficiarios().subscribe(
       res => {
         if (res) {
+        
           this.beneficiariosArray = res;
+
+          this.beneficiariosArray.forEach(element => {
+
+            this.afiliadoService.getRecuperaAfiliadoPorId(element.afiliado1Id).subscribe(result => {
+              if (result){
+                this.afiliado = result;
+                element.afiliado1Item = this.afiliado.nss;
+              }
+            });
+
+          });
         }
       },
       error => {

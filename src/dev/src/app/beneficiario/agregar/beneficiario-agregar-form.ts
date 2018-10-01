@@ -17,7 +17,7 @@ import { Afiliado } from '../../afiliado/afiliado.demo.model';
 export class BeneficiarioAgregarFormDemo implements OnInit {
   beneficiarioForm: FormGroup;
   submitted = false;
-  afiliadosArray: Afiliado[];
+  afiliados1Array: Afiliado[];
 
   public beneficiario: Beneficiario = new Beneficiario();
 
@@ -34,9 +34,8 @@ export class BeneficiarioAgregarFormDemo implements OnInit {
       nombre: new FormControl('', Validators.required),
       apellidopaterno: new FormControl('', Validators.required),
       apellidomaterno: new FormControl('', Validators.required),
-      observaciones: new FormControl('', Validators.required),
       fechanacimiento: new FormControl('', Validators.required),
-      afiliado1Id: new FormControl('', Validators.required),
+      afiliado1Id: new FormControl(''),
       afiliado1Item: new FormControl('', Validators.required),
     });
   }
@@ -55,6 +54,9 @@ export class BeneficiarioAgregarFormDemo implements OnInit {
       this.beneficiario.nombre = this.beneficiarioForm.controls['nombre'].value;
       this.beneficiario.apellidopaterno = this.beneficiarioForm.controls['apellidopaterno'].value;
       this.beneficiario.apellidomaterno = this.beneficiarioForm.controls['apellidomaterno'].value;
+      this.beneficiario.fechanacimiento = this.beneficiarioForm.controls['fechanacimiento'].value;
+      this.beneficiario.afiliado1Id = this.beneficiarioForm.controls['afiliado1Id'].value;
+      this.beneficiario.afiliado1Item = this.beneficiarioForm.controls['afiliado1Item'].value;
 
       this.beneficiarioService.postGuardaBeneficiario(this.beneficiario).subscribe(res => {
         if (res.status == 201 || res.status == 200) {
@@ -71,8 +73,7 @@ export class BeneficiarioAgregarFormDemo implements OnInit {
     this.afiliadoService.getRecuperaAfiliados().subscribe(
       res => {
         if (res) {
-          console.log('Afiliados: OK ', res);
-          this.afiliadosArray = res;
+          this.afiliados1Array = res;
         }
       },
       error => {
@@ -86,5 +87,23 @@ export class BeneficiarioAgregarFormDemo implements OnInit {
         swal('Error...', 'An error occurred while calling the afiliados.', 'error');
       }
     );
+  }
+
+  setClickedRowAfiliado1(index,afiliado1){
+	      
+    afiliado1.checked = !afiliado1.checked;
+    if (afiliado1.checked){
+      this.afiliadoService.setAfiliado(afiliado1);
+      // this.beneficiario.afiliado1Id = afiliado1.afiliado1Id;
+      // this.beneficiario.afiliado1Item = afiliado1.nss;
+      this.beneficiarioForm.controls['afiliado1Id'].setValue(afiliado1.afiliado1Id);
+      this.beneficiarioForm.controls['afiliado1Item'].setValue(afiliado1.nss);
+    }else{
+      this.afiliadoService.clear();
+      // this.beneficiario.afiliado1Id = null;
+      // this.beneficiario.afiliado1Item = '';
+      this.beneficiarioForm.controls['afiliado1Id'].setValue(null);
+      this.beneficiarioForm.controls['afiliado1Item'].setValue('');
+    }
   }
 }

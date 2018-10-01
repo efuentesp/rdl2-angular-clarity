@@ -10,9 +10,9 @@ import { BeneficiarioAdministrarDemo } from './administrar/beneficiario-administ
 import { BeneficiarioAgregarDemo } from './agregar/beneficiario-agregar';
 import { BeneficiarioAgregarFormDemo } from './agregar/beneficiario-agregar-form';
 import { BeneficiarioEditarFormDemo } from './editar/beneficiario-editar-form';
-import { BeneficiarioEliminarFormDemo } from './eliminar/beneficiario-eliminar-form';
+// import { BeneficiarioEliminarFormDemo } from './eliminar/beneficiario-eliminar-form';
 import { BeneficiarioEditarDemo } from './editar/beneficiario-editar';
-import { BeneficiarioEliminarDemo } from './eliminar/beneficiario-eliminar';
+// import { BeneficiarioEliminarDemo } from './eliminar/beneficiario-eliminar';
 import { ValidationService } from '../_validation/validation.service';
 import { BeneficiarioService } from './beneficiario.demo.service';
 import { HttpModule } from '@angular/http';
@@ -26,9 +26,9 @@ import { AfiliadoService } from '../afiliado/afiliado.demo.service';
     BeneficiarioAgregarDemo,
     BeneficiarioAgregarFormDemo,
     BeneficiarioEditarFormDemo,
-    BeneficiarioEliminarFormDemo,
+    // BeneficiarioEliminarFormDemo,
     BeneficiarioEditarDemo,
-    BeneficiarioEliminarDemo,
+    // BeneficiarioEliminarDemo,
   ],
   exports: [
     BeneficiarioDemo,
@@ -36,9 +36,9 @@ import { AfiliadoService } from '../afiliado/afiliado.demo.service';
     BeneficiarioAgregarDemo,
     BeneficiarioAgregarFormDemo,
     BeneficiarioEditarFormDemo,
-    BeneficiarioEliminarFormDemo,
+    // BeneficiarioEliminarFormDemo,
     BeneficiarioEditarDemo,
-    BeneficiarioEliminarDemo,
+    // BeneficiarioEliminarDemo,
   ],
   providers: [Inventory, ValidationService, BeneficiarioService, AfiliadoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

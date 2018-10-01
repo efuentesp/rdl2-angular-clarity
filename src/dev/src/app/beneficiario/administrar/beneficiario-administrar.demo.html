@@ -9,9 +9,7 @@
 
     <clr-datagrid [clrDgLoading]="loading">
         <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
-        <clr-dg-column [clrDgField]="'id'" hidden="true">
-                Id  
-        </clr-dg-column>
+        
         <clr-dg-column [clrDgField]="'curp'">
             <ng-container *clrDgHideableColumn="{hidden: false}"> 
                 Curp
@@ -37,11 +35,11 @@
                 Fecha Nacimiento
             </ng-container> 
         </clr-dg-column>
-        <clr-dg-column [clrDgField]="'afiliado1Id'">
+        <!-- <clr-dg-column [clrDgField]="'afiliado1Id'">
             <ng-container *clrDgHideableColumn="{hidden: false}">
                 Afiliado
             </ng-container>
-        </clr-dg-column>
+        </clr-dg-column> -->
         <clr-dg-column [clrDgField]="'afiliado1Item'">
             <ng-container *clrDgHideableColumn="{hidden: false}">
                 Afiliado
@@ -49,13 +47,13 @@
         </clr-dg-column>
         <clr-dg-column></clr-dg-column>
         <clr-dg-row *clrDgItems="let beneficiario of beneficiariosArray" [clrDgItem]="beneficiario">
-                <clr-dg-cell hidden="true">{{beneficiario.id}}</clr-dg-cell>
+                <!-- <clr-dg-cell hidden="true">{{beneficiario.id}}</clr-dg-cell> -->
                 <clr-dg-cell>{{beneficiario.curp}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.nombre}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.apellidopaterno}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.apellidomaterno}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.fechanacimiento}}</clr-dg-cell>
-                <clr-dg-cell>{{beneficiario.afiliado1Id}}</clr-dg-cell>
+                <!-- <clr-dg-cell>{{beneficiario.afiliado1Id}}</clr-dg-cell> -->
                 <clr-dg-cell>{{beneficiario.afiliado1Item}}</clr-dg-cell>
                 <clr-dg-cell hidden="true">
                     <button class="action-item" (click)="setClickedRowEditaBeneficiario(i, beneficiario)">Editar</button> 

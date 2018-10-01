@@ -20,6 +20,10 @@ export class BeneficiarioService {
     return this.http.get(this.env.api + '/beneficiario').pipe(map(res => res.json()));
   }
 
+  getRecuperaBeneficiarioPorId(id){
+    return this.http.get(this.env.api + '/beneficiario/' + id).pipe(map(res => res.json()));
+  }
+
   deleteBeneficiario(beneficiario) {
     return this.http.delete(this.env.api + '/beneficiario/' + beneficiario.id).pipe(map(res => res));
   }
