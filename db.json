@@ -75,7 +75,8 @@
       "apellidopaterno": "Carbajal",
       "nombre": "Normaysel",
       "fechanacimiento": "09/17/2018",
-      "afiliado1Id": 11
+      "afiliado1Id": 12,
+      "afiliado1Item": "23454WERTY"
     },
     {
       "id": 2,
@@ -84,25 +85,28 @@
       "apellidopaterno": "Velazquez",
       "apellidomaterno": "Dominguez",
       "fechanacimiento": "17/01/2000",
-      "afiliado1Id": 12
+      "afiliado1Id": 12,
+      "afiliado1Item": "23454WERTY"
     },
     {
       "id": 3,
       "curp": "ZXCVBNMQWERTYUI234",
-      "nombre": "César",
-      "apellidopaterno": "Carbajal",
       "apellidomaterno": "Muñiz",
-      "fechanacimiento": "17/01/2004",
-      "afiliado1Id": 13
+      "apellidopaterno": "Carbajal",
+      "nombre": "César",
+      "fechanacimiento": "10/13/2018",
+      "afiliado1Id": 13,
+      "afiliado1Item": "23454WERTY"
     },
     {
       "id": 4,
-      "curp": "werwer",
-      "nombre": "werwer",
-      "apellidopaterno": "werwer",
-      "apellidomaterno": "werwer",
-      "fechanacimiento": "09/04/2018",
-      "afiliado1Id": 14
+      "curp": "JAPB12345678",
+      "apellidomaterno": "Barilla",
+      "apellidopaterno": "Pérez",
+      "nombre": "Javier",
+      "fechanacimiento": "06/06/1985",
+      "afiliado1Id": 13,
+      "afiliado1Item": "23454WERTY"
     },
     {
       "id": 5,
@@ -136,24 +140,30 @@
     {
       "id": 1,
       "numero": "001",
-      "afiliado1Id": "11",
-      "tipopensionId": "1",
+      "afiliado1Id": 11,
+      "afiliado1Item": "2123",
+      "tipopension1Id": 1,
+      "tipopension1Item": "001",
       "fechasolicitud": "12/12/2000",
       "observaciones": "ninguna"
     },
     {
       "id": 2,
-      "clave": "002",
-      "afiliado1Id": "11",
-      "tipopensionId": "1",
+      "numero": "002",
+      "afiliado1Id": 11,
+      "afiliado1Item": "2123",
+      "tipopension1Id": 1,
+      "tipopension1Item": "001",
       "fechasolicitud": "12/12/2000",
       "observaciones": "ninguna"
     },
     {
       "id": 3,
-      "clave": "003",
-      "afiliado1Id": "11",
-      "tipopensionId": "1",
+      "numero": "003",
+      "afiliado1Id": 11,
+      "afiliado1Item": "2123",
+      "tipopension1Id": 1,
+      "tipopension1Item": "001",
       "fechasolicitud": "12/12/2000",
       "observaciones": "ninguna"
     }

@@ -5,6 +5,8 @@ import { ValidationService } from '../../_validation/validation.service';
 import { BeneficiarioService } from '../beneficiario.demo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+import { AfiliadoService } from '../../afiliado/afiliado.demo.service';
+import { Afiliado } from '../../afiliado/afiliado.demo.model';
 
 @Component({
   selector: 'clr-alert-not-closable-demo-angular',
@@ -15,44 +17,42 @@ export class BeneficiarioEliminarFormDemo {
   beneficiarioForm: FormGroup;
   submitted = false;
   public beneficiario: Beneficiario = new Beneficiario();
+  afiliados1Array: Afiliado[];
 
   constructor(
     private fb: FormBuilder,
     private validationService: ValidationService,
     private beneficiarioService: BeneficiarioService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private afiliadoService: AfiliadoService
   ) {
     this.beneficiarioForm = this.fb.group({
-      nss: new FormControl(''),
-      nombre: new FormControl(''),
-      apellidopaterno: new FormControl(''),
-      apellidomaterno: new FormControl(''),
-      observaciones: new FormControl(''),
-      fechaafiliacion: new FormControl(''),
-      correo: new FormControl(''),
-      semanascotizadas: new FormControl(''),
-      numero: new FormControl(''),
+      curp: new FormControl('', Validators.required),
+      nombre: new FormControl('', Validators.required),
+      apellidopaterno: new FormControl('', Validators.required),
+      apellidomaterno: new FormControl('', Validators.required),
+      fechanacimiento: new FormControl('', Validators.required),
+      afiliado1Id: new FormControl(''),
+      afiliado1Item: new FormControl('', Validators.required),
     });
   }
 
   ngOnInit() {
+    this.cargaAfiliados();
     this.recuperaBeneficiario();
   }
 
   recuperaBeneficiario() {
     this.beneficiario = this.beneficiarioService.getBeneficiario();
-    this.beneficiarioForm.controls['nss'].setValue(this.beneficiario.nss);
+
+    this.beneficiarioForm.controls['curp'].setValue(this.beneficiario.curp);
     this.beneficiarioForm.controls['apellidomaterno'].setValue(this.beneficiario.apellidomaterno);
     this.beneficiarioForm.controls['apellidopaterno'].setValue(this.beneficiario.apellidopaterno);
     this.beneficiarioForm.controls['nombre'].setValue(this.beneficiario.nombre);
-    this.beneficiarioForm.controls['numero'].setValue(this.beneficiario.numero);
-    this.beneficiarioForm.controls['observaciones'].setValue(this.beneficiario.observaciones);
-    this.beneficiarioForm.controls['fechaafiliacion'].setValue(this.beneficiario.fechaafiliacion);
-    // this.beneficiarioForm.controls['foto'].setValue(this.beneficiario.foto);
-    // this.beneficiarioForm.controls['actanacimiento'].setValue(this.beneficiario.actanacimiento);
-    this.beneficiarioForm.controls['correo'].setValue(this.beneficiario.correo);
-    this.beneficiarioForm.controls['semanascotizadas'].setValue(this.beneficiario.semanascotizadas);
+    this.beneficiarioForm.controls['fechanacimiento'].setValue(this.beneficiario.fechanacimiento);
+    this.beneficiarioForm.controls['afiliado1Id'].setValue(this.beneficiario.afiliado1Id);
+    this.beneficiarioForm.controls['afiliado1Item'].setValue(this.beneficiario.afiliado1Item);
   }
 
   eliminaBeneficiario() {
@@ -91,5 +91,38 @@ export class BeneficiarioEliminarFormDemo {
         //swal("Cancelled", "Ordensimplificada deleted unsuccessfully", "error");
       }
     });
+  }
+
+  cargaAfiliados() {
+    this.afiliadoService.getRecuperaAfiliados().subscribe(
+      res => {
+        if (res) {
+          this.afiliados1Array = res;
+        }
+      },
+      error => {
+        // swal({
+        //   title: 'Error...',
+        //   text: 'An error occurred while calling the afiliados.',
+        //   type: 'error',
+        //   confirmButtonText: 'OK',
+        // });
+
+        swal('Error...', 'An error occurred while calling the afiliados.', 'error');
+      }
+    );
+  }
+
+  setClickedRowAfiliado1(index, afiliado1) {
+    afiliado1.checked = !afiliado1.checked;
+    if (afiliado1.checked) {
+      this.afiliadoService.setAfiliado(afiliado1);
+      this.beneficiarioForm.controls['afiliado1Id'].setValue(afiliado1.afiliado1Id);
+      this.beneficiarioForm.controls['afiliado1Item'].setValue(afiliado1.nss);
+    } else {
+      this.afiliadoService.clear();
+      this.beneficiarioForm.controls['afiliado1Id'].setValue(null);
+      this.beneficiarioForm.controls['afiliado1Item'].setValue('');
+    }
   }
 }

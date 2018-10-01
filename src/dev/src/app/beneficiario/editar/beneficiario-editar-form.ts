@@ -34,7 +34,7 @@ export class BeneficiarioEditarFormDemo implements OnInit {
       apellidomaterno: new FormControl('', Validators.required),
       fechanacimiento: new FormControl('', Validators.required),
       afiliado1Id: new FormControl(''),
-      afiliado1Item: new FormControl('', Validators.required)
+      afiliado1Item: new FormControl('', Validators.required),
     });
   }
 
@@ -50,7 +50,6 @@ export class BeneficiarioEditarFormDemo implements OnInit {
     this.beneficiarioForm.controls['apellidomaterno'].setValue(this.beneficiario.apellidomaterno);
     this.beneficiarioForm.controls['apellidopaterno'].setValue(this.beneficiario.apellidopaterno);
     this.beneficiarioForm.controls['nombre'].setValue(this.beneficiario.nombre);
-    console.log('Inicio:', this.beneficiario.fechanacimiento);
     this.beneficiarioForm.controls['fechanacimiento'].setValue(this.beneficiario.fechanacimiento);
     this.beneficiarioForm.controls['afiliado1Id'].setValue(this.beneficiario.afiliado1Id);
     this.beneficiarioForm.controls['afiliado1Item'].setValue(this.beneficiario.afiliado1Item);
@@ -69,7 +68,7 @@ export class BeneficiarioEditarFormDemo implements OnInit {
       this.beneficiario.fechanacimiento = this.beneficiarioForm.controls['fechanacimiento'].value;
       this.beneficiario.afiliado1Id = this.beneficiarioForm.controls['afiliado1Id'].value;
       this.beneficiario.afiliado1Item = this.beneficiarioForm.controls['afiliado1Item'].value;
-      
+
       this.beneficiarioService.updateEditaBeneficiario(this.beneficiario).subscribe(res => {
         if (res.status == 201 || res.status == 200) {
           swal('Success...', 'Beneficiario save successfully.', 'success');
@@ -99,5 +98,18 @@ export class BeneficiarioEditarFormDemo implements OnInit {
         swal('Error...', 'An error occurred while calling the afiliados.', 'error');
       }
     );
+  }
+
+  setClickedRowAfiliado1(index, afiliado1) {
+    afiliado1.checked = !afiliado1.checked;
+    if (afiliado1.checked) {
+      this.afiliadoService.setAfiliado(afiliado1);
+      this.beneficiarioForm.controls['afiliado1Id'].setValue(afiliado1.afiliado1Id);
+      this.beneficiarioForm.controls['afiliado1Item'].setValue(afiliado1.nss);
+    } else {
+      this.afiliadoService.clear();
+      this.beneficiarioForm.controls['afiliado1Id'].setValue(null);
+      this.beneficiarioForm.controls['afiliado1Item'].setValue('');
+    }
   }
 }

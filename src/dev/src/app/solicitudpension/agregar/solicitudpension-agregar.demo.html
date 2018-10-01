@@ -1,72 +1,71 @@
 <div class="card-header">
-    Agregar Solicitudpensions
+    Agregar Solicitud Pension
 </div> 
 
 <form class="form" [formGroup]="solicitudpensionForm" (ngSubmit)="guardaSolicitudpension() && !solicitudpensionForm.invalid">
     <div style="margin: 20px;">
     <div class="clr-form-control">
-        <label for="nss" class="clr-control-label">Nss<span class="required">*</span></label>
+        <label for="numero" class="clr-control-label">Numero<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
-            <label for="nss" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('nss').invalid && (solicitudpensionForm.get('nss').dirty || solicitudpensionForm.get('nss').touched)">
-                <input id="nss" type="text" formControlName="nss" placeholder="Nss" class="clr-input clr-col-sm-11 clr-col-md-12" >
+            <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="solicitudpensionForm.get('numero').invalid && (solicitudpensionForm.get('numero').dirty || solicitudpensionForm.get('numero').touched)">
+                <input id="numero" type="number" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-11 clr-col-md-12" >
                 <span class="tooltip-content">
-                    Nss es requerido.
+                    Número es requerido.
                 </span>
             </label>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
+        <label for="afiliado1Item" class="clr-control-label">Afiliado<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
-            <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('nombre').invalid && (solicitudpensionForm.get('nombre').dirty || solicitudpensionForm.get('nombre').touched)">
-                <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
+            <div class="clr-input-wrapper">
+            <label for="afiliado1Item" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="solicitudpensionForm.get('afiliado1Item').invalid && (solicitudpensionForm.get('afiliado1Item').dirty || solicitudpensionForm.get('afiliado1Item').touched)">
+                <input id="afiliado1Id"   type="hidden" formControlName="afiliado1Id" placeholder="Afiliado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                <input id="afiliado1Item" type="text"   formControlName="afiliado1Item" placeholder="Afiliado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                <!-- <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
+                <!-- <clr-icon shape="search" ng-click="basic = true"></clr-icon>
+                <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
+                <button class="btn btn-primary" type="button" style="margin-top: -17px" (click)="basicAfiliado1 = true"><clr-icon shape="search"></clr-icon></button>
                 <span class="tooltip-content">
-                    Nombre es requerido.
+                    Afiliado es requerido.
                 </span>
             </label>
+            </div>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="apellidopaterno" class="clr-control-label">Apellido Paterno<span class="required">*</span></label>
+        <label for="tipopension1Item" class="clr-control-label">Tipo Pensión<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
-            <label for="apellidopaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('apellidopaterno').invalid && (solicitudpensionForm.get('apellidopaterno').dirty || solicitudpensionForm.get('apellidopaterno').touched)">
-                <input id="apellidopaterno" type="text" formControlName="apellidopaterno" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12">
+            <div class="clr-input-wrapper">
+            <label for="tipopension1Item" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="solicitudpensionForm.get('tipopension1Item').invalid && (solicitudpensionForm.get('tipopension1Item').dirty || solicitudpensionForm.get('tipopension1Item').touched)">
+                <input id="tipopension1Id"   type="hidden" formControlName="tipopension1Id" placeholder="Tipo Pensión" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                <input id="tipopension1Item" type="text"   formControlName="tipopension1Item" placeholder="Tipo Pensión" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                <!-- <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
+                <!-- <clr-icon shape="search" ng-click="basic = true"></clr-icon>
+                <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
+                <button class="btn btn-primary" type="button" style="margin-top: -17px" (click)="basicTipopension1 = true"><clr-icon shape="search"></clr-icon></button>
                 <span class="tooltip-content">
-                    Apellido Paterno es requerido.
+                    Tipo de Pension es requerido.
                 </span>
             </label>
+            </div>
         </div>
     </div>
     <div class="clr-form-control">
-        <label for="apellidomaterno" class="clr-control-label">Apellido Materno<span class="required">*</span></label>
+        <label for="fechasolicitud" class="clr-control-label">Fecha de Solicitud<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
-            <label for="apellidomaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('apellidomaterno').invalid && (solicitudpensionForm.get('apellidomaterno').dirty || solicitudpensionForm.get('apellidomaterno').touched)">
-                <input id="apellidomaterno" type="text" formControlName="apellidomaterno" placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12">
-                <span class="tooltip-content">
-                    Apellido Materno es requerido.
-                </span>
-            </label>
+            <!-- <label for="fechasolicitud" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="solicitudpensionForm.get('fechasolicitud').invalid && (solicitudpensionForm.get('fechasolicitud').dirty || solicitudpensionForm.get('fechasolicitud').touched)"> -->
+                <input id="fechasolicitud" type="date" formControlName="fechasolicitud" placeholder="Fecha de Solicitud" clrDate class="clr-input clr-col-sm-12 clr-col-md-12">
+                <!-- <span class="tooltip-content">
+                    Fecha de Solicitud es requerido.
+                </span> -->
+            <!-- </label> -->
         </div>
     </div>
-   
-
-    <div class="clr-form-control" id="genero1Id">
-      <label for="genero1Id" class="clr-control-label">Genero<span class="required">*</span></label>
-      <clr-radio-wrapper><input type="radio" formControlName="genero1Id" value="femenino" required> Femenino</clr-radio-wrapper>
-      <clr-radio-wrapper><input type="radio" formControlName="genero1Id" value="masculino" required> Masculino</clr-radio-wrapper>
-      <!-- <input type="radio" formcontrolname="genero" value="femenino" required>Femenino
-      <input type="radio" formcontrolname="genero" value="masculino" required>Masculino -->
-        <!-- <clr-radio-wrapper>
-          <input clrRadio type="radio" formcontrolname="genero" value="femenino" name="femenino" class="clr-radio" required/><label for="femenino" class="clr-control-label">Femenino</label><br/>
-          <input clrRadio type="radio" formcontrolname="genero" value="masculino" name="masculino" class="clr-radio" required/><label for="masculino" class="clr-control-label">Masculino</label>
-        </clr-radio-wrapper> -->
-
-    </div>
-      
     <div class="clr-form-control">
         <label for="observaciones" class="clr-control-label">Observaciones<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
@@ -79,90 +78,181 @@
             </label>
         </div>
     </div>
-    <!-- <div class="clr-form-control">
-        <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
-        <div class="clr-control-container clr-col-md-12"> 
-            <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
-                    [class.invalid]="solicitudpensionForm.get('fechaafiliacion').invalid && (solicitudpensionForm.get('fechaafiliacion').dirty || solicitudpensionForm.get('fechaafiliacion').touched)">
-                <input id="fechaafiliacion" type="date" style="width: 905px" class="clr-input" clrDate formControlName="fechaafiliacion"/>
-                <span class="tooltip-content">
-                    Fecha de afiliación es requerido.
-                </span>
-            </label>
-        </div>
-    </div> -->
-    <div class="clr-form-control">
-        <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
-        <div class="clr-control-container clr-col-md-12"> 
-            <!-- <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('fechaafiliacion').invalid && (solicitudpensionForm.get('fechaafiliacion').dirty || solicitudpensionForm.get('fechaafiliacion').touched)"> -->
-                <input id="fechaafiliacion" type="date" formControlName="fechaafiliacion" placeholder="Fecha de Afiliación" clrDate class="clr-input clr-col-sm-12 clr-col-md-12">
-                <!-- <span class="tooltip-content">
-                    Fecha de Afiliación es requerido.
-                </span> -->
-            <!-- </label> -->
-        </div>
-    </div>
-    <div class="clr-form-control">
-        <label for="vertical-file3" class="clr-control-label" >
-        Foto<span class="required">*</span>
-        </label>
-        <div class="clr-control-container">
-            <div class="clr-file-wrapper">
-                <input type="file" id="foto" formControlName="foto" placeholder="Foto">
-                <control-messages class="control-messages" [control]="solicitudpensionForm.controls.foto"></control-messages>
+
+    <clr-modal [(clrModalOpen)]="basicAfiliado1" class="modal-dialog modal-xl"  style="width: 700px">
+        <h3 class="modal-title">Afiliados</h3>
+
+        <div class="modal-body">  
+        <div class="card-block">
+            
+                <clr-datagrid [clrDgLoading]="loading">
+                    <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                    <clr-dg-column>
+                            
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'id'" hidden="true">
+                            Id  
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'nss'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+                            Nss
+                        </ng-container>    
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'nombre'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Nombre
+                        </ng-container> 
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'apellidopaterno'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Apellido Paterno
+                        </ng-container> 
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'apellidomaterno'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Apellido Materno
+                        </ng-container> 
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'genero1Id'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Genero
+                        </ng-container> 
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'genero1Item'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Genero
+                        </ng-container> 
+                    </clr-dg-column>    
+                    <clr-dg-column [clrDgField]="'observaciones'">
+                        <ng-container *clrDgHideableColumn="{hidden: true}">
+                            Observaciones
+                        </ng-container> 
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'fechaafiliacion'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Fecha de Afiliación
+                        </ng-container>
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'foto'">
+                        <ng-container *clrDgHideableColumn="{hidden: true}">
+                            Foto
+                        </ng-container>
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'actanacimiento'">
+                        <ng-container *clrDgHideableColumn="{hidden: true}">
+                            Acta de Nacimiento
+                        </ng-container>
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'correo'">
+                        <ng-container *clrDgHideableColumn="{hidden: true}">
+                            Correo 
+                        </ng-container>
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'semanascotizadas'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Semanas Cotizadas
+                        </ng-container>
+                    </clr-dg-column>
+                    <clr-dg-column [clrDgField]="'nombre'">
+                        <ng-container *clrDgHideableColumn="{hidden: false}">
+                            Número
+                        </ng-container>
+                    </clr-dg-column>
+                    <clr-dg-row *clrDgItems="let afiliado1 of afiliado1Array" [clrDgItem]="afiliado1">
+                            <clr-dg-cell><input type="radio" name="afiliado1Id" [checked]="afiliado1.checked" value="{{afiliado1.afiliadoId}}" (click)="setClickedRowAfiliado1(i, afiliado1)"></clr-dg-cell>
+                            <clr-dg-cell hidden="true">{{afiliado1.id}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.nss}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.nombre}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.apellidopaterno}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.apellidomaterno}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.genero1Id}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.genero1Item}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.observaciones}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.fechaafiliacion | date:'dd/MM/yyyy'}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.foto}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.actanacimiento}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.correo}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.semanascotizadas}}</clr-dg-cell>
+                            <clr-dg-cell>{{afiliado1.numero}}</clr-dg-cell>
+                            
+                        </clr-dg-row>
+                        <clr-dg-footer>
+                            <clr-dg-column-toggle>
+                                <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                                <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                            </clr-dg-column-toggle>
+                            <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                                {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                                de {{pagination.totalItems}} registros
+                            </clr-dg-pagination>
+                        </clr-dg-footer>
+            
+                </clr-datagrid>
             </div>
-        </div>
-    </div>
-    <div class="clr-form-control">
-        <label for="vertical-basic" class="clr-control-label" >
-        Acta de Nacimiento<span class="required">*</span>
-        </label>
-        <div class="clr-control-container">
-            <div class="clr-file-wrapper">
-                <input type="file" id="actanacimiento" formControlName="actanacimiento" placeholder="Foto">
-                <control-messages class="control-messages" [control]="solicitudpensionForm.controls.actanacimiento"></control-messages>
             </div>
-        </div>
-    </div>
-    <div class="clr-form-control">
-        <label for="correo" class="clr-control-label">Correo<span class="required">*</span></label>
-        <div class="clr-control-container clr-col-md-12"> 
-            <label for="correo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('correo').invalid && (solicitudpensionForm.get('correo').dirty || solicitudpensionForm.get('correo').touched)">
-                <input id="correo" type="text" formControlName="correo" placeholder="Correo" class="clr-input clr-col-sm-12 clr-col-md-12">
-                <span class="tooltip-content">
-                    Correo es requerido.
-                </span>
-            </label>
-        </div>
-    </div>
-    <div class="clr-form-control">
-        <label for="semanascotizadas" class="clr-control-label">Semanas Cotizadas<span class="required">*</span></label>
-        <div class="clr-control-container clr-col-md-12"> 
-            <label for="semanascotizadas" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('semanascotizadas').invalid && (solicitudpensionForm.get('semanascotizadas').dirty || solicitudpensionForm.get('semanascotizadas').touched)">
-                <input id="semanascotizadas" type="text" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
-                <span class="tooltip-content">
-                    Semanas Cotizadas es requerido.
-                </span>
-            </label>
-        </div>
-    </div>
-    <div class="clr-form-control">
-        <label for="numero" class="clr-control-label">Número<span class="required">*</span></label>
-        <div class="clr-control-container clr-col-md-12"> 
-            <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="solicitudpensionForm.get('numero').invalid && (solicitudpensionForm.get('numero').dirty || solicitudpensionForm.get('numero').touched)">
-                <input id="numero" type="text" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12">
-                <span class="tooltip-content">
-                    Número es requerido.
-                </span>
-            </label>
-        </div>
-    </div>
-    <!-- <p>Form value {{ solicitudpensionForm.value | json }} </p>
-    <p> Form status {{ solicitudpensionForm.status | json}} </p> -->
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" (click)="basicAfiliado1 = false">Regresar</button>
+                <button type="button" class="btn btn-primary" (click)="basicAfiliado1 = false">Elegir</button>
+            </div>
+    </clr-modal>
+
+
+    <clr-modal [(clrModalOpen)]="basicTipopension1" class="modal-dialog modal-xl"  style="width: 700px">
+        <h3 class="modal-title">Tipopension</h3>
+
+        <div class="modal-body">  
+        <div class="card-block">   
+
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+        <clr-dg-column>
+                
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'id'" hidden="true">
+                Id  
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'clave'">
+            <ng-container *clrDgHideableColumn="{hidden: false}"> 
+                Clave
+            </ng-container>    
+        </clr-dg-column>
+        <clr-dg-column [clrDgField]="'nombre'">
+            <ng-container *clrDgHideableColumn="{hidden: false}">
+                Nombre
+            </ng-container> 
+        </clr-dg-column>
+        <clr-dg-column></clr-dg-column>
+        <clr-dg-row *clrDgItems="let tipopension1 of tipopension1Array" [clrDgItem]="tipopension1">
+                <clr-dg-cell><input type="radio" name="tipopension1Id" [checked]="tipopension1.checked" value="{{tipopension1.afiliadoId}}" (click)="setClickedRowTipopension1(i, tipopension1)"></clr-dg-cell>
+                <clr-dg-cell hidden="true">{{tipopension1.id}}</clr-dg-cell>
+                <clr-dg-cell>{{tipopension1.clave}}</clr-dg-cell>
+                <clr-dg-cell>{{tipopension1.nombre}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+
+        </clr-datagrid>
+
+            </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" (click)="basicTipopension1 = false">Regresar</button>
+                <button type="button" class="btn btn-primary" (click)="basicTipopension1 = false">Elegir</button>
+            </div>
+    </clr-modal>
+
+    <p>Form value {{ solicitudpensionForm.value | json }} </p>
+    <p> Form status {{ solicitudpensionForm.status | json}} </p>
     <p>
         <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Agregar</button>
         <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>

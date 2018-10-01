@@ -24,18 +24,8 @@ export class TipopensionEditarFormDemo implements OnInit {
     private route: ActivatedRoute
   ) {
     this.tipopensionForm = this.fb.group({
-      nss: new FormControl('', Validators.required),
+      clave: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
-      apellidopaterno: new FormControl('', Validators.required),
-      apellidomaterno: new FormControl('', Validators.required),
-      observaciones: new FormControl('', Validators.required),
-      fechaafiliacion: new FormControl('', Validators.required),
-      correo: new FormControl('', [Validators.required, Validators.email]),
-      semanascotizadas: new FormControl('', Validators.required),
-      numero: new FormControl('', Validators.required),
-      genero1Id: new FormControl('', Validators.required),
-      actanacimiento: new FormControl('', Validators.required),
-      foto: new FormControl('', Validators.required),
     });
   }
 
@@ -46,19 +36,8 @@ export class TipopensionEditarFormDemo implements OnInit {
   recuperaTipopension() {
     this.tipopension = this.tipopensionService.getTipopension();
 
-    this.tipopensionForm.controls['nss'].setValue(this.tipopension.nss);
-    this.tipopensionForm.controls['apellidomaterno'].setValue(this.tipopension.apellidomaterno);
-    this.tipopensionForm.controls['apellidopaterno'].setValue(this.tipopension.apellidopaterno);
+    this.tipopensionForm.controls['clave'].setValue(this.tipopension.clave);
     this.tipopensionForm.controls['nombre'].setValue(this.tipopension.nombre);
-    this.tipopensionForm.controls['numero'].setValue(this.tipopension.numero);
-    this.tipopensionForm.controls['observaciones'].setValue(this.tipopension.observaciones);
-    this.tipopensionForm.controls['genero1Id'].setValue(this.tipopension.genero1Id);
-    // this.tipopensionForm.controls['genero1Item'].setValue(this.tipopension.genero1Item);
-    this.tipopensionForm.controls['fechaafiliacion'].setValue(this.tipopension.fechaafiliacion);
-    // this.tipopensionForm.controls['foto'].setValue(this.tipopension.foto);
-    // this.tipopensionForm.controls['actanacimiento'].setValue(this.tipopension.actanacimiento);
-    this.tipopensionForm.controls['correo'].setValue(this.tipopension.correo);
-    this.tipopensionForm.controls['semanascotizadas'].setValue(this.tipopension.semanascotizadas);
   }
 
   editaTipopension() {
@@ -67,18 +46,8 @@ export class TipopensionEditarFormDemo implements OnInit {
     if (this.tipopensionForm.invalid) {
       return;
     } else {
-      this.tipopension.nss = this.tipopensionForm.controls['nss'].value;
+      this.tipopension.clave = this.tipopensionForm.controls['clave'].value;
       this.tipopension.nombre = this.tipopensionForm.controls['nombre'].value;
-      this.tipopension.apellidopaterno = this.tipopensionForm.controls['apellidopaterno'].value;
-      this.tipopension.apellidomaterno = this.tipopensionForm.controls['apellidomaterno'].value;
-      this.tipopension.observaciones = this.tipopensionForm.controls['observaciones'].value;
-      this.tipopension.fechaafiliacion = this.tipopensionForm.controls['fechaafiliacion'].value;
-      this.tipopension.correo = this.tipopensionForm.controls['correo'].value;
-      this.tipopension.semanascotizadas = this.tipopensionForm.controls['semanascotizadas'].value;
-      this.tipopension.numero = this.tipopensionForm.controls['numero'].value;
-      this.tipopension.genero1Id = this.tipopensionForm.controls['genero1Id'].value;
-      this.tipopension.actanacimiento = this.tipopensionForm.controls['actanacimiento'].value;
-      this.tipopension.foto = this.tipopensionForm.controls['foto'].value;
 
       console.log('Tipopension:', this.tipopension);
       this.tipopensionService.updateEditaTipopension(this.tipopension).subscribe(res => {

@@ -16,6 +16,8 @@ import { SolicitudpensionEliminarDemo } from './eliminar/solicitudpension-elimin
 import { ValidationService } from '../_validation/validation.service';
 import { SolicitudpensionService } from './solicitudpension.demo.service';
 import { HttpModule } from '@angular/http';
+import { AfiliadoService } from '../afiliado/afiliado.demo.service';
+import { TipopensionService } from '../tipopension/tipopension.demo.service';
 
 @NgModule({
   imports: [CommonModule, ClarityModule, ROUTING, HttpModule, ReactiveFormsModule, FormsModule],
@@ -39,7 +41,7 @@ import { HttpModule } from '@angular/http';
     SolicitudpensionEditarDemo,
     SolicitudpensionEliminarDemo,
   ],
-  providers: [Inventory, ValidationService, SolicitudpensionService],
+  providers: [Inventory, ValidationService, SolicitudpensionService, AfiliadoService, TipopensionService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SolicitudpensionDemoModule {}

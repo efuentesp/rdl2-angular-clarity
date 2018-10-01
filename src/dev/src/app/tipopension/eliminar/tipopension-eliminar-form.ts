@@ -24,15 +24,8 @@ export class TipopensionEliminarFormDemo {
     private route: ActivatedRoute
   ) {
     this.tipopensionForm = this.fb.group({
-      nss: new FormControl(''),
+      clave: new FormControl(''),
       nombre: new FormControl(''),
-      apellidopaterno: new FormControl(''),
-      apellidomaterno: new FormControl(''),
-      observaciones: new FormControl(''),
-      fechaafiliacion: new FormControl(''),
-      correo: new FormControl(''),
-      semanascotizadas: new FormControl(''),
-      numero: new FormControl(''),
     });
   }
 
@@ -42,17 +35,8 @@ export class TipopensionEliminarFormDemo {
 
   recuperaTipopension() {
     this.tipopension = this.tipopensionService.getTipopension();
-    this.tipopensionForm.controls['nss'].setValue(this.tipopension.nss);
-    this.tipopensionForm.controls['apellidomaterno'].setValue(this.tipopension.apellidomaterno);
-    this.tipopensionForm.controls['apellidopaterno'].setValue(this.tipopension.apellidopaterno);
+    this.tipopensionForm.controls['clave'].setValue(this.tipopension.clave);
     this.tipopensionForm.controls['nombre'].setValue(this.tipopension.nombre);
-    this.tipopensionForm.controls['numero'].setValue(this.tipopension.numero);
-    this.tipopensionForm.controls['observaciones'].setValue(this.tipopension.observaciones);
-    this.tipopensionForm.controls['fechaafiliacion'].setValue(this.tipopension.fechaafiliacion);
-    // this.tipopensionForm.controls['foto'].setValue(this.tipopension.foto);
-    // this.tipopensionForm.controls['actanacimiento'].setValue(this.tipopension.actanacimiento);
-    this.tipopensionForm.controls['correo'].setValue(this.tipopension.correo);
-    this.tipopensionForm.controls['semanascotizadas'].setValue(this.tipopension.semanascotizadas);
   }
 
   eliminaTipopension() {

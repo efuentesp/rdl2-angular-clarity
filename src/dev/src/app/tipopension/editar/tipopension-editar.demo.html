@@ -1,159 +1,38 @@
 <div class="card-header">
-    Editar Tipopensions
+    Agregar Tipopension
 </div> 
-    
+
 <form class="form" [formGroup]="tipopensionForm" (ngSubmit)="editaTipopension() && !tipopensionForm.invalid">
     <div style="margin: 20px;">
-        <div class="clr-form-control">
-            <label for="nss" class="clr-control-label">Nss<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="nss" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('nss').invalid && (tipopensionForm.get('nss').dirty || tipopensionForm.get('nss').touched)">
-                    <input id="nss" type="text" formControlName="nss" placeholder="Nss" class="clr-input clr-col-sm-11 clr-col-md-12" >
-                    <span class="tooltip-content">
-                        Nss es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="clr-form-control">
-            <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('nombre').invalid && (tipopensionForm.get('nombre').dirty || tipopensionForm.get('nombre').touched)">
-                    <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
-                    <span class="tooltip-content">
-                        Nombre es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="clr-form-control">
-            <label for="apellidopaterno" class="clr-control-label">Apellido Paterno<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="apellidopaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('apellidopaterno').invalid && (tipopensionForm.get('apellidopaterno').dirty || tipopensionForm.get('apellidopaterno').touched)">
-                    <input id="apellidopaterno" type="text" formControlName="apellidopaterno" placeholder="Apellido Paterno" class="clr-input clr-col-sm-12 clr-col-md-12">
-                    <span class="tooltip-content">
-                        Apellido Paterno es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="clr-form-control">
-            <label for="apellidomaterno" class="clr-control-label">Apellido Materno<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="apellidomaterno" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('apellidomaterno').invalid && (tipopensionForm.get('apellidomaterno').dirty || tipopensionForm.get('apellidomaterno').touched)">
-                    <input id="apellidomaterno" type="text" formControlName="apellidomaterno" placeholder="Apellido Materno" class="clr-input clr-col-sm-12 clr-col-md-12">
-                    <span class="tooltip-content">
-                        Apellido Materno es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        
-    
-        <div class="clr-form-control" id="genero1Id">
-            <label for="genero1Id" class="clr-control-label">Genero<span class="required">*</span></label>
-            <clr-radio-wrapper><input type="radio" formControlName="genero1Id" value="femenino" required> Femenino</clr-radio-wrapper>
-            <clr-radio-wrapper><input type="radio" formControlName="genero1Id" value="masculino" required> Masculino</clr-radio-wrapper>
-            <!-- <input type="radio" formcontrolname="genero" value="femenino" required>Femenino
-            <input type="radio" formcontrolname="genero" value="masculino" required>Masculino -->
-            <!-- <clr-radio-wrapper>
-                <input clrRadio type="radio" formcontrolname="genero" value="femenino" name="femenino" class="clr-radio" required/><label for="femenino" class="clr-control-label">Femenino</label><br/>
-                <input clrRadio type="radio" formcontrolname="genero" value="masculino" name="masculino" class="clr-radio" required/><label for="masculino" class="clr-control-label">Masculino</label>
-            </clr-radio-wrapper> -->
-    
-        </div>
-            
-        <div class="clr-form-control">
-            <label for="observaciones" class="clr-control-label">Observaciones<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="observaciones" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('observaciones').invalid && (tipopensionForm.get('observaciones').dirty || tipopensionForm.get('observaciones').touched)">
-                    <textarea id="observaciones" formControlName="observaciones" rows="5" placeholder="Observaciones" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
-                    <span class="tooltip-content">
-                        Observaciones es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="clr-form-control">
-            <label for="fechaafiliacion" class="clr-control-label">Fecha de Afiliación<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <!-- <label for="fechaafiliacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('fechaafiliacion').invalid && (tipopensionForm.get('fechaafiliacion').dirty || tipopensionForm.get('fechaafiliacion').touched)"> -->
-                    <input id="fechaafiliacion" type="date" formControlName="fechaafiliacion" placeholder="Fecha de Afiliación" clrDate class="clr-input clr-col-sm-12 clr-col-md-12">
-                    <!-- <span class="tooltip-content">
-                        Fecha de Afiliación es requerido.
-                    </span> -->
-                <!-- </label> -->
-            </div>
-        </div>
-        <div class="clr-form-control">
-            <label for="vertical-file3" class="clr-control-label" >
-            Foto<span class="required">*</span>
+    <div class="clr-form-control">
+        <label for="clave" class="clr-control-label">Clave<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="clave" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="tipopensionForm.get('clave').invalid && (tipopensionForm.get('clave').dirty || tipopensionForm.get('clave').touched)">
+                <input id="clave" type="text" formControlName="clave" placeholder="Clave" class="clr-input clr-col-sm-11 clr-col-md-12" >
+                <span class="tooltip-content">
+                    Clave es requerido.
+                </span>
             </label>
-            <div class="clr-control-container">
-                <div class="clr-file-wrapper">
-                    <input type="file" id="foto" formControlName="foto" placeholder="Foto">
-                    <control-messages class="control-messages" [control]="tipopensionForm.controls.foto"></control-messages>
-                </div>
-            </div>
         </div>
-        <div class="clr-form-control">
-            <label for="vertical-basic" class="clr-control-label" >
-            Acta de Nacimiento<span class="required">*</span>
+    </div>
+    <div class="clr-form-control">
+        <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="tipopensionForm.get('nombre').invalid && (tipopensionForm.get('nombre').dirty || tipopensionForm.get('nombre').touched)">
+                <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Nombre es requerido.
+                </span>
             </label>
-            <div class="clr-control-container">
-                <div class="clr-file-wrapper">
-                    <input type="file" id="actanacimiento" formControlName="actanacimiento" placeholder="Foto">
-                    <control-messages class="control-messages" [control]="tipopensionForm.controls.actanacimiento"></control-messages>
-                </div>
-            </div>
         </div>
-        <div class="clr-form-control">
-            <label for="correo" class="clr-control-label">Correo<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="correo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('correo').invalid && (tipopensionForm.get('correo').dirty || tipopensionForm.get('correo').touched)">
-                    <input id="correo" type="text" formControlName="correo" placeholder="Correo" class="clr-input clr-col-sm-12 clr-col-md-12">
-                    <span class="tooltip-content">
-                        Correo es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="clr-form-control">
-            <label for="semanascotizadas" class="clr-control-label">Semanas Cotizadas<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="semanascotizadas" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('semanascotizadas').invalid && (tipopensionForm.get('semanascotizadas').dirty || tipopensionForm.get('semanascotizadas').touched)">
-                    <input id="semanascotizadas" type="text" formControlName="semanascotizadas" placeholder="Semanas Cotizadas" class="clr-input clr-col-sm-12 clr-col-md-12">
-                    <span class="tooltip-content">
-                        Semanas Cotizadas es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="clr-form-control">
-            <label for="numero" class="clr-control-label">Número<span class="required">*</span></label>
-            <div class="clr-control-container clr-col-md-12"> 
-                <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                        [class.invalid]="tipopensionForm.get('numero').invalid && (tipopensionForm.get('numero').dirty || tipopensionForm.get('numero').touched)">
-                    <input id="numero" type="text" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12">
-                    <span class="tooltip-content">
-                        Número es requerido.
-                    </span>
-                </label>
-            </div>
-        </div>
-        <!-- <p>Form value {{ tipopensionForm.value | json }} </p>
-        <p> Form status {{ tipopensionForm.status | json}} </p> -->
-        <p>
-            <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Editar</button>
-            <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
-        </p>
-        </div>
-    </form>
+    </div>
+    <!-- <p>Form value {{ tipopensionForm.value | json }} </p>
+    <p> Form status {{ tipopensionForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    </div>
+</form>

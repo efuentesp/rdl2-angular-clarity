@@ -1,5 +1,5 @@
 <div class="card-header">
-    Agregar Beneficiarios
+    Agregar Beneficiario
 </div> 
 
 <form class="form" [formGroup]="beneficiarioForm" (ngSubmit)="guardaBeneficiario() && !beneficiarioForm.invalid">
@@ -52,18 +52,6 @@
             </label>
         </div>
     </div>
-    <!-- <div class="clr-form-control">
-        <label for="fechanacimiento" class="clr-control-label">Fecha de Nacimiento<span class="required">*</span></label>
-        <div class="clr-control-container clr-col-md-12"> 
-            <!-- <label for="fechanacimiento" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-                    [class.invalid]="afiliadoForm.get('fechanacimiento').invalid && (beneficiarioForm.get('fechanacimiento').dirty || beneficiarioForm.get('fechanacimiento').touched)"> -->
-                <!-- <input id="fechanacimiento" type="date" formControlName="fechanacimiento" placeholder="Fecha de Nacimiento" clrDate class="clr-input clr-col-sm-12 clr-col-md-12"> -->
-                <!-- <span class="tooltip-content">
-                    Fecha de Afiliación es requerido.
-                </span> -->
-            <!-- </label> -->
-        <!-- </div>
-    </div>  -->
     <div class="clr-form-control">
         <label for="fechanacimiento" class="clr-control-label">Fecha de Nacimiento<span class="required">*</span></label>
         <div class="clr-control-container clr-col-md-12"> 
@@ -87,7 +75,7 @@
                 <!-- <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
                 <!-- <clr-icon shape="search" ng-click="basic = true"></clr-icon>
                 <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
-                <button class="btn btn-primary" style="margin-top: -17px" (click)="basic = true"><clr-icon shape="search"></clr-icon></button>
+                <button class="btn btn-primary" type="button" style="margin-top: -17px" (click)="basic = true"><clr-icon shape="search"></clr-icon></button>
                 <span class="tooltip-content">
                     Afiliado es requerido.
                 </span>
@@ -95,33 +83,8 @@
             </div>
         </div>
     </div>
-    <p>Form value {{ beneficiarioForm.value | json }} </p>
-    <p> Form status {{ beneficiarioForm.status | json}} </p> 
-    <p>
-        <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Agregar</button>
-        <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
-    </p>
-
-<!--   
-            <clr-modal class="modal-dialog modal-xl" role="dialog" aria-hidden="true"  [(clrModalOpen)]="basic">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <button aria-label="Close" class="close" type="button">
-                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
-                    </button>
-                    <h3 class="modal-title">Extra large modal</h3>
-                </div>
-                <div class="modal-body">
-                    I am an extra large modal.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-outline" type="button">Cancel</button>
-                    <button class="btn btn-primary" type="button">Ok</button>
-                </div>
-                </div>
-            </clr-modal > -->
-           
-  
+    <!-- <p>Form value {{ beneficiarioForm.value | json }} </p>
+    <p> Form status {{ beneficiarioForm.status | json}} </p>  -->
 
 
     <clr-modal [(clrModalOpen)]="basic" class="modal-dialog modal-xl"  style="width: 700px">
@@ -243,6 +206,36 @@
                 <button type="button" class="btn btn-primary" (click)="basic = false">Elegir</button>
             </div>
     </clr-modal>
+
+
+    <p>
+        <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+
+<!--   
+            <clr-modal class="modal-dialog modal-xl" role="dialog" aria-hidden="true"  [(clrModalOpen)]="basic">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" type="button">
+                    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                    </button>
+                    <h3 class="modal-title">Extra large modal</h3>
+                </div>
+                <div class="modal-body">
+                    I am an extra large modal.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline" type="button">Cancel</button>
+                    <button class="btn btn-primary" type="button">Ok</button>
+                </div>
+                </div>
+            </clr-modal > -->
+           
+  
+
+
+
 
     </div>
 </form>

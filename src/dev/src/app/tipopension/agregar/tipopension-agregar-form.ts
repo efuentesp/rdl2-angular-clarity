@@ -25,18 +25,8 @@ export class TipopensionAgregarFormDemo implements OnInit {
     private route: ActivatedRoute
   ) {
     this.tipopensionForm = this.fb.group({
-      nss: new FormControl('', Validators.required),
+      clave: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
-      apellidopaterno: new FormControl('', Validators.required),
-      apellidomaterno: new FormControl('', Validators.required),
-      observaciones: new FormControl('', Validators.required),
-      fechaafiliacion: new FormControl('', Validators.required),
-      correo: new FormControl('', [Validators.required, Validators.email]),
-      semanascotizadas: new FormControl('', Validators.required),
-      numero: new FormControl('', Validators.required),
-      genero1Id: new FormControl('', Validators.required),
-      actanacimiento: new FormControl('', Validators.required),
-      foto: new FormControl('', Validators.required),
     });
   }
 
@@ -48,18 +38,8 @@ export class TipopensionAgregarFormDemo implements OnInit {
     if (this.tipopensionForm.invalid) {
       return;
     } else {
-      this.tipopension.nss = this.tipopensionForm.controls['nss'].value;
+      this.tipopension.clave = this.tipopensionForm.controls['clave'].value;
       this.tipopension.nombre = this.tipopensionForm.controls['nombre'].value;
-      this.tipopension.apellidopaterno = this.tipopensionForm.controls['apellidopaterno'].value;
-      this.tipopension.apellidomaterno = this.tipopensionForm.controls['apellidomaterno'].value;
-      this.tipopension.observaciones = this.tipopensionForm.controls['observaciones'].value;
-      this.tipopension.fechaafiliacion = this.tipopensionForm.controls['fechaafiliacion'].value;
-      this.tipopension.correo = this.tipopensionForm.controls['correo'].value;
-      this.tipopension.semanascotizadas = this.tipopensionForm.controls['semanascotizadas'].value;
-      this.tipopension.numero = this.tipopensionForm.controls['numero'].value;
-      this.tipopension.genero1Id = this.tipopensionForm.controls['genero1Id'].value;
-      this.tipopension.actanacimiento = this.tipopensionForm.controls['actanacimiento'].value;
-      this.tipopension.foto = this.tipopensionForm.controls['foto'].value;
 
       this.tipopensionService.postGuardaTipopension(this.tipopension).subscribe(res => {
         if (res.status == 201 || res.status == 200) {
