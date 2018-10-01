@@ -24,7 +24,21 @@ export default class EditAfiliado extends Common{
 					})
 				})
 			} else if (key.split('_')[0] == 'm') {
-				// Code Here
+				cy.get('div#' + key.split('_')[1]).within(() => {
+					cy.get('button').contains('clr-icon[shape="search"]').click()
+					cy.get('clr-modal>div.modal-body').as('modal-body')
+					cy.get('@modal-body').within(() => {
+						cy.get('table>div[class="datagrid-body"]>clr-dg-row').first().as('row')
+						cy.get('@row').within(() => {
+							cy.get('input[type="radio"]').check()
+						})
+					})
+					
+					cy.get('clr-modal>div.modal-footer').as('modal-footer')
+					cy.get('@modal-footer').within(() => {
+						cy.get('button').contains(/\bElegir\b/)
+					})
+				})
 			} else if (key.split('_')[0] == 'fl') {
 				cy.uploadFile('#' + key.split('_')[1], values[key])
 			}
