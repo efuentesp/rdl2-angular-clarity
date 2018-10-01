@@ -5,6 +5,7 @@ import { Afiliado } from '../afiliado.demo.model';
 import { AfiliadoService } from '../afiliado.demo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'clr-alert-demo-styles',
@@ -28,6 +29,13 @@ export class AfiliadoAdministrarDemo {
         }
       },
       error => {
+        // swal({
+        //   title: 'Error...',
+        //   text: 'An error occurred while calling the afiliados.',
+        //   type: 'error',
+        //   confirmButtonText: 'OK',
+        // });
+
         swal('Error...', 'An error occurred while calling the afiliados.', 'error');
       }
     );

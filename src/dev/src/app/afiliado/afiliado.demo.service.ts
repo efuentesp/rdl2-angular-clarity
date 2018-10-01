@@ -20,6 +20,10 @@ export class AfiliadoService {
     return this.http.get(this.env.api + '/afiliado').pipe(map(res => res.json()));
   }
 
+  getRecuperaAfiliadoPorId(id) {
+    return this.http.get(this.env.api + '/afiliado/' + id).pipe(map(res => res.json()));
+  }
+
   deleteAfiliado(afiliado) {
     return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res));
   }

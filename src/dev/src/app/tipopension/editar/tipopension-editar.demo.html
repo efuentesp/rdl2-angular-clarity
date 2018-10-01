@@ -1,0 +1,38 @@
+<div class="card-header">
+    Agregar Tipopension
+</div> 
+
+<form class="form" [formGroup]="tipopensionForm" (ngSubmit)="editaTipopension() && !tipopensionForm.invalid">
+    <div style="margin: 20px;">
+    <div class="clr-form-control">
+        <label for="clave" class="clr-control-label">Clave<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="clave" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="tipopensionForm.get('clave').invalid && (tipopensionForm.get('clave').dirty || tipopensionForm.get('clave').touched)">
+                <input id="clave" type="text" formControlName="clave" placeholder="Clave" class="clr-input clr-col-sm-11 clr-col-md-12" >
+                <span class="tooltip-content">
+                    Clave es requerido.
+                </span>
+            </label>
+        </div>
+    </div>
+    <div class="clr-form-control">
+        <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
+        <div class="clr-control-container clr-col-md-12"> 
+            <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+                    [class.invalid]="tipopensionForm.get('nombre').invalid && (tipopensionForm.get('nombre').dirty || tipopensionForm.get('nombre').touched)">
+                <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <span class="tooltip-content">
+                    Nombre es requerido.
+                </span>
+            </label>
+        </div>
+    </div>
+    <!-- <p>Form value {{ tipopensionForm.value | json }} </p>
+    <p> Form status {{ tipopensionForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    </div>
+</form>

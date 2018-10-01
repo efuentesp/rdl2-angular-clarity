@@ -66,5 +66,106 @@
       "semanascotizadas": "1000",
       "id": 14
     }
+  ],
+  "beneficiario": [
+    {
+      "id": 1,
+      "curp": "CAMN810117MDFRXR01",
+      "apellidomaterno": "Muñiz",
+      "apellidopaterno": "Carbajal",
+      "nombre": "Normaysel",
+      "fechanacimiento": "09/17/2018",
+      "afiliado1Id": 12,
+      "afiliado1Item": "23454WERTY"
+    },
+    {
+      "id": 2,
+      "curp": "CWERTYUIOPQWERTYUI",
+      "nombre": "Adriana",
+      "apellidopaterno": "Velazquez",
+      "apellidomaterno": "Dominguez",
+      "fechanacimiento": "17/01/2000",
+      "afiliado1Id": 12,
+      "afiliado1Item": "23454WERTY"
+    },
+    {
+      "id": 3,
+      "curp": "ZXCVBNMQWERTYUI234",
+      "apellidomaterno": "Muñiz",
+      "apellidopaterno": "Carbajal",
+      "nombre": "César",
+      "fechanacimiento": "10/13/2018",
+      "afiliado1Id": 13,
+      "afiliado1Item": "23454WERTY"
+    },
+    {
+      "id": 4,
+      "curp": "JAPB12345678",
+      "apellidomaterno": "Barilla",
+      "apellidopaterno": "Pérez",
+      "nombre": "Javier",
+      "fechanacimiento": "06/06/1985",
+      "afiliado1Id": 13,
+      "afiliado1Item": "23454WERTY"
+    },
+    {
+      "id": 5,
+      "curp": "casadasdasd",
+      "apellidomaterno": "Carbajal",
+      "apellidopaterno": "Carbajal",
+      "nombre": "Normaysel",
+      "fechanacimiento": "09/01/2018",
+      "afiliado1Id": 13,
+      "afiliado1Item": "23454WERTY"
+    }
+  ],
+  "tipopension": [
+    {
+      "id": 1,
+      "clave": "001",
+      "nombre": "Pensión de Invalidez"
+    },
+    {
+      "id": 2,
+      "clave": "002",
+      "nombre": "Retiro programado"
+    },
+    {
+      "id": 3,
+      "clave": "003",
+      "nombre": "Renta Vitalicia"
+    }
+  ],
+  "solicitudpension": [
+    {
+      "id": 1,
+      "numero": "001",
+      "afiliado1Id": 11,
+      "afiliado1Item": "2123",
+      "tipopension1Id": 1,
+      "tipopension1Item": "001",
+      "fechasolicitud": "12/12/2000",
+      "observaciones": "ninguna"
+    },
+    {
+      "id": 2,
+      "numero": "002",
+      "afiliado1Id": 11,
+      "afiliado1Item": "2123",
+      "tipopension1Id": 1,
+      "tipopension1Item": "001",
+      "fechasolicitud": "12/12/2000",
+      "observaciones": "ninguna"
+    },
+    {
+      "id": 3,
+      "numero": "003",
+      "afiliado1Id": 11,
+      "afiliado1Item": "2123",
+      "tipopension1Id": 1,
+      "tipopension1Item": "001",
+      "fechasolicitud": "12/12/2000",
+      "observaciones": "ninguna"
+    }
   ]
 }
