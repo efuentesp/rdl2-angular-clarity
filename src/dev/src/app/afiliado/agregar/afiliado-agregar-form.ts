@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, ValidatorFn, FormArray } from '@angular/forms';
 import { ValidationService } from '../../_validation/validation.service';
 import { AfiliadoService } from '../afiliado.demo.service';
 import { Afiliado } from '../afiliado.demo.model';
@@ -15,6 +15,13 @@ import swal from 'sweetalert2';
 export class AfiliadoAgregarFormDemo implements OnInit {
   afiliadoForm: FormGroup;
   submitted = false;
+  orders = [
+    { id: 1, name: 'orden 1' },
+    { id: 2, name: 'orden 2' },
+    { id: 3, name: 'orden 3' },
+    { id: 4, name: 'orden 4' },
+  ];
+
   public afiliado: Afiliado = new Afiliado();
 
   constructor(
@@ -24,6 +31,9 @@ export class AfiliadoAgregarFormDemo implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
+    const controls = this.orders.map(c => new FormControl(false));
+    controls[0].setValue(true);
+
     this.afiliadoForm = this.fb.group({
       nss: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
@@ -37,6 +47,8 @@ export class AfiliadoAgregarFormDemo implements OnInit {
       genero1Id: new FormControl('', Validators.required),
       actanacimiento: new FormControl('', Validators.required),
       foto: new FormControl('', Validators.required),
+      nivel: new FormControl('', Validators.required),
+      orders: new FormArray(controls, this.minSelectedCheckboxes(1)),
     });
   }
 
@@ -60,6 +72,7 @@ export class AfiliadoAgregarFormDemo implements OnInit {
       this.afiliado.genero1Id = this.afiliadoForm.controls['genero1Id'].value;
       this.afiliado.actanacimiento = this.afiliadoForm.controls['actanacimiento'].value;
       this.afiliado.foto = this.afiliadoForm.controls['foto'].value;
+      this.afiliado.nivel = this.afiliadoForm.controls['nivel'].value;
 
       this.afiliadoService.postGuardaAfiliado(this.afiliado).subscribe(res => {
         if (res.status == 201 || res.status == 200) {
@@ -70,5 +83,20 @@ export class AfiliadoAgregarFormDemo implements OnInit {
         }
       });
     }
+  }
+
+  minSelectedCheckboxes(min = 1) {
+    const validator: ValidatorFn = (formArray: FormArray) => {
+      const totalSelected = formArray.controls
+        // get a list of checkbox values (boolean)
+        .map(control => control.value)
+        // total up the number of checked checkboxes
+        .reduce((prev, next) => (next ? prev + next : prev), 0);
+
+      // if the total is not greater than the minimum, return the error message
+      return totalSelected >= min ? null : { required: true };
+    };
+
+    return validator;
   }
 }

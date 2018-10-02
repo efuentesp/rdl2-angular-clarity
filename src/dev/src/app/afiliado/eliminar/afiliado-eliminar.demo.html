@@ -148,13 +148,14 @@
             <div class="clr-control-container clr-col-md-12"> 
                 <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
                         [class.invalid]="afiliadoForm.get('numero').invalid && (afiliadoForm.get('numero').dirty || afiliadoForm.get('numero').touched)">
-                    <input id="numero" type="text" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+                    <input id="numero" type="number" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
                     <span class="tooltip-content">
                         Número es requerido.
                     </span>
                 </label>
             </div>
         </div>
+
         <!-- <p>Form value {{ afiliadoForm.value | json }} </p>
         <p> Form status {{ afiliadoForm.status | json}} </p> -->
         <p>

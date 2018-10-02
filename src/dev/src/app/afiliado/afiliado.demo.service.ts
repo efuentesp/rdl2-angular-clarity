@@ -20,6 +20,10 @@ export class AfiliadoService {
     return this.http.get(this.env.api + '/afiliado').pipe(map(res => res.json()));
   }
 
+  getRecuperaAfiliadoPorId(id) {
+    return this.http.get(this.env.api + '/afiliado/' + id).pipe(map(res => res.json()));
+  }
+
   deleteAfiliado(afiliado) {
     return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res));
   }
@@ -51,6 +55,8 @@ export class AfiliadoService {
       numero: this.afiliado.numero,
       observaciones: this.afiliado.observaciones,
       semanascotizadas: this.afiliado.semanascotizadas,
+      nivel: this.afiliado.nivel,
+      orders: this.afiliado.orders,
     };
     return afiliado;
   }
@@ -71,7 +77,9 @@ export class AfiliadoService {
       (this.afiliado.nombre = afiliado.nombre),
       (this.afiliado.numero = afiliado.numero),
       (this.afiliado.observaciones = afiliado.observaciones),
-      (this.afiliado.semanascotizadas = afiliado.semanascotizadas);
+      (this.afiliado.semanascotizadas = afiliado.semanascotizadas),
+      (this.afiliado.nivel = afiliado.nivel),
+      (this.afiliado.orders = afiliado.orders);
   }
 
   clear() {
@@ -91,5 +99,7 @@ export class AfiliadoService {
     this.afiliado.numero = null;
     this.afiliado.observaciones = '';
     this.afiliado.semanascotizadas = null;
+    this.afiliado.nivel = null;
+    this.afiliado.orders = null;
   }
 }

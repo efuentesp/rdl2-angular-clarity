@@ -29,10 +29,10 @@ import { APP_ROUTES } from './app.routing';
                         </ul>
                     </section>
                     <div class="card-header"></div>
-                    <section class="nav-group collapsible">
+                    <!--<section class="nav-group collapsible">
                         <input id="tab3" type="checkbox">
                         <label for="tab3"> <clr-icon shape="list"></clr-icon>  Demo</label>
-                    </section>
+                    </section>-->
                 </section>
             </nav>
 
