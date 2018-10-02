@@ -55,6 +55,8 @@ export class AfiliadoService {
       numero: this.afiliado.numero,
       observaciones: this.afiliado.observaciones,
       semanascotizadas: this.afiliado.semanascotizadas,
+      nivel: this.afiliado.nivel,
+      orders: this.afiliado.orders,
     };
     return afiliado;
   }
@@ -75,7 +77,9 @@ export class AfiliadoService {
       (this.afiliado.nombre = afiliado.nombre),
       (this.afiliado.numero = afiliado.numero),
       (this.afiliado.observaciones = afiliado.observaciones),
-      (this.afiliado.semanascotizadas = afiliado.semanascotizadas);
+      (this.afiliado.semanascotizadas = afiliado.semanascotizadas),
+      (this.afiliado.nivel = afiliado.nivel),
+      (this.afiliado.orders = afiliado.orders);
   }
 
   clear() {
@@ -95,5 +99,7 @@ export class AfiliadoService {
     this.afiliado.numero = null;
     this.afiliado.observaciones = '';
     this.afiliado.semanascotizadas = null;
+    this.afiliado.nivel = null;
+    this.afiliado.orders = null;
   }
 }
