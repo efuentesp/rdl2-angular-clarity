@@ -19,7 +19,10 @@ export default class EditAfiliado extends Common {
     Object.keys(values).forEach(function(key) {
       switch (key.split('_')[0]) {
         case 'f':
-          cy.get('#' + key.split('_')[1]).type(values[key]);
+          cy
+            .get('#' + key.split('_')[1])
+            .clear()
+            .type(values[key]);
           break;
         case 'o':
           cy.get('#' + key.split('_')[1]).within(() => {

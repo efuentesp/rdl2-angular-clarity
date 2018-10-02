@@ -87,6 +87,8 @@ describe('Prueba Afiliado', function() {
       f_numero: '346',
       fl_foto: 'foto_test.png',
       fl_actanacimiento: 'foto_test.png',
+      l_orden: ['orden 1', 'orden 3', 'orden 4'],
+      s_nivel: 'Primaria',
     });
     search.edit({
       f_nss: '567890',
