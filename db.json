@@ -65,6 +65,25 @@
       "observaciones": "sdfsdf",
       "semanascotizadas": "1000",
       "id": 14
+    },
+    {
+      "id": 15,
+      "nss": "12345",
+      "nombre": "Norma",
+      "apellidopaterno": "Carballo",
+      "apellidomaterno": "Hernandez",
+      "genero1Id": "femenino",
+      "genero1Item": "",
+      "beneficiario1Id": "",
+      "beneficiario1Item": "",
+      "observaciones": "Ninguna",
+      "fechaafiliacion": "10/05/2018",
+      "foto": "C:\\fakepath\\PruebasGenerales.txt",
+      "actanacimiento": "C:\\fakepath\\PruebasGenerales.txt",
+      "correo": "asdasdasd@asdasd.com",
+      "semanascotizadas": "1000",
+      "numero": 25000,
+      "nivel": 3
     }
   ],
   "beneficiario": [

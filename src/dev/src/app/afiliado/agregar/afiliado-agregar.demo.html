@@ -154,13 +154,44 @@
         <div class="clr-control-container clr-col-md-12"> 
             <label for="numero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
                     [class.invalid]="afiliadoForm.get('numero').invalid && (afiliadoForm.get('numero').dirty || afiliadoForm.get('numero').touched)">
-                <input id="numero" type="text" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12">
+                <input id="numero" type="number" formControlName="numero" placeholder="Número" class="clr-input clr-col-sm-12 clr-col-md-12">
                 <span class="tooltip-content">
                     Número es requerido.
                 </span>
             </label>
         </div>
     </div>
+    <div class="clr-form-control">
+        <label class="clr-control-label">
+            Orden<span class="required">*</span>
+        </label>
+        <div class="clr-control-container">
+        
+        <label formArrayName="orders" *ngFor="let order of orders; let i = index">
+            <clr-checkbox-wrapper>
+                <input type="checkbox" [formControlName]="i">
+                {{orders[i].name}}
+                <br/>
+            </clr-checkbox-wrapper>
+        </label>
+        </div>
+    </div>
+
+    <div class="clr-form-control">
+        <label class="clr-control-label">
+            Grado de Estudios<span class="required">*</span>
+        </label>
+        <div class="clr-select-wrapper">
+        <select formControlName="nivel" id="nivel" name="nivel" class="size-xl" >
+                <option [ngValue]="1">Primaria</option>
+                <option [ngValue]="2">Secundaria</option>
+                <option [ngValue]="3">Media Superior</option>
+                <option [ngValue]="4">Superior</option>        
+        </select>
+        </div>
+    </div>
+
+
     <!-- <p>Form value {{ afiliadoForm.value | json }} </p>
     <p> Form status {{ afiliadoForm.status | json}} </p> -->
     <p>

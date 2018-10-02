@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from '../../_validation/validation.service';
 import { AfiliadoService } from '../afiliado.demo.service';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, FormArray, ValidatorFn } from '@angular/forms';
 import { Afiliado } from '../afiliado.demo.model';
 import swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -53,7 +53,6 @@ export class AfiliadoEditarFormDemo implements OnInit {
     this.afiliadoForm.controls['numero'].setValue(this.afiliado.numero);
     this.afiliadoForm.controls['observaciones'].setValue(this.afiliado.observaciones);
     this.afiliadoForm.controls['genero1Id'].setValue(this.afiliado.genero1Id);
-    // this.afiliadoForm.controls['genero1Item'].setValue(this.afiliado.genero1Item);
     this.afiliadoForm.controls['fechaafiliacion'].setValue(this.afiliado.fechaafiliacion);
     // this.afiliadoForm.controls['foto'].setValue(this.afiliado.foto);
     // this.afiliadoForm.controls['actanacimiento'].setValue(this.afiliado.actanacimiento);
@@ -90,5 +89,20 @@ export class AfiliadoEditarFormDemo implements OnInit {
         }
       });
     }
+  }
+
+  minSelectedCheckboxes(min = 1) {
+    const validator: ValidatorFn = (formArray: FormArray) => {
+      const totalSelected = formArray.controls
+        // get a list of checkbox values (boolean)
+        .map(control => control.value)
+        // total up the number of checked checkboxes
+        .reduce((prev, next) => (next ? prev + next : prev), 0);
+
+      // if the total is not greater than the minimum, return the error message
+      return totalSelected >= min ? null : { required: true };
+    };
+
+    return validator;
   }
 }

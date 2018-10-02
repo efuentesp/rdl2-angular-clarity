@@ -20,4 +20,7 @@ export class Afiliado {
   correo: string = '';
   semanascotizadas: number = null;
   numero: number = null;
+
+  nivel: string = '';
+  orders: string[];
 }
