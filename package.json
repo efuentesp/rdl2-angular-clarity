@@ -27,7 +27,7 @@
     "start": "ng serve dev --port 3200 --host 0.0.0.0 --disableHostCheck true --open",
     "clean": "del ./dist",
     "golden:fix": "npm run build:angular && ts-api-guardian --out golden/clr-angular.d.ts --stripExportPattern 'FocusTrapTracker' dist/clr-angular/index.d.ts",
-	"cypress": "./node_modules/.bin/cypress open",
+    "cypress": "./node_modules/.bin/cypress open",
     "test:aot": "ng build --prod ks-app",
     "test:format": "prettier --list-different './**/*.{js,json,md,ts,scss}'",
     "pretest:lint": "tsc -p tests/tslint/tsconfig.json",

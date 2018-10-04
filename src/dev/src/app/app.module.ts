@@ -5,21 +5,35 @@ import { ClarityModule } from '@clr/angular';
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routing';
 import { AppContentContainerComponent } from './content-container.component';
-import { HomeComponent } from './home.component';
 import { ControlMessagesComponent } from './_validation/control-messages.component';
+import { RegisterComponent } from './register';
+import { LoginComponent } from './login/login.demo';
+import { AuthGuard } from './_guards';
+import { AlertService, AuthenticationService, UserService } from './_services';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    HomeComponent, 
+    AppComponent,
     AppContentContainerComponent,
-    ControlMessagesComponent
+    ControlMessagesComponent,
+    RegisterComponent,
+    LoginComponent,
+    AdminComponent,
   ],
-  imports: [
-    BrowserAnimationsModule, 
-    CommonModule, 
-    ClarityModule, 
-    ROUTING],
+  imports: [BrowserAnimationsModule, CommonModule, ClarityModule, ROUTING, ReactiveFormsModule, HttpClientModule],
+  providers: [
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    //fakeBackendProvider
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
