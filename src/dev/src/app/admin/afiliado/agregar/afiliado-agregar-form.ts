@@ -76,7 +76,7 @@ export class AfiliadoAgregarFormDemo implements OnInit {
       this.afiliado.nivel = this.afiliadoForm.controls['nivel'].value;
 
       this.afiliadoService.postGuardaAfiliado(this.afiliado).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Etiquetaasignada save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

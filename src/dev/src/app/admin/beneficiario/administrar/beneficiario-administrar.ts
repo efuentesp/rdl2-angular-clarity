@@ -37,8 +37,8 @@ export class BeneficiarioAdministrarDemo {
           this.beneficiariosArray.forEach(element => {
             this.afiliadoService.getRecuperaAfiliadoPorId(element.afiliado1Id).subscribe(result => {
               if (result) {
-                this.afiliado = result;
-                element.afiliado1Item = this.afiliado.nss;
+                //this.afiliado = result;
+                //element.afiliado1Item = this.afiliado.nss;
               }
             });
           });

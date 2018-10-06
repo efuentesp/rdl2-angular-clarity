@@ -2,26 +2,30 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Beneficiario } from './beneficiario.demo.model';
-import { HttpModule, Http } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class BeneficiarioService {
   private env: any = environment;
   private beneficiario = new Beneficiario();
+  private token: string;
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   postGuardaBeneficiario(beneficiario) {
     return this.http.post(this.env.api + '/beneficiario', beneficiario).pipe(map(res => res));
   }
 
   getRecuperaBeneficiarios() {
-    return this.http.get(this.env.api + '/beneficiario').pipe(map(res => res.json()));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.get<any>(`${environment.apiUrl}/api/v1/beneficiario`, { headers: headers }).pipe(map(res => res));
   }
 
   getRecuperaBeneficiarioPorId(id) {
-    return this.http.get(this.env.api + '/beneficiario/' + id).pipe(map(res => res.json()));
+    return this.http.get(this.env.api + '/beneficiario/' + id).pipe(map(res => res));
   }
 
   deleteBeneficiario(beneficiario) {

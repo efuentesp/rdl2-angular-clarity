@@ -4,32 +4,53 @@ import { map } from 'rxjs/operators';
 import { Afiliado } from './afiliado.demo.model';
 import { HttpModule, Http } from '@angular/http';
 import { environment } from '../../../environments/environment';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AfiliadoService {
   private env: any = environment;
   private afiliado = new Afiliado();
+  private token: string;
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   postGuardaAfiliado(afiliado) {
-    return this.http.post(this.env.api + '/afiliado', afiliado).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .post<any>(`${environment.apiUrl}/api/v1/afiliado`, afiliado, { headers: headers })
+      .pipe(map(res => res));
+    //return this.http.post(this.env.api + 'afiliado', afiliado).pipe(map(res => res));
   }
 
   getRecuperaAfiliados() {
-    return this.http.get(this.env.api + '/afiliado').pipe(map(res => res.json()));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.get<any>(`${environment.apiUrl}/api/v1/afiliado`, { headers: headers }).pipe(map(res => res));
   }
 
   getRecuperaAfiliadoPorId(id) {
-    return this.http.get(this.env.api + '/afiliado/' + id).pipe(map(res => res.json()));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.get<any>(`${environment.apiUrl}/api/v1/afiliado`, { headers: headers }).pipe(map(res => res));
+    //return this.http.get(this.env.api + '/afiliado/' + id).pipe(map(res => res));
   }
 
   deleteAfiliado(afiliado) {
-    return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    //return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res));
   }
 
   updateEditaAfiliado(afiliado) {
-    return this.http.put(this.env.api + '/afiliado/' + afiliado.id, afiliado).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    //return this.http.put(this.env.api + '/afiliado/' + afiliado.id, afiliado).pipe(map(res => res));
   }
 
   resetAfiliado(): Afiliado {

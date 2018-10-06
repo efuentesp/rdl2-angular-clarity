@@ -59,7 +59,7 @@ export class BeneficiarioAgregarFormDemo implements OnInit {
       this.beneficiario.afiliado1Item = this.beneficiarioForm.controls['afiliado1Item'].value;
 
       this.beneficiarioService.postGuardaBeneficiario(this.beneficiario).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Etiquetaasignada save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

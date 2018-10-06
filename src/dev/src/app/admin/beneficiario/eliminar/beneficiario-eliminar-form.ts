@@ -70,7 +70,7 @@ export class BeneficiarioEliminarFormDemo {
       if (isConfirm.value) {
         this.beneficiarioService.deleteBeneficiario(this.beneficiario).subscribe(
           res => {
-            if (res.status == 201 || res.status == 200) {
+            if (res) {
               swal('Success...', 'Beneficiario item has been deleted successfully.', 'success');
               this.router.navigate(['../../administrar'], { relativeTo: this.route });
             } else {

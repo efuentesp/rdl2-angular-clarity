@@ -13,7 +13,7 @@ import { AlertService, AuthenticationService, UserService } from './_services';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdminComponent } from './admin/admin.component';
+import { AlertsDemo } from './alert/alert.demo';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { AdminComponent } from './admin/admin.component';
     ControlMessagesComponent,
     RegisterComponent,
     LoginComponent,
-    AdminComponent,
+    AlertsDemo,
   ],
   imports: [BrowserAnimationsModule, CommonModule, ClarityModule, ROUTING, ReactiveFormsModule, HttpClientModule],
   providers: [

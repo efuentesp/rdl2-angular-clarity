@@ -3,21 +3,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
+import { Permission } from '../_models/permission';
+import { User } from '../_models';
 
 @Injectable()
 export class AuthenticationService {
-  private username: string;
-  private firstname: string;
-  private lastname: string;
+  // private username: string;
+  // private firstname: string;
+  // private lastname: string;
+  // private display_name: string;
+  public user: User;
+  public permissions: Permission[] = [];
 
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string) {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-    console.log('Email:', email);
-    console.log('Password:', password);
 
     return (
       this.http
@@ -41,16 +43,38 @@ export class AuthenticationService {
       map(response => {
         // Get user info
         //this.authorities = response.json() && response.json().authorities;
-        this.username = response['username'];
-        this.firstname = response['firstname'];
-        this.lastname = response['lastname'];
+
+        //   this.privileges = response.json() && response.json().privileges;
+
+        // localStorage.setItem(
+        //   'currentUser',
+        //   JSON.stringify({ username: this.username, token: token, firstname: this.firstname, lastname: this.lastname })
+        // );
+        //console.log('Response User Service values:', " Token: "+token+" Username: "+this.username);
+        return true;
+      })
+    );
+  }
+
+  getUser(token) {
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token + '');
+    return this.http.get<any>(`${environment.apiUrl}/auth/v1/user`, { headers: headers }).pipe(
+      map(response => {
+        console.log('La respuesta es: ', response);
+        console.log('La respuesta es: ', response.permissions);
+
+        this.permissions = response.permissions;
+        this.user = response.user;
+        // this.username = response['username'];
+        // this.display_name = response['display_name'];
+        //this.lastname = response['lastname'];
         //   this.privileges = response.json() && response.json().privileges;
 
         localStorage.setItem(
           'currentUser',
-          JSON.stringify({ username: this.username, token: token, firstname: this.firstname, lastname: this.lastname })
+          JSON.stringify({ user: this.user, token: token, permissions: this.permissions })
         );
-        //console.log('Response User Service values:', " Token: "+token+" Username: "+this.username);
+
         return true;
       })
     );

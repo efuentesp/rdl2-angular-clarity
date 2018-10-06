@@ -25,6 +25,7 @@ export class AfiliadoAdministrarDemo {
     this.afiliadoService.getRecuperaAfiliados().subscribe(
       res => {
         if (res) {
+          //console.log('Afiliados', res);
           this.afiliadosArray = res;
         }
       },

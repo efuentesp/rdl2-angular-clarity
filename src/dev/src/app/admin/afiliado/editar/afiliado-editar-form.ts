@@ -81,7 +81,7 @@ export class AfiliadoEditarFormDemo implements OnInit {
 
       console.log('Afiliado:', this.afiliado);
       this.afiliadoService.updateEditaAfiliado(this.afiliado).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Afiliado save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

@@ -70,7 +70,7 @@ export class BeneficiarioEditarFormDemo implements OnInit {
       this.beneficiario.afiliado1Item = this.beneficiarioForm.controls['afiliado1Item'].value;
 
       this.beneficiarioService.updateEditaBeneficiario(this.beneficiario).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Beneficiario save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

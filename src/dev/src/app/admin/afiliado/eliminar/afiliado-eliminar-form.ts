@@ -70,7 +70,7 @@ export class AfiliadoEliminarFormDemo {
       if (isConfirm.value) {
         this.afiliadoService.deleteAfiliado(this.afiliado).subscribe(
           res => {
-            if (res.status == 201 || res.status == 200) {
+            if (res) {
               swal('Success...', 'Afiliado item has been deleted successfully.', 'success');
               this.router.navigate(['../../administrar'], { relativeTo: this.route });
             } else {
