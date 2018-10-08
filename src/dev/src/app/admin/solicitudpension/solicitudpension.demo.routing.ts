@@ -16,38 +16,22 @@ const ROUTES: Routes = [
     path: '',
     component: SolicitudpensionDemo,
     children: [
-      { path: '', redirectTo: 'administrar', pathMatch: 'full' },
+      { path: '', redirectTo: 'administrar', component: SolicitudpensionAdministrarDemo },
       {
         path: 'administrar',
-        component: SolicitudpensionDemo,
-        children: [
-          { path: '', redirectTo: 'administrar', pathMatch: 'full' },
-          { path: 'administrar', component: SolicitudpensionAdministrarDemo },
-        ],
+        component: SolicitudpensionAdministrarDemo,
       },
       {
         path: 'agregar',
-        component: SolicitudpensionAgregarDemo,
-        children: [
-          { path: '', redirectTo: 'agregar', pathMatch: 'full' },
-          { path: 'agregar', component: SolicitudpensionAgregarFormDemo },
-        ],
+        component: SolicitudpensionAgregarFormDemo,
       },
       {
         path: 'editar',
-        component: SolicitudpensionEditarDemo,
-        children: [
-          { path: '', redirectTo: 'editar', pathMatch: 'full' },
-          { path: 'editar', component: SolicitudpensionEditarFormDemo },
-        ],
+        component: SolicitudpensionEditarFormDemo,
       },
       {
         path: 'eliminar',
-        component: SolicitudpensionEliminarDemo,
-        children: [
-          { path: '', redirectTo: 'eliminar', pathMatch: 'full' },
-          { path: 'eliminar', component: SolicitudpensionEliminarFormDemo },
-        ],
+        component: SolicitudpensionEliminarFormDemo,
       },
     ],
   },

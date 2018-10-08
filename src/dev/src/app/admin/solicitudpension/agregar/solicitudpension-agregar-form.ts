@@ -63,7 +63,7 @@ export class SolicitudpensionAgregarFormDemo implements OnInit {
       this.solicitudpension.observaciones = this.solicitudpensionForm.controls['observaciones'].value;
 
       this.solicitudpensionService.postGuardaSolicitudpension(this.solicitudpension).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Etiquetaasignada save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

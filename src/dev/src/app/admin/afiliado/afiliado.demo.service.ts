@@ -21,7 +21,6 @@ export class AfiliadoService {
     return this.http
       .post<any>(`${environment.apiUrl}/api/v1/afiliado`, afiliado, { headers: headers })
       .pipe(map(res => res));
-    //return this.http.post(this.env.api + 'afiliado', afiliado).pipe(map(res => res));
   }
 
   getRecuperaAfiliados() {
@@ -35,22 +34,27 @@ export class AfiliadoService {
     var obj = JSON.parse(localStorage.getItem('currentUser'));
     this.token = obj['token'];
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    return this.http.get<any>(`${environment.apiUrl}/api/v1/afiliado`, { headers: headers }).pipe(map(res => res));
-    //return this.http.get(this.env.api + '/afiliado/' + id).pipe(map(res => res));
+    return this.http
+      .get<any>(`${environment.apiUrl}/api/v1/afiliado/` + id, { headers: headers })
+      .pipe(map(res => res));
   }
 
   deleteAfiliado(afiliado) {
     var obj = JSON.parse(localStorage.getItem('currentUser'));
     this.token = obj['token'];
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    //return this.http.delete(this.env.api + '/afiliado/' + afiliado.id).pipe(map(res => res));
+    return this.http
+      .delete<any>(`${environment.apiUrl}/api/v1/afiliado/` + afiliado.id, { headers: headers })
+      .pipe(map(res => res));
   }
 
   updateEditaAfiliado(afiliado) {
     var obj = JSON.parse(localStorage.getItem('currentUser'));
     this.token = obj['token'];
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    //return this.http.put(this.env.api + '/afiliado/' + afiliado.id, afiliado).pipe(map(res => res));
+    return this.http
+      .put<any>(`${environment.apiUrl}/api/v1/afiliado/` + afiliado.id, { headers: headers })
+      .pipe(map(res => res));
   }
 
   resetAfiliado(): Afiliado {
@@ -79,10 +83,14 @@ export class AfiliadoService {
       nivel: this.afiliado.nivel,
       orders: this.afiliado.orders,
     };
+
+    console.log('Afiliado GET Service:', afiliado);
+
     return afiliado;
   }
 
   setAfiliado(afiliado: Afiliado) {
+    console.log('Afiliado Service:', afiliado);
     (this.afiliado.id = afiliado.id),
       (this.afiliado.nss = afiliado.nss),
       (this.afiliado.actanacimiento = afiliado.actanacimiento),

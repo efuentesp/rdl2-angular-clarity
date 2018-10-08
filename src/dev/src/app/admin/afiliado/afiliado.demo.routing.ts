@@ -16,38 +16,22 @@ const ROUTES: Routes = [
     path: '',
     component: AfiliadoDemo,
     children: [
-      { path: '', redirectTo: 'administrar', pathMatch: 'full' },
+      { path: '', redirectTo: 'administrar', component: AfiliadoAdministrarDemo },
       {
         path: 'administrar',
-        component: AfiliadoDemo,
-        children: [
-          { path: '', redirectTo: 'administrar', pathMatch: 'full' },
-          { path: 'administrar', component: AfiliadoAdministrarDemo },
-        ],
+        component: AfiliadoAdministrarDemo,
       },
       {
         path: 'agregar',
-        component: AfiliadoAgregarDemo,
-        children: [
-          { path: '', redirectTo: 'agregar', pathMatch: 'full' },
-          { path: 'agregar', component: AfiliadoAgregarFormDemo },
-        ],
+        component: AfiliadoAgregarFormDemo,
       },
       {
         path: 'editar',
-        component: AfiliadoEditarDemo,
-        children: [
-          { path: '', redirectTo: 'editar', pathMatch: 'full' },
-          { path: 'editar', component: AfiliadoEditarFormDemo },
-        ],
+        component: AfiliadoEditarFormDemo,
       },
       {
         path: 'eliminar',
-        component: AfiliadoEliminarDemo,
-        children: [
-          { path: '', redirectTo: 'eliminar', pathMatch: 'full' },
-          { path: 'eliminar', component: AfiliadoEliminarFormDemo },
-        ],
+        component: AfiliadoEliminarFormDemo,
       },
     ],
   },

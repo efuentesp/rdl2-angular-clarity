@@ -16,38 +16,22 @@ const ROUTES: Routes = [
     path: '',
     component: BeneficiarioDemo,
     children: [
-      { path: '', redirectTo: 'administrar', pathMatch: 'full' },
+      { path: '', redirectTo: 'administrar' },
       {
         path: 'administrar',
-        component: BeneficiarioDemo,
-        children: [
-          { path: '', redirectTo: 'administrar', pathMatch: 'full' },
-          { path: 'administrar', component: BeneficiarioAdministrarDemo },
-        ],
+        component: BeneficiarioAdministrarDemo,
       },
       {
         path: 'agregar',
-        component: BeneficiarioAgregarDemo,
-        children: [
-          { path: '', redirectTo: 'agregar', pathMatch: 'full' },
-          { path: 'agregar', component: BeneficiarioAgregarFormDemo },
-        ],
+        component: BeneficiarioAgregarFormDemo,
       },
       {
         path: 'editar',
-        component: BeneficiarioEditarDemo,
-        children: [
-          { path: '', redirectTo: 'editar', pathMatch: 'full' },
-          { path: 'editar', component: BeneficiarioEditarFormDemo },
-        ],
+        component: BeneficiarioEditarFormDemo,
       },
       {
         path: 'eliminar',
-        component: BeneficiarioEliminarDemo,
-        children: [
-          { path: '', redirectTo: 'eliminar', pathMatch: 'full' },
-          { path: 'eliminar', component: BeneficiarioEliminarFormDemo },
-        ],
+        component: BeneficiarioEliminarFormDemo,
       },
     ],
   },

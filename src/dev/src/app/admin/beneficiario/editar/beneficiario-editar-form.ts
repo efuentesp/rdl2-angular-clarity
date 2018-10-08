@@ -72,7 +72,7 @@ export class BeneficiarioEditarFormDemo implements OnInit {
       this.beneficiarioService.updateEditaBeneficiario(this.beneficiario).subscribe(res => {
         if (res) {
           swal('Success...', 'Beneficiario save successfully.', 'success');
-          this.router.navigate(['../../administrar'], { relativeTo: this.route });
+          this.router.navigate(['../administrar'], { relativeTo: this.route });
         } else {
           swal('Error...', 'Beneficiario save unsuccessfully.', 'error');
         }

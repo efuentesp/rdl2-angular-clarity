@@ -3,7 +3,7 @@
 </div>
 
 <div class="card-block">
-    <button type="button" class="btn btn-icon btn-outline" [routerLink]="['../../agregar']">
+    <button type="button" class="btn btn-icon btn-outline" (click)="getTipopension()">
         <clr-icon shape="plus"></clr-icon> Agregar
     </button>
 
@@ -22,17 +22,7 @@
                 Nombre
             </ng-container> 
         </clr-dg-column>
-        <clr-dg-column></clr-dg-column>
         <clr-dg-row *clrDgItems="let tipopension of tipopensionsArray" [clrDgItem]="tipopension">
-                <clr-dg-cell hidden="true">{{tipopension.id}}</clr-dg-cell>
-                <clr-dg-cell>{{tipopension.clave}}</clr-dg-cell>
-                <clr-dg-cell>{{tipopension.nombre}}</clr-dg-cell>
-                <clr-dg-cell hidden="true">
-                    <button class="action-item" (click)="setClickedRowEditaTipopension(i, tipopension)">Editar</button> 
-                    <button class="action-item" (click)="setClickedRowEliminaTipopension(i, tipopension)">Eliminar</button>
-                    <button class="action-item" [routerLink]="['../../../Beneficiario/administrar/administrar/', tipopension]">Beneficiario</button> 
-                </clr-dg-cell>
-                <clr-dg-cell>                    
                 <clr-dg-action-overflow>
                     <button class="action-item" (click)="setClickedRowEditaTipopension(i, tipopension)">
                         <clr-icon shape="note" ></clr-icon> Editar
@@ -42,6 +32,12 @@
                     </button>
                     <div class="line-list"></div>
                 </clr-dg-action-overflow>
+                <clr-dg-cell hidden="true">{{tipopension.id}}</clr-dg-cell>
+                <clr-dg-cell>{{tipopension.clave}}</clr-dg-cell>
+                <clr-dg-cell>{{tipopension.nombre}}</clr-dg-cell>
+                <clr-dg-cell hidden="true">
+                    <button class="action-item" (click)="setClickedRowEditaTipopension(i, tipopension)">Editar</button> 
+                    <button class="action-item" (click)="setClickedRowEliminaTipopension(i, tipopension)">Eliminar</button>
                 </clr-dg-cell>
             </clr-dg-row>
             <clr-dg-footer>

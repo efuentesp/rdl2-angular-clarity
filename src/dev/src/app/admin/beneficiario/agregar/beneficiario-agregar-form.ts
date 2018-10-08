@@ -61,7 +61,7 @@ export class BeneficiarioAgregarFormDemo implements OnInit {
       this.beneficiarioService.postGuardaBeneficiario(this.beneficiario).subscribe(res => {
         if (res) {
           swal('Success...', 'Etiquetaasignada save successfully.', 'success');
-          this.router.navigate(['../../administrar'], { relativeTo: this.route });
+          this.router.navigate(['../administrar'], { relativeTo: this.route });
         } else {
           swal('Error...', 'Etiquetaasignada save unsuccessfully.', 'error');
         }

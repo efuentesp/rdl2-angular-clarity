@@ -3,30 +3,51 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Solicitudpension } from './solicitudpension.demo.model';
 import { environment } from '../../../environments/environment';
-import { HttpModule, Http } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class SolicitudpensionService {
   private env: any = environment;
   private solicitudpension = new Solicitudpension();
+  private token: string;
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   postGuardaSolicitudpension(solicitudpension) {
-    return this.http.post(this.env.api + '/solicitudpension', solicitudpension).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .post<any>(`${environment.apiUrl}/api/v1/solicitudpension`, { headers: headers })
+      .pipe(map(res => res));
   }
 
   getRecuperaSolicitudpensions() {
-    return this.http.get(this.env.api + '/solicitudpension').pipe(map(res => res.json()));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .get<any>(`${environment.apiUrl}/api/v1/solicitudpension`, { headers: headers })
+      .pipe(map(res => res));
   }
 
   deleteSolicitudpension(solicitudpension) {
-    return this.http.delete(this.env.api + '/solicitudpension/' + solicitudpension.id).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .delete<any>(`${environment.apiUrl}/api/v1/solicitudpension/` + solicitudpension.id, { headers: headers })
+      .pipe(map(res => res));
   }
 
   updateEditaSolicitudpension(solicitudpension) {
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     return this.http
-      .put(this.env.api + '/solicitudpension/' + solicitudpension.id, solicitudpension)
+      .post<any>(`${environment.apiUrl}/api/v1/solicitudpension/` + solicitudpension.id, solicitudpension, {
+        headers: headers,
+      })
       .pipe(map(res => res));
   }
 

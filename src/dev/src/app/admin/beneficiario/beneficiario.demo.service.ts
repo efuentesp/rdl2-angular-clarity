@@ -14,7 +14,10 @@ export class BeneficiarioService {
   constructor(private http: HttpClient) {}
 
   postGuardaBeneficiario(beneficiario) {
-    return this.http.post(this.env.api + '/beneficiario', beneficiario).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.post<any>(`${environment.apiUrl}/api/v1/beneficiario`, { headers: headers }).pipe(map(res => res));
   }
 
   getRecuperaBeneficiarios() {
@@ -25,15 +28,31 @@ export class BeneficiarioService {
   }
 
   getRecuperaBeneficiarioPorId(id) {
-    return this.http.get(this.env.api + '/beneficiario/' + id).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .get<any>(`${environment.apiUrl}/api/v1/beneficiario/` + id, { headers: headers })
+      .pipe(map(res => res));
   }
 
   deleteBeneficiario(beneficiario) {
-    return this.http.delete(this.env.api + '/beneficiario/' + beneficiario.id).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .delete<any>(`${environment.apiUrl}/api/v1/beneficiario/` + beneficiario.id, { headers: headers })
+      .pipe(map(res => res));
   }
 
   updateEditaBeneficiario(beneficiario) {
-    return this.http.put(this.env.api + '/beneficiario/' + beneficiario.id, beneficiario).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    console.log('Token:', this.token);
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .put<any>(`${environment.apiUrl}/api/v1/beneficiario/` + beneficiario.id, { headers: headers })
+      .pipe(map(res => res));
   }
 
   resetBeneficiario(): Beneficiario {

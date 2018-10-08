@@ -75,7 +75,7 @@
                     <!-- <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
                     <!-- <clr-icon shape="search" ng-click="basic = true"></clr-icon>
                     <button class="btn btn-primary" (click)="basic = true"><clr-icon shape="search"></clr-icon></button> -->
-                    <button type="button" class="btn btn-primary" style="margin-top: -17px" (click)="basic = true"><clr-icon shape="search"></clr-icon></button>
+                    <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basic = true"><clr-icon shape="search"></clr-icon></button>
                     <span class="tooltip-content">
                         Afiliado es requerido.
                     </span>
@@ -87,7 +87,7 @@
         <p> Form status {{ beneficiarioForm.status | json}} </p>  -->
         <p>
             <button type="submit" class="btn btn-primary" ><clr-icon shape="success-standard"></clr-icon> Editar</button>
-            <button type="submit" class="btn btn-outline" [routerLink]="['../../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
+            <button type="submit" class="btn btn-outline" [routerLink]="['../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
         </p>
     
         <clr-modal [(clrModalOpen)]="basic" class="modal-dialog modal-xl"  style="width: 700px">

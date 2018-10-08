@@ -3,9 +3,11 @@
 </div>
 
 <div class="card-block">
-    <button type="button" class="btn btn-icon btn-outline" [routerLink]="['../../agregar']">
+    <div *ngIf="beneficiario_create">
+    <button type="button" class="btn btn-icon btn-outline" (click)="getBeneficiario()">
         <clr-icon shape="plus"></clr-icon> Agregar
     </button>
+    </div>
 
     <clr-datagrid [clrDgLoading]="loading">
         <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
@@ -47,6 +49,17 @@
         </clr-dg-column>
         <clr-dg-column></clr-dg-column>
         <clr-dg-row *clrDgItems="let beneficiario of beneficiariosArray" [clrDgItem]="beneficiario">
+                <clr-dg-action-overflow>
+                   
+                    <button class="action-item" *ngIf="beneficiario_update" (click)="setClickedRowEditaBeneficiario(i, beneficiario)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="beneficiario_delete" (click)="setClickedRowEliminaBeneficiario(i, beneficiario)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                    
+                    <div class="line-list"></div>
+                </clr-dg-action-overflow>
                 <!-- <clr-dg-cell hidden="true">{{beneficiario.id}}</clr-dg-cell> -->
                 <clr-dg-cell>{{beneficiario.curp}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.nombre}}</clr-dg-cell>
@@ -56,21 +69,15 @@
                 <!-- <clr-dg-cell>{{beneficiario.afiliado1Id}}</clr-dg-cell> -->
                 <clr-dg-cell>{{beneficiario.afiliado1Item}}</clr-dg-cell>
                 <clr-dg-cell hidden="true">
+                    <div *ngIf="beneficiario_update">
                     <button class="action-item" (click)="setClickedRowEditaBeneficiario(i, beneficiario)">Editar</button> 
+                    </div>
+                    <div *ngIf="beneficiario_delete">
                     <button class="action-item" (click)="setClickedRowEliminaBeneficiario(i, beneficiario)">Eliminar</button>
-                    <button class="action-item" [routerLink]="['../../../Beneficiario/administrar/administrar/', beneficiario]">Beneficiario</button> 
+                    </div>
                 </clr-dg-cell>
-                <clr-dg-cell>                    
-                <clr-dg-action-overflow>
-                    <button class="action-item" (click)="setClickedRowEditaBeneficiario(i, beneficiario)">
-                        <clr-icon shape="note" ></clr-icon> Editar
-                    </button>
-                    <button class="action-item" (click)="setClickedRowEliminaBeneficiario(i, beneficiario)">
-                        <clr-icon shape="trash"></clr-icon> Borrar
-                    </button>
-                    <div class="line-list"></div>
-                </clr-dg-action-overflow>
-                </clr-dg-cell>
+                   
+             
             </clr-dg-row>
             <clr-dg-footer>
                 <clr-dg-column-toggle>

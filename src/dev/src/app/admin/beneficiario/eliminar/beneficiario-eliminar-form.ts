@@ -72,7 +72,7 @@ export class BeneficiarioEliminarFormDemo {
           res => {
             if (res) {
               swal('Success...', 'Beneficiario item has been deleted successfully.', 'success');
-              this.router.navigate(['../../administrar'], { relativeTo: this.route });
+              this.router.navigate(['../administrar'], { relativeTo: this.route });
             } else {
               swal('Error...', 'Beneficiario save unsuccessfully.', 'error');
             }

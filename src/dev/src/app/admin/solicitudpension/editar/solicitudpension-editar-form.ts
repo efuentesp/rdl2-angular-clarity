@@ -76,7 +76,7 @@ export class SolicitudpensionEditarFormDemo implements OnInit {
 
       console.log('Solicitudpension:', this.solicitudpension);
       this.solicitudpensionService.updateEditaSolicitudpension(this.solicitudpension).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Solicitudpension save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

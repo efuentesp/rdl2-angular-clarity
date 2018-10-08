@@ -3,29 +3,50 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Tipopension } from './tipopension.demo.model';
 import { environment } from '../../../environments/environment';
-import { HttpModule, Http } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class TipopensionService {
   private env: any = environment;
   private tipopension = new Tipopension();
+  private token: string;
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   postGuardaTipopension(tipopension) {
-    return this.http.post(this.env.api + '/tipopension', tipopension).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.post<any>(`${environment.apiUrl}/api/v1/tipopension`, { headers: headers }).pipe(map(res => res));
+    //return this.http.post(this.env.api + '/tipopension', tipopension).pipe(map(res => res));
   }
 
   getRecuperaTipopensions() {
-    return this.http.get(this.env.api + '/tipopension').pipe(map(res => res.json()));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http.get<any>(`${environment.apiUrl}/api/v1/tipopension`, { headers: headers }).pipe(map(res => res));
+    //return this.http.get(this.env.api + '/tipopension').pipe(map(res => res.json()));
   }
 
   deleteTipopension(tipopension) {
-    return this.http.delete(this.env.api + '/tipopension/' + tipopension.id).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .delete<any>(`${environment.apiUrl}/api/v1/tipopension/` + tipopension.id, { headers: headers })
+      .pipe(map(res => res));
+    //return this.http.delete(this.env.api + '/tipopension/' + tipopension.id).pipe(map(res => res));
   }
 
   updateEditaTipopension(tipopension) {
-    return this.http.put(this.env.api + '/tipopension/' + tipopension.id, tipopension).pipe(map(res => res));
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .post<any>(`${environment.apiUrl}/api/v1/tipopension/` + tipopension.id, tipopension, { headers: headers })
+      .pipe(map(res => res));
+    //return this.http.put(this.env.api + '/tipopension/' + tipopension.id, tipopension).pipe(map(res => res));
   }
 
   resetTipopension(): Tipopension {

@@ -42,7 +42,7 @@ export class TipopensionAgregarFormDemo implements OnInit {
       this.tipopension.nombre = this.tipopensionForm.controls['nombre'].value;
 
       this.tipopensionService.postGuardaTipopension(this.tipopension).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Etiquetaasignada save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

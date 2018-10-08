@@ -16,38 +16,22 @@ const ROUTES: Routes = [
     path: '',
     component: TipopensionDemo,
     children: [
-      { path: '', redirectTo: 'administrar', pathMatch: 'full' },
+      { path: '', redirectTo: 'administrar', component: TipopensionAdministrarDemo },
       {
         path: 'administrar',
-        component: TipopensionDemo,
-        children: [
-          { path: '', redirectTo: 'administrar', pathMatch: 'full' },
-          { path: 'administrar', component: TipopensionAdministrarDemo },
-        ],
+        component: TipopensionAdministrarDemo,
       },
       {
         path: 'agregar',
-        component: TipopensionAgregarDemo,
-        children: [
-          { path: '', redirectTo: 'agregar', pathMatch: 'full' },
-          { path: 'agregar', component: TipopensionAgregarFormDemo },
-        ],
+        component: TipopensionAgregarFormDemo,
       },
       {
         path: 'editar',
-        component: TipopensionEditarDemo,
-        children: [
-          { path: '', redirectTo: 'editar', pathMatch: 'full' },
-          { path: 'editar', component: TipopensionEditarFormDemo },
-        ],
+        component: TipopensionEditarFormDemo,
       },
       {
         path: 'eliminar',
-        component: TipopensionEliminarDemo,
-        children: [
-          { path: '', redirectTo: 'eliminar', pathMatch: 'full' },
-          { path: 'eliminar', component: TipopensionEliminarFormDemo },
-        ],
+        component: TipopensionEliminarFormDemo,
       },
     ],
   },

@@ -75,7 +75,7 @@ export class SolicitudpensionEliminarFormDemo {
       if (isConfirm.value) {
         this.solicitudpensionService.deleteSolicitudpension(this.solicitudpension).subscribe(
           res => {
-            if (res.status == 201 || res.status == 200) {
+            if (res) {
               swal('Success...', 'Solicitudpension item has been deleted successfully.', 'success');
               this.router.navigate(['../../administrar'], { relativeTo: this.route });
             } else {
@@ -83,7 +83,7 @@ export class SolicitudpensionEliminarFormDemo {
             }
           },
           error => {
-            if (error.status == 500) {
+            if (error) {
               swal(
                 'Warning...',
                 'Solicitudpension no se puede eliminar debido a que esta asociado con otra entidad.',

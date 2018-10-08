@@ -51,7 +51,7 @@ export class TipopensionEditarFormDemo implements OnInit {
 
       console.log('Tipopension:', this.tipopension);
       this.tipopensionService.updateEditaTipopension(this.tipopension).subscribe(res => {
-        if (res.status == 201 || res.status == 200) {
+        if (res) {
           swal('Success...', 'Tipopension save successfully.', 'success');
           this.router.navigate(['../../administrar'], { relativeTo: this.route });
         } else {

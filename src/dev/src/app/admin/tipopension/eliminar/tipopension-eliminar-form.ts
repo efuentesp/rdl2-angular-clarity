@@ -54,7 +54,7 @@ export class TipopensionEliminarFormDemo {
       if (isConfirm.value) {
         this.tipopensionService.deleteTipopension(this.tipopension).subscribe(
           res => {
-            if (res.status == 201 || res.status == 200) {
+            if (res) {
               swal('Success...', 'Tipopension item has been deleted successfully.', 'success');
               this.router.navigate(['../../administrar'], { relativeTo: this.route });
             } else {
@@ -62,7 +62,7 @@ export class TipopensionEliminarFormDemo {
             }
           },
           error => {
-            if (error.status == 500) {
+            if (error) {
               swal(
                 'Warning...',
                 'Tipopension no se puede eliminar debido a que esta asociado con otra entidad.',
