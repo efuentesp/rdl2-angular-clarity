@@ -7,7 +7,7 @@
     display: flex;
     background: generateLoginBackground();
     background-size: cover;
-    background-position: $clr-login-width 0;
+    background-position: 27rem 0;
     background-repeat: no-repeat;
 
     .login {
@@ -16,10 +16,11 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 1rem 2.5rem;
+      //padding: 1rem 2.5rem;
       height: auto;
       min-height: 100vh;
-      width: $clr-login-width;
+      //width: $clr-login-width;
+      width: 27rem;
 
       .title {
         @include clr-getTypePropertiesForDomElement(
@@ -56,14 +57,14 @@
       .login-group {
         display: flex;
         flex-direction: column;
-        padding: 2rem 0 0 0;
+        //padding: 2rem 0 0 0;
 
         .auth-source,
         .username,
-        .password,
-        .checkbox {
-          margin: 0.25rem 0 0.75rem 0;
-        }
+        .password
+        /* .checkbox {*/
+        /*   margin: 0.25rem 0 0.75rem 0;*/
+        /* }*/
 
         .tooltip-validation {
           margin-top: 0.25rem;
@@ -78,7 +79,7 @@
         .error {
           display: none;
           margin: 0.25rem 0 0 0;
-          padding: 0.375rem 0.5rem;
+          //padding: 0.375rem 0.5rem;
           // TODO: use contrast checker vs. known background?
           background: clr-getColor(dark-midtone, reds);
           color: $clr-login-background-color;
@@ -139,8 +140,8 @@
 
       .login {
         width: 100%;
-        margin-left: 0;
-        padding: 1rem 20%;
+        //margin-left: 0;
+        //padding: 1rem 20%;
 
         &:after {
           content: none;
@@ -152,7 +153,7 @@
   @media screen and (max-width: map-get($grid-breakpoints, sm)) {
     .login-wrapper {
       .login {
-        padding: 1rem 15%;
+        //padding: 1rem 15%;
       }
     }
   }

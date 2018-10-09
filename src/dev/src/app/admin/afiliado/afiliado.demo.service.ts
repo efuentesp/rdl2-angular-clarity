@@ -9,7 +9,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 @Injectable()
 export class AfiliadoService {
   private env: any = environment;
-  private afiliado = new Afiliado();
+  afiliado = new Afiliado();
   private token: string;
 
   constructor(private http: HttpClient) {}
@@ -53,7 +53,7 @@ export class AfiliadoService {
     this.token = obj['token'];
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     return this.http
-      .put<any>(`${environment.apiUrl}/api/v1/afiliado/` + afiliado.id, { headers: headers })
+      .put<any>(`${environment.apiUrl}/api/v1/afiliado/` + afiliado.id, afiliado, { headers: headers })
       .pipe(map(res => res));
   }
 
@@ -83,14 +83,11 @@ export class AfiliadoService {
       nivel: this.afiliado.nivel,
       orders: this.afiliado.orders,
     };
-
-    console.log('Afiliado GET Service:', afiliado);
-
+    console.log('Afiliado GET : ', afiliado);
     return afiliado;
   }
 
   setAfiliado(afiliado: Afiliado) {
-    console.log('Afiliado Service:', afiliado);
     (this.afiliado.id = afiliado.id),
       (this.afiliado.nss = afiliado.nss),
       (this.afiliado.actanacimiento = afiliado.actanacimiento),
@@ -109,6 +106,7 @@ export class AfiliadoService {
       (this.afiliado.semanascotizadas = afiliado.semanascotizadas),
       (this.afiliado.nivel = afiliado.nivel),
       (this.afiliado.orders = afiliado.orders);
+    console.log('Afiliado SET : ', this.afiliado);
   }
 
   clear() {

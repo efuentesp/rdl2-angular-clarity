@@ -79,11 +79,10 @@ export class AfiliadoEditarFormDemo implements OnInit {
       this.afiliado.actanacimiento = this.afiliadoForm.controls['actanacimiento'].value;
       this.afiliado.foto = this.afiliadoForm.controls['foto'].value;
 
-      console.log('Afiliado:', this.afiliado);
       this.afiliadoService.updateEditaAfiliado(this.afiliado).subscribe(res => {
         if (res) {
           swal('Success...', 'Afiliado save successfully.', 'success');
-          this.router.navigate(['../../administrar'], { relativeTo: this.route });
+          this.router.navigate(['../administrar'], { relativeTo: this.route });
         } else {
           swal('Error...', 'Afiliado save unsuccessfully.', 'error');
         }
@@ -94,12 +93,9 @@ export class AfiliadoEditarFormDemo implements OnInit {
   minSelectedCheckboxes(min = 1) {
     const validator: ValidatorFn = (formArray: FormArray) => {
       const totalSelected = formArray.controls
-        // get a list of checkbox values (boolean)
         .map(control => control.value)
-        // total up the number of checked checkboxes
         .reduce((prev, next) => (next ? prev + next : prev), 0);
 
-      // if the total is not greater than the minimum, return the error message
       return totalSelected >= min ? null : { required: true };
     };
 

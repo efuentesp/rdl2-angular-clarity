@@ -4,11 +4,13 @@ import { map } from 'rxjs/operators';
 import { Beneficiario } from './beneficiario.demo.model';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Afiliado } from '../afiliado/afiliado.demo.model';
 
 @Injectable()
 export class BeneficiarioService {
   private env: any = environment;
-  private beneficiario = new Beneficiario();
+  beneficiario = new Beneficiario();
+  afiliado = new Afiliado();
   private token: string;
 
   constructor(private http: HttpClient) {}
@@ -36,6 +38,15 @@ export class BeneficiarioService {
       .pipe(map(res => res));
   }
 
+  getRecuperaBeneficiariosPorAfiliado(id) {
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['token'];
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
+    return this.http
+      .get<any>(`${environment.apiUrl}/api/v1/beneficiario?afiliado1Id=` + id, { headers: headers })
+      .pipe(map(res => res));
+  }
+
   deleteBeneficiario(beneficiario) {
     var obj = JSON.parse(localStorage.getItem('currentUser'));
     this.token = obj['token'];
@@ -51,7 +62,7 @@ export class BeneficiarioService {
     console.log('Token:', this.token);
     let headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     return this.http
-      .put<any>(`${environment.apiUrl}/api/v1/beneficiario/` + beneficiario.id, { headers: headers })
+      .put<any>(`${environment.apiUrl}/api/v1/beneficiario/` + beneficiario.id, beneficiario, { headers: headers })
       .pipe(map(res => res));
   }
 

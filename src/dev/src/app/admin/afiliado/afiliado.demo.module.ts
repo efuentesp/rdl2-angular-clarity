@@ -16,6 +16,7 @@ import { AfiliadoEliminarDemo } from './eliminar/afiliado-eliminar';
 import { ValidationService } from '../../_validation/validation.service';
 import { AfiliadoService } from './afiliado.demo.service';
 import { HttpModule } from '@angular/http';
+import { BeneficiarioDetailsFormDemo } from './beneficiario-details/beneficiario-details';
 
 @NgModule({
   imports: [CommonModule, ClarityModule, ROUTING, HttpModule, ReactiveFormsModule, FormsModule],
@@ -28,6 +29,7 @@ import { HttpModule } from '@angular/http';
     AfiliadoEliminarFormDemo,
     AfiliadoEditarDemo,
     AfiliadoEliminarDemo,
+    BeneficiarioDetailsFormDemo,
   ],
   exports: [
     AfiliadoDemo,
@@ -38,6 +40,7 @@ import { HttpModule } from '@angular/http';
     AfiliadoEliminarFormDemo,
     AfiliadoEditarDemo,
     AfiliadoEliminarDemo,
+    BeneficiarioDetailsFormDemo,
   ],
   providers: [Inventory, ValidationService, AfiliadoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

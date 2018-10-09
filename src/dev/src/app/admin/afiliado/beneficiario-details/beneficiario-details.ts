@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
 import '@clr/icons/shapes/social-shapes';
 import '@clr/icons/shapes/essential-shapes';
-import { Beneficiario } from '../beneficiario.demo.model';
-import { BeneficiarioService } from '../beneficiario.demo.service';
+import { Afiliado } from '../afiliado.demo.model';
+import { AfiliadoService } from '../afiliado.demo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
-import { AfiliadoService } from '../../afiliado/afiliado.demo.service';
-import { Afiliado } from '../../afiliado/afiliado.demo.model';
-import { User } from '../../../_models';
+import { style } from '@angular/animations';
 import { Permission } from '../../../_models/permission';
+import { User } from '../../../_models';
+import { BeneficiarioService } from '../../beneficiario/beneficiario.demo.service';
+import { Beneficiario } from '../../beneficiario/beneficiario.demo.model';
 
 @Component({
   selector: 'clr-alert-demo-styles',
-  styleUrls: ['../beneficiario.demo.scss'],
-  templateUrl: './beneficiario-administrar.demo.html',
+  styleUrls: ['../afiliado.demo.scss'],
+  templateUrl: './beneficiario-details.demo.html',
 })
-export class BeneficiarioAdministrarDemo {
+export class BeneficiarioDetailsFormDemo {
   beneficiariosArray: Beneficiario[];
   afiliado = new Afiliado();
 
@@ -29,7 +30,7 @@ export class BeneficiarioAdministrarDemo {
   private beneficiario_create: boolean = false;
   private beneficiario_read: boolean = false;
 
-  fromAfiliado: boolean = false;
+  variableEntidad: string = '';
 
   constructor(
     private beneficiarioService: BeneficiarioService,
@@ -41,13 +42,14 @@ export class BeneficiarioAdministrarDemo {
   ngOnInit() {
     this.getUser();
     this.setButtons();
-    this.cargaBeneficiarios();
 
-    //console.log ("Afiliado:", this.beneficiarioService.getAfiliado());
+    this.afiliado = this.afiliadoService.getAfiliado();
+    this.variableEntidad = this.afiliado.nss;
+    this.cargaBeneficiariosPorAfiliado(this.afiliado.id);
   }
 
-  cargaBeneficiarios() {
-    this.beneficiarioService.getRecuperaBeneficiarios().subscribe(
+  cargaBeneficiariosPorAfiliado(id) {
+    this.beneficiarioService.getRecuperaBeneficiariosPorAfiliado(id).subscribe(
       res => {
         if (res) {
           this.beneficiariosArray = res;
@@ -71,17 +73,17 @@ export class BeneficiarioAdministrarDemo {
   setClickedRowEditaBeneficiario(index, beneficiario) {
     console.log('Edita Beneficiario:', beneficiario);
     this.beneficiarioService.setBeneficiario(beneficiario);
-    this.router.navigate(['../editar'], { relativeTo: this.route });
+    this.router.navigate(['../../../beneficiario/editar'], { relativeTo: this.route });
   }
 
   setClickedRowEliminaBeneficiario(index, beneficiario) {
     console.log('Elimina Beneficiario:', beneficiario);
     this.beneficiarioService.setBeneficiario(beneficiario);
-    this.router.navigate(['../eliminar'], { relativeTo: this.route });
+    this.router.navigate(['../../../beneficiario/eliminar'], { relativeTo: this.route });
   }
 
   getBeneficiario() {
-    this.router.navigate(['../agregar'], { relativeTo: this.route });
+    this.router.navigate(['../../../beneficiario/agregar'], { relativeTo: this.route });
   }
 
   getUser() {

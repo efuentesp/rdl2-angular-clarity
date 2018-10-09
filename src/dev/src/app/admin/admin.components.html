@@ -2,7 +2,6 @@
   <clr-header class="header-6">
       <div class="branding">
           <a href="#" class="nav-link">
-              <!-- <clr-icon shape="vm-bug"></clr-icon> -->
               <img src="../../assets/logo.png" width="30px">
               <span class="title">   APPICATION DEVELOPMENT</span>
           </a>
@@ -23,7 +22,6 @@
           </clr-dropdown>
       </div>
   </clr-header>
-  
   <div class="content-container">
     <main class="content-area">
       <div class="card">
@@ -36,48 +34,33 @@
                 <input id="tab1" type="checkbox">
                 <label for="tab1"> <clr-icon shape="home"></clr-icon>  Navigation</label>
             </section>
-            <div class="card-header"></div>
             <section class="nav-group collapsible">
                 <input id="tab2" type="checkbox">
                 <label for="tab2"> <clr-icon shape="list"></clr-icon>  Pensiones</label>
                 <ul class="nav-list">
                     <li *ngIf="afiliado_read">
-                    <a routerLink="./afiliado" routerLinkActive="active"><clr-icon shape="application"></clr-icon>Afiliado</a> 
+                        <a routerLink="./afiliado" routerLinkActive="active">
+                            <clr-icon shape="application"></clr-icon>Afiliado
+                        </a> 
                     </li>
                     <li *ngIf="beneficiario_read">
-                    <a routerLink="./beneficiario" routerLinkActive="active"><clr-icon shape="application"></clr-icon>Beneficiario</a> 
+                        <a routerLink="./beneficiario" routerLinkActive="active">
+                            <clr-icon shape="application"></clr-icon>Beneficiario
+                        </a> 
                     </li>
                     <li *ngIf="tipopension_read">
-                    <a routerLink="./tipopension" routerLinkActive="active"><clr-icon shape="application"></clr-icon>Tipo de Pension</a> 
+                        <a routerLink="./tipopension" routerLinkActive="active">
+                            <clr-icon shape="application"></clr-icon>Tipo de Pension
+                        </a> 
                     </li>
                     <li *ngIf="solicitudpension_read">
-                    <a routerLink="./solicitudpension" routerLinkActive="active"><clr-icon shape="application"></clr-icon>Solicitud de Pensión</a> 
+                        <a routerLink="./solicitudpension" routerLinkActive="active">
+                            <clr-icon shape="application"></clr-icon>Solicitud de Pensión
+                        </a> 
                     </li>
                 </ul>
             </section>
-            <div class="card-header"></div>
-            <section class="nav-group collapsible">
-                <input id="tab3" type="checkbox">
-                <label for="tab3"> <clr-icon shape="list"></clr-icon>  Demo</label>
-            </section>
         </section>
     </nav>
-
   </div>
-
-
 </clr-main-container>
-
-
-
-
-
-
-<!--
-
- 
-Hola
-
-<a routerLink="./createUser" routerLinkActive="active">User
-</a>
-<router-outlet></router-outlet> -->

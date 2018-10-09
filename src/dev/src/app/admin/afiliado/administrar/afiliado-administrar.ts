@@ -9,6 +9,7 @@ import { style } from '@angular/animations';
 import { Permission } from '../../../_models/permission';
 import { User } from '../../../_models';
 import { BeneficiarioService } from '../../beneficiario/beneficiario.demo.service';
+import { Beneficiario } from '../../beneficiario/beneficiario.demo.model';
 
 @Component({
   selector: 'clr-alert-demo-styles',
@@ -32,7 +33,7 @@ export class AfiliadoAdministrarDemo {
   private beneficiario_read: boolean = false;
 
   constructor(
-    private afiliadoService: AfiliadoService,
+    public afiliadoService: AfiliadoService,
     private router: Router,
     private route: ActivatedRoute,
     private beneficiarioService: BeneficiarioService
@@ -74,7 +75,8 @@ export class AfiliadoAdministrarDemo {
   }
 
   setClickedRowConsultaBeneficiario(index, afiliado) {
-    this.router.navigate(['../../beneficiario/administrar'], { relativeTo: this.route });
+    this.afiliadoService.setAfiliado(afiliado);
+    this.router.navigate(['../beneficiario-details', afiliado.id], { relativeTo: this.route });
   }
 
   getUser() {

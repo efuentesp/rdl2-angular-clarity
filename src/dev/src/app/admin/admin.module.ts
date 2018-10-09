@@ -57,7 +57,6 @@ import { TipopensionDemoModule } from './tipopension/tipopension.demo.module';
     // AfiliadoEliminarDemo,
   ],
   providers: [
-    // UserService,
     AfiliadoService,
     BeneficiarioService,
     TipopensionService,

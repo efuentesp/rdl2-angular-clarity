@@ -1,5 +1,5 @@
 <div class="card-header">
-    Administrar Beneficiarios
+    Administrar Beneficiarios <span>({{variableEntidad}})</span>
 </div>
 
 <div class="card-block">
@@ -11,7 +11,6 @@
 
     <clr-datagrid [clrDgLoading]="loading">
         <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
-        
         <clr-dg-column [clrDgField]="'curp'">
             <ng-container *clrDgHideableColumn="{hidden: false}"> 
                 Curp
@@ -59,13 +58,11 @@
                         <clr-icon shape="trash"></clr-icon> Borrar
                     </button>
                 </clr-dg-action-overflow>
-                <!-- <clr-dg-cell hidden="true">{{beneficiario.id}}</clr-dg-cell> -->
                 <clr-dg-cell>{{beneficiario.curp}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.nombre}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.apellidopaterno}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.apellidomaterno}}</clr-dg-cell>
                 <clr-dg-cell>{{beneficiario.fechanacimiento}}</clr-dg-cell>
-                <!-- <clr-dg-cell>{{beneficiario.afiliado1Id}}</clr-dg-cell> -->
                 <clr-dg-cell>{{beneficiario.afiliado1Item}}</clr-dg-cell>
             </clr-dg-row>
             <clr-dg-footer>
