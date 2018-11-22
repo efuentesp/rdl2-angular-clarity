@@ -4,7 +4,7 @@ Administrar Usuarios
 </div>
 
 <div class="card-block">
-<button type="button" class="btn btn-icon btn-outline" (click)="getUser()">
+<button type="button" class="btn btn-icon btn-outline" *ngIf="users_create" (click)="getUser()">
     <clr-icon shape="plus"></clr-icon> Agregar
 </button>
     
@@ -43,10 +43,10 @@ Administrar Usuarios
 
 		<clr-dg-row *clrDgItems="let user of userArray" [clrDgItem]="user">
 			<clr-dg-action-overflow>
-				<button class="action-item"  (click)="setClickedRowEditaUser(i, user)">
+				<button class="action-item" *ngIf="users_update" (click)="setClickedRowEditaUser(i, user)">
 					<clr-icon shape="note" ></clr-icon> Editar
 				</button>
-				<button class="action-item"  (click)="setClickedRowEliminaUser(i, user)">
+				<button class="action-item" *ngIf="users_delete" (click)="setClickedRowEliminaUser(i, user)">
 					<clr-icon shape="trash"></clr-icon> Borrar
 				</button>
 			</clr-dg-action-overflow>

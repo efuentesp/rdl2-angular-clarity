@@ -4,7 +4,7 @@ Administrar Rol
 </div>
 
 <div class="card-block">
-<button type="button" class="btn btn-icon btn-outline" (click)="getRol()">
+<button type="button" *ngIf="roles_create" class="btn btn-icon btn-outline" (click)="getRol()">
     <clr-icon shape="plus"></clr-icon> Agregar
 </button>
     
@@ -28,10 +28,10 @@ Administrar Rol
 	
 		<clr-dg-row *clrDgItems="let rol of rolArray" [clrDgItem]="rol">
 			<clr-dg-action-overflow>
-				<button class="action-item" (click)="setClickedRowEditaRol(i, rol)">
+				<button class="action-item" *ngIf="roles_update"  (click)="setClickedRowEditaRol(i, rol)">
 					<clr-icon shape="note" ></clr-icon> Editar
 				</button>
-				<button class="action-item" (click)="setClickedRowEliminaRol(i, rol)">
+				<button class="action-item" *ngIf="roles_delete"  (click)="setClickedRowEliminaRol(i, rol)">
 					<clr-icon shape="trash"></clr-icon> Borrar
 				</button>
 			</clr-dg-action-overflow>

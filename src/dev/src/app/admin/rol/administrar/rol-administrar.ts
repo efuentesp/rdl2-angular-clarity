@@ -34,22 +34,16 @@ export class RolAdministrarDemo {
   permissions: Permission[];
   public rolArray: Rol[];
 
-  private rol_update: boolean = false;
-  private rol_delete: boolean = false;
-  private rol_create: boolean = false;
-  private rol_read: boolean = false;
-
-  // Child Entities *
-  private beneficiario_read: boolean = false;
-  private beneficiario_update: boolean = false;
-  private beneficiario_delete: boolean = false;
-  private beneficiario_create: boolean = false;
+  private roles_update: boolean = false;
+  private roles_delete: boolean = false;
+  private roles_create: boolean = false;
+  private roles_read: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private rolService: RolService) {}
 
   ngOnInit() {
-    //this.getUser();
-    //this.setButtons();
+    this.getUser();
+    this.setButtons();
     this.cargaRoles();
   }
 
@@ -79,5 +73,46 @@ export class RolAdministrarDemo {
 
   getRol() {
     this.router.navigate(['../agregar'], { relativeTo: this.route });
+  }
+
+  getUser() {
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['access_token'];
+    this.permissions = obj['permissions'];
+    this.user = obj['user'];
+  }
+
+  setButtons() {
+    this.permissions.forEach(element => {
+      if (element.code == '*:*') {
+        this.roles_update = true;
+        this.roles_delete = true;
+        this.roles_create = true;
+        this.roles_read = true;
+      }
+
+      if (element.code == 'ROLES:UPDATE') {
+        this.roles_update = true;
+      }
+
+      if (element.code == 'ROLES:DELETE') {
+        this.roles_delete = true;
+      }
+
+      if (element.code == 'ROLES:READ') {
+        this.roles_read = true;
+      }
+
+      if (element.code == 'ROLES:CREATE') {
+        this.roles_create = true;
+      }
+
+      if (element.code == 'ROLES:*') {
+        this.roles_update = true;
+        this.roles_delete = true;
+        this.roles_create = true;
+        this.roles_read = true;
+      }
+    });
   }
 }

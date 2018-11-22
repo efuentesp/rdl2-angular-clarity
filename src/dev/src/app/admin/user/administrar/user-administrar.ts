@@ -28,12 +28,18 @@ export class UserAdministrarDemo {
   token: string;
   permissions: Permission[];
   public userArray: User;
+  user: User;
+
+  private users_update: boolean = false;
+  private users_delete: boolean = false;
+  private users_create: boolean = false;
+  private users_read: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit() {
-    //this.getUser();
-    //this.setButtons();
+    this.getUsers();
+    this.setButtons();
     this.cargaUser();
   }
 
@@ -64,10 +70,44 @@ export class UserAdministrarDemo {
     this.router.navigate(['../agregar'], { relativeTo: this.route });
   }
 
-  // getUser() {
-  //   var obj = JSON.parse(localStorage.getItem('currentUser'));
-  //   this.token = obj['access_token'];
-  //   this.permissions = obj['permissions'];
-  //   this.user = obj['user'];
-  // }
+  getUsers() {
+    var obj = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = obj['access_token'];
+    this.permissions = obj['permissions'];
+    this.user = obj['user'];
+  }
+
+  setButtons() {
+    this.permissions.forEach(element => {
+      if (element.code == '*:*') {
+        this.users_update = true;
+        this.users_delete = true;
+        this.users_create = true;
+        this.users_read = true;
+      }
+
+      if (element.code == 'USERS:UPDATE') {
+        this.users_update = true;
+      }
+
+      if (element.code == 'USERS:DELETE') {
+        this.users_delete = true;
+      }
+
+      if (element.code == 'USERS:READ') {
+        this.users_read = true;
+      }
+
+      if (element.code == 'USERS:CREATE') {
+        this.users_create = true;
+      }
+
+      if (element.code == 'USERS:*') {
+        this.users_update = true;
+        this.users_delete = true;
+        this.users_create = true;
+        this.users_read = true;
+      }
+    });
+  }
 }
