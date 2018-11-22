@@ -1,0 +1,53 @@
+<!-- PSG Administrar Rol Html -->
+<div class="card-header">
+Administrar Rol
+</div>
+
+<div class="card-block">
+<button type="button" class="btn btn-icon btn-outline" (click)="getRol()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'name'" >
+			<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'description'" >
+			<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'enabled'" >
+			<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Activo
+		    </ng-container>    
+		</clr-dg-column>
+	
+		<clr-dg-row *clrDgItems="let rol of rolArray" [clrDgItem]="rol">
+			<clr-dg-action-overflow>
+				<button class="action-item" (click)="setClickedRowEditaRol(i, rol)">
+					<clr-icon shape="note" ></clr-icon> Editar
+				</button>
+				<button class="action-item" (click)="setClickedRowEliminaRol(i, rol)">
+					<clr-icon shape="trash"></clr-icon> Borrar
+				</button>
+			</clr-dg-action-overflow>
+<clr-dg-cell >{{rol.name}}</clr-dg-cell>
+<clr-dg-cell >{{rol.description}}</clr-dg-cell>
+<clr-dg-cell >{{rol.enabled}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		
