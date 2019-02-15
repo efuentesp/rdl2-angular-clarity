@@ -1,0 +1,128 @@
+<!-- PSG -->	
+<div class="card-block">
+	<!-- PSG Administrar shoppingcart Html -->
+	<div class="card-header">
+	Shoppingcart
+	</div>
+	
+	<div class="card-block">  
+		<clr-datagrid [clrDgLoading]="loading">
+			<clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+			
+	<clr-dg-column [clrDgField]="'Product'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+				   Product
+		</ng-container>    
+	</clr-dg-column>
+	<clr-dg-column [clrDgField]="'Price'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+				   Price
+		</ng-container>    
+	</clr-dg-column>
+	<clr-dg-column [clrDgField]="'Quantity'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+				   Quantity
+		</ng-container>    
+	</clr-dg-column>
+	<clr-dg-column [clrDgField]="'Total'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+				   Total
+		</ng-container>    
+	</clr-dg-column>
+			
+				<clr-dg-row *clrDgItems="let shoppingcart of shoppingcartArray" [clrDgItem]="shoppingcart">
+					<div hidden="true">
+						<div>
+							<button class="action-item" (click)="setClickedRowEditaShoppingcart(i, shoppingcart)">Editar</button> 
+						</div>
+						<div>
+							<button class="action-item" (click)="setClickedRowEliminaShoppingcart(i, shoppingcart)">Eliminar</button>
+						</div>
+					</div>
+					<clr-dg-action-overflow>
+						<button class="action-item" *ngIf="beneficiario_update" (click)="setClickedRowEditaShoppingcart(i, shoppingcart)">
+							<clr-icon shape="note" ></clr-icon> Editar
+						</button>
+						<button class="action-item" *ngIf="beneficiario_delete" (click)="setClickedRowEliminaShoppingcart(i, shoppingcart)">
+							<clr-icon shape="trash"></clr-icon> Borrar
+						</button>
+					</clr-dg-action-overflow>
+	
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$1,892.00</clr-dg-cell >
+						<clr-dg-cell >767</clr-dg-cell >
+						<clr-dg-cell >$74,216.00</clr-dg-cell >
+					</clr-dg-row>
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$64,410.00</clr-dg-cell >
+						<clr-dg-cell >84</clr-dg-cell >
+						<clr-dg-cell >$70,589.00</clr-dg-cell >
+					</clr-dg-row>
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$55,321.00</clr-dg-cell >
+						<clr-dg-cell >4,514</clr-dg-cell >
+						<clr-dg-cell >$41,891.00</clr-dg-cell >
+					</clr-dg-row>
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$82,292.00</clr-dg-cell >
+						<clr-dg-cell >5,142</clr-dg-cell >
+						<clr-dg-cell >$9,594.00</clr-dg-cell >
+					</clr-dg-row>
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$2,746.00</clr-dg-cell >
+						<clr-dg-cell >4,300</clr-dg-cell >
+						<clr-dg-cell >$324.00</clr-dg-cell >
+					</clr-dg-row>
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$8,647.00</clr-dg-cell >
+						<clr-dg-cell >8,235</clr-dg-cell >
+						<clr-dg-cell >$3,395.00</clr-dg-cell >
+					</clr-dg-row>
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$61,634.00</clr-dg-cell >
+						<clr-dg-cell >2,898</clr-dg-cell >
+						<clr-dg-cell >$48,841.00</clr-dg-cell >
+					</clr-dg-row>
+					<clr-dg-row>
+						<clr-dg-cell >YYYYYYYY</clr-dg-cell >
+						<clr-dg-cell >$93,764.00</clr-dg-cell >
+						<clr-dg-cell >9,684</clr-dg-cell >
+						<clr-dg-cell >$11,383.00</clr-dg-cell >
+					</clr-dg-row>
+	
+				</clr-dg-row>
+				<clr-dg-footer>
+					<clr-dg-column-toggle>
+						<clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+						<clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+					</clr-dg-column-toggle>
+					<clr-dg-pagination #pagination [clrDgPageSize]="10">
+						{{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+						de {{pagination.totalItems}} registros
+					</clr-dg-pagination>
+				</clr-dg-footer>
+			</clr-datagrid>
+	</div>		
+	
+	
+	<div class="ln_solid"></div>
+	<p>
+				
+					<button type="submit" class="btn btn-primary" [routerLink]="['../shoppingcart']" ><clr-icon shape="dollar"></clr-icon> Checkout</button>
+				
+				
+					<button type="submit" class="btn btn-primary" [routerLink]="['../shoppingcart']" ><clr-icon shape="trash"></clr-icon> Empty the Cart</button>
+				
+				
+					<button type="submit" class="btn btn-primary" [routerLink]="['../product']" ><clr-icon shape="undo"></clr-icon> Continue Shopping</button>
+				
+				</p>
+ </div>	
+ 
