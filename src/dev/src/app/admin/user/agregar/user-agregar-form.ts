@@ -7,9 +7,11 @@ import { ValidationService } from '../../../_validation/validation.service';
 
 import { User } from '../user.psg.model';
 import { UserSend } from '../user.psg.model-send';
-import { Rol } from '../../rol/rol.psg.model';
+// import { Rol } from '../../rol/rol.psg.model';
 import { UserService } from '../user.psg.service';
+import { Rol } from '../../rol/rol.psg.model';
 import { RolService } from '../../rol/rol.psg.service';
+// import { RolService } from '../../rol/rol.psg.service';
 
 @Component({
   selector: 'clr-alert-not-closable-demo-angular',
@@ -42,7 +44,7 @@ export class UserAgregarFormDemo implements OnInit {
   }
 
   ngOnInit() {
-    this.cargaRoles();
+    // this.cargaRoles();
   }
 
   guardaUser() {

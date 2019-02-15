@@ -97,7 +97,7 @@ export class UserService {
       email: this.user.email,
       password: this.user.password,
       enabled: this.user.enabled,
-      roleId: this.user.roleId,
+      // roleId: this.user.roleId,
     };
     return user;
   }
@@ -108,7 +108,7 @@ export class UserService {
     this.user.email = user.email;
     this.user.password = user.password;
     this.user.enabled = user.enabled;
-    this.user.roleId = user.roleId;
+    // this.user.roleId = user.roleId;
   }
 
   clear() {
@@ -117,6 +117,6 @@ export class UserService {
     this.user.email = null;
     this.user.password = null;
     this.user.enabled = null;
-    this.user.roleId = null;
+    // this.user.roleId = null;
   }
 }

@@ -57,7 +57,7 @@ export class UserEditarFormDemo implements OnInit {
     this.userForm.controls['email'].setValue(this.user.email);
     this.userForm.controls['enabled'].setValue(this.user.enabled);
     this.userForm.controls['password'].setValue(this.user.password);
-    this.userForm.controls['rol'].setValue(this.user.roleId);
+    //this.userForm.controls['rol'].setValue(this.user.roleId);
   }
 
   editaUser() {
