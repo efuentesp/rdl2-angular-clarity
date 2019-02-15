@@ -1,30 +1,18 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './_guards';
-import { LoginComponent } from './login/login.demo';
-import { RegisterComponent } from './register';
-import { AdminComponent } from './admin/admin.component';
-import { AlertsDemo } from './alert/alert.demo';
+import { HomeComponent } from './home.component';
 
 export const APP_ROUTES: Routes = [
-  // {
-  //   path: 'admin',
-  //   component: AdminComponent,
-  //   canActivate: [AuthGuard],
-  // },
-
-  //{ path: 'alert', component:AlertsDemo, canActivate: [AuthGuard] },
-  //{ path: '', component: LoginComponent},
-
+  { path: '', component: HomeComponent },
+  { path: 'Afiliado', loadChildren: 'src/app/afiliado/afiliado.demo.module#AfiliadoDemoModule' },
+  { path: 'Beneficiario', loadChildren: 'src/app/beneficiario/beneficiario.demo.module#BeneficiarioDemoModule' },
   {
-    path: 'admin',
-    loadChildren: 'src/app/admin/admin.module#AdminModule',
-    canActivate: [AuthGuard],
+    path: 'Solicitudpension',
+    loadChildren: 'src/app/solicitudpension/solicitudpension.demo.module#SolicitudpensionDemoModule',
   },
-
-  { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '', component: LoginComponent },
+  { path: 'Tipopension', loadChildren: 'src/app/tipopension/tipopension.demo.module#TipopensionDemoModule' },
+  // { path: 'login', loadChildren: 'src/app/login/login.demo.module#LoginDemoModule' },
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

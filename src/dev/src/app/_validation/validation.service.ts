@@ -13,8 +13,6 @@ export class ValidationService {
       invalidCheckValue: 'Selecciona uno o todos',
       invalidNumbers: 'Solo se admiten números',
       numberInvalid: 'Números menos a 2,147,483,648',
-      invalidPassordUser:
-        'Verificar password, debe contener 1 mayúscula, 1 número, mínimo 8 caracteres y caracter especial',
     };
     return config[validatorName];
   }
@@ -26,16 +24,6 @@ export class ValidationService {
       return null;
     } else {
       return { invalidEmailAddress: true };
-    }
-  }
-
-  static passwordValidator(control) {
-    let PASSWORD_REGEXP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-    if (PASSWORD_REGEXP.test(control.value)) {
-      return null;
-    } else {
-      return { invalidPassordUser: true };
     }
   }
 
