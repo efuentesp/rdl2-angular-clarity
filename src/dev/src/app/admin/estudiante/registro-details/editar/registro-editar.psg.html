@@ -1,0 +1,249 @@
+<!-- PSG Registro Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Registro
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="registroForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="confirmadoId">
+  		        <label for="confirmadoItem" class="clr-control-label">Confirmado<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="estudianteItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="registroForm.get('confirmadoItem').invalid && (registroForm.get('confirmadoItem').dirty || registroForm.get('confirmadoItem').touched)">
+  		                <input id="confirmadoId"   type="hidden" formControlName="confirmadoId" placeholder="Confirmado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="confirmadoItem" type="text"   formControlName="confirmadoItem" placeholder="Confirmado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicconfirmado = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Confirmado es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control" id="inscritoporId">
+  		        <label for="inscritoporItem" class="clr-control-label">Inscritopor<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="eventoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="registroForm.get('inscritoporItem').invalid && (registroForm.get('inscritoporItem').dirty || registroForm.get('inscritoporItem').touched)">
+  		                <input id="inscritoporId"   type="hidden" formControlName="inscritoporId" placeholder="Inscritopor" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="inscritoporItem" type="text"   formControlName="inscritoporItem" placeholder="Inscritopor" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicinscritopor = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Inscritopor es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control">
+  		    <label for="nss" class="clr-control-label">Número de confirmación<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="numconfirmacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="registroForm.get('numconfirmacion').invalid && (registroForm.get('numconfirmacion').dirty || registroForm.get('numconfirmacion').touched)">
+  		            <input id="numconfirmacion" type="number" formControlName="numconfirmacion" placeholder="Numconfirmacion" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Numconfirmacion es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ registroForm.value | json }} </p>
+	<p> Form status {{ registroForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaRegistro()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaRegistro()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="basicconfirmado" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Confirmado</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+								
+<clr-dg-column [clrDgField]="'matricula'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Matricula
+        </ng-container>    
+    </clr-dg-column>
+<clr-dg-column [clrDgField]="'nombreestudiante'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Nombreestudiante
+        </ng-container>    
+    </clr-dg-column>
+<clr-dg-column [clrDgField]="'apellidopaterno'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Apellidopaterno
+        </ng-container>    
+    </clr-dg-column>
+<clr-dg-column [clrDgField]="'fechanacimiento'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Fechanacimiento
+        </ng-container>    
+    </clr-dg-column>	
+	
+	
+	
+<clr-dg-column [clrDgField]="'correoest'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Correoest
+        </ng-container>    
+    </clr-dg-column>	
+<clr-dg-column [clrDgField]="'telefono'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Telefono
+        </ng-container>    
+    </clr-dg-column>
+      
+      			<clr-dg-row *ngFor="let confirmado of confirmadoArray">
+      			<clr-dg-cell><input type="radio" name="confirmadoId" [checked]="confirmado.checked" value="{{confirmado.id}}" (click)="setClickedRowConfirmado(i, confirmado)"></clr-dg-cell>
+        			
+        		<clr-dg-cell>{{confirmado.matricula}}</clr-dg-cell>
+        		<clr-dg-cell>{{confirmado.nombreestudiante}}</clr-dg-cell>
+        		<clr-dg-cell>{{confirmado.apellidopaterno}}</clr-dg-cell>
+        		<clr-dg-cell>{{confirmado.fechanacimiento}}</clr-dg-cell>
+        			
+        			
+        			
+        		<clr-dg-cell>{{confirmado.correoest}}</clr-dg-cell>
+        		<clr-dg-cell>{{confirmado.telefono}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basicconfirmado = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="basicconfirmado = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="basicinscritopor" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Inscritopor</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+								
+								
+<clr-dg-column [clrDgField]="'clave'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Clave
+        </ng-container>    
+    </clr-dg-column>
+<clr-dg-column [clrDgField]="'fechaevento'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Fechaevento
+        </ng-container>    
+    </clr-dg-column>	
+<clr-dg-column [clrDgField]="'titulo'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Titulo
+        </ng-container>    
+    </clr-dg-column>
+<clr-dg-column [clrDgField]="'duracion'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Duracion
+        </ng-container>    
+    </clr-dg-column>	
+<clr-dg-column>
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Lugar
+        </ng-container>    
+    </clr-dg-column>	
+<clr-dg-column [clrDgField]="'cartel'" >
+        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+            Cartel
+        </ng-container>    
+    </clr-dg-column>	
+	
+      
+      			<clr-dg-row *ngFor="let inscritopor of inscritoporArray">
+      			<clr-dg-cell><input type="radio" name="inscritoporId" [checked]="inscritopor.checked" value="{{inscritopor.id}}" (click)="setClickedRowInscritopor(i, inscritopor)"></clr-dg-cell>
+        			
+        			
+        		<clr-dg-cell>{{inscritopor.clave}}</clr-dg-cell>
+        		<clr-dg-cell>{{inscritopor.fechaevento}}</clr-dg-cell>
+        		<clr-dg-cell>{{inscritopor.titulo}}</clr-dg-cell>
+        		<clr-dg-cell>{{inscritopor.duracion}}</clr-dg-cell>
+        		<clr-dg-cell>{{inscritopor.lugar}}</clr-dg-cell>
+        		<clr-dg-cell>{{inscritopor.cartel}}</clr-dg-cell>
+        			
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basicinscritopor = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="basicinscritopor = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

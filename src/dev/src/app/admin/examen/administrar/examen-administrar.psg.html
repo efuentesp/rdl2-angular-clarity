@@ -1,0 +1,54 @@
+<!-- PSG Administrar Examen Html -->
+<div class="card-header">
+Administrar Examen
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="examen_create" class="btn btn-icon btn-outline" (click)="getExamen()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'correspondeItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Corresponde
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'nombreexamen'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre examen
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let examen of examenArray" [clrDgItem]="examen">
+                <div hidden="true">
+                    <div *ngIf="examen_update">
+                        <button class="action-item" (click)="setClickedRowEditaExamen(i, examen)">Editar</button> 
+                    </div>
+                    <div *ngIf="examen_delete">
+                        <button class="action-item" (click)="setClickedRowEliminaExamen(i, examen)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="examen_update" (click)="setClickedRowEditaExamen(i, examen)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="examen_delete" (click)="setClickedRowEliminaExamen(i, examen)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{examen.correspondeItem}}</clr-dg-cell>
+<clr-dg-cell >{{examen.nombreexamen}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

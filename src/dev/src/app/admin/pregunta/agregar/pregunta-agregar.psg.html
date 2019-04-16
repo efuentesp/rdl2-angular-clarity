@@ -1,0 +1,106 @@
+<!-- PSG Pregunta Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Pregunta
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="preguntaForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="peterneceId">
+	        <label for="peterneceItem" class="clr-control-label">Nombre examen
+	        <span class="required">*</span></label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="examenItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="preguntaForm.get('peterneceItem').invalid && (preguntaForm.get('peterneceItem').dirty || preguntaForm.get('peterneceItem').touched)">
+	                <input id="peterneceId"   type="hidden" formControlName="peterneceId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="peterneceItem" type="text"   formControlName="peterneceItem" placeholder="Nombre examen
+	                " class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicpeternece = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                    Nombre examen
+	                     es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="descipcionpregunta" class="clr-control-label">Descripción pregunta<span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="descipcionpregunta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="preguntaForm.get('descipcionpregunta').invalid && (preguntaForm.get('descipcionpregunta').dirty || preguntaForm.get('descipcionpregunta').touched)">
+	            <input id="descipcionpregunta" type="text" formControlName="descipcionpregunta" 
+	                   placeholder="Descripción pregunta" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Descripción pregunta es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+    
+    <!-- <p>Form value {{ preguntaForm.value | json }} </p>
+    <p> Form status {{ preguntaForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaPregunta()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaPregunta()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="basicpeternece" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Peternece</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        										
+        		<clr-dg-column [clrDgField]="'nombreexamen'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombreexamen
+        		        </ng-container>    
+        		    </clr-dg-column>
+      
+      			<clr-dg-row *ngFor="let peternece of peterneceArray">
+      			<clr-dg-cell><input type="radio" name="peterneceId" [checked]="peternece.checked" value="{{peternece.id}}" (click)="setClickedRowPeternece(i, peternece)"></clr-dg-cell>
+        			
+        		<clr-dg-cell>{{peternece.nombreexamen}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basicpeternece = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="basicpeternece = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

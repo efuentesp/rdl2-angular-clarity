@@ -1,0 +1,108 @@
+<!-- PSG Pregunta Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Pregunta
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="preguntaForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="peterneceId">
+  		        <label for="peterneceItem" class="clr-control-label">Peternece<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="examenItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="preguntaForm.get('peterneceItem').invalid && (preguntaForm.get('peterneceItem').dirty || preguntaForm.get('peterneceItem').touched)">
+  		                <input id="peterneceId"   type="hidden" formControlName="peterneceId" placeholder="Peternece" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="peterneceItem" type="text"   formControlName="peterneceItem" placeholder="Peternece" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicpeternece = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Peternece es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control">
+  		    <label for="nss" class="clr-control-label">Nss<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="descipcionpregunta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="preguntaForm.get('descipcionpregunta').invalid && (preguntaForm.get('descipcionpregunta').dirty || preguntaForm.get('descipcionpregunta').touched)">
+  		            <input id="descipcionpregunta" type="text" formControlName="descipcionpregunta" placeholder="Descipcionpregunta" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Descipcionpregunta es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ preguntaForm.value | json }} </p>
+<p> Form status {{ preguntaForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaPregunta()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaPregunta()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="basicexamen" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Examen</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		      
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="basicexamen = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="basicexamen = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+
+
+
+        

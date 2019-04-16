@@ -9,8 +9,6 @@ import { User } from '../user.psg.model';
 import { UserSend } from '../user.psg.model-send';
 // import { Rol } from '../../rol/rol.psg.model';
 import { UserService } from '../user.psg.service';
-import { Rol } from '../../rol/rol.psg.model';
-import { RolService } from '../../rol/rol.psg.service';
 // import { RolService } from '../../rol/rol.psg.service';
 
 @Component({
@@ -23,16 +21,16 @@ export class UserAgregarFormDemo implements OnInit {
   submitted = false;
   public user: User = new User();
   public userSend: UserSend = new UserSend();
-  public rolesArray: Rol[];
+  // public rolesArray: Rol[];
 
   constructor(
     private fb: FormBuilder,
     private validationService: ValidationService,
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService,
-    private rolService: RolService
-  ) {
+    private userService: UserService
+  ) // private rolService: RolService
+  {
     this.userForm = this.fb.group({
       username: new FormControl('', Validators.required),
       display_name: new FormControl('', Validators.required),
@@ -73,18 +71,18 @@ export class UserAgregarFormDemo implements OnInit {
     }
   }
 
-  cargaRoles() {
-    this.rolService.getRecuperaRol().subscribe(
-      res => {
-        if (res) {
-          this.rolesArray = res;
-        }
-      },
-      error => {
-        //swal('Error...', 'An error occurred while calling the direccions.', 'error');
-      }
-    );
-  }
+  // cargaRoles() {
+  //   this.rolService.getRecuperaRol().subscribe(
+  //     res => {
+  //       if (res) {
+  //         //this.rolesArray = res;
+  //       }
+  //     },
+  //     error => {
+  //       //swal('Error...', 'An error occurred while calling the direccions.', 'error');
+  //     }
+  //   );
+  // }
 
   setClickedRowRole(index, role) {
     //direccioncorreo.checked = !direccioncorreo.checked;

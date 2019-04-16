@@ -12,7 +12,7 @@ import { UserDemo } from './user.psg';
 import { UserAdministrarDemo } from './administrar/user-administrar';
 import { UserAgregarDemo } from './agregar/user-agregar';
 import { UserAgregarFormDemo } from './agregar/user-agregar-form';
-import { RolService } from '../rol/rol.psg.service';
+// import { RolService } from '../rol/rol.psg.service';
 import { UserEditarFormDemo } from './editar/user-editar-form';
 import { UserEliminarFormDemo } from './eliminar/user-eliminar-form';
 
@@ -20,7 +20,11 @@ import { UserEliminarFormDemo } from './eliminar/user-eliminar-form';
   imports: [CommonModule, ClarityModule, ROUTING, HttpModule, ReactiveFormsModule, FormsModule],
   declarations: [UserDemo, UserAdministrarDemo, UserAgregarFormDemo, UserEditarFormDemo, UserEliminarFormDemo],
   exports: [UserDemo, UserAdministrarDemo, UserAgregarFormDemo, UserEditarFormDemo, UserEliminarFormDemo],
-  providers: [ValidationService, UserService, RolService],
+  providers: [
+    ValidationService,
+    UserService,
+    // RolService
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UserDemoModule {}

@@ -1,0 +1,182 @@
+<!-- PSG Certificacion Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Certificacion
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="certificacionForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="tieneId">
+  		        <label for="tieneItem" class="clr-control-label">Tiene<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="publicacionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="certificacionForm.get('tieneItem').invalid && (certificacionForm.get('tieneItem').dirty || certificacionForm.get('tieneItem').touched)">
+  		                <input id="tieneId"   type="hidden" formControlName="tieneId" placeholder="Tiene" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="tieneItem" type="text"   formControlName="tieneItem" placeholder="Tiene" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basictiene = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Tiene es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control" id="sonId">
+  		        <label for="sonItem" class="clr-control-label">Son<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="profesorItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="certificacionForm.get('sonItem').invalid && (certificacionForm.get('sonItem').dirty || certificacionForm.get('sonItem').touched)">
+  		                <input id="sonId"   type="hidden" formControlName="sonId" placeholder="Son" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="sonItem" type="text"   formControlName="sonItem" placeholder="Son" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicson = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Son es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control">
+  		    <label for="nss" class="clr-control-label">Nss<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="idcertificacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="certificacionForm.get('idcertificacion').invalid && (certificacionForm.get('idcertificacion').dirty || certificacionForm.get('idcertificacion').touched)">
+  		            <input id="idcertificacion" type="number" formControlName="idcertificacion" placeholder="Idcertificacion" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Idcertificacion es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		        <div class="clr-form-control">
+  		<label for="fechacertificacionAux" class="clr-control-label">fechacertificacion<span class="required">*</span></label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechacertificacionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="certificacionForm.get('fechacertificacionAux').invalid && (certificacionForm.get('fechacertificacionAux').dirty || certificacionForm.get('fechacertificacionAux').touched)">
+  				<input id="fechacertificacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechacertificacionAux"/>
+  				<span class="tooltip-content">
+  					fechacertificacion es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ certificacionForm.value | json }} </p>
+<p> Form status {{ certificacionForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaCertificacion()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaCertificacion()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="basicpublicacion" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Publicacion</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="basicpublicacion = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="basicpublicacion = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="basicprofesor" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Profesor</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="basicprofesor = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="basicprofesor = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+
+
+
+        

@@ -1,0 +1,57 @@
+<!-- PSG Programa Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Programa
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="programaForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control">
+	    <label for="clave" class="clr-control-label">Clave programa<span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="clave" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="programaForm.get('clave').invalid && (programaForm.get('clave').dirty || programaForm.get('clave').touched)">
+	            <input id="clave" type="number" formControlName="clave" placeholder="Clave programa" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Clave programa es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="nombreprograma" class="clr-control-label">Nombre programa<span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="nombreprograma" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="programaForm.get('nombreprograma').invalid && (programaForm.get('nombreprograma').dirty || programaForm.get('nombreprograma').touched)">
+	            <textarea id="nombreprograma" formControlName="nombreprograma" rows="5" 
+	            		  placeholder="Nombre programa" 
+	            		  class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+	            <span class="tooltip-content">
+	                Nombre programa es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="tipoestatus">
+	        <label for="tipoestatus" class="clr-control-label">Estatus
+	        <span class="required">*</span></label>
+	        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="AB" required> Abierto</clr-radio-wrapper>		
+	        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="CE" required> Cerrado</clr-radio-wrapper>		
+	        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="CA" required> Cancelado</clr-radio-wrapper>		
+	    </div>
+    
+    <!-- <p>Form value {{ programaForm.value | json }} </p>
+    <p> Form status {{ programaForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaPrograma()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaPrograma()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

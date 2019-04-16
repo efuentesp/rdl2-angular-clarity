@@ -1,0 +1,57 @@
+<!-- PSG Grupoa Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Grupoa
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="grupoaForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control">
+	    <label for="nombregrupo" class="clr-control-label">Nombre del grupo<span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="nombregrupo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="grupoaForm.get('nombregrupo').invalid && (grupoaForm.get('nombregrupo').dirty || grupoaForm.get('nombregrupo').touched)">
+	            <input id="nombregrupo" type="text" formControlName="nombregrupo" 
+	                   placeholder="Nombre del grupo" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Nombre del grupo es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="descripciongrupo" class="clr-control-label">Descripción grupo<span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="descripciongrupo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="grupoaForm.get('descripciongrupo').invalid && (grupoaForm.get('descripciongrupo').dirty || grupoaForm.get('descripciongrupo').touched)">
+	            <input id="descripciongrupo" type="text" formControlName="descripciongrupo" 
+	                   placeholder="Descripción grupo" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Descripción grupo es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="tipoestatus">
+	        <label for="tipoestatus" class="clr-control-label">Estatus
+	        <span class="required">*</span></label>
+	        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="AB" required> Abierto</clr-radio-wrapper>		
+	        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="CE" required> Cerrado</clr-radio-wrapper>		
+	        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="CA" required> Cancelado</clr-radio-wrapper>		
+	    </div>
+    
+    <!-- <p>Form value {{ grupoaForm.value | json }} </p>
+    <p> Form status {{ grupoaForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaGrupoa()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaGrupoa()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

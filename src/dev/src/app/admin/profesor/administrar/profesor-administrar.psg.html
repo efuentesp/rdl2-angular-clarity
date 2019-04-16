@@ -1,0 +1,85 @@
+<!-- PSG Administrar Profesor Html -->
+<div class="card-header">
+Administrar Profesor
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="profesor_create" class="btn btn-icon btn-outline" (click)="getProfesor()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'noempleado'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Número del empleado
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column [clrDgField]="'nombreprofesor'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre profesor
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'apellidopaterno'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Apellido paterno
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'rfc'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'correopro'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Correo
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'telefono'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Teléfono
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let profesor of profesorArray" [clrDgItem]="profesor">
+                <div hidden="true">
+                    <div *ngIf="profesor_update">
+                        <button class="action-item" (click)="setClickedRowEditaProfesor(i, profesor)">Editar</button> 
+                    </div>
+                    <div *ngIf="profesor_delete">
+                        <button class="action-item" (click)="setClickedRowEliminaProfesor(i, profesor)">Eliminar</button>
+                    </div>
+				<div *ngIf="imparte_read">
+				            <button class="action-item"  (click)="setClickedRowConsultaImparte(i,profesor)">Imparte</button>
+				        </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="profesor_update" (click)="setClickedRowEditaProfesor(i, profesor)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="profesor_delete" (click)="setClickedRowEliminaProfesor(i, profesor)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+				<div class="line-list"></div>
+				    <button class="action-item" *ngIf="evento_read" (click)="setClickedRowConsultaEvento(i,profesor)">
+				        <clr-icon shape="flow-chart"></clr-icon> Evento
+				    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{profesor.noempleado}}</clr-dg-cell>
+<clr-dg-cell >{{profesor.nombreprofesor}}</clr-dg-cell>
+<clr-dg-cell >{{profesor.apellidopaterno}}</clr-dg-cell>
+<clr-dg-cell >{{profesor.rfc}}</clr-dg-cell>
+<clr-dg-cell >{{profesor.correopro}}</clr-dg-cell>
+<clr-dg-cell >{{profesor.telefono}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

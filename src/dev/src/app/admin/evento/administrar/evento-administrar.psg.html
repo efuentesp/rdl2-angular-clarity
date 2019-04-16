@@ -1,0 +1,103 @@
+<!-- PSG Administrar Evento Html -->
+<div class="card-header">
+Administrar Evento
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="evento_create" class="btn btn-icon btn-outline" (click)="getEvento()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'organizadoporItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Organizadopor
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'impartidoporItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Impartidopor
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'clave'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Clave
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fechaevento'" >
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Fecha
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'titulo'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Título
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'duracion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Duración
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Lugar (liga)
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'cartel'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cartel
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let evento of eventoArray" [clrDgItem]="evento">
+                <div hidden="true">
+                    <div *ngIf="evento_update">
+                        <button class="action-item" (click)="setClickedRowEditaEvento(i, evento)">Editar</button> 
+                    </div>
+                    <div *ngIf="evento_delete">
+                        <button class="action-item" (click)="setClickedRowEliminaEvento(i, evento)">Eliminar</button>
+                    </div>
+				<div *ngIf="inscrito_read">
+				            <button class="action-item"  (click)="setClickedRowConsultaInscrito(i,evento)">Inscrito</button>
+				        </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="evento_update" (click)="setClickedRowEditaEvento(i, evento)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="evento_delete" (click)="setClickedRowEliminaEvento(i, evento)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+				<div class="line-list"></div>
+				    <button class="action-item" *ngIf="registro_read" (click)="setClickedRowConsultaRegistro(i,evento)">
+				        <clr-icon shape="flow-chart"></clr-icon> Registro
+				    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{evento.organizadoporItem}}</clr-dg-cell>
+<clr-dg-cell >{{evento.impartidoporItem}}</clr-dg-cell>
+<clr-dg-cell >{{evento.clave}}</clr-dg-cell>
+<clr-dg-cell >{{evento.fechaevento | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{evento.titulo}}</clr-dg-cell>
+<clr-dg-cell >{{evento.duracion}}</clr-dg-cell>
+<clr-dg-cell >{{evento.lugar}}</clr-dg-cell>
+<clr-dg-cell >{{evento.cartel}}</clr-dg-cell>
+<clr-dg-cell >{{evento.tipoItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

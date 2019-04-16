@@ -5,7 +5,6 @@ import { AuthGuard } from './_guards';
 import { LoginComponent } from './login/login.demo';
 import { RegisterComponent } from './register';
 import { AdminComponent } from './admin/admin.component';
-import { AlertsDemo } from './alert/alert.demo';
 
 export const APP_ROUTES: Routes = [
   // {

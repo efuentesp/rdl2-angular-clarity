@@ -1,0 +1,297 @@
+<!-- PSG Evento Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Evento
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="eventoForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="organizadoporId">
+  		        <label for="organizadoporItem" class="clr-control-label">Organizadopor<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="institucionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="eventoForm.get('organizadoporItem').invalid && (eventoForm.get('organizadoporItem').dirty || eventoForm.get('organizadoporItem').touched)">
+  		                <input id="organizadoporId"   type="hidden" formControlName="organizadoporId" placeholder="Organizadopor" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="organizadoporItem" type="text"   formControlName="organizadoporItem" placeholder="Organizadopor" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicorganizadopor = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Organizadopor es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control" id="impartidoporId">
+  		        <label for="impartidoporItem" class="clr-control-label">Impartidopor<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="profesorItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="eventoForm.get('impartidoporItem').invalid && (eventoForm.get('impartidoporItem').dirty || eventoForm.get('impartidoporItem').touched)">
+  		                <input id="impartidoporId"   type="hidden" formControlName="impartidoporId" placeholder="Impartidopor" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="impartidoporItem" type="text"   formControlName="impartidoporItem" placeholder="Impartidopor" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicimpartidopor = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Impartidopor es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control">
+  		    <label for="nss" class="clr-control-label">Clave<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="clave" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="eventoForm.get('clave').invalid && (eventoForm.get('clave').dirty || eventoForm.get('clave').touched)">
+  		            <input id="clave" type="text" formControlName="clave" placeholder="Clave" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Clave es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		        <div class="clr-form-control">
+  		<label for="fechaeventoAux" class="clr-control-label">fechaevento<span class="required">*</span></label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechaeventoAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="eventoForm.get('fechaeventoAux').invalid && (eventoForm.get('fechaeventoAux').dirty || eventoForm.get('fechaeventoAux').touched)">
+  				<input id="fechaeventoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaeventoAux"/>
+  				<span class="tooltip-content">
+  					fechaevento es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control">
+  		    <label for="nss" class="clr-control-label">Título<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="titulo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="eventoForm.get('titulo').invalid && (eventoForm.get('titulo').dirty || eventoForm.get('titulo').touched)">
+  		            <input id="titulo" type="text" formControlName="titulo" placeholder="Titulo" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Titulo es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="nss" class="clr-control-label">Duración<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="duracion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="eventoForm.get('duracion').invalid && (eventoForm.get('duracion').dirty || eventoForm.get('duracion').touched)">
+  		            <input id="duracion" type="number" formControlName="duracion" placeholder="Duracion" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Duracion es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="lugar" class="clr-control-label">Observaciones<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="lugar" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="eventoForm.get('lugar').invalid && (eventoForm.get('lugar').dirty || eventoForm.get('lugar').touched)">
+  		            <textarea id="lugar" formControlName="lugar" rows="5" placeholder="Lugar" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Lugar es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="nss" class="clr-control-label">Cartel<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="cartel" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="eventoForm.get('cartel').invalid && (eventoForm.get('cartel').dirty || eventoForm.get('cartel').touched)">
+  		            <input id="cartel" type="text" formControlName="cartel" placeholder="Cartel" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Cartel es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="tipoestatus">
+  		        <label for="tipoestatus" class="clr-control-label">tipoestatus<span class="required">*</span></label>
+  		        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="AB" required> Abierto</clr-radio-wrapper>		
+  		        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="CE" required> Cerrado</clr-radio-wrapper>		
+  		        <clr-radio-wrapper><input type="radio" formControlName="tipoestatus" value="CA" required> Cancelado</clr-radio-wrapper>		
+  		    </div>
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ eventoForm.value | json }} </p>
+	<p> Form status {{ eventoForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaEvento()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaEvento()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="basicorganizadopor" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Organizadopor</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'claveinstitucion'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Claveinstitucion
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'nombreinstitucion'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombreinstitucion
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'representante'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Representante
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'paginaweb'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Paginaweb
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'telefono'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Telefono
+        		        </ng-container>    
+        		    </clr-dg-column>
+        			
+      
+      			<clr-dg-row *ngFor="let organizadopor of organizadoporArray">
+      			<clr-dg-cell><input type="radio" name="organizadoporId" [checked]="organizadopor.checked" value="{{organizadopor.id}}" (click)="setClickedRowOrganizadopor(i, organizadopor)"></clr-dg-cell>
+        		<clr-dg-cell>{{organizadopor.claveinstitucion}}</clr-dg-cell>
+        		<clr-dg-cell>{{organizadopor.nombreinstitucion}}</clr-dg-cell>
+        		<clr-dg-cell>{{organizadopor.representante}}</clr-dg-cell>
+        		<clr-dg-cell>{{organizadopor.paginaweb}}</clr-dg-cell>
+        		<clr-dg-cell>{{organizadopor.telefono}}</clr-dg-cell>
+        			
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basicorganizadopor = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="basicorganizadopor = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="basicimpartidopor" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Impartidopor</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'noempleado'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Noempleado
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'nombreprofesor'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombreprofesor
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'apellidopaterno'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Apellidopaterno
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'rfc'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Rfc
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'correopro'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Correopro
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'telefono'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Telefono
+        		        </ng-container>    
+        		    </clr-dg-column>
+      
+      			<clr-dg-row *ngFor="let impartidopor of impartidoporArray">
+      			<clr-dg-cell><input type="radio" name="impartidoporId" [checked]="impartidopor.checked" value="{{impartidopor.id}}" (click)="setClickedRowImpartidopor(i, impartidopor)"></clr-dg-cell>
+        		<clr-dg-cell>{{impartidopor.noempleado}}</clr-dg-cell>
+        		<clr-dg-cell>{{impartidopor.nombreprofesor}}</clr-dg-cell>
+        		<clr-dg-cell>{{impartidopor.apellidopaterno}}</clr-dg-cell>
+        		<clr-dg-cell>{{impartidopor.rfc}}</clr-dg-cell>
+        		<clr-dg-cell>{{impartidopor.correopro}}</clr-dg-cell>
+        		<clr-dg-cell>{{impartidopor.telefono}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="basicimpartidopor = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="basicimpartidopor = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

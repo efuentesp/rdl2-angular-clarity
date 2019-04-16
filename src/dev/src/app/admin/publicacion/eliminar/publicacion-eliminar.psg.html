@@ -1,0 +1,225 @@
+<!-- PSG Publicacion Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Publicacion
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="publicacionForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control">
+  		    <label for="nombreobra" class="clr-control-label">Observaciones<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="nombreobra" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="publicacionForm.get('nombreobra').invalid && (publicacionForm.get('nombreobra').dirty || publicacionForm.get('nombreobra').touched)">
+  		            <textarea id="nombreobra" formControlName="nombreobra" rows="5" placeholder="Nombreobra" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Nombreobra es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="tiposubsistema">
+  		    <label for="tiposubsistemaId" class="clr-control-label">tiposubsistema<span class="required">*</span></label>
+  		    <clr-radio-wrapper><input type="radio" formControlName="tiposubsistema" value="SS1" required> DGB</clr-radio-wrapper>		
+  		    <clr-radio-wrapper><input type="radio" formControlName="tiposubsistema" value="SS2" required> DGIRE</clr-radio-wrapper>		
+  		    <clr-radio-wrapper><input type="radio" formControlName="tiposubsistema" value="SS3" required> DGETI</clr-radio-wrapper>		
+  		    <clr-radio-wrapper><input type="radio" formControlName="tiposubsistema" value="SS4" required> UDG</clr-radio-wrapper>		
+  		    <clr-radio-wrapper><input type="radio" formControlName="tiposubsistema" value="SS5" required> UNITEC</clr-radio-wrapper>		
+  		</div>
+  		<div class="clr-form-control" id="tiponivel">
+  		    <label for="tiponivelId" class="clr-control-label">tiponivel<span class="required">*</span></label>
+  		    <clr-radio-wrapper><input type="radio" formControlName="tiponivel" value="B" required> Bachillerato</clr-radio-wrapper>		
+  		    <clr-radio-wrapper><input type="radio" formControlName="tiponivel" value="U" required> Universitario</clr-radio-wrapper>		
+  		</div>
+  		<div class="clr-form-control" id="tipoarea">
+  		    <label for="tipoareaId" class="clr-control-label">tipoarea<span class="required">*</span></label>
+  		    <clr-radio-wrapper><input type="radio" formControlName="tipoarea" value="FM" required> Físico Matemáticas</clr-radio-wrapper>		
+  		    <clr-radio-wrapper><input type="radio" formControlName="tipoarea" value="CSA" required> Ciencias Sociales y Administrativas</clr-radio-wrapper>		
+  		    <clr-radio-wrapper><input type="radio" formControlName="tipoarea" value="CMB" required> Ciencias Medico Biológicas</clr-radio-wrapper>		
+  		</div>
+  		        <div class="clr-form-control">
+  		<label for="fechapublicacionAux" class="clr-control-label">fechapublicacion<span class="required">*</span></label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechapublicacionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="publicacionForm.get('fechapublicacionAux').invalid && (publicacionForm.get('fechapublicacionAux').dirty || publicacionForm.get('fechapublicacionAux').touched)">
+  				<input id="fechapublicacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechapublicacionAux"/>
+  				<span class="tooltip-content">
+  					fechapublicacion es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control">
+  		    <label for="autor" class="clr-control-label">Observaciones<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="autor" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="publicacionForm.get('autor').invalid && (publicacionForm.get('autor').dirty || publicacionForm.get('autor').touched)">
+  		            <textarea id="autor" formControlName="autor" rows="5" placeholder="Autor" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Autor es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="familiarizaId">
+  		        <label for="familiarizaItem" class="clr-control-label">Familiariza<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="grupoaItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="publicacionForm.get('familiarizaItem').invalid && (publicacionForm.get('familiarizaItem').dirty || publicacionForm.get('familiarizaItem').touched)">
+  		                <input id="familiarizaId"   type="hidden" formControlName="familiarizaId" placeholder="Familiariza" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="familiarizaItem" type="text"   formControlName="familiarizaItem" placeholder="Familiariza" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basicfamiliariza = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Familiariza es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		<div class="clr-form-control" id="comunicadoId">
+  		        <label for="comunicadoItem" class="clr-control-label">Comunicado<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="programaItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="publicacionForm.get('comunicadoItem').invalid && (publicacionForm.get('comunicadoItem').dirty || publicacionForm.get('comunicadoItem').touched)">
+  		                <input id="comunicadoId"   type="hidden" formControlName="comunicadoId" placeholder="Comunicado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="comunicadoItem" type="text"   formControlName="comunicadoItem" placeholder="Comunicado" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="basiccomunicado = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Comunicado es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ publicacionForm.value | json }} </p>
+<p> Form status {{ publicacionForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaPublicacion()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaPublicacion()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="basicgrupoa" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Grupoa</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="basicgrupoa = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="basicgrupoa = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="basicprograma" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Programa</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="basicprograma = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="basicprograma = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+
+
+
+        

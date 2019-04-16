@@ -1,0 +1,66 @@
+<!-- PSG Administrar Certificacion Html -->
+<div class="card-header">
+Administrar Certificación
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="certificacion_create" class="btn btn-icon btn-outline" (click)="getCertificacion()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'tieneItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Tiene
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'sonItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Son
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'idcertificacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Identificador certificación
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column [clrDgField]="'fechacertificacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha certificación
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let certificacion of certificacionArray" [clrDgItem]="certificacion">
+                <div hidden="true">
+                    <div *ngIf="certificacion_update">
+                        <button class="action-item" (click)="setClickedRowEditaCertificacion(i, certificacion)">Editar</button> 
+                    </div>
+                    <div *ngIf="certificacion_delete">
+                        <button class="action-item" (click)="setClickedRowEliminaCertificacion(i, certificacion)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="certificacion_update" (click)="setClickedRowEditaCertificacion(i, certificacion)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="certificacion_delete" (click)="setClickedRowEliminaCertificacion(i, certificacion)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{certificacion.tieneItem}}</clr-dg-cell>
+<clr-dg-cell >{{certificacion.sonItem}}</clr-dg-cell>
+<clr-dg-cell >{{certificacion.idcertificacion}}</clr-dg-cell>
+<clr-dg-cell >{{certificacion.fechacertificacion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		
