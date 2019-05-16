@@ -7,8 +7,8 @@ import { DatePipe } from '@angular/common';
 
 import { User } from '../user.psg.model';
 import { UserService } from '../user.psg.service';
-import { Rol } from '../../rol/rol.psg.model';
-import { RolService } from '../../rol/rol.psg.service';
+// import { Rol } from '../../rol/rol.psg.model';
+// import { RolService } from '../../rol/rol.psg.service';
 
 @Component({
   selector: 'clr-user-angular',
@@ -21,15 +21,14 @@ export class UserEliminarFormDemo {
   public user: User = new User();
   public idUser: string;
   public datePipe = new DatePipe('en-US');
-  public rolesArray: Rol[];
+  // public rolesArray: Rol[];
 
   constructor(
     private fb: FormBuilder,
     private validationService: ValidationService,
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService,
-    private rolService: RolService
+    private userService: UserService // private rolService: RolService
   ) {
     this.userForm = this.fb.group({
       username: new FormControl({ value: '', disabled: true }),
@@ -43,7 +42,7 @@ export class UserEliminarFormDemo {
 
   ngOnInit() {
     this.recuperaUser();
-    this.cargaRoles();
+    // this.cargaRoles();
   }
 
   recuperaUser() {
@@ -53,7 +52,7 @@ export class UserEliminarFormDemo {
     this.userForm.controls['email'].setValue(this.user.email);
     this.userForm.controls['enabled'].setValue(this.user.enabled);
     this.userForm.controls['password'].setValue(this.user.password);
-    this.userForm.controls['rol'].setValue(this.user.roleId);
+    // this.userForm.controls['rol'].setValue(this.user.roleId);
   }
 
   eliminaUser() {
@@ -94,18 +93,18 @@ export class UserEliminarFormDemo {
     });
   }
 
-  cargaRoles() {
-    this.rolService.getRecuperaRol().subscribe(
-      res => {
-        if (res) {
-          this.rolesArray = res;
-        }
-      },
-      error => {
-        //swal('Error...', 'An error occurred while calling the direccions.', 'error');
-      }
-    );
-  }
+  // cargaRoles() {
+  //   this.rolService.getRecuperaRol().subscribe(
+  //     res => {
+  //       if (res) {
+  //         //this.rolesArray = res;
+  //       }
+  //     },
+  //     error => {
+  //       //swal('Error...', 'An error occurred while calling the direccions.', 'error');
+  //     }
+  //   );
+  // }
 
   regresaUser() {
     this.router.navigate(['../../administrar'], { relativeTo: this.route });

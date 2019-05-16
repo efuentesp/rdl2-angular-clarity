@@ -1,6 +1,6 @@
 /* PSG  User Model */
 import { DecimalPipe } from '@angular/common';
-import { Rol } from '../rol/rol.psg.model';
+// import { Rol } from '../rol/rol.psg.model';
 
 export class User {
   username: string = null;
@@ -8,5 +8,5 @@ export class User {
   email: string = null;
   password: string = null;
   enabled: boolean = false;
-  roleId: Rol;
+  // roleId: Rol;
 }
