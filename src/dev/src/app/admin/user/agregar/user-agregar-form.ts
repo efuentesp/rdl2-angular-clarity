@@ -9,6 +9,7 @@ import { User } from '../user.psg.model';
 import { UserSend } from '../user.psg.model-send';
 // import { Rol } from '../../rol/rol.psg.model';
 import { UserService } from '../user.psg.service';
+import { Rol } from '../../rol/rol.psg.model';
 // import { RolService } from '../../rol/rol.psg.service';
 
 @Component({
@@ -19,9 +20,9 @@ import { UserService } from '../user.psg.service';
 export class UserAgregarFormDemo implements OnInit {
   userForm: FormGroup;
   submitted = false;
-  public user: User = new User();
-  public userSend: UserSend = new UserSend();
-  // public rolesArray: Rol[];
+  user: User = new User();
+  userSend: UserSend = new UserSend();
+  rolesArray: Rol[];
 
   constructor(
     private fb: FormBuilder,

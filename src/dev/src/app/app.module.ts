@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ROUTING } from './app.routing';
 import { AppContentContainerComponent } from './content-container.component';
 import { ControlMessagesComponent } from './_validation/control-messages.component';
-import { RegisterComponent } from './register';
 import { LoginComponent } from './login/login.demo';
 import { AuthGuard } from './_guards';
 import { AlertService, AuthenticationService, UserService } from './_services';
@@ -15,13 +14,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AppContentContainerComponent,
-    ControlMessagesComponent,
-    RegisterComponent,
-    LoginComponent,
-  ],
+  declarations: [AppComponent, AppContentContainerComponent, ControlMessagesComponent, LoginComponent],
   imports: [BrowserAnimationsModule, CommonModule, ClarityModule, ROUTING, ReactiveFormsModule, HttpClientModule],
   providers: [
     AuthGuard,

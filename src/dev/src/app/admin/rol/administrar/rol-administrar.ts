@@ -21,12 +21,13 @@ export class RolAdministrarDemo {
   token: string;
   user: User;
   permissions: Permission[];
-  public rolArray: Rol[];
+  rolArray: Rol[];
+  loading = false;
 
-  private roles_update: boolean = false;
-  private roles_delete: boolean = false;
-  private roles_create: boolean = false;
-  private roles_read: boolean = false;
+  roles_update: boolean = false;
+  roles_delete: boolean = false;
+  roles_create: boolean = false;
+  roles_read: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private rolService: RolService) {}
 

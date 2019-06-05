@@ -10,9 +10,7 @@ import { ROUTING } from './user.psg.routing';
 import { UserService } from './user.psg.service';
 import { UserDemo } from './user.psg';
 import { UserAdministrarDemo } from './administrar/user-administrar';
-import { UserAgregarDemo } from './agregar/user-agregar';
 import { UserAgregarFormDemo } from './agregar/user-agregar-form';
-// import { RolService } from '../rol/rol.psg.service';
 import { UserEditarFormDemo } from './editar/user-editar-form';
 import { UserEliminarFormDemo } from './eliminar/user-eliminar-form';
 

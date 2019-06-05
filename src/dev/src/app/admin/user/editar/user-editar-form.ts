@@ -9,6 +9,7 @@ import { DatePipe } from '@angular/common';
 import { User } from '../user.psg.model';
 import { UserSend } from '../user.psg.model-send';
 import { UserService } from '../user.psg.service';
+import { Rol } from '../../rol/rol.psg.model';
 
 // import { RolService } from '../../rol/rol.psg.service';
 // import { Rol } from '../../rol/rol.psg.model';
@@ -19,13 +20,13 @@ import { UserService } from '../user.psg.service';
   templateUrl: './user-editar.psg.html',
 })
 export class UserEditarFormDemo implements OnInit {
-  public userForm: FormGroup;
-  public submitted = false;
-  public user: User = new User();
-  public userSend: UserSend = new UserSend();
-  public idUser: string;
-  public datePipe = new DatePipe('en-US');
-  // public rolesArray: Rol[];
+  userForm: FormGroup;
+  submitted = false;
+  user: User = new User();
+  userSend: UserSend = new UserSend();
+  idUser: string;
+  datePipe = new DatePipe('en-US');
+  rolesArray: Rol[];
 
   constructor(
     private fb: FormBuilder,

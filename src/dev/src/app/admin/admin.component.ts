@@ -13,6 +13,7 @@ export class AdminComponent {
   valueName: string;
   user: User;
   permissions: Permission[];
+  collapse: boolean = false;
 
   // Menu
   private customer_update: boolean = false;

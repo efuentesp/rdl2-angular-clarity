@@ -18,13 +18,14 @@ export class UserAdministrarDemo {
   // Permisos
   token: string;
   permissions: Permission[];
-  public userArray: User;
+  userArray: User;
   user: User;
+  loading = false;
 
-  private users_update: boolean = false;
-  private users_delete: boolean = false;
-  private users_create: boolean = false;
-  private users_read: boolean = false;
+  users_update: boolean = false;
+  users_delete: boolean = false;
+  users_create: boolean = false;
+  users_read: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {}
 

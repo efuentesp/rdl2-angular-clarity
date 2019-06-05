@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 
 import { User } from '../user.psg.model';
 import { UserService } from '../user.psg.service';
+import { Rol } from '../../rol/rol.psg.model';
 // import { Rol } from '../../rol/rol.psg.model';
 // import { RolService } from '../../rol/rol.psg.service';
 
@@ -18,10 +19,10 @@ import { UserService } from '../user.psg.service';
 export class UserEliminarFormDemo {
   userForm: FormGroup;
   submitted = false;
-  public user: User = new User();
-  public idUser: string;
-  public datePipe = new DatePipe('en-US');
-  // public rolesArray: Rol[];
+  user: User = new User();
+  idUser: string;
+  datePipe = new DatePipe('en-US');
+  rolesArray: Rol[];
 
   constructor(
     private fb: FormBuilder,

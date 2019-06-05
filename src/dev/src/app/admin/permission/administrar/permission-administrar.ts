@@ -19,6 +19,7 @@ export class PermissionAdministrarDemo {
   token: string;
   user: User;
   permissionArray: Permission[];
+  loading = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private permissionService: PermissionService) {}
 

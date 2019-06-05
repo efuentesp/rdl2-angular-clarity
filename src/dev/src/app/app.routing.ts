@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login/login.demo';
-import { RegisterComponent } from './register';
-import { AdminComponent } from './admin/admin.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -12,8 +10,6 @@ export const APP_ROUTES: Routes = [
     loadChildren: 'src/app/admin/admin.module#AdminModule',
     canActivate: [AuthGuard],
   },
-
-  { path: 'register', component: RegisterComponent },
   { path: '**', redirectTo: '', component: LoginComponent },
 ];
 
