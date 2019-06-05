@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService, AlertService } from '../_services';
+import swal from 'sweetalert2';
+import { environment } from '../../environments/environment';
 
 @Component({ selector: 'clr-login-demo', templateUrl: 'login.demo.html' })
 export class LoginComponent implements OnInit {
@@ -47,12 +49,23 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log('retunUrl', this.returnUrl);
+          console.log('this.router.navigate(["admin"])', data);
           this.router.navigate(['admin']);
         },
         error => {
-          this.alertService.error(error);
           this.loading = false;
+          this.submitted = false;
+          console.log(error);
+          if (error === 'Unknown Error') {
+            swal(
+              'Error en la conexión con el Servidor',
+              `Verifique que el servidor ${environment.apiUrl} este respondiendo.`,
+              'error'
+            );
+          } else {
+            swal('Error', error, 'error');
+          }
+          //this.alertService.error(error);
         }
       );
   }
