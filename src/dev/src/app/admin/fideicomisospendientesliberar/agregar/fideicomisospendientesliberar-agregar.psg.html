@@ -1,0 +1,206 @@
+<!-- PSG Fideicomisospendientesliberar Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Fideicomisos Pendientes de Liberar
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="fideicomisospendientesliberarForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="fideicomisospendientesliberarForm.get('fideicomisoItem').invalid && (fideicomisospendientesliberarForm.get('fideicomisoItem').dirty || fideicomisospendientesliberarForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="nombrefiso" class="clr-control-label">
+	    Nombre del Fiso
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="nombrefiso" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="fideicomisospendientesliberarForm.get('nombrefiso').invalid && (fideicomisospendientesliberarForm.get('nombrefiso').dirty || fideicomisospendientesliberarForm.get('nombrefiso').touched)">
+	            <input id="nombrefiso" type="text" formControlName="nombrefiso" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Nombre del Fiso es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="tiponegocio">
+	        <label for="tiponegocio" class="clr-control-label">
+	        Tipo Negocio
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tiponegocio" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="TIPO1">FIDEICOMISO</option>
+	<option value="TIPO2">MANDATO</option>
+	<option value="TIPO3">COMISIÓN MERCANTIL</option>
+	<option value="TIPO4">DEPÓSITO CONDICIONAL</option>
+	<option value="TIPO5">REPRESENTACIÓN COMÚN</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="clasifproducto">
+	        <label for="producto" class="clr-control-label">
+	        Tipo Producto
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="clasifproducto" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="PROD1">PLANEACIÓN PATRIMONIAL TESTAMENTARIA</option>
+	<option value="PROD2">ADMINISTRACIÓN DE RECURSOS</option>
+	<option value="PROD3">GARANTÍA</option>
+	<option value="PROD4">FUENTE DE PAGO</option>
+	<option value="PROD5">ZONA RESTRINGIDA</option>
+	<option value="PROD6">MANDATO</option>
+	<option value="PROD7">PENSIONES Y JUBILACIONES</option>
+	<option value="PROD8">DESARROLLO INMOBILIARIO</option>
+	<option value="PROD9">INFRAESTRUCTURA</option>
+	<option value="PROD10">REPRESENTACIÓN COMÚN</option>
+	<option value="PROD11">DEPÓSITO CONDICIONAL (Escrow)</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="manejo">
+	        <label for="formamanejo" class="clr-control-label">
+	        Manejo
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="manejo" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="DISCRESTR">DISCRECIONAL RESTRINGIDO</option>
+	<option value="NODISCR">NO DISCRECIONAL</option>
+	<option value="SINMANEJO">SIN MANEJO DE INVERSION</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="tipopersona">
+	        <label for="tipopersona" class="clr-control-label">
+	        Tipo Persona
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipopersona" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="FISICA">FISICA</option>
+	<option value="GOBIERNO">GOBIERNO</option>
+	<option value="MORAL">MORAL</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="estatus">
+	        <label for="estatuspendiestesliberar" class="clr-control-label">
+	        Estatus
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="estatus" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="AUTORIZAR">AUTORIZAR</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+    
+    <!-- <p>Form value {{ fideicomisospendientesliberarForm.value | json }} </p>
+    <p> Form status {{ fideicomisospendientesliberarForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaFideicomisospendientesliberar()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaFideicomisospendientesliberar()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

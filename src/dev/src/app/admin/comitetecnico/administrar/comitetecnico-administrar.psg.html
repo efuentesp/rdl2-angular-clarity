@@ -1,0 +1,234 @@
+<!-- PSG Administrar Comitetecnico Html -->
+<div class="card-header">
+Administrar Comité técnico
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="comitetecnico_create" class="btn btn-icon btn-outline" (click)="getComitetecnico()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'nombre'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre comité
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Integración
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Facultades
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Comentarios
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column [clrDgField]="'fechaconstitucion'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha de Constitución/Última modificación
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Miembros requeridos para Quórum
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		PresidentePropietario_Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		PresidentePropietario_RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadpresidentepropietarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        PresidentePropietario_Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'peppresidentepropietarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        PresidentePropietario_Persona Políticamente Expuesta (PEP)
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		PresidenteSuplente_Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		PresidenteSuplente_RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadpresidentesuplenteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        PresidenteSuplente_Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'peppresidentesuplenteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        PresidenteSuplente_Persona Políticamente Expuesta (PEP)
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		SecretarioPropietario_Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		SecretarioPropietario_RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadsecretariopropietarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        SecretarioPropietario_Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'pepsecretariopropietarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        SecretarioPropietario_Persona Políticamente Expuesta (PEP)
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		SecretarioSuplente_Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		SecretarioSuplente_RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadsecretariosuplenteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        SecretarioSuplente_Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'pepsecretariosuplenteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        SecretarioSuplente_Persona Políticamente Expuesta (PEP)
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		VocalPropietario_Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		VocalPropietario_RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadvocalpropietarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        VocalPropietario_Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'pepvocalpropietarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        VocalPropietario_Persona Políticamente Expuesta (PEP)
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		VocalSuplente_Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		VocalSuplente_RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadvocalsuplenteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        VocalSuplente_Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'pepvocalsuplenteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        VocalSuplente_Persona Políticamente Expuesta (PEP)
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let comitetecnico of comitetecnicoArray" [clrDgItem]="comitetecnico">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaComitetecnico(i, comitetecnico)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaComitetecnico(i, comitetecnico)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="comitetecnico_update" (click)="setClickedRowEditaComitetecnico(i, comitetecnico)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="comitetecnico_delete" (click)="setClickedRowEliminaComitetecnico(i, comitetecnico)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{comitetecnico.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.integracion}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.facultades}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.comentarios}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.fechaconstitucion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.miembrosquorum}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nombrepresidentepropietario}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.rfcpresidentepropietario}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nacionalidadpresidentepropietarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.peppresidentepropietarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nombrepresidentesuplente}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.rfcpresidentesuplente}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nacionalidadpresidentesuplenteItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.peppresidentesuplenteItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nombresecretariopropietario}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.rfcsecretariopropietario}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nacionalidadsecretariopropietarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.pepsecretariopropietarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nombresecretariosuplente}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.rfcsecretariosuplente}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nacionalidadsecretariosuplenteItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.pepsecretariosuplenteItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nombrevocalpropietario}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.rfcvocalpropietario}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nacionalidadvocalpropietarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.pepvocalpropietarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nombrevocalsuplente}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.rfcvocalsuplente}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.nacionalidadvocalsuplenteItem}}</clr-dg-cell>
+<clr-dg-cell >{{comitetecnico.pepvocalsuplenteItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

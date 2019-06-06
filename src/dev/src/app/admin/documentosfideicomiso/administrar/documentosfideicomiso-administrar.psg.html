@@ -1,0 +1,132 @@
+<!-- PSG Administrar Documentosfideicomiso Html -->
+<div class="card-header">
+Administrar Check list de documentos del fideicomiso
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="documentosfideicomiso_create" class="btn btn-icon btn-outline" (click)="getDocumentosfideicomiso()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Campo para la definición de toString en RDL
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'contratofideicomisoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Contrato de Fideicomiso
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'actasconstitutivasItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Actas constitutivas
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'cedulafiscalItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Cédula Fiscal o TAX ID
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'poderesItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Poderes
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificadoresItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificaciones
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'comprobantesdomicilioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Comprobantes de domicilio
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'formatoskycItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Formatos KYC
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'formatoevaluacionriesgoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Formato Evaluación de Riesgo para Fideicomiso
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'worldcheckItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Resultado world check
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'formatoinformacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Formato información del fideicomiso/producto y las personas que ejercen el control
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'autorizacioncomiteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Autorización de Comité de Nuevos Negocios Fiduciario
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'firmascomiteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Registro de firmas del Comité Técnico del Fideicomiso
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'curpItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        CURP
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let documentosfideicomiso of documentosfideicomisoArray" [clrDgItem]="documentosfideicomiso">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaDocumentosfideicomiso(i, documentosfideicomiso)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaDocumentosfideicomiso(i, documentosfideicomiso)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="documentosfideicomiso_update" (click)="setClickedRowEditaDocumentosfideicomiso(i, documentosfideicomiso)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="documentosfideicomiso_delete" (click)="setClickedRowEliminaDocumentosfideicomiso(i, documentosfideicomiso)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{documentosfideicomiso.campo}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.contratofideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.actasconstitutivasItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.cedulafiscalItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.poderesItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.identificadoresItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.comprobantesdomicilioItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.formatoskycItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.formatoevaluacionriesgoItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.worldcheckItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.formatoinformacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.autorizacioncomiteItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.firmascomiteItem}}</clr-dg-cell>
+<clr-dg-cell >{{documentosfideicomiso.curpItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

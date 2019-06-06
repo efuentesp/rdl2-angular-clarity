@@ -1,0 +1,492 @@
+<!-- PSG Comitetecnico Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Comité Técnico
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="comitetecnicoForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="comitetecnicoForm.get('fideicomisoItem').invalid && (comitetecnicoForm.get('fideicomisoItem').dirty || comitetecnicoForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./fideicomiso 1--> 
+  		<div class="clr-form-control"><!-- nombre 1-->
+  		    <label for="nombre" class="clr-control-label">Nombre comité<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombre 2-->
+  		        <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('nombre').invalid && (comitetecnicoForm.get('nombre').dirty || comitetecnicoForm.get('nombre').touched)">
+  		            <input id="nombre" type="text" formControlName="nombre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Nombre comité es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="integracion" class="clr-control-label">Integración</label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="integracion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('integracion').invalid && (comitetecnicoForm.get('integracion').dirty || comitetecnicoForm.get('integracion').touched)">
+  		            <textarea id="integracion" formControlName="integracion" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Integración es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="facultades" class="clr-control-label">Facultades</label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="facultades" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('facultades').invalid && (comitetecnicoForm.get('facultades').dirty || comitetecnicoForm.get('facultades').touched)">
+  		            <textarea id="facultades" formControlName="facultades" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Facultades es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="comentarios" class="clr-control-label">Comentarios</label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="comentarios" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('comentarios').invalid && (comitetecnicoForm.get('comentarios').dirty || comitetecnicoForm.get('comentarios').touched)">
+  		            <textarea id="comentarios" formControlName="comentarios" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Comentarios es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		        <div class="clr-form-control">
+  		<label for="fechaconstitucionAux" class="clr-control-label">Fecha de Constitución/Última modificación<span class="required">*</span></label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechaconstitucionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="comitetecnicoForm.get('fechaconstitucionAux').invalid && (comitetecnicoForm.get('fechaconstitucionAux').dirty || comitetecnicoForm.get('fechaconstitucionAux').touched)">
+  				<input id="fechaconstitucionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaconstitucionAux"/>
+  				<span class="tooltip-content">
+  					Fecha de Constitución/Última modificación es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control">
+  		    <label for="miembrosquorum" class="clr-control-label">Miembros requeridos para Quórum</label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="miembrosquorum" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('miembrosquorum').invalid && (comitetecnicoForm.get('miembrosquorum').dirty || comitetecnicoForm.get('miembrosquorum').touched)">
+  		            <input id="miembrosquorum" type="number" formControlName="miembrosquorum" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Miembros requeridos para Quórum es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div> 
+  		<div class="clr-form-control" id="estatus">
+  		        <label for="estatusparticipante" class="clr-control-label"> Estatus<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatus" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusparticipante 1--> 
+  		<div class="clr-form-control"><!-- nombrepresidentepropietario 1-->
+  		    <label for="nombrepresidentepropietario" class="clr-control-label">PresidentePropietario_Nombre</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrepresidentepropietario 2-->
+  		        <label for="nombrepresidentepropietario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('nombrepresidentepropietario').invalid && (comitetecnicoForm.get('nombrepresidentepropietario').dirty || comitetecnicoForm.get('nombrepresidentepropietario').touched)">
+  		            <input id="nombrepresidentepropietario" type="text" formControlName="nombrepresidentepropietario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                PresidentePropietario_Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- rfcpresidentepropietario 1-->
+  		    <label for="rfcpresidentepropietario" class="clr-control-label">PresidentePropietario_RFC</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- rfcpresidentepropietario 2-->
+  		        <label for="rfcpresidentepropietario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('rfcpresidentepropietario').invalid && (comitetecnicoForm.get('rfcpresidentepropietario').dirty || comitetecnicoForm.get('rfcpresidentepropietario').touched)">
+  		            <input id="rfcpresidentepropietario" type="text" formControlName="rfcpresidentepropietario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                PresidentePropietario_RFC es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="nacionalidadpresidentepropietario">
+  		        <label for="nacionalidad" class="clr-control-label">PresidentePropietario_Nacionalidad</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidadpresidentepropietario">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./nacionalidad 1--> 
+  		<div class="clr-form-control" id="peppresidentepropietario">
+  		        <label for="sino" class="clr-control-label">PresidentePropietario_Persona Políticamente Expuesta (PEP)</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="peppresidentepropietario">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control"><!-- nombrepresidentesuplente 1-->
+  		    <label for="nombrepresidentesuplente" class="clr-control-label">PresidenteSuplente_Nombre</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrepresidentesuplente 2-->
+  		        <label for="nombrepresidentesuplente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('nombrepresidentesuplente').invalid && (comitetecnicoForm.get('nombrepresidentesuplente').dirty || comitetecnicoForm.get('nombrepresidentesuplente').touched)">
+  		            <input id="nombrepresidentesuplente" type="text" formControlName="nombrepresidentesuplente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                PresidenteSuplente_Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- rfcpresidentesuplente 1-->
+  		    <label for="rfcpresidentesuplente" class="clr-control-label">PresidenteSuplente_RFC</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- rfcpresidentesuplente 2-->
+  		        <label for="rfcpresidentesuplente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('rfcpresidentesuplente').invalid && (comitetecnicoForm.get('rfcpresidentesuplente').dirty || comitetecnicoForm.get('rfcpresidentesuplente').touched)">
+  		            <input id="rfcpresidentesuplente" type="text" formControlName="rfcpresidentesuplente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                PresidenteSuplente_RFC es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="nacionalidadpresidentesuplente">
+  		        <label for="nacionalidad" class="clr-control-label">PresidenteSuplente_Nacionalidad</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidadpresidentesuplente">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./nacionalidad 1--> 
+  		<div class="clr-form-control" id="peppresidentesuplente">
+  		        <label for="sino" class="clr-control-label">PresidenteSuplente_Persona Políticamente Expuesta (PEP)</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="peppresidentesuplente">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control"><!-- nombresecretariopropietario 1-->
+  		    <label for="nombresecretariopropietario" class="clr-control-label">SecretarioPropietario_Nombre</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombresecretariopropietario 2-->
+  		        <label for="nombresecretariopropietario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('nombresecretariopropietario').invalid && (comitetecnicoForm.get('nombresecretariopropietario').dirty || comitetecnicoForm.get('nombresecretariopropietario').touched)">
+  		            <input id="nombresecretariopropietario" type="text" formControlName="nombresecretariopropietario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SecretarioPropietario_Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- rfcsecretariopropietario 1-->
+  		    <label for="rfcsecretariopropietario" class="clr-control-label">SecretarioPropietario_RFC</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- rfcsecretariopropietario 2-->
+  		        <label for="rfcsecretariopropietario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('rfcsecretariopropietario').invalid && (comitetecnicoForm.get('rfcsecretariopropietario').dirty || comitetecnicoForm.get('rfcsecretariopropietario').touched)">
+  		            <input id="rfcsecretariopropietario" type="text" formControlName="rfcsecretariopropietario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SecretarioPropietario_RFC es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="nacionalidadsecretariopropietario">
+  		        <label for="nacionalidad" class="clr-control-label">SecretarioPropietario_Nacionalidad</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidadsecretariopropietario">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./nacionalidad 1--> 
+  		<div class="clr-form-control" id="pepsecretariopropietario">
+  		        <label for="sino" class="clr-control-label">SecretarioPropietario_Persona Políticamente Expuesta (PEP)</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="pepsecretariopropietario">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control"><!-- nombresecretariosuplente 1-->
+  		    <label for="nombresecretariosuplente" class="clr-control-label">SecretarioSuplente_Nombre</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombresecretariosuplente 2-->
+  		        <label for="nombresecretariosuplente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('nombresecretariosuplente').invalid && (comitetecnicoForm.get('nombresecretariosuplente').dirty || comitetecnicoForm.get('nombresecretariosuplente').touched)">
+  		            <input id="nombresecretariosuplente" type="text" formControlName="nombresecretariosuplente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SecretarioSuplente_Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- rfcsecretariosuplente 1-->
+  		    <label for="rfcsecretariosuplente" class="clr-control-label">SecretarioSuplente_RFC</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- rfcsecretariosuplente 2-->
+  		        <label for="rfcsecretariosuplente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('rfcsecretariosuplente').invalid && (comitetecnicoForm.get('rfcsecretariosuplente').dirty || comitetecnicoForm.get('rfcsecretariosuplente').touched)">
+  		            <input id="rfcsecretariosuplente" type="text" formControlName="rfcsecretariosuplente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SecretarioSuplente_RFC es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="nacionalidadsecretariosuplente">
+  		        <label for="nacionalidad" class="clr-control-label">SecretarioSuplente_Nacionalidad</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidadsecretariosuplente">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./nacionalidad 1--> 
+  		<div class="clr-form-control" id="pepsecretariosuplente">
+  		        <label for="sino" class="clr-control-label">SecretarioSuplente_Persona Políticamente Expuesta (PEP)</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="pepsecretariosuplente">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control"><!-- nombrevocalpropietario 1-->
+  		    <label for="nombrevocalpropietario" class="clr-control-label">VocalPropietario_Nombre</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrevocalpropietario 2-->
+  		        <label for="nombrevocalpropietario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('nombrevocalpropietario').invalid && (comitetecnicoForm.get('nombrevocalpropietario').dirty || comitetecnicoForm.get('nombrevocalpropietario').touched)">
+  		            <input id="nombrevocalpropietario" type="text" formControlName="nombrevocalpropietario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                VocalPropietario_Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- rfcvocalpropietario 1-->
+  		    <label for="rfcvocalpropietario" class="clr-control-label">VocalPropietario_RFC</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- rfcvocalpropietario 2-->
+  		        <label for="rfcvocalpropietario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('rfcvocalpropietario').invalid && (comitetecnicoForm.get('rfcvocalpropietario').dirty || comitetecnicoForm.get('rfcvocalpropietario').touched)">
+  		            <input id="rfcvocalpropietario" type="text" formControlName="rfcvocalpropietario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                VocalPropietario_RFC es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="nacionalidadvocalpropietario">
+  		        <label for="nacionalidad" class="clr-control-label">VocalPropietario_Nacionalidad</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidadvocalpropietario">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./nacionalidad 1--> 
+  		<div class="clr-form-control" id="pepvocalpropietario">
+  		        <label for="sino" class="clr-control-label">VocalPropietario_Persona Políticamente Expuesta (PEP)</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="pepvocalpropietario">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control"><!-- nombrevocalsuplente 1-->
+  		    <label for="nombrevocalsuplente" class="clr-control-label">VocalSuplente_Nombre</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrevocalsuplente 2-->
+  		        <label for="nombrevocalsuplente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('nombrevocalsuplente').invalid && (comitetecnicoForm.get('nombrevocalsuplente').dirty || comitetecnicoForm.get('nombrevocalsuplente').touched)">
+  		            <input id="nombrevocalsuplente" type="text" formControlName="nombrevocalsuplente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                VocalSuplente_Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- rfcvocalsuplente 1-->
+  		    <label for="rfcvocalsuplente" class="clr-control-label">VocalSuplente_RFC</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- rfcvocalsuplente 2-->
+  		        <label for="rfcvocalsuplente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="comitetecnicoForm.get('rfcvocalsuplente').invalid && (comitetecnicoForm.get('rfcvocalsuplente').dirty || comitetecnicoForm.get('rfcvocalsuplente').touched)">
+  		            <input id="rfcvocalsuplente" type="text" formControlName="rfcvocalsuplente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                VocalSuplente_RFC es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="nacionalidadvocalsuplente">
+  		        <label for="nacionalidad" class="clr-control-label">VocalSuplente_Nacionalidad</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidadvocalsuplente">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./nacionalidad 1--> 
+  		<div class="clr-form-control" id="pepvocalsuplente">
+  		        <label for="sino" class="clr-control-label">VocalSuplente_Persona Políticamente Expuesta (PEP)</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="pepvocalsuplente">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ comitetecnicoForm.value | json }} </p>
+	<p> Form status {{ comitetecnicoForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaComitetecnico()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaComitetecnico()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Administrador
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Promotor
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+  			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

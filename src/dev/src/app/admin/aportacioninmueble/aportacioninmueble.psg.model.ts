@@ -1,0 +1,53 @@
+/* PSG  Aportacioninmueble Model */
+import { DecimalPipe } from '@angular/common';
+
+export class Aportacioninmueble {
+  fideicomisoId: string = null;
+  fideicomisoItem: string = null;
+  subfisoId: string = null;
+  subfisoItem: string = null;
+  tiponegocio: string = null;
+  producto: string = null;
+  idinmueble: string = null;
+  fechaalta: number = null;
+  fechaaltaAux: Date = new Date();
+  tipoinmueble: string = null;
+  tipoinmuebleItem: string = null;
+  arbol: string = null;
+  fecharegistro: number = null;
+  fecharegistroAux: Date = new Date();
+  tipofraccion: string = null;
+  tipofraccionItem: string = null;
+  descripcion: string = null;
+  inmueblevalorinicial: string = null;
+  inmuebleubicacion: string = null;
+  inmuebleestado: string = null;
+  inmuebleestadoItem: string = null;
+  inmueblesuperficie: string = null;
+  inmuebleindivisos: string = null;
+  inmuebledias: string = null;
+  inmuebleproyectoejecutivo: string = null;
+  inmueblevaloractual: string = null;
+  inmuebleciudad: string = null;
+  inmueblesuperficieconstruida: string = null;
+  inmueblefraccionamientounidad: string = null;
+  inmuebleclavecatastral: string = null;
+  inmueblevalor: string = null;
+  inmuebleestatus: string = null;
+  inmuebleestatusItem: string = null;
+  datosconstitucionescritura: string = null;
+  datosconstitucionescrituraItem: string = null;
+  datosconstitucionnumescritura: string = null;
+  datosconstitucionnombrenotario: string = null;
+  datosconstitucionnombrenotarioItem: string = null;
+  datosconstitucionestadonotario: string = null;
+  datosconstituciontelefononotario: string = null;
+  datosconstitucionfecharpp: number = null;
+  datosconstitucionfecharppAux: Date = new Date();
+  datosconstitucionfechaescritura: number = null;
+  datosconstitucionfechaescrituraAux: Date = new Date();
+  datosconstitucionnumnotaria: string = null;
+  datosconstitucionciudadnotario: string = null;
+  datosconstitucionemailnotario: string = null;
+  datosconstitucionnumrpp: string = null;
+}

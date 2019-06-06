@@ -1,0 +1,120 @@
+<!-- PSG Administrar Compraventavalores Html -->
+<div class="card-header">
+Administrar Solicitud compra - venta de valores
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="compraventavalores_create" class="btn btn-icon btn-outline" (click)="getCompraventavalores()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+			        <clr-dg-column [clrDgField]="'fechaoperacion'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha operación
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'generooperacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Generó la operación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'contratoinversionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Contrato de inversión
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'descripcionoperacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción de la operación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'operacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Operación
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'montooperacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Monto operación $
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'intermediario'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Intermediario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'descripcionfideicomiso'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción fideicomiso
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'politicainversion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Política de inversión
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'emergenteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Emergente
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let compraventavalores of compraventavaloresArray" [clrDgItem]="compraventavalores">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaCompraventavalores(i, compraventavalores)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaCompraventavalores(i, compraventavalores)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="compraventavalores_update" (click)="setClickedRowEditaCompraventavalores(i, compraventavalores)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="compraventavalores_delete" (click)="setClickedRowEliminaCompraventavalores(i, compraventavalores)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{compraventavalores.fechaoperacion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.generooperacion}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.contratoinversionItem}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.descripcionoperacion}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.operacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.montooperacion}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.intermediario}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.descripcionfideicomiso}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.politicainversion}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{compraventavalores.emergenteItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

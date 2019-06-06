@@ -1,0 +1,72 @@
+<!-- PSG Administrar Evaluacionriesgos Html -->
+<div class="card-header">
+Administrar Resultados de la evaluación de riesgos
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="evaluacionriesgos_create" class="btn btn-icon btn-outline" (click)="getEvaluacionriesgos()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Campo para la definición de toString en RDL
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'clienteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Cliente
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estructuraItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estructura
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'resultadofinalItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Resultado Final
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let evaluacionriesgos of evaluacionriesgosArray" [clrDgItem]="evaluacionriesgos">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaEvaluacionriesgos(i, evaluacionriesgos)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaEvaluacionriesgos(i, evaluacionriesgos)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="evaluacionriesgos_update" (click)="setClickedRowEditaEvaluacionriesgos(i, evaluacionriesgos)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="evaluacionriesgos_delete" (click)="setClickedRowEliminaEvaluacionriesgos(i, evaluacionriesgos)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{evaluacionriesgos.campo}}</clr-dg-cell>
+<clr-dg-cell >{{evaluacionriesgos.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{evaluacionriesgos.clienteItem}}</clr-dg-cell>
+<clr-dg-cell >{{evaluacionriesgos.estructuraItem}}</clr-dg-cell>
+<clr-dg-cell >{{evaluacionriesgos.resultadofinalItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

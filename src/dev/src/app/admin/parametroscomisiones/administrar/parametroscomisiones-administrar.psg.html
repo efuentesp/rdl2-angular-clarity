@@ -1,0 +1,198 @@
+<!-- PSG Administrar Parametroscomisiones Html -->
+<div class="card-header">
+Administrar Parámetros de comisiones
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="parametroscomisiones_create" class="btn btn-icon btn-outline" (click)="getParametroscomisiones()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'tipocalculoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de cálculo
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'aquiensecobraItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        A quien se cobra
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Monto de aceptación
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Importe anualizado $
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'periodicidadItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Periodicidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'calculoaldiaprimeroItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Cálculo al día primero
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'reevaluacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Reevaluación
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha de constitución
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha pivote
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha próximo cálculo
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Método de pago
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		A quien se factura
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Comentario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'penasconvencionalesItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Penas convencionales
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'interesItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Porcentaje Interes
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipoivaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de I.V.A.
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Día de corte
+		    </ng-container>    
+		</clr-dg-column>	
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha de primer cálculo
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha de último cálculo
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Cuenta de pago
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Número
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'situacionmorosidadItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Situación de morosidad
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let parametroscomisiones of parametroscomisionesArray" [clrDgItem]="parametroscomisiones">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaParametroscomisiones(i, parametroscomisiones)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaParametroscomisiones(i, parametroscomisiones)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="parametroscomisiones_update" (click)="setClickedRowEditaParametroscomisiones(i, parametroscomisiones)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="parametroscomisiones_delete" (click)="setClickedRowEliminaParametroscomisiones(i, parametroscomisiones)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{parametroscomisiones.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.tipocalculoItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.aquiensecobraItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.montoaceptacion}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.importeanualizado}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.periodicidadItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.calculoaldiaprimeroItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.reevaluacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.fechaconstitucion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.fechapivote | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.fechaproxcalculo | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.metodopago}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.aquienfactura}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.comentario}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.penasconvencionalesItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.interesItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.tipoivaItem}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.diacorte}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.fechaprimercalculo | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.fechaultimocalculo | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.cuentapago}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.numero}}</clr-dg-cell>
+<clr-dg-cell >{{parametroscomisiones.situacionmorosidadItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

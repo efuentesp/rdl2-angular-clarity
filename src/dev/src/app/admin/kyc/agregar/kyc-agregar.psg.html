@@ -1,0 +1,173 @@
+<!-- PSG Kyc Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Generar KYC
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="kycForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="kycForm.get('fideicomisoItem').invalid && (kycForm.get('fideicomisoItem').dirty || kycForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="nombre" class="clr-control-label">
+	    Nombre
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="nombre" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="nombre" type="text" formControlName="nombre" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="numregistro" class="clr-control-label">
+	    Número de Registro
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="numregistro" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="numregistro" type="text" formControlName="numregistro" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="oficina" class="clr-control-label">
+	    Oficina
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="oficina" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="oficina" type="text" formControlName="oficina" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="conceptoimpresion">
+	        <label for="conceptoimpresion" class="clr-control-label">
+	        Concepto de Impresión
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="conceptoimpresion">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="CONCEPTO1">ALTA DEL CONTRATO(Promoción Fiduciaria)</option>
+	<option value="CONCEPTO2">CALL REPORT(Administración Fiducuario)</option>
+	<option value="CONCEPTO3">CAMBIO DE DATOS ADMINISTRATIVOS(Administración Fiduciaria)</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="crbanca" class="clr-control-label">
+	    CR de la Banca
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="crbanca" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="crbanca" type="text" formControlName="crbanca" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="folio" class="clr-control-label">
+	    Folio
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="folio" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="folio" type="text" formControlName="folio" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+    
+    <!-- <p>Form value {{ kycForm.value | json }} </p>
+    <p> Form status {{ kycForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaKyc()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaKyc()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

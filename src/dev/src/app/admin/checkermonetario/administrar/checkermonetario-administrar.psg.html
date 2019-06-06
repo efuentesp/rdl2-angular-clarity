@@ -1,0 +1,156 @@
+<!-- PSG Administrar Checkermonetario Html -->
+<div class="card-header">
+Administrar Monetario
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="checkermonetario_create" class="btn btn-icon btn-outline" (click)="getCheckermonetario()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'foliooperacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio de operación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Operado por
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Tipo Liquidación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'instruccionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Instrucción
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fechapago'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha de pago
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Número de Liquidaciones
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'transaccionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Transacción
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Operado
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Autorizó
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha autorizado
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Número de firma nivel 1
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre quien firma
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha firma
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let checkermonetario of checkermonetarioArray" [clrDgItem]="checkermonetario">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaCheckermonetario(i, checkermonetario)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaCheckermonetario(i, checkermonetario)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="checkermonetario_update" (click)="setClickedRowEditaCheckermonetario(i, checkermonetario)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="checkermonetario_delete" (click)="setClickedRowEliminaCheckermonetario(i, checkermonetario)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{checkermonetario.foliooperacion}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.operador}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.tipoliquidacion}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.instruccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.importe}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.fechapago}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.numeroliquidaciones}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.transaccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.fecha}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.operado}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.autorizo}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.fechaautorizado}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.numerofirma}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.nombrefirma}}</clr-dg-cell>
+<clr-dg-cell >{{checkermonetario.fechafirma}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

@@ -1,0 +1,309 @@
+<!-- PSG Saldoscuenta Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Saldos por cuenta
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="saldoscuentaForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="saldoscuentaForm.get('fideicomisoItem').invalid && (saldoscuentaForm.get('fideicomisoItem').dirty || saldoscuentaForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="subfisoId">
+  		        <label for="subfisoItem" class="clr-control-label">Subfiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="saldoscuentaForm.get('subfisoItem').invalid && (saldoscuentaForm.get('subfisoItem').dirty || saldoscuentaForm.get('subfisoItem').touched)">
+  		                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Subfiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="cuenta" class="clr-control-label">
+  		    	Cuenta
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="cuenta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('cuenta').invalid && (saldoscuentaForm.get('cuenta').dirty || saldoscuentaForm.get('cuenta').touched)">
+  		            <input id="cuenta" type="text" formControlName="cuenta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="sct" class="clr-control-label">
+  		    	Sct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="sct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('sct').invalid && (saldoscuentaForm.get('sct').dirty || saldoscuentaForm.get('sct').touched)">
+  		            <input id="sct" type="text" formControlName="sct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="ssct" class="clr-control-label">
+  		    	Ssct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="ssct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('ssct').invalid && (saldoscuentaForm.get('ssct').dirty || saldoscuentaForm.get('ssct').touched)">
+  		            <input id="ssct" type="text" formControlName="ssct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="sssct" class="clr-control-label">
+  		    	Sssct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="sssct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('sssct').invalid && (saldoscuentaForm.get('sssct').dirty || saldoscuentaForm.get('sssct').touched)">
+  		            <input id="sssct" type="text" formControlName="sssct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="ssssct" class="clr-control-label">
+  		    	Ssssct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="ssssct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('ssssct').invalid && (saldoscuentaForm.get('ssssct').dirty || saldoscuentaForm.get('ssssct').touched)">
+  		            <input id="ssssct" type="text" formControlName="ssssct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label">
+  		        Moneda
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="auxiliar1" class="clr-control-label">
+  		    	Auxiliar 1
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="auxiliar1" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('auxiliar1').invalid && (saldoscuentaForm.get('auxiliar1').dirty || saldoscuentaForm.get('auxiliar1').touched)">
+  		            <input id="auxiliar1" type="text" formControlName="auxiliar1" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="auxiliar2" class="clr-control-label">
+  		    	Auxiliar 2
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="auxiliar2" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('auxiliar2').invalid && (saldoscuentaForm.get('auxiliar2').dirty || saldoscuentaForm.get('auxiliar2').touched)">
+  		            <input id="auxiliar2" type="text" formControlName="auxiliar2" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="auxiliar3" class="clr-control-label">
+  		    	Auxiliar 3
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="auxiliar3" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('auxiliar3').invalid && (saldoscuentaForm.get('auxiliar3').dirty || saldoscuentaForm.get('auxiliar3').touched)">
+  		            <input id="auxiliar3" type="text" formControlName="auxiliar3" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="saldoinicial" class="clr-control-label">
+  		    	Saldo inicial
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="saldoinicial" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('saldoinicial').invalid && (saldoscuentaForm.get('saldoinicial').dirty || saldoscuentaForm.get('saldoinicial').touched)">
+  		            <input id="saldoinicial" type="text" formControlName="saldoinicial" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="cargos" class="clr-control-label">
+  		    	Cargos
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="cargos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('cargos').invalid && (saldoscuentaForm.get('cargos').dirty || saldoscuentaForm.get('cargos').touched)">
+  		            <input id="cargos" type="text" formControlName="cargos" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="abonos" class="clr-control-label">
+  		    	Abonos
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="abonos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('abonos').invalid && (saldoscuentaForm.get('abonos').dirty || saldoscuentaForm.get('abonos').touched)">
+  		            <input id="abonos" type="text" formControlName="abonos" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="saldoactual" class="clr-control-label">
+  		    	Saldo actual
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="saldoactual" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="saldoscuentaForm.get('saldoactual').invalid && (saldoscuentaForm.get('saldoactual').dirty || saldoscuentaForm.get('saldoactual').touched)">
+  		            <input id="saldoactual" type="text" formControlName="saldoactual" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ saldoscuentaForm.value | json }} </p>
+<p> Form status {{ saldoscuentaForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaSaldoscuenta()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaSaldoscuenta()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="modalfideicomiso" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Fideicomiso</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="modalsubfiso" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Subfiso</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClarityModule } from '@clr/angular';
 import { AppComponent } from './app.component';
-import { ROUTING } from './app.routing';
 import { AppContentContainerComponent } from './content-container.component';
 import { ControlMessagesComponent } from './_validation/control-messages.component';
 import { LoginComponent } from './login/login.demo';
@@ -12,10 +11,18 @@ import { AlertService, AuthenticationService, UserService } from './_services';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [AppComponent, AppContentContainerComponent, ControlMessagesComponent, LoginComponent],
-  imports: [BrowserAnimationsModule, CommonModule, ClarityModule, ROUTING, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserAnimationsModule,
+    CommonModule,
+    ClarityModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [
     AuthGuard,
     AlertService,
@@ -23,7 +30,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    //fakeBackendProvider
   ],
   bootstrap: [AppComponent],
 })

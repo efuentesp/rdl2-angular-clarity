@@ -1,0 +1,794 @@
+<!-- PSG Compradirecto Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Instrucción de compra de valores
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="compradirectoForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="instruccionId">
+	        <label for="instruccionItem" class="clr-control-label">
+	        Instrucción
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="instruccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="compradirectoForm.get('instruccionItem').invalid && (compradirectoForm.get('instruccionItem').dirty || compradirectoForm.get('instruccionItem').touched)">
+	                <input id="instruccionId"   type="hidden" formControlName="instruccionId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="instruccionItem" type="text"   formControlName="instruccionItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalinstruccion = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Instrucción es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="fechavalor" class="clr-control-label">
+	    Fecha valor
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="fechavalor" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="fechavalor" type="text" formControlName="fechavalor" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="titulosgarantia">
+	        <label for="sino" class="clr-control-label">
+	        Títulos en garantía
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="titulosgarantia">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="subfisoId">
+	        <label for="subfisoItem" class="clr-control-label">
+	        Sub fiso
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="subfisoItem" aria-haspopup="true" role="tooltip">
+	                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true"><clr-icon shape="search"></clr-icon></button>
+	            </label>
+	            </div>
+	        </div>
+	    </div>    
+	<div class="clr-form-control" id="operacionfutura">
+	        <label for="sino" class="clr-control-label">
+	        Operación Futura
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="operacionfutura">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+		        <label for="fechaoperacionAux" class="clr-control-label">
+		        Fecha de operación
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="fechaoperacionAux">
+		                <input id="fechaoperacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaoperacionAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control" id="activos">
+	        <label for="activos" class="clr-control-label">
+	        Activos
+	        <span class="required">*</span>
+	        </label>
+	        <clr-radio-wrapper> <input type="radio" formControlName="activos" value="AUMENTO" required> Aumento de activos </clr-radio-wrapper>	
+	        <clr-radio-wrapper> <input type="radio" formControlName="activos" value="DISMINUCION" required> Disminución de activos </clr-radio-wrapper>	
+	    </div>
+	<div class="clr-form-control">
+	    <label for="tipomovimiento" class="clr-control-label">
+	    Tipo movimiento
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="tipomovimiento" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="tipomovimiento" type="text" formControlName="tipomovimiento" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="importe" class="clr-control-label">
+	    Importe
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('importe').invalid && (compradirectoForm.get('importe').dirty || compradirectoForm.get('importe').touched)">
+	            <input id="importe" type="text" formControlName="importe" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Importe es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="custodio" class="clr-control-label">
+	    Custodio
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="custodio" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="custodio" type="text" formControlName="custodio" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="comision" class="clr-control-label">
+	    Comisión
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="comision" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="comision" type="text" formControlName="comision" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="mercado">
+	        <label for="mercado" class="clr-control-label">
+	        Mercado
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="mercado" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MERCADO1">MERCADO BANCARIO</option>
+	<option value="MERCADO2">MERCADO DE CAPITALES</option>
+	<option value="MERCADO3">MERCADO DE DERIVADOS</option>
+	<option value="MERCADO4">MERCADO DE DINERO</option>
+	<option value="MERCADO5">MERCADO DESCONOCIDO</option>
+	<option value="MERCADO6">SOCIEDADES DE INVERSIÓN</option>
+	<option value="MERCADO7">INVERSIONES POR LIQUIDAR</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="instrumento">
+	        <label for="instrumentocompradirecto" class="clr-control-label">
+	        Instrumento
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="instrumento" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="INST1">INVERSIÓN GLOBAL</option>
+	<option value="INST2">DEPÓSITO A LA VISTA</option>
+	<option value="INST3">INVERSIÓN GLOBAL EN INST. FINANCIERAS DEL PAÍS</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="isr" class="clr-control-label">
+	    ISR
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="isr" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="isr" type="text" formControlName="isr" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="moneda">
+	        <label for="moneda" class="clr-control-label">
+	        Moneda
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="moneda" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="DLS">DLS. U.S.A.</option>
+	<option value="EURO">EUROS</option>
+	<option value="NACIONAL">MONEDA NACIONAL</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="compradirectoForm.get('fideicomisoItem').invalid && (compradirectoForm.get('fideicomisoItem').dirty || compradirectoForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control" id="contratoinversionId">
+	        <label for="contratoinversionItem" class="clr-control-label">
+	        Contrato de inversión
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="contratoinversionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="compradirectoForm.get('contratoinversionItem').invalid && (compradirectoForm.get('contratoinversionItem').dirty || compradirectoForm.get('contratoinversionItem').touched)">
+	                <input id="contratoinversionId"   type="hidden" formControlName="contratoinversionId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="contratoinversionItem" type="text"   formControlName="contratoinversionItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalcontratoinversion = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Contrato de inversión es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="fechaliquidacion" class="clr-control-label">
+	    Fecha de Liquidación
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="fechaliquidacion" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="fechaliquidacion" type="text" formControlName="fechaliquidacion" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="emisiones">
+	        <label for="emisiones" class="clr-control-label">
+	        Emisiones
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="emisiones" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="EMISIONES1">INV GLOBAL 0 0</option>
+	<option value="EMISIONES2">1 1 0</option>
+	<option value="EMISIONES3">CHEQUES GL 0 0</option>
+	<option value="EMISIONES4">53 1 0</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="serie" class="clr-control-label">
+	    Serie
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="serie" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('serie').invalid && (compradirectoForm.get('serie').dirty || compradirectoForm.get('serie').touched)">
+	            <input id="serie" type="text" formControlName="serie" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Serie es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="notitulos" class="clr-control-label">
+	    No. Títulos
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="notitulos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('notitulos').invalid && (compradirectoForm.get('notitulos').dirty || compradirectoForm.get('notitulos').touched)">
+	            <input id="notitulos" type="text" formControlName="notitulos" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                No. Títulos es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="precio" class="clr-control-label">
+	    Precio
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="precio" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('precio').invalid && (compradirectoForm.get('precio').dirty || compradirectoForm.get('precio').touched)">
+	            <input id="precio" type="text" formControlName="precio" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Precio es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="desccomplementaria" class="clr-control-label">
+	    Descripción complementaria
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="desccomplementaria" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('desccomplementaria').invalid && (compradirectoForm.get('desccomplementaria').dirty || compradirectoForm.get('desccomplementaria').touched)">
+	            <input id="desccomplementaria" type="text" formControlName="desccomplementaria" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Descripción complementaria es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="intereses" class="clr-control-label">
+	    Intereses
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="intereses" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('intereses').invalid && (compradirectoForm.get('intereses').dirty || compradirectoForm.get('intereses').touched)">
+	            <input id="intereses" type="text" formControlName="intereses" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Intereses es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="pizarra" class="clr-control-label">
+	    Pizarra/Clave de cotización
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="pizarra" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('pizarra').invalid && (compradirectoForm.get('pizarra').dirty || compradirectoForm.get('pizarra').touched)">
+	            <input id="pizarra" type="text" formControlName="pizarra" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Pizarra/Clave de cotización es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cupon" class="clr-control-label">
+	    Cupón
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cupon" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="compradirectoForm.get('cupon').invalid && (compradirectoForm.get('cupon').dirty || compradirectoForm.get('cupon').touched)">
+	            <input id="cupon" type="text" formControlName="cupon" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Cupón es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+    
+    <!-- <p>Form value {{ compradirectoForm.value | json }} </p>
+    <p> Form status {{ compradirectoForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaCompradirecto()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaCompradirecto()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalinstruccion" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Instruccion</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'fechahoracaptura'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha y hora de captura
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Fideicomiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'subfisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Sub fiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'folio'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Folio de la instrucción
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'fechadocumeto'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha del documento
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'clasificacionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Clasificación
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'personalidadsolicitanteItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Personalidad del solicitante
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'fechacambioestatus'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha cambio de estatus
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'subtipoinstruccionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Subtipo de instrucción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'importe'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Importe de la instrucción
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'importeaplicado'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Importe aplicado
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'nombresubfiso'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombre del sub fiso
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'titularfideicomiso'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Titular del fideicomiso
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'fechacompromiso'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha del compromiso
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'formarecepcionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Forma de recepción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'estatusinstruccionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Estatus de la instrucción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'tipoinstruccionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Tipo de instrucción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'monedaItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Moneda
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'noeventos'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            No. de eventos
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'noefectuados'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            No. Efectuados
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'infocomplementaria'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Información complementaria
+        		        </ng-container>    
+        		    </clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let instruccion of instruccionArray">
+      			<clr-dg-cell><input type="radio" name="instruccionId" [checked]="instruccion.checked" value="{{instruccion.id}}" (click)="setClickedRowInstruccion(i, instruccion)"></clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechahoracaptura}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.fideicomisoItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.subfisoItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.folio}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechadocumeto}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.clasificacionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.personalidadsolicitanteItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechacambioestatus}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.subtipoinstruccionItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.importe}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.importeaplicado}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.nombresubfiso}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.titularfideicomiso}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechacompromiso}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.formarecepcionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.estatusinstruccionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.tipoinstruccionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.monedaItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.noeventos}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.noefectuados}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.infocomplementaria}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalinstruccion = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalinstruccion = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalsubfiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Subfiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Fideicomiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'numero'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Número
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'nombre'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombre
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'estatusItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Estatus
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let subfiso of subfisoArray">
+      			<clr-dg-cell><input type="radio" name="subfisoId" [checked]="subfiso.checked" value="{{subfiso.id}}" (click)="setClickedRowSubfiso(i, subfiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{subfiso.fideicomisoItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{subfiso.numero}}</clr-dg-cell>
+        		<clr-dg-cell>{{subfiso.nombre}}</clr-dg-cell>
+        		<clr-dg-cell >{{subfiso.estatusItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalcontratoinversion" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Contratoinversion</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Fideicomiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'intermediarioItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Intermediario
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'nombrecontacto1'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombre contacto 1
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'subfisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Sub fiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'estatusItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Estatus
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'contratoiversion'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Contrato inversión
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'contratootrasinst'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Contrato otras instituciones
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'contacto1lada'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Contacto1 Lada
+        		        </ng-container>    
+        		    </clr-dg-column>
+      
+      			<clr-dg-row *ngFor="let contratoinversion of contratoinversionArray">
+      			<clr-dg-cell><input type="radio" name="contratoinversionId" [checked]="contratoinversion.checked" value="{{contratoinversion.id}}" (click)="setClickedRowContratoinversion(i, contratoinversion)"></clr-dg-cell>
+        		<clr-dg-cell >{{contratoinversion.fideicomisoItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{contratoinversion.intermediarioItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{contratoinversion.nombrecontacto1}}</clr-dg-cell>
+        		<clr-dg-cell >{{contratoinversion.subfisoItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{contratoinversion.estatusItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{contratoinversion.contratoiversion}}</clr-dg-cell>
+        		<clr-dg-cell>{{contratoinversion.contratootrasinst}}</clr-dg-cell>
+        		<clr-dg-cell>{{contratoinversion.contacto1lada}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalcontratoinversion = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalcontratoinversion = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

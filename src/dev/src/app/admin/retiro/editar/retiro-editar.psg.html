@@ -1,0 +1,70 @@
+<!-- PSG Retiro Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Retiros
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="retiroForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control"><!-- usuario 1-->
+  		    <label for="usuario" class="clr-control-label">Usuario<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- usuario 2-->
+  		        <label for="usuario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="retiroForm.get('usuario').invalid && (retiroForm.get('usuario').dirty || retiroForm.get('usuario').touched)">
+  		            <input id="usuario" type="text" formControlName="usuario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Usuario es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- fechahora 1-->
+  		    <label for="fechahora" class="clr-control-label">Fecha y hora<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- fechahora 2-->
+  		        <label for="fechahora" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="retiroForm.get('fechahora').invalid && (retiroForm.get('fechahora').dirty || retiroForm.get('fechahora').touched)">
+  		            <input id="fechahora" type="text" formControlName="fechahora" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Fecha y hora es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="vertical-file3" class="clr-control-label" >
+  		    Seleccionar Archivo<span class="required">*</span>
+  		    </label>
+  		    <div class="clr-control-container">
+  		        <div class="clr-file-wrapper">
+  		            <input type="file" id="archivo" placeholder="">
+  		            <control-messages class="control-messages" [control]="retiroForm.controls.archivo"></control-messages>
+  		        </div>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ retiroForm.value | json }} </p>
+	<p> Form status {{ retiroForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaRetiro()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaRetiro()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

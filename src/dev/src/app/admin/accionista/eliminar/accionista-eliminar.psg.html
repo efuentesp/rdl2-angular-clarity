@@ -1,0 +1,127 @@
+<!-- PSG Accionista Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Accionista
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="accionistaForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control">
+  		    <label for="accionistade" class="clr-control-label">
+  		    	Accionista de
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="accionistade" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="accionistaForm.get('accionistade').invalid && (accionistaForm.get('accionistade').dirty || accionistaForm.get('accionistade').touched)">
+  		            <textarea id="accionistade" formControlName="accionistade" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="nombre" class="clr-control-label">
+  		    	Nombre
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="accionistaForm.get('nombre').invalid && (accionistaForm.get('nombre').dirty || accionistaForm.get('nombre').touched)">
+  		            <input id="nombre" type="text" formControlName="nombre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="rfc" class="clr-control-label">
+  		    	RFC
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="rfc" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="accionistaForm.get('rfc').invalid && (accionistaForm.get('rfc').dirty || accionistaForm.get('rfc').touched)">
+  		            <input id="rfc" type="text" formControlName="rfc" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="porcentajeparticipacionaccionaria" class="clr-control-label">
+  		    	% de Participación Accionaria
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="porcentajeparticipacionaccionaria" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="accionistaForm.get('porcentajeparticipacionaccionaria').invalid && (accionistaForm.get('porcentajeparticipacionaccionaria').dirty || accionistaForm.get('porcentajeparticipacionaccionaria').touched)">
+  		            <input id="porcentajeparticipacionaccionaria" type="text" formControlName="porcentajeparticipacionaccionaria" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="tipopersona">
+  		        <label for="tipopersona" class="clr-control-label">
+  		        Tipo de Persona
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="tipopersona" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="FISICA">FISICA</option>
+  		<option value="GOBIERNO">GOBIERNO</option>
+  		<option value="MORAL">MORAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="nacionalidad">
+  		        <label for="nacionalidad" class="clr-control-label">
+  		        Nacionalidad
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidad" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="pep">
+  		        <label for="sino" class="clr-control-label">
+  		        Persona Políticamente Expuesta (PEP)
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="pep" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ accionistaForm.value | json }} </p>
+<p> Form status {{ accionistaForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaAccionista()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaAccionista()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

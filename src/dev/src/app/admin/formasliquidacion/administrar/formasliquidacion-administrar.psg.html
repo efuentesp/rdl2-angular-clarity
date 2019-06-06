@@ -1,0 +1,102 @@
+<!-- PSG Administrar Formasliquidacion Html -->
+<div class="card-header">
+Administrar Formas de liquidación
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="formasliquidacion_create" class="btn btn-icon btn-outline" (click)="getFormasliquidacion()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'participante'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Participante
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de persona
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fideicomisario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'formaliquidacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Forma de liquidación
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Sec. Cuenta Seleccionada
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'plprincipalItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        P.L. Principal
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estadoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estado
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Sec. Param Liq
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let formasliquidacion of formasliquidacionArray" [clrDgItem]="formasliquidacion">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaFormasliquidacion(i, formasliquidacion)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaFormasliquidacion(i, formasliquidacion)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="formasliquidacion_update" (click)="setClickedRowEditaFormasliquidacion(i, formasliquidacion)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="formasliquidacion_delete" (click)="setClickedRowEliminaFormasliquidacion(i, formasliquidacion)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{formasliquidacion.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.participante}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.tipoItem}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.fideicomisario}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.formaliquidacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.seccuentaseleccionada}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.plprincipalItem}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.estadoItem}}</clr-dg-cell>
+<clr-dg-cell >{{formasliquidacion.secparamliq}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

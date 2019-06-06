@@ -1,0 +1,631 @@
+<!-- PSG Ventadirecto Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Instrucción de venta de valores
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="ventadirectoForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="instruccionId">
+  		        <label for="instruccionItem" class="clr-control-label">Instruccion<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="instruccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="ventadirectoForm.get('instruccionItem').invalid && (ventadirectoForm.get('instruccionItem').dirty || ventadirectoForm.get('instruccionItem').touched)">
+  		                <input id="instruccionId"   type="hidden" formControlName="instruccionId" placeholder="Instruccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="instruccionItem" type="text"   formControlName="instruccionItem" placeholder="Instruccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalinstruccion = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Instruccion es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="fechavalor" class="clr-control-label">
+  		    	Fecha valor
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fechavalor" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('fechavalor').invalid && (ventadirectoForm.get('fechavalor').dirty || ventadirectoForm.get('fechavalor').touched)">
+  		            <input id="fechavalor" type="text" formControlName="fechavalor" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="titulosgarantia">
+  		        <label for="sino" class="clr-control-label">
+  		        Títulos en garantía
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="titulosgarantia" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="subfisoId">
+  		        <label for="subfisoItem" class="clr-control-label">Subfiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="ventadirectoForm.get('subfisoItem').invalid && (ventadirectoForm.get('subfisoItem').dirty || ventadirectoForm.get('subfisoItem').touched)">
+  		                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Subfiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="operacionfutura">
+  		        <label for="sino" class="clr-control-label">
+  		        Operación Futura
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="operacionfutura" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		        <div class="clr-form-control">
+  		<label for="fechaoperacionAux" class="clr-control-label">
+  			Fecha de operación
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechaoperacionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="ventadirectoForm.get('fechaoperacionAux').invalid && (ventadirectoForm.get('fechaoperacionAux').dirty || ventadirectoForm.get('fechaoperacionAux').touched)">
+  				<input id="fechaoperacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaoperacionAux"/>
+  				<span class="tooltip-content">
+  					Fecha de operación es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="activos">
+  		        <label for="activos" class="clr-control-label">
+  		        Activos
+  		        </label>
+  		        <clr-radio-wrapper> <input type="radio" formControlName="activos" value="AUMENTO" required> Aumento de activos </clr-radio-wrapper>	
+  		        <clr-radio-wrapper> <input type="radio" formControlName="activos" value="DISMINUCION" required> Disminución de activos </clr-radio-wrapper>	
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="tipomovimiento" class="clr-control-label">
+  		    	Tipo movimiento
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="tipomovimiento" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('tipomovimiento').invalid && (ventadirectoForm.get('tipomovimiento').dirty || ventadirectoForm.get('tipomovimiento').touched)">
+  		            <input id="tipomovimiento" type="text" formControlName="tipomovimiento" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="importe" class="clr-control-label">
+  		    	Importe
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('importe').invalid && (ventadirectoForm.get('importe').dirty || ventadirectoForm.get('importe').touched)">
+  		            <input id="importe" type="text" formControlName="importe" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="custodio" class="clr-control-label">
+  		    	Custodio
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="custodio" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('custodio').invalid && (ventadirectoForm.get('custodio').dirty || ventadirectoForm.get('custodio').touched)">
+  		            <input id="custodio" type="text" formControlName="custodio" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="comision" class="clr-control-label">
+  		    	Comisión
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="comision" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('comision').invalid && (ventadirectoForm.get('comision').dirty || ventadirectoForm.get('comision').touched)">
+  		            <input id="comision" type="text" formControlName="comision" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="mercado">
+  		        <label for="mercado" class="clr-control-label">
+  		        Mercado
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="mercado" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MERCADO1">MERCADO BANCARIO</option>
+  		<option value="MERCADO2">MERCADO DE CAPITALES</option>
+  		<option value="MERCADO3">MERCADO DE DERIVADOS</option>
+  		<option value="MERCADO4">MERCADO DE DINERO</option>
+  		<option value="MERCADO5">MERCADO DESCONOCIDO</option>
+  		<option value="MERCADO6">SOCIEDADES DE INVERSIÓN</option>
+  		<option value="MERCADO7">INVERSIONES POR LIQUIDAR</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="instrumento">
+  		        <label for="instrumentocompradirecto" class="clr-control-label">
+  		        Instrumento
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="instrumento" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="INST1">INVERSIÓN GLOBAL</option>
+  		<option value="INST2">DEPÓSITO A LA VISTA</option>
+  		<option value="INST3">INVERSIÓN GLOBAL EN INST. FINANCIERAS DEL PAÍS</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="isr" class="clr-control-label">
+  		    	ISR
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="isr" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('isr').invalid && (ventadirectoForm.get('isr').dirty || ventadirectoForm.get('isr').touched)">
+  		            <input id="isr" type="text" formControlName="isr" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label">
+  		        Moneda
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="ventadirectoForm.get('fideicomisoItem').invalid && (ventadirectoForm.get('fideicomisoItem').dirty || ventadirectoForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="contratoinversionId">
+  		        <label for="contratoinversionItem" class="clr-control-label">Contratoinversion<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="contratoinversionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="ventadirectoForm.get('contratoinversionItem').invalid && (ventadirectoForm.get('contratoinversionItem').dirty || ventadirectoForm.get('contratoinversionItem').touched)">
+  		                <input id="contratoinversionId"   type="hidden" formControlName="contratoinversionId" placeholder="Contratoinversion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="contratoinversionItem" type="text"   formControlName="contratoinversionItem" placeholder="Contratoinversion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalcontratoinversion = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Contratoinversion es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="fechaliquidacion" class="clr-control-label">
+  		    	Fecha de Liquidación
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fechaliquidacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('fechaliquidacion').invalid && (ventadirectoForm.get('fechaliquidacion').dirty || ventadirectoForm.get('fechaliquidacion').touched)">
+  		            <input id="fechaliquidacion" type="text" formControlName="fechaliquidacion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="emisiones">
+  		        <label for="emisiones" class="clr-control-label">
+  		        Emisiones
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="emisiones" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="EMISIONES1">INV GLOBAL 0 0</option>
+  		<option value="EMISIONES2">1 1 0</option>
+  		<option value="EMISIONES3">CHEQUES GL 0 0</option>
+  		<option value="EMISIONES4">53 1 0</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="serie" class="clr-control-label">
+  		    	Serie
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="serie" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('serie').invalid && (ventadirectoForm.get('serie').dirty || ventadirectoForm.get('serie').touched)">
+  		            <input id="serie" type="text" formControlName="serie" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="notitulos" class="clr-control-label">
+  		    	No. Títulos
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="notitulos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('notitulos').invalid && (ventadirectoForm.get('notitulos').dirty || ventadirectoForm.get('notitulos').touched)">
+  		            <input id="notitulos" type="text" formControlName="notitulos" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="precio" class="clr-control-label">
+  		    	Precio
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="precio" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('precio').invalid && (ventadirectoForm.get('precio').dirty || ventadirectoForm.get('precio').touched)">
+  		            <input id="precio" type="text" formControlName="precio" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="desccomplementaria" class="clr-control-label">
+  		    	Descripción complementaria
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="desccomplementaria" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('desccomplementaria').invalid && (ventadirectoForm.get('desccomplementaria').dirty || ventadirectoForm.get('desccomplementaria').touched)">
+  		            <input id="desccomplementaria" type="text" formControlName="desccomplementaria" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="intereses" class="clr-control-label">
+  		    	Intereses
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="intereses" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('intereses').invalid && (ventadirectoForm.get('intereses').dirty || ventadirectoForm.get('intereses').touched)">
+  		            <input id="intereses" type="text" formControlName="intereses" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="pizarra" class="clr-control-label">
+  		    	Pizarra/Clave de cotización
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="pizarra" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('pizarra').invalid && (ventadirectoForm.get('pizarra').dirty || ventadirectoForm.get('pizarra').touched)">
+  		            <input id="pizarra" type="text" formControlName="pizarra" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="cupon" class="clr-control-label">
+  		    	Cupón
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="cupon" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="ventadirectoForm.get('cupon').invalid && (ventadirectoForm.get('cupon').dirty || ventadirectoForm.get('cupon').touched)">
+  		            <input id="cupon" type="text" formControlName="cupon" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ ventadirectoForm.value | json }} </p>
+<p> Form status {{ ventadirectoForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaVentadirecto()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaVentadirecto()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="modalinstruccion" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Instruccion</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalinstruccion = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalinstruccion = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="modalsubfiso" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Subfiso</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="modalfideicomiso" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Fideicomiso</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="modalcontratoinversion" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Contratoinversion</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalcontratoinversion = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalcontratoinversion = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

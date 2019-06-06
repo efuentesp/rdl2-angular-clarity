@@ -1,0 +1,1143 @@
+<!-- PSG Fideicomitente Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Fideicomitente
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="fideicomitenteForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control">
+	    <label for="numerofideicomitente" class="clr-control-label">
+	    Número Fideicomitente
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="numerofideicomitente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="fideicomitenteForm.get('numerofideicomitente').invalid && (fideicomitenteForm.get('numerofideicomitente').dirty || fideicomitenteForm.get('numerofideicomitente').touched)">
+	            <input id="numerofideicomitente" type="text" formControlName="numerofideicomitente" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Número Fideicomitente es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="tipopersona">
+	        <label for="tipopersona" class="clr-control-label">
+	        Tipo Persona
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipopersona" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="FISICA">FISICA</option>
+	<option value="GOBIERNO">GOBIERNO</option>
+	<option value="MORAL">MORAL</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="participante" class="clr-control-label">
+	    Participante/Razón social
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="participante" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="fideicomitenteForm.get('participante').invalid && (fideicomitenteForm.get('participante').dirty || fideicomitenteForm.get('participante').touched)">
+	            <input id="participante" type="text" formControlName="participante" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Participante/Razón social es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="fideicomitenteForm.get('fideicomisoItem').invalid && (fideicomitenteForm.get('fideicomisoItem').dirty || fideicomitenteForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control" id="regimenfiscal">
+	        <label for="sino" class="clr-control-label">
+	        Régimen Fiscal
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="regimenfiscal" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalescontroladorfideicomiso">
+	        <label for="sino" class="clr-control-label">
+	        Generales_Beneficiario/Controlador Fideicomiso
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalescontroladorfideicomiso">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesnacionalidad">
+	        <label for="nacionalidad" class="clr-control-label">
+	        Generales_Nacionalidad
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesnacionalidad">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEXICANO">MEXICANO</option>
+	<option value="NORTAM">ESTADOUNIDENSE</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalespaisorigen">
+	        <label for="paisorigen" class="clr-control-label">
+	        Generales_País de origen
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalespaisorigen">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEX">MEXICO</option>
+	<option value="USA">ESTADOS UNIDOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesactividad">
+	        <label for="actividad" class="clr-control-label">
+	        Generales_Actividad
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesactividad">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="DESC">INGENIERO</option>
+	<option value="INM">AGENTES INMOBILIARIOS</option>
+	<option value="ARQ">ARQUITECTO</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesaportarecursos">
+	        <label for="sino" class="clr-control-label">
+	        Generales_Aporta recursos
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesaportarecursos">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalespaisresidencia">
+	        <label for="paisorigen" class="clr-control-label">
+	        Generales_País de residencia
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalespaisresidencia">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEX">MEXICO</option>
+	<option value="USA">ESTADOS UNIDOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesclientescotiabank">
+	        <label for="antiguedad" class="clr-control-label">
+	        Generales_Cliente Scotiabank
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesclientescotiabank">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="SIN">SIN ANTIGUEDAD</option>
+	<option value="MENOSUNO">MENOS DE UN AÑO</option>
+	<option value="UNOTRES">ENTRE UNO Y TRES</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalespep">
+	        <label for="sino" class="clr-control-label">
+	        Generales_El Cliente es un PEP'S
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalespep">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesestatus">
+	        <label for="estatusparticipante" class="clr-control-label">
+	        Generales_Estatus
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesestatus">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="ACTIVO">ACTIVO</option>
+	<option value="CANCELADO">CANCELADO</option>
+	<option value="SUSPENDIDO">SUSPENDIDO</option>
+	<option value="BAJA">BAJA</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="generalesgrupofilial" class="clr-control-label">
+	    Generales_Grupo o filial
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="generalesgrupofilial" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="generalesgrupofilial" type="text" formControlName="generalesgrupofilial" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="generalescalidadmigratoria">
+	        <label for="calidamigratoria" class="clr-control-label">
+	        Generales_Calidad Migratoria
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalescalidadmigratoria">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="EXRANJERA">EXRANJERA</option>
+	<option value="INDISTINTA">INDISTINTA</option>
+	<option value="INMIGRANTE">INMIGRANTE</option>
+	<option value="INMIGRADO">INMIGRADO</option>
+	<option value="NACIONAL">NACIONAL</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generaleslugaroperacion">
+	        <label for="estados" class="clr-control-label">
+	        Generales_Lugar de operación
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generaleslugaroperacion">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="CDMX">CUIDAD DE MEXICO</option>
+	<option value="EDOMEX">ESTADO DE MEXICO</option>
+	<option value="AGU">AGUASCALIENTES</option>
+	<option value="BJ">BAJA CALIFORNIA</option>
+	<option value="BJS">BAJA CALIFORNIA SUR</option>
+	<option value="CM">CAMPECHE</option>
+	<option value="GR">GUERRERO</option>
+	<option value="HD">HIDALGO</option>
+	<option value="JL">JALISCO</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesoperacuentaterceros">
+	        <label for="sino" class="clr-control-label">
+	        Generales_Opera por cuenta de terceros
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesoperacuentaterceros">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesnivelparticipante">
+	        <label for="nivelparticipante" class="clr-control-label">
+	        Generales_Nivel de participante
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesnivelparticipante">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="A">A o 1</option>
+	<option value="B">B o 2</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="generalesclienterelacionpep">
+	        <label for="sino" class="clr-control-label">
+	        Generales_El cliente tiene relación con un PEP'S
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="generalesclienterelacionpep">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="generalesgrado" class="clr-control-label">
+	    Generales_Grado
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="generalesgrado" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="generalesgrado" type="text" formControlName="generalesgrado" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="infopldkychonorarios" class="clr-control-label">
+	    InfoPldKyc_Honorarios
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="infopldkychonorarios" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="infopldkychonorarios" type="text" formControlName="infopldkychonorarios" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="infopldkyccomisiones">
+	        <label for="sino" class="clr-control-label">
+	        InfoPldKyc_Comisiones
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkyccomisiones">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="infopldkycotros">
+	        <label for="sino" class="clr-control-label">
+	        InfoPldKyc_Otros
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkycotros">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="infopldkycsueldos">
+	        <label for="sino" class="clr-control-label">
+	        InfoPldKyc_Sueldos
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkycsueldos">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="infopldkycventa">
+	        <label for="sino" class="clr-control-label">
+	        InfoPldKyc_Venta
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkycventa">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="infopldkycinversiones">
+	        <label for="sino" class="clr-control-label">
+	        InfoPldKyc_Inversiones
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkycinversiones">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="infopldkycarrendamiento">
+	        <label for="sino" class="clr-control-label">
+	        InfoPldKyc_Arrendamiento
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkycarrendamiento">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="infopldkyctipopatrimonio" class="clr-control-label">
+	    InfoPldKyc_Tipo Patrimonio
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="infopldkyctipopatrimonio" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="infopldkyctipopatrimonio" type="text" formControlName="infopldkyctipopatrimonio" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="infopldkycinstrumento">
+	        <label for="instrumento" class="clr-control-label">
+	        InfoPldKyc_Instrumento
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkycinstrumento">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="INT1">Trans Nac => 100,000 <= 500,000 mn -PF-</option>
+	<option value="INT2">Trans o Inst Mont Unicamente Pago Honorarios PF/PM</option>
+	<option value="INT3">Trans Nac 0 < 99,000 MN -PF-</option>
+	<option value="INT4">Tans Nac > 100,000 mn -PF-</option>
+	<option value="INT5">Trans Int < 99,000 mn -PF-</option>
+	<option value="INT6">Trans Int => 100,000 <= 500,000 mn -PF-</option>
+	<option value="INT7">Trans Int > 1,000,000 mn -PF-</option>
+	<option value="INT8">Inst Mon < 99,000 mn -PF-</option>
+	<option value="INT9">Inst Mon => 100,000 <= 500,000 mn -PF-</option>
+	<option value="INT10">Ints Mon > 1,000,000 mn -PF-</option>
+	<option value="INT11">Trans Nac => 250,000 <= 500,000 mn -PM-</option>
+	<option value="INT12">Trans Nac > 5,000,000 <= 1,000,000 mn -PM-</option>
+	<option value="INT13">Trans Nac > 1,000,000 mn -PM-</option>
+	<option value="INT14">Trans Int => 250,000 <= 5,000,000 mn -PM-</option>
+	<option value="INT15">Trans Int > 5,000,000 = 1,000,000 mn -PM-</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="infopldkycrazonapertura" class="clr-control-label">
+	    InfoPldKyc_Razón apertura del contrato
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="infopldkycrazonapertura" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <textarea id="infopldkycrazonapertura" formControlName="infopldkycrazonapertura" rows="5" 
+	            		  placeholder="" 
+	            		  class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="infopldkyccomentarios" class="clr-control-label">
+	    InfoPldKyc_Comentarios sobre el cliete en relación al riesgo de lavado de dinero, experiencia, mitigantes, actividad etc.
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="infopldkyccomentarios" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <textarea id="infopldkyccomentarios" formControlName="infopldkyccomentarios" rows="5" 
+	            		  placeholder="" 
+	            		  class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="infopldkycnivelriesgo">
+	        <label for="sino" class="clr-control-label">
+	        InfoPldKyc_Nivel de riesgo KYC y cálculo PLD
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="infopldkycnivelriesgo">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="infopldkycestatuscalculopld" class="clr-control-label">
+	    InfoPldKyc_Estatus de cálculo PLD
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="infopldkycestatuscalculopld" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="infopldkycestatuscalculopld" type="text" formControlName="infopldkycestatuscalculopld" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+		        <label for="infopldkycfechaveriffircosoftAux" class="clr-control-label">
+		        InfoPldKyc_Fecha verificación MESA DE CONTROL
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="infopldkycfechaveriffircosoftAux">
+		                <input id="infopldkycfechaveriffircosoftAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="infopldkycfechaveriffircosoftAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+	    <label for="identificacionrfc" class="clr-control-label">
+	    Identificacion_RFC
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionrfc" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionrfc" type="text" formControlName="identificacionrfc" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacioncurp" class="clr-control-label">
+	    Identificacion_CURP
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacioncurp" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacioncurp" type="text" formControlName="identificacioncurp" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionnoserieefirma" class="clr-control-label">
+	    Identificacion_No.serie firma electrónica avanzada
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionnoserieefirma" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionnoserieefirma" type="text" formControlName="identificacionnoserieefirma" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="identificacionpaisresidfisc1">
+	        <label for="paisorigen" class="clr-control-label">
+	        Identificacion_País de residencia fiscal 1
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="identificacionpaisresidfisc1">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEX">MEXICO</option>
+	<option value="USA">ESTADOS UNIDOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="identificacionpaisresidfisc2">
+	        <label for="paisorigen" class="clr-control-label">
+	        Identificacion_País de residencia fiscal 2
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="identificacionpaisresidfisc2">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEX">MEXICO</option>
+	<option value="USA">ESTADOS UNIDOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="identificacionemail" class="clr-control-label">
+	    Identificacion_E-mail
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionemail" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="fideicomitenteForm.get('identificacionemail').invalid && (fideicomitenteForm.get('identificacionemail').dirty || fideicomitenteForm.get('identificacionemail').touched)">
+	            <input id="identificacionemail" type="text" formControlName="identificacionemail" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+		        <label for="identificacionfechaconstitucionAux" class="clr-control-label">
+		        Identificacion_Fecha Nacimiento/Constitución
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="identificacionfechaconstitucionAux">
+		                <input id="identificacionfechaconstitucionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="identificacionfechaconstitucionAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control" id="identificacionsexo">
+	        <label for="sexo" class="clr-control-label">
+	        Identificacion_Sexo
+	        </label>
+	        
+	        <clr-radio-wrapper><input type="radio" clrRadio  formControlName="identificacionsexo" value="M"> Masculino</clr-radio-wrapper>		
+	        <clr-radio-wrapper><input type="radio" clrRadio  formControlName="identificacionsexo" value="f"> Femenino</clr-radio-wrapper>		
+	    </div>
+	<div class="clr-form-control" id="identificacionpaiscasa">
+	        <label for="paisorigen" class="clr-control-label">
+	        Identificacion_País Casa
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="identificacionpaiscasa">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEX">MEXICO</option>
+	<option value="USA">ESTADOS UNIDOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="identificacionpaisoficina">
+	        <label for="paisorigen" class="clr-control-label">
+	        Identificacion_País Oficina
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="identificacionpaisoficina">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEX">MEXICO</option>
+	<option value="USA">ESTADOS UNIDOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="identificacionpaiscelular">
+	        <label for="paisorigen" class="clr-control-label">
+	        Identificacion_País Celular
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="identificacionpaiscelular">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MEX">MEXICO</option>
+	<option value="USA">ESTADOS UNIDOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+		        <label for="identificacionfechainiciorelnegAux" class="clr-control-label">
+		        Identificacion_Fecha de inicio de relación de negocios
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="identificacionfechainiciorelnegAux">
+		                <input id="identificacionfechainiciorelnegAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="identificacionfechainiciorelnegAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+	    <label for="identificacionnoidentificacion" class="clr-control-label">
+	    Identificacion_No. identificación
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionnoidentificacion" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionnoidentificacion" type="text" formControlName="identificacionnoidentificacion" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacioncomprobaciondomicilio" class="clr-control-label">
+	    Identificacion_Comprobación de domicilio
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacioncomprobaciondomicilio" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacioncomprobaciondomicilio" type="text" formControlName="identificacioncomprobaciondomicilio" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="identificacionactividadempresarial">
+	        <label for="sino" class="clr-control-label">
+	        Identificacion_Actividad empresarial
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="identificacionactividadempresarial">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="identificacionnoidentfisc1" class="clr-control-label">
+	    Identificacion_No. ident. fiscal 1
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionnoidentfisc1" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionnoidentfisc1" type="text" formControlName="identificacionnoidentfisc1" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionnoidentfisc2" class="clr-control-label">
+	    Identificacion_No. ident. fiscal 2
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionnoidentfisc2" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionnoidentfisc2" type="text" formControlName="identificacionnoidentfisc2" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionclasificacionfatca" class="clr-control-label">
+	    Identificacion_Clasificación Fatca
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionclasificacionfatca" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionclasificacionfatca" type="text" formControlName="identificacionclasificacionfatca" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionladacasa" class="clr-control-label">
+	    Identificacion_Lada Casa
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionladacasa" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionladacasa" type="text" formControlName="identificacionladacasa" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionladaoficina" class="clr-control-label">
+	    Identificacion_Lada Oficina
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionladaoficina" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionladaoficina" type="text" formControlName="identificacionladaoficina" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionladacelular" class="clr-control-label">
+	    Identificacion_Lada Celular
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionladacelular" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionladacelular" type="text" formControlName="identificacionladacelular" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionnumerocasa" class="clr-control-label">
+	    Identificacion_Número Casa
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionnumerocasa" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionnumerocasa" type="text" formControlName="identificacionnumerocasa" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionnumerooficina" class="clr-control-label">
+	    Identificacion_Número Oficina
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionnumerooficina" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionnumerooficina" type="text" formControlName="identificacionnumerooficina" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionnumerocelular" class="clr-control-label">
+	    Identificacion_Número Celular
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionnumerocelular" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionnumerocelular" type="text" formControlName="identificacionnumerocelular" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionextoficina" class="clr-control-label">
+	    Identificacion_Ext Oficina
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionextoficina" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionextoficina" type="text" formControlName="identificacionextoficina" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionextcelular" class="clr-control-label">
+	    Identificacion_Ext Celular
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionextcelular" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionextcelular" type="text" formControlName="identificacionextcelular" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionidentoficialvig" class="clr-control-label">
+	    Identificacion_Identificación oficial vigente
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionidentoficialvig" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionidentoficialvig" type="text" formControlName="identificacionidentoficialvig" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="identificacionvigencia" class="clr-control-label">
+	    Identificacion_Vigencia
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="identificacionvigencia" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="identificacionvigencia" type="text" formControlName="identificacionvigencia" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="escrituranoescritura" class="clr-control-label">
+	    Escritura_No. escritura
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="escrituranoescritura" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="escrituranoescritura" type="text" formControlName="escrituranoescritura" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="escrituranotario">
+	        <label for="notario" class="clr-control-label">
+	        Escritura_Notario
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="escrituranotario">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NOTARIO01">NOTARIO 01</option>
+	<option value="NOTARIO02">NOTARIO 02</option>
+	<option value="NOTARIO03">NOTARIO 03</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="escrituranonotaria" class="clr-control-label">
+	    Escritura_No. notaría
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="escrituranonotaria" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="escrituranonotaria" type="text" formControlName="escrituranonotaria" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="escrituraciudad" class="clr-control-label">
+	    Escritura_Ciudad
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="escrituraciudad" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="escrituraciudad" type="text" formControlName="escrituraciudad" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="escrituratelefono" class="clr-control-label">
+	    Escritura_Teléfono
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="escrituratelefono" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="escrituratelefono" type="text" formControlName="escrituratelefono" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="escrituraemail" class="clr-control-label">
+	    Escritura_Email
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="escrituraemail" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="fideicomitenteForm.get('escrituraemail').invalid && (fideicomitenteForm.get('escrituraemail').dirty || fideicomitenteForm.get('escrituraemail').touched)">
+	            <input id="escrituraemail" type="text" formControlName="escrituraemail" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+		        <label for="escriturafechaAux" class="clr-control-label">
+		        Escritura_Fecha
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="escriturafechaAux">
+		                <input id="escriturafechaAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="escriturafechaAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+	    <label for="escrituraestado" class="clr-control-label">
+	    Escritura_Estado
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="escrituraestado" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="escrituraestado" type="text" formControlName="escrituraestado" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskycnocuenta1" class="clr-control-label">
+	    CuentasKYC_No. de Cuenta 1
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskycnocuenta1">
+	            <input id="cuentaskycnocuenta1" type="number" formControlName="cuentaskycnocuenta1" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskyctipocuenta1" class="clr-control-label">
+	    CuentasKYC_Tipo de cuenta 1
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskyctipocuenta1" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="cuentaskyctipocuenta1" type="text" formControlName="cuentaskyctipocuenta1" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskycnocuenta2" class="clr-control-label">
+	    CuentasKYC_No. de Cuenta 2
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskycnocuenta2">
+	            <input id="cuentaskycnocuenta2" type="number" formControlName="cuentaskycnocuenta2" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskyctipocuenta2" class="clr-control-label">
+	    CuentasKYC_Tipo de cuenta 2
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskyctipocuenta2" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="cuentaskyctipocuenta2" type="text" formControlName="cuentaskyctipocuenta2" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskycnocuenta3" class="clr-control-label">
+	    CuentasKYC_No. de Cuenta 3
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskycnocuenta3">
+	            <input id="cuentaskycnocuenta3" type="number" formControlName="cuentaskycnocuenta3" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskyctipocuenta3" class="clr-control-label">
+	    CuentasKYC_Tipo de cuenta 3
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskyctipocuenta3" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="cuentaskyctipocuenta3" type="text" formControlName="cuentaskyctipocuenta3" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskycnocuenta4" class="clr-control-label">
+	    CuentasKYC_No. de Cuenta 4
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskycnocuenta4">
+	            <input id="cuentaskycnocuenta4" type="number" formControlName="cuentaskycnocuenta4" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="cuentaskyctipocuenta4" class="clr-control-label">
+	    CuentasKYC_Tipo de cuenta 4
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentaskyctipocuenta4" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="cuentaskyctipocuenta4" type="text" formControlName="cuentaskyctipocuenta4" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+    
+    <!-- <p>Form value {{ fideicomitenteForm.value | json }} </p>
+    <p> Form status {{ fideicomitenteForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaFideicomitente()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaFideicomitente()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

@@ -1,0 +1,310 @@
+<!-- PSG Movimiento Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Movimientos
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="movimientoForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control"><!-- fechacontable 1-->
+  		    <label for="fechacontable" class="clr-control-label">Fecha contable<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- fechacontable 2-->
+  		        <label for="fechacontable" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('fechacontable').invalid && (movimientoForm.get('fechacontable').dirty || movimientoForm.get('fechacontable').touched)">
+  		            <input id="fechacontable" type="text" formControlName="fechacontable" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Fecha contable es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- fechaalta 1-->
+  		    <label for="fechaalta" class="clr-control-label">Fecha alta<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- fechaalta 2-->
+  		        <label for="fechaalta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('fechaalta').invalid && (movimientoForm.get('fechaalta').dirty || movimientoForm.get('fechaalta').touched)">
+  		            <input id="fechaalta" type="text" formControlName="fechaalta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Fecha alta es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- operacion 1-->
+  		    <label for="operacion" class="clr-control-label">Operación</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- operacion 2-->
+  		        <label for="operacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('operacion').invalid && (movimientoForm.get('operacion').dirty || movimientoForm.get('operacion').touched)">
+  		            <input id="operacion" type="text" formControlName="operacion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Operación es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="movimientoForm.get('fideicomisoItem').invalid && (movimientoForm.get('fideicomisoItem').dirty || movimientoForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./fideicomiso 1--> 
+  		<div class="clr-form-control" id="subfisoId">
+  		        <label for="subfisoItem" class="clr-control-label">Sub fiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="movimientoForm.get('subfisoItem').invalid && (movimientoForm.get('subfisoItem').dirty || movimientoForm.get('subfisoItem').touched)">
+  		                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Subfiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./subfiso 1--> 
+  		<div class="clr-form-control"><!-- folio 1-->
+  		    <label for="folio" class="clr-control-label">Folio de la instrucción<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- folio 2-->
+  		        <label for="folio" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('folio').invalid && (movimientoForm.get('folio').dirty || movimientoForm.get('folio').touched)">
+  		            <input id="folio" type="text" formControlName="folio" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Folio de la instrucción es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- transaccion 1-->
+  		    <label for="transaccion" class="clr-control-label">Transacción<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- transaccion 2-->
+  		        <label for="transaccion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('transaccion').invalid && (movimientoForm.get('transaccion').dirty || movimientoForm.get('transaccion').touched)">
+  		            <input id="transaccion" type="text" formControlName="transaccion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Transacción es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="descripcion" class="clr-control-label">Descripción</label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="descripcion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('descripcion').invalid && (movimientoForm.get('descripcion').dirty || movimientoForm.get('descripcion').touched)">
+  		            <textarea id="descripcion" formControlName="descripcion" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Descripción es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- importe 1-->
+  		    <label for="importe" class="clr-control-label">Importe<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- importe 2-->
+  		        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('importe').invalid && (movimientoForm.get('importe').dirty || movimientoForm.get('importe').touched)">
+  		            <input id="importe" type="text" formControlName="importe" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Importe es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- usuario 1-->
+  		    <label for="usuario" class="clr-control-label">Usuario<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- usuario 2-->
+  		        <label for="usuario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('usuario').invalid && (movimientoForm.get('usuario').dirty || movimientoForm.get('usuario').touched)">
+  		            <input id="usuario" type="text" formControlName="usuario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Usuario es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="estatus">
+  		        <label for="estatusparticipante" class="clr-control-label"> Estatus<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatus" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusparticipante 1--> 
+  		<div class="clr-form-control"><!-- factura 1-->
+  		    <label for="factura" class="clr-control-label">Factura</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- factura 2-->
+  		        <label for="factura" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="movimientoForm.get('factura').invalid && (movimientoForm.get('factura').dirty || movimientoForm.get('factura').touched)">
+  		            <input id="factura" type="text" formControlName="factura" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Factura es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ movimientoForm.value | json }} </p>
+	<p> Form status {{ movimientoForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaMovimiento()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaMovimiento()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Administrador
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Promotor
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+  			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalsubfiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Subfiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+    		        <ng-container *clrDgHideableColumn="{hidden: false}">
+    		            Fideicomiso
+    		        </ng-container>
+    		    </clr-dg-column> 								
+    		<clr-dg-column [clrDgField]="'numero'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Número
+    		        </ng-container>    
+    		    </clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'nombre'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Nombre
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'estatusItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Estatus
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let subfiso of subfisoArray">
+  			<clr-dg-cell><input type="radio" name="subfisoId" [checked]="subfiso.checked" value="{{subfiso.id}}" (click)="setClickedRowSubfiso(i, subfiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.fideicomisoItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.numero}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.nombre}}</clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.estatusItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

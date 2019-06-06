@@ -1,0 +1,186 @@
+<!-- PSG Administrar Cuentacheques Html -->
+<div class="card-header">
+Administrar Cuenta de cheques
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="cuentacheques_create" class="btn btn-icon btn-outline" (click)="getCuentacheques()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'tipopersonaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo persona
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomitenteItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomitente
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'tipocuentaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de cuenta
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipopagoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de pago
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'bancospeiItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Banco SPEI
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'bancoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Banco
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Dom.banco
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'clavevostroItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Clave Vostro
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Núm. cuenta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Dom. beneficiario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Plaza internacional
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		País
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Clave SIAC/Inst
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Convenio CIE/DIE
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CLABE
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'cuentachequeraItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Cuenta con chequera
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Fecha Vence MMYY
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Núm ABBAS SWIFT
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Concepto SIAC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Ref. CIE/DIE
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'autorizacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Autorización
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let cuentacheques of cuentachequesArray" [clrDgItem]="cuentacheques">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaCuentacheques(i, cuentacheques)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaCuentacheques(i, cuentacheques)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="cuentacheques_update" (click)="setClickedRowEditaCuentacheques(i, cuentacheques)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="cuentacheques_delete" (click)="setClickedRowEliminaCuentacheques(i, cuentacheques)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{cuentacheques.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.tipopersonaItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.fideicomitenteItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.tipocuentaItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.tipopagoItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.bancospeiItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.bancoItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.dombanco}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.clavevostroItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.numcuenta}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.dombeneficiario}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.plazainternacional}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.pais}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.clavesiacinst}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.conveniociedie}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.clabe}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.cuentachequeraItem}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.fechavence}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.numabbasswift}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.conceptosiac}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.refciedie}}</clr-dg-cell>
+<clr-dg-cell >{{cuentacheques.autorizacionItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

@@ -1,0 +1,156 @@
+<!-- PSG Administrar Tercero Html -->
+<div class="card-header">
+Administrar Tercero
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="tercero_create" class="btn btn-icon btn-outline" (click)="getTercero()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'notercero'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		No. de tercero
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column [clrDgField]="'razonsocial'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Razón social
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'actividadeconomicaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Actividad económica
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Lada Casa
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Lada Oficina
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Lada Fax
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Telefono Casa
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Telefono Oficina
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Telefono Fax
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Ext Oficina
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Ext Fax
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha verificación MESA DE CONTROL
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipopersonaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo persona
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'rfc'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		E-mail
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'calidamigratoriaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Calidad Migratoria
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let tercero of terceroArray" [clrDgItem]="tercero">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaTercero(i, tercero)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaTercero(i, tercero)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="tercero_update" (click)="setClickedRowEditaTercero(i, tercero)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="tercero_delete" (click)="setClickedRowEliminaTercero(i, tercero)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{tercero.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.notercero}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.razonsocial}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.nacionalidadItem}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.actividadeconomicaItem}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.ladacasa}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.ladaoficina}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.ladafax}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.telefonocasa}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.telefonooficina}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.telefonofax}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.extoficina}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.extfax}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.fechaverfircosoft | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.tipopersonaItem}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.rfc}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.correo}}</clr-dg-cell>
+<clr-dg-cell >{{tercero.calidamigratoriaItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

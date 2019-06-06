@@ -1,0 +1,117 @@
+<!-- PSG Declaracionsat Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Generación archivo SAT 32-B
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="declaracionsatForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		        <div class="clr-form-control">
+  		<label for="inicioejerciciofiscalAux" class="clr-control-label">
+  			Inicio del ejercicio fiscal reportado
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="inicioejerciciofiscalAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="declaracionsatForm.get('inicioejerciciofiscalAux').invalid && (declaracionsatForm.get('inicioejerciciofiscalAux').dirty || declaracionsatForm.get('inicioejerciciofiscalAux').touched)">
+  				<input id="inicioejerciciofiscalAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="inicioejerciciofiscalAux"/>
+  				<span class="tooltip-content">
+  					Inicio del ejercicio fiscal reportado es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="tipodeclaracion">
+  		        <label for="tipodeclaracion" class="clr-control-label">
+  		        Tipo de declaración
+  		        </label>
+  		        <clr-radio-wrapper> <input type="radio" formControlName="tipodeclaracion" value="NORMAL" required> NORMAL </clr-radio-wrapper>	
+  		        <clr-radio-wrapper> <input type="radio" formControlName="tipodeclaracion" value="COMPL" required> COMPLEMENTARIA </clr-radio-wrapper>	
+  		    </div>
+  		
+  		        <div class="clr-form-control">
+  		<label for="finejerciciofiscalAux" class="clr-control-label">
+  			Fin del ejercicio fiscal reportado
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="finejerciciofiscalAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="declaracionsatForm.get('finejerciciofiscalAux').invalid && (declaracionsatForm.get('finejerciciofiscalAux').dirty || declaracionsatForm.get('finejerciciofiscalAux').touched)">
+  				<input id="finejerciciofiscalAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="finejerciciofiscalAux"/>
+  				<span class="tooltip-content">
+  					Fin del ejercicio fiscal reportado es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		        <div class="clr-form-control">
+  		<label for="fechadeclaracionanteriorAux" class="clr-control-label">
+  			Fecha
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechadeclaracionanteriorAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="declaracionsatForm.get('fechadeclaracionanteriorAux').invalid && (declaracionsatForm.get('fechadeclaracionanteriorAux').dirty || declaracionsatForm.get('fechadeclaracionanteriorAux').touched)">
+  				<input id="fechadeclaracionanteriorAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechadeclaracionanteriorAux"/>
+  				<span class="tooltip-content">
+  					Fecha es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control">
+  		    <label for="foliodeclaracionanterior" class="clr-control-label">
+  		    	Folio
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="foliodeclaracionanterior" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="declaracionsatForm.get('foliodeclaracionanterior').invalid && (declaracionsatForm.get('foliodeclaracionanterior').dirty || declaracionsatForm.get('foliodeclaracionanterior').touched)">
+  		            <input id="foliodeclaracionanterior" type="text" formControlName="foliodeclaracionanterior" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="mensajesproceso" class="clr-control-label">
+  		    	Mensajes del proceso
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="mensajesproceso" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="declaracionsatForm.get('mensajesproceso').invalid && (declaracionsatForm.get('mensajesproceso').dirty || declaracionsatForm.get('mensajesproceso').touched)">
+  		            <textarea id="mensajesproceso" formControlName="mensajesproceso" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="vertical-file3" class="clr-control-label" >
+  		    Archivo<span class="required">*</span>
+  		    </label>
+  		    <div class="clr-control-container">
+  		        <div class="clr-file-wrapper">
+  		            <input type="file" id="archivo" placeholder="">
+  		            <control-messages class="control-messages" [control]="declaracionsatForm.controls.archivo"></control-messages>
+  		        </div>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ declaracionsatForm.value | json }} </p>
+<p> Form status {{ declaracionsatForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaDeclaracionsat()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaDeclaracionsat()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

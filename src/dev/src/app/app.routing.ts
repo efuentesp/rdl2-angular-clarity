@@ -1,8 +1,9 @@
-import { ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login/login.demo';
+import { AdminModule } from './admin/admin.module';
 
 export const APP_ROUTES: Routes = [
   {
@@ -13,4 +14,8 @@ export const APP_ROUTES: Routes = [
   { path: '**', redirectTo: '', component: LoginComponent },
 ];
 
-export const ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+@NgModule({
+  imports: [RouterModule.forRoot(APP_ROUTES)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

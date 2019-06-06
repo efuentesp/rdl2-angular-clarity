@@ -1,0 +1,488 @@
+<!-- PSG Checkermonetario Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Monetario
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="checkermonetarioForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control">
+  		    <label for="foliooperacion" class="clr-control-label">
+  		    	Folio de operación
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="foliooperacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('foliooperacion').invalid && (checkermonetarioForm.get('foliooperacion').dirty || checkermonetarioForm.get('foliooperacion').touched)">
+  		            <input id="foliooperacion" type="text" formControlName="foliooperacion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="operador" class="clr-control-label">
+  		    	Operado por
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="operador" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('operador').invalid && (checkermonetarioForm.get('operador').dirty || checkermonetarioForm.get('operador').touched)">
+  		            <input id="operador" type="text" formControlName="operador" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="tipoliquidacion" class="clr-control-label">
+  		    	Tipo Liquidación
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="tipoliquidacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('tipoliquidacion').invalid && (checkermonetarioForm.get('tipoliquidacion').dirty || checkermonetarioForm.get('tipoliquidacion').touched)">
+  		            <input id="tipoliquidacion" type="text" formControlName="tipoliquidacion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="checkermonetarioForm.get('fideicomisoItem').invalid && (checkermonetarioForm.get('fideicomisoItem').dirty || checkermonetarioForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="subfisoId">
+  		        <label for="subfisoItem" class="clr-control-label">Subfiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="checkermonetarioForm.get('subfisoItem').invalid && (checkermonetarioForm.get('subfisoItem').dirty || checkermonetarioForm.get('subfisoItem').touched)">
+  		                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Subfiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="instruccionId">
+  		        <label for="instruccionItem" class="clr-control-label">Instruccion<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="instruccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="checkermonetarioForm.get('instruccionItem').invalid && (checkermonetarioForm.get('instruccionItem').dirty || checkermonetarioForm.get('instruccionItem').touched)">
+  		                <input id="instruccionId"   type="hidden" formControlName="instruccionId" placeholder="Instruccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="instruccionItem" type="text"   formControlName="instruccionItem" placeholder="Instruccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalinstruccion = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Instruccion es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="importe" class="clr-control-label">
+  		    	Importe
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('importe').invalid && (checkermonetarioForm.get('importe').dirty || checkermonetarioForm.get('importe').touched)">
+  		            <input id="importe" type="text" formControlName="importe" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="fechapago" class="clr-control-label">
+  		    	Fecha de pago
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fechapago" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('fechapago').invalid && (checkermonetarioForm.get('fechapago').dirty || checkermonetarioForm.get('fechapago').touched)">
+  		            <input id="fechapago" type="text" formControlName="fechapago" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="numeroliquidaciones" class="clr-control-label">
+  		    	Número de Liquidaciones
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="numeroliquidaciones" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('numeroliquidaciones').invalid && (checkermonetarioForm.get('numeroliquidaciones').dirty || checkermonetarioForm.get('numeroliquidaciones').touched)">
+  		            <input id="numeroliquidaciones" type="text" formControlName="numeroliquidaciones" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="transaccionId">
+  		        <label for="transaccionItem" class="clr-control-label">Transaccion<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="transaccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="checkermonetarioForm.get('transaccionItem').invalid && (checkermonetarioForm.get('transaccionItem').dirty || checkermonetarioForm.get('transaccionItem').touched)">
+  		                <input id="transaccionId"   type="hidden" formControlName="transaccionId" placeholder="Transaccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="transaccionItem" type="text"   formControlName="transaccionItem" placeholder="Transaccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modaltransaccion = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Transaccion es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label">
+  		        Moneda
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="estatus">
+  		        <label for="estatusparticipante" class="clr-control-label">
+  		        Estatus
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatus" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="fecha" class="clr-control-label">
+  		    	Fecha
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fecha" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('fecha').invalid && (checkermonetarioForm.get('fecha').dirty || checkermonetarioForm.get('fecha').touched)">
+  		            <input id="fecha" type="text" formControlName="fecha" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="operado" class="clr-control-label">
+  		    	Operado
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="operado" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('operado').invalid && (checkermonetarioForm.get('operado').dirty || checkermonetarioForm.get('operado').touched)">
+  		            <input id="operado" type="text" formControlName="operado" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="autorizo" class="clr-control-label">
+  		    	Autorizó
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="autorizo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('autorizo').invalid && (checkermonetarioForm.get('autorizo').dirty || checkermonetarioForm.get('autorizo').touched)">
+  		            <input id="autorizo" type="text" formControlName="autorizo" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="fechaautorizado" class="clr-control-label">
+  		    	Fecha autorizado
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fechaautorizado" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('fechaautorizado').invalid && (checkermonetarioForm.get('fechaautorizado').dirty || checkermonetarioForm.get('fechaautorizado').touched)">
+  		            <input id="fechaautorizado" type="text" formControlName="fechaautorizado" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="numerofirma" class="clr-control-label">
+  		    	Número de firma nivel 1
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="numerofirma" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('numerofirma').invalid && (checkermonetarioForm.get('numerofirma').dirty || checkermonetarioForm.get('numerofirma').touched)">
+  		            <input id="numerofirma" type="text" formControlName="numerofirma" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="nombrefirma" class="clr-control-label">
+  		    	Nombre quien firma
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="nombrefirma" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('nombrefirma').invalid && (checkermonetarioForm.get('nombrefirma').dirty || checkermonetarioForm.get('nombrefirma').touched)">
+  		            <input id="nombrefirma" type="text" formControlName="nombrefirma" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="fechafirma" class="clr-control-label">
+  		    	Fecha firma
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fechafirma" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="checkermonetarioForm.get('fechafirma').invalid && (checkermonetarioForm.get('fechafirma').dirty || checkermonetarioForm.get('fechafirma').touched)">
+  		            <input id="fechafirma" type="text" formControlName="fechafirma" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ checkermonetarioForm.value | json }} </p>
+<p> Form status {{ checkermonetarioForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaCheckermonetario()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaCheckermonetario()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="modalfideicomiso" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Fideicomiso</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="modalsubfiso" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Subfiso</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="modalinstruccion" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Instruccion</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalinstruccion = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalinstruccion = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+  		<clr-modal [(clrModalOpen)]="modaltransaccion" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Transaccion</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modaltransaccion = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modaltransaccion = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

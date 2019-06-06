@@ -1,0 +1,577 @@
+<!-- PSG Aportaciones Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Aportaciones
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="aportacionesForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="instruccionId">
+  		        <label for="instruccionItem" class="clr-control-label">Instrucción<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="instruccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="aportacionesForm.get('instruccionItem').invalid && (aportacionesForm.get('instruccionItem').dirty || aportacionesForm.get('instruccionItem').touched)">
+  		                <input id="instruccionId"   type="hidden" formControlName="instruccionId" placeholder="Instruccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="instruccionItem" type="text"   formControlName="instruccionItem" placeholder="Instruccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalinstruccion = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Instruccion es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./instruccion 1--> 
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="aportacionesForm.get('fideicomisoItem').invalid && (aportacionesForm.get('fideicomisoItem').dirty || aportacionesForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./fideicomiso 1--> 
+  		<div class="clr-form-control" id="subfisoId">
+  		        <label for="subfisoItem" class="clr-control-label">Sub fiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="aportacionesForm.get('subfisoItem').invalid && (aportacionesForm.get('subfisoItem').dirty || aportacionesForm.get('subfisoItem').touched)">
+  		                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Subfiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./subfiso 1--> 
+  		<div class="clr-form-control"><!-- totalimporte 1-->
+  		    <label for="totalimporte" class="clr-control-label">Total importe<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- totalimporte 2-->
+  		        <label for="totalimporte" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacionesForm.get('totalimporte').invalid && (aportacionesForm.get('totalimporte').dirty || aportacionesForm.get('totalimporte').touched)">
+  		            <input id="totalimporte" type="text" formControlName="totalimporte" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Total importe es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="destinorecepcion">
+  		        <label for="destinorecepcion" class="clr-control-label"> Destino de la recepción<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="destinorecepcion" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DESTINO1">APORTACION PATRIMONIAL</option>
+  		<option value="DESTINO2">COBROD DE COMISIONES</option>
+  		<option value="DESTINO3">COBRO LIQUIDACIÓN AL VENCIMIENTO</option>
+  		<option value="DESTINO4">COBRO LIQUIDACIÓN DIARIA</option>
+  		<option value="DESTINO5">DEPÓSITOS PARA PAGO DE HONORARIOS</option>
+  		<option value="DESTINO6">DEVOLUCIONES POR APLICAR</option>
+  		<option value="DESTINO7">DONATIVOS</option>
+  		<option value="DESTINO8">POR VENTA DE DIVISAS</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./destinorecepcion 1--> 
+  		<div class="clr-form-control" id="estatus">
+  		        <label for="estatusinstruccion" class="clr-control-label"> Estatus<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatus" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="APLI">APLICADO</option>
+  		<option value="APLIPAR">APLICADO PARCIAL</option>
+  		<option value="CANC">CANCELADO</option>
+  		<option value="PROC">EN PROCESO</option>
+  		<option value="PEND">PENDIENTE</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusinstruccion 1--> 
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label"> Moneda<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./moneda 1--> 
+  		<div class="clr-form-control" id="formarecepcion">
+  		        <label for="formarecepcioneaportaciones" class="clr-control-label"> Forma de la recepción<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="formarecepcion" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="RECEPCION1">CARGO A CUENTA CHEQUES SCOTIABANK</option>
+  		<option value="RECEPCION2">DEPÓSITO CHEQUE SCOTIABAKN</option>
+  		<option value="RECEPCION3">DEPÓSITO POR SPEUA</option>
+  		<option value="RECEPCION4">DEPÓSITO EN SUCURSAL TF EFECTIVO</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./formarecepcioneaportaciones 1--> 
+  		<div class="clr-form-control" id="estatusoperacion">
+  		        <label for="estatusoperacion" class="clr-control-label"> Estatus de operación<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatusoperacion" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NORMAL">NORMAL</option>
+  		<option value="COTABILIDAD">SOLO CONTABLE</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusoperacion 1--> 
+  		<div class="clr-form-control" id="tipopersona">
+  		        <label for="tipopersona" class="clr-control-label"> Tipo persona<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="tipopersona" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="FISICA">FISICA</option>
+  		<option value="GOBIERNO">GOBIERNO</option>
+  		<option value="MORAL">MORAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./tipopersona 1--> 
+  		        <div class="clr-form-control">
+  		<label for="fechacontabilizacionAux" class="clr-control-label">Fecha de contabilización<span class="required">*</span></label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechacontabilizacionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="aportacionesForm.get('fechacontabilizacionAux').invalid && (aportacionesForm.get('fechacontabilizacionAux').dirty || aportacionesForm.get('fechacontabilizacionAux').touched)">
+  				<input id="fechacontabilizacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechacontabilizacionAux"/>
+  				<span class="tooltip-content">
+  					Fecha de contabilización es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control"><!-- nombre 1-->
+  		    <label for="nombre" class="clr-control-label">Nombre<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombre 2-->
+  		        <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacionesForm.get('nombre').invalid && (aportacionesForm.get('nombre').dirty || aportacionesForm.get('nombre').touched)">
+  		            <input id="nombre" type="text" formControlName="nombre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- descripcioncomplementaria 1-->
+  		    <label for="descripcioncomplementaria" class="clr-control-label">Descripción complementaria<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- descripcioncomplementaria 2-->
+  		        <label for="descripcioncomplementaria" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacionesForm.get('descripcioncomplementaria').invalid && (aportacionesForm.get('descripcioncomplementaria').dirty || aportacionesForm.get('descripcioncomplementaria').touched)">
+  		            <input id="descripcioncomplementaria" type="text" formControlName="descripcioncomplementaria" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Descripción complementaria es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- nombrefideicomiso 1-->
+  		    <label for="nombrefideicomiso" class="clr-control-label">Nombre del fideicomiso<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrefideicomiso 2-->
+  		        <label for="nombrefideicomiso" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacionesForm.get('nombrefideicomiso').invalid && (aportacionesForm.get('nombrefideicomiso').dirty || aportacionesForm.get('nombrefideicomiso').touched)">
+  		            <input id="nombrefideicomiso" type="text" formControlName="nombrefideicomiso" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Nombre del fideicomiso es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- eventos 1-->
+  		    <label for="eventos" class="clr-control-label">Eventos realizados/eventos separados<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- eventos 2-->
+  		        <label for="eventos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacionesForm.get('eventos').invalid && (aportacionesForm.get('eventos').dirty || aportacionesForm.get('eventos').touched)">
+  		            <input id="eventos" type="text" formControlName="eventos" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Eventos realizados/eventos separados es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- totalaplicado 1-->
+  		    <label for="totalaplicado" class="clr-control-label">Total Aplicado<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- totalaplicado 2-->
+  		        <label for="totalaplicado" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacionesForm.get('totalaplicado').invalid && (aportacionesForm.get('totalaplicado').dirty || aportacionesForm.get('totalaplicado').touched)">
+  		            <input id="totalaplicado" type="text" formControlName="totalaplicado" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Total Aplicado es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- importerecepcion 1-->
+  		    <label for="importerecepcion" class="clr-control-label">Importe de la recepción<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- importerecepcion 2-->
+  		        <label for="importerecepcion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacionesForm.get('importerecepcion').invalid && (aportacionesForm.get('importerecepcion').dirty || aportacionesForm.get('importerecepcion').touched)">
+  		            <input id="importerecepcion" type="text" formControlName="importerecepcion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Importe de la recepción es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="origenrecursos">
+  		        <label for="origenrecursos" class="clr-control-label"> Origen recursos<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="origenrecursos" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ORIGEN1">APORTACIONES SOLIDARIOS</option>
+  		<option value="ORIGEN2">CLIENTES MEXDER</option>
+  		<option value="ORIGEN3">FIDEICOMITENTE A</option>
+  		<option value="ORIGEN4">GOBIERNO ESTATAL</option>
+  		<option value="ORIGEN5">GOBIERNO FEDERAL</option>
+  		<option value="ORIGEN6">GOBIERNO MUNICIPAL</option>
+  		<option value="ORIGEN7">PARTICULARES</option>
+  		<option value="ORIGEN8">RECURSOS DEL CONTRATO</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./origenrecursos 1--> 
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ aportacionesForm.value | json }} </p>
+	<p> Form status {{ aportacionesForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaAportaciones()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaAportaciones()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalinstruccion" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Instruccion</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'fechahoracaptura'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Fecha y hora de captura
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+    		        <ng-container *clrDgHideableColumn="{hidden: false}">
+    		            Fideicomiso
+    		        </ng-container>
+    		    </clr-dg-column> 								
+    		<clr-dg-column [clrDgField]="'subfisoItem'" >
+    		        <ng-container *clrDgHideableColumn="{hidden: false}">
+    		            Sub fiso
+    		        </ng-container>
+    		    </clr-dg-column> 								
+    		<clr-dg-column [clrDgField]="'folio'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Folio de la instrucción
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'fechadocumeto'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Fecha del documento
+    		        </ng-container>    
+    		    </clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'clasificacionItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Clasificación
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'personalidadsolicitanteItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Personalidad del solicitante
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'fechacambioestatus'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Fecha cambio de estatus
+    		        </ng-container>    
+    		    </clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'subtipoinstruccionItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Subtipo de instrucción
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'importe'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Importe de la instrucción
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'importeaplicado'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Importe aplicado
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'nombresubfiso'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Nombre del sub fiso
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'titularfideicomiso'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Titular del fideicomiso
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'fechacompromiso'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Fecha del compromiso
+    		        </ng-container>    
+    		    </clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'formarecepcionItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Forma de recepción
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'estatusinstruccionItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Estatus de la instrucción
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'tipoinstruccionItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Tipo de instrucción
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'monedaItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Moneda
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'noeventos'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            No. de eventos
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'noefectuados'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            No. Efectuados
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'infocomplementaria'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Información complementaria
+    		        </ng-container>    
+    		    </clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let instruccion of instruccionArray">
+  			<clr-dg-cell><input type="radio" name="instruccionId" [checked]="instruccion.checked" value="{{instruccion.id}}" (click)="setClickedRowInstruccion(i, instruccion)"></clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.fechahoracaptura}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.fideicomisoItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.subfisoItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.folio}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.fechadocumeto}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.clasificacionItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.personalidadsolicitanteItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.fechacambioestatus}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.subtipoinstruccionItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.importe}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.importeaplicado}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.nombresubfiso}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.titularfideicomiso}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.fechacompromiso}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.formarecepcionItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.estatusinstruccionItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.tipoinstruccionItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{instruccion.monedaItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.noeventos}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.noefectuados}}</clr-dg-cell>
+    		<clr-dg-cell>{{instruccion.infocomplementaria}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalinstruccion = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalinstruccion = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Administrador
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Promotor
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+  			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalsubfiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Subfiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+    		        <ng-container *clrDgHideableColumn="{hidden: false}">
+    		            Fideicomiso
+    		        </ng-container>
+    		    </clr-dg-column> 								
+    		<clr-dg-column [clrDgField]="'numero'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Número
+    		        </ng-container>    
+    		    </clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'nombre'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Nombre
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'estatusItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Estatus
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let subfiso of subfisoArray">
+  			<clr-dg-cell><input type="radio" name="subfisoId" [checked]="subfiso.checked" value="{{subfiso.id}}" (click)="setClickedRowSubfiso(i, subfiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.fideicomisoItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.numero}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.nombre}}</clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.estatusItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

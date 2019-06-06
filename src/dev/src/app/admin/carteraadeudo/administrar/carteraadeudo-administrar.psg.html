@@ -1,0 +1,90 @@
+<!-- PSG Administrar Carteraadeudo Html -->
+<div class="card-header">
+Administrar Cartera adeudos
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="carteraadeudo_create" class="btn btn-icon btn-outline" (click)="getCarteraadeudo()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'honorarioscontratoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Honorarios Contrato
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'folioadeudo'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio adeudo
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'calificacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Calificación
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column [clrDgField]="'fechacalculo'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha de cálculo
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column [clrDgField]="'del'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Del
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column [clrDgField]="'al'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Al
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'importe'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let carteraadeudo of carteraadeudoArray" [clrDgItem]="carteraadeudo">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaCarteraadeudo(i, carteraadeudo)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaCarteraadeudo(i, carteraadeudo)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="carteraadeudo_update" (click)="setClickedRowEditaCarteraadeudo(i, carteraadeudo)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="carteraadeudo_delete" (click)="setClickedRowEliminaCarteraadeudo(i, carteraadeudo)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{carteraadeudo.honorarioscontratoItem}}</clr-dg-cell>
+<clr-dg-cell >{{carteraadeudo.folioadeudo}}</clr-dg-cell>
+<clr-dg-cell >{{carteraadeudo.calificacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{carteraadeudo.fechacalculo | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{carteraadeudo.del | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{carteraadeudo.al | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{carteraadeudo.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{carteraadeudo.importe}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

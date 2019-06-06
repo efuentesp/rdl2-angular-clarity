@@ -1,0 +1,108 @@
+<!-- PSG Administrar Monitoreochekermonerario Html -->
+<div class="card-header">
+Administrar Monitoreo de instrucciones de checker monetario
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="monitoreochekermonerario_create" class="btn btn-icon btn-outline" (click)="getMonitoreochekermonerario()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'foliooperacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio de operación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fechaoperacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha de operación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Total Pagos
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Liq
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cont
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Pend
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Error
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let monitoreochekermonerario of monitoreochekermonerarioArray" [clrDgItem]="monitoreochekermonerario">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaMonitoreochekermonerario(i, monitoreochekermonerario)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaMonitoreochekermonerario(i, monitoreochekermonerario)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="monitoreochekermonerario_update" (click)="setClickedRowEditaMonitoreochekermonerario(i, monitoreochekermonerario)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="monitoreochekermonerario_delete" (click)="setClickedRowEliminaMonitoreochekermonerario(i, monitoreochekermonerario)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{monitoreochekermonerario.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.foliooperacion}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.importe}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.fechaoperacion}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.totalpagos}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.liquidados}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.contabilizados}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.pendientes}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.error}}</clr-dg-cell>
+<clr-dg-cell >{{monitoreochekermonerario.estatusItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

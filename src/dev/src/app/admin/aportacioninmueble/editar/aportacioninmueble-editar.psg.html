@@ -1,0 +1,611 @@
+<!-- PSG Aportacioninmueble Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Aportación del inmueble
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="aportacioninmuebleForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="aportacioninmuebleForm.get('fideicomisoItem').invalid && (aportacioninmuebleForm.get('fideicomisoItem').dirty || aportacioninmuebleForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./fideicomiso 1--> 
+  		<div class="clr-form-control" id="subfisoId">
+  		        <label for="subfisoItem" class="clr-control-label">Sub fiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="aportacioninmuebleForm.get('subfisoItem').invalid && (aportacioninmuebleForm.get('subfisoItem').dirty || aportacioninmuebleForm.get('subfisoItem').touched)">
+  		                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Subfiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./subfiso 1--> 
+  		<div class="clr-form-control"><!-- tiponegocio 1-->
+  		    <label for="tiponegocio" class="clr-control-label">Tipo negocio<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- tiponegocio 2-->
+  		        <label for="tiponegocio" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('tiponegocio').invalid && (aportacioninmuebleForm.get('tiponegocio').dirty || aportacioninmuebleForm.get('tiponegocio').touched)">
+  		            <input id="tiponegocio" type="text" formControlName="tiponegocio" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Tipo negocio es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- producto 1-->
+  		    <label for="producto" class="clr-control-label">Producto<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- producto 2-->
+  		        <label for="producto" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('producto').invalid && (aportacioninmuebleForm.get('producto').dirty || aportacioninmuebleForm.get('producto').touched)">
+  		            <input id="producto" type="text" formControlName="producto" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Producto es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- idinmueble 1-->
+  		    <label for="idinmueble" class="clr-control-label">Id inmueble<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- idinmueble 2-->
+  		        <label for="idinmueble" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('idinmueble').invalid && (aportacioninmuebleForm.get('idinmueble').dirty || aportacioninmuebleForm.get('idinmueble').touched)">
+  		            <input id="idinmueble" type="text" formControlName="idinmueble" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Id inmueble es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		        <div class="clr-form-control">
+  		<label for="fechaaltaAux" class="clr-control-label">Fecha alta</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechaaltaAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="aportacioninmuebleForm.get('fechaaltaAux').invalid && (aportacioninmuebleForm.get('fechaaltaAux').dirty || aportacioninmuebleForm.get('fechaaltaAux').touched)">
+  				<input id="fechaaltaAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaaltaAux"/>
+  				<span class="tooltip-content">
+  					Fecha alta es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="tipoinmueble">
+  		        <label for="tipoinmueble" class="clr-control-label"> Tipo inmueble<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="tipoinmueble" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="TIPO1">BODEGAS</option>
+  		<option value="TIPO2">CASA HABITACIÓN</option>
+  		<option value="TIPO3">CONSTRUCCIÓN EN PROCESO</option>
+  		<option value="TIPO4">DEPARTAMENTO</option>
+  		<option value="TIPO5">LOTE</option>
+  		<option value="TIPO6">OTROS INMUEBLES</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./tipoinmueble 1--> 
+  		<div class="clr-form-control"><!-- arbol 1-->
+  		    <label for="arbol" class="clr-control-label">Árbol</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- arbol 2-->
+  		        <label for="arbol" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('arbol').invalid && (aportacioninmuebleForm.get('arbol').dirty || aportacioninmuebleForm.get('arbol').touched)">
+  		            <input id="arbol" type="text" formControlName="arbol" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Árbol es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		        <div class="clr-form-control">
+  		<label for="fecharegistroAux" class="clr-control-label">Fecha registro</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fecharegistroAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="aportacioninmuebleForm.get('fecharegistroAux').invalid && (aportacioninmuebleForm.get('fecharegistroAux').dirty || aportacioninmuebleForm.get('fecharegistroAux').touched)">
+  				<input id="fecharegistroAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fecharegistroAux"/>
+  				<span class="tooltip-content">
+  					Fecha registro es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="tipofraccion">
+  		        <label for="tipofraccion" class="clr-control-label">Tipo de fracción</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="tipofraccion">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="TIPO1">BODEGA</option>
+  		<option value="TIPO2">CASA HABITACIÓN</option>
+  		<option value="TIPO3">CUARTO</option>
+  		<option value="TIPO4">DEPARTAMENTO</option>
+  		<option value="TIPO5">ESTACIONAMIENTO</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./tipofraccion 1--> 
+  		<div class="clr-form-control">
+  		    <label for="descripcion" class="clr-control-label">Descripción<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="descripcion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('descripcion').invalid && (aportacioninmuebleForm.get('descripcion').dirty || aportacioninmuebleForm.get('descripcion').touched)">
+  		            <textarea id="descripcion" formControlName="descripcion" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		            <span class="tooltip-content">
+  		                Descripción es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmueblevalorinicial 1-->
+  		    <label for="inmueblevalorinicial" class="clr-control-label">Inmueble_Valor inicial<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmueblevalorinicial 2-->
+  		        <label for="inmueblevalorinicial" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmueblevalorinicial').invalid && (aportacioninmuebleForm.get('inmueblevalorinicial').dirty || aportacioninmuebleForm.get('inmueblevalorinicial').touched)">
+  		            <input id="inmueblevalorinicial" type="text" formControlName="inmueblevalorinicial" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Valor inicial es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmuebleubicacion 1-->
+  		    <label for="inmuebleubicacion" class="clr-control-label">Inmueble_Ubicación<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmuebleubicacion 2-->
+  		        <label for="inmuebleubicacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmuebleubicacion').invalid && (aportacioninmuebleForm.get('inmuebleubicacion').dirty || aportacioninmuebleForm.get('inmuebleubicacion').touched)">
+  		            <input id="inmuebleubicacion" type="text" formControlName="inmuebleubicacion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Ubicación es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="inmuebleestado">
+  		        <label for="estados" class="clr-control-label"> Inmueble_Estado<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="inmuebleestado" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="CDMX">CUIDAD DE MEXICO</option>
+  		<option value="EDOMEX">ESTADO DE MEXICO</option>
+  		<option value="AGU">AGUASCALIENTES</option>
+  		<option value="BJ">BAJA CALIFORNIA</option>
+  		<option value="BJS">BAJA CALIFORNIA SUR</option>
+  		<option value="CM">CAMPECHE</option>
+  		<option value="GR">GUERRERO</option>
+  		<option value="HD">HIDALGO</option>
+  		<option value="JL">JALISCO</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estados 1--> 
+  		<div class="clr-form-control"><!-- inmueblesuperficie 1-->
+  		    <label for="inmueblesuperficie" class="clr-control-label">Inmueble_Superficie</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmueblesuperficie 2-->
+  		        <label for="inmueblesuperficie" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmueblesuperficie').invalid && (aportacioninmuebleForm.get('inmueblesuperficie').dirty || aportacioninmuebleForm.get('inmueblesuperficie').touched)">
+  		            <input id="inmueblesuperficie" type="text" formControlName="inmueblesuperficie" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Superficie es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmuebleindivisos 1-->
+  		    <label for="inmuebleindivisos" class="clr-control-label">Inmueble_% Indivisos</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmuebleindivisos 2-->
+  		        <label for="inmuebleindivisos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmuebleindivisos').invalid && (aportacioninmuebleForm.get('inmuebleindivisos').dirty || aportacioninmuebleForm.get('inmuebleindivisos').touched)">
+  		            <input id="inmuebleindivisos" type="text" formControlName="inmuebleindivisos" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_% Indivisos es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmuebledias 1-->
+  		    <label for="inmuebledias" class="clr-control-label">Inmueble_Días</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmuebledias 2-->
+  		        <label for="inmuebledias" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmuebledias').invalid && (aportacioninmuebleForm.get('inmuebledias').dirty || aportacioninmuebleForm.get('inmuebledias').touched)">
+  		            <input id="inmuebledias" type="text" formControlName="inmuebledias" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Días es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmuebleproyectoejecutivo 1-->
+  		    <label for="inmuebleproyectoejecutivo" class="clr-control-label">Inmueble_Proyecto ejecutivo</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmuebleproyectoejecutivo 2-->
+  		        <label for="inmuebleproyectoejecutivo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmuebleproyectoejecutivo').invalid && (aportacioninmuebleForm.get('inmuebleproyectoejecutivo').dirty || aportacioninmuebleForm.get('inmuebleproyectoejecutivo').touched)">
+  		            <input id="inmuebleproyectoejecutivo" type="text" formControlName="inmuebleproyectoejecutivo" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Proyecto ejecutivo es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmueblevaloractual 1-->
+  		    <label for="inmueblevaloractual" class="clr-control-label">Inmueble_Valor actual</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmueblevaloractual 2-->
+  		        <label for="inmueblevaloractual" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmueblevaloractual').invalid && (aportacioninmuebleForm.get('inmueblevaloractual').dirty || aportacioninmuebleForm.get('inmueblevaloractual').touched)">
+  		            <input id="inmueblevaloractual" type="text" formControlName="inmueblevaloractual" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Valor actual es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmuebleciudad 1-->
+  		    <label for="inmuebleciudad" class="clr-control-label">Inmueble_Ciudad<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmuebleciudad 2-->
+  		        <label for="inmuebleciudad" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmuebleciudad').invalid && (aportacioninmuebleForm.get('inmuebleciudad').dirty || aportacioninmuebleForm.get('inmuebleciudad').touched)">
+  		            <input id="inmuebleciudad" type="text" formControlName="inmuebleciudad" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Ciudad es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmueblesuperficieconstruida 1-->
+  		    <label for="inmueblesuperficieconstruida" class="clr-control-label">Inmueble_Superficie construida<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmueblesuperficieconstruida 2-->
+  		        <label for="inmueblesuperficieconstruida" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmueblesuperficieconstruida').invalid && (aportacioninmuebleForm.get('inmueblesuperficieconstruida').dirty || aportacioninmuebleForm.get('inmueblesuperficieconstruida').touched)">
+  		            <input id="inmueblesuperficieconstruida" type="text" formControlName="inmueblesuperficieconstruida" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Superficie construida es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmueblefraccionamientounidad 1-->
+  		    <label for="inmueblefraccionamientounidad" class="clr-control-label">Inmueble_%Fraccionamiento Unidad</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmueblefraccionamientounidad 2-->
+  		        <label for="inmueblefraccionamientounidad" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmueblefraccionamientounidad').invalid && (aportacioninmuebleForm.get('inmueblefraccionamientounidad').dirty || aportacioninmuebleForm.get('inmueblefraccionamientounidad').touched)">
+  		            <input id="inmueblefraccionamientounidad" type="text" formControlName="inmueblefraccionamientounidad" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_%Fraccionamiento Unidad es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmuebleclavecatastral 1-->
+  		    <label for="inmuebleclavecatastral" class="clr-control-label">Inmueble_Clave catastral</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmuebleclavecatastral 2-->
+  		        <label for="inmuebleclavecatastral" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmuebleclavecatastral').invalid && (aportacioninmuebleForm.get('inmuebleclavecatastral').dirty || aportacioninmuebleForm.get('inmuebleclavecatastral').touched)">
+  		            <input id="inmuebleclavecatastral" type="text" formControlName="inmuebleclavecatastral" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Clave catastral es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- inmueblevalor 1-->
+  		    <label for="inmueblevalor" class="clr-control-label">Inmueble_Valor</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- inmueblevalor 2-->
+  		        <label for="inmueblevalor" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('inmueblevalor').invalid && (aportacioninmuebleForm.get('inmueblevalor').dirty || aportacioninmuebleForm.get('inmueblevalor').touched)">
+  		            <input id="inmueblevalor" type="text" formControlName="inmueblevalor" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Inmueble_Valor es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="inmuebleestatus">
+  		        <label for="estatusparticipante" class="clr-control-label"> Inmueble_Estatus<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="inmuebleestatus" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusparticipante 1--> 
+  		<div class="clr-form-control" id="datosconstitucionescritura">
+  		        <label for="tipoescritura" class="clr-control-label">DatosConstitucion_Escritura</label>
+  		        
+  		        <clr-radio-wrapper><input type="radio" clrRadio  formControlName="datosconstitucionescritura" value="PUBLICA"> Escritura pública</clr-radio-wrapper>		
+  		        <clr-radio-wrapper><input type="radio" clrRadio  formControlName="datosconstitucionescritura" value="OTRO"> Otro</clr-radio-wrapper>		
+  		    </div><!-- ./tipoescritura 1--> 
+  		<div class="clr-form-control"><!-- datosconstitucionnumescritura 1-->
+  		    <label for="datosconstitucionnumescritura" class="clr-control-label">DatosConstitucion_Núm. Escritura</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- datosconstitucionnumescritura 2-->
+  		        <label for="datosconstitucionnumescritura" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('datosconstitucionnumescritura').invalid && (aportacioninmuebleForm.get('datosconstitucionnumescritura').dirty || aportacioninmuebleForm.get('datosconstitucionnumescritura').touched)">
+  		            <input id="datosconstitucionnumescritura" type="text" formControlName="datosconstitucionnumescritura" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                DatosConstitucion_Núm. Escritura es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="datosconstitucionnombrenotario">
+  		        <label for="notario" class="clr-control-label"> DatosConstitucion_Notario<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="datosconstitucionnombrenotario" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NOTARIO01">NOTARIO 01</option>
+  		<option value="NOTARIO02">NOTARIO 02</option>
+  		<option value="NOTARIO03">NOTARIO 03</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./notario 1--> 
+  		<div class="clr-form-control"><!-- datosconstitucionestadonotario 1-->
+  		    <label for="datosconstitucionestadonotario" class="clr-control-label">DatosConstitucion_Estado</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- datosconstitucionestadonotario 2-->
+  		        <label for="datosconstitucionestadonotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('datosconstitucionestadonotario').invalid && (aportacioninmuebleForm.get('datosconstitucionestadonotario').dirty || aportacioninmuebleForm.get('datosconstitucionestadonotario').touched)">
+  		            <input id="datosconstitucionestadonotario" type="text" formControlName="datosconstitucionestadonotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                DatosConstitucion_Estado es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- datosconstituciontelefononotario 1-->
+  		    <label for="datosconstituciontelefononotario" class="clr-control-label">DatosConstitucion_Teléfono</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- datosconstituciontelefononotario 2-->
+  		        <label for="datosconstituciontelefononotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('datosconstituciontelefononotario').invalid && (aportacioninmuebleForm.get('datosconstituciontelefononotario').dirty || aportacioninmuebleForm.get('datosconstituciontelefononotario').touched)">
+  		            <input id="datosconstituciontelefononotario" type="text" formControlName="datosconstituciontelefononotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                DatosConstitucion_Teléfono es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		        <div class="clr-form-control">
+  		<label for="datosconstitucionfecharppAux" class="clr-control-label">DatosConstitucion_Fecha RPP<span class="required">*</span></label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="datosconstitucionfecharppAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="aportacioninmuebleForm.get('datosconstitucionfecharppAux').invalid && (aportacioninmuebleForm.get('datosconstitucionfecharppAux').dirty || aportacioninmuebleForm.get('datosconstitucionfecharppAux').touched)">
+  				<input id="datosconstitucionfecharppAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="datosconstitucionfecharppAux"/>
+  				<span class="tooltip-content">
+  					DatosConstitucion_Fecha RPP es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		        <div class="clr-form-control">
+  		<label for="datosconstitucionfechaescrituraAux" class="clr-control-label">DatosConstitucion_Fecha de la escritura</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="datosconstitucionfechaescrituraAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="aportacioninmuebleForm.get('datosconstitucionfechaescrituraAux').invalid && (aportacioninmuebleForm.get('datosconstitucionfechaescrituraAux').dirty || aportacioninmuebleForm.get('datosconstitucionfechaescrituraAux').touched)">
+  				<input id="datosconstitucionfechaescrituraAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="datosconstitucionfechaescrituraAux"/>
+  				<span class="tooltip-content">
+  					DatosConstitucion_Fecha de la escritura es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control"><!-- datosconstitucionnumnotaria 1-->
+  		    <label for="datosconstitucionnumnotaria" class="clr-control-label">DatosConstitucion_Num. notaría<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- datosconstitucionnumnotaria 2-->
+  		        <label for="datosconstitucionnumnotaria" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('datosconstitucionnumnotaria').invalid && (aportacioninmuebleForm.get('datosconstitucionnumnotaria').dirty || aportacioninmuebleForm.get('datosconstitucionnumnotaria').touched)">
+  		            <input id="datosconstitucionnumnotaria" type="text" formControlName="datosconstitucionnumnotaria" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                DatosConstitucion_Num. notaría es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- datosconstitucionciudadnotario 1-->
+  		    <label for="datosconstitucionciudadnotario" class="clr-control-label">DatosConstitucion_Ciudad</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- datosconstitucionciudadnotario 2-->
+  		        <label for="datosconstitucionciudadnotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('datosconstitucionciudadnotario').invalid && (aportacioninmuebleForm.get('datosconstitucionciudadnotario').dirty || aportacioninmuebleForm.get('datosconstitucionciudadnotario').touched)">
+  		            <input id="datosconstitucionciudadnotario" type="text" formControlName="datosconstitucionciudadnotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                DatosConstitucion_Ciudad es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- datosconstitucionemailnotario 1-->
+  		    <label for="datosconstitucionemailnotario" class="clr-control-label">DatosConstitucion_Email</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- datosconstitucionemailnotario 2-->
+  		        <label for="datosconstitucionemailnotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('datosconstitucionemailnotario').invalid && (aportacioninmuebleForm.get('datosconstitucionemailnotario').dirty || aportacioninmuebleForm.get('datosconstitucionemailnotario').touched)">
+  		            <input id="datosconstitucionemailnotario" type="text" formControlName="datosconstitucionemailnotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                DatosConstitucion_Email es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- datosconstitucionnumrpp 1-->
+  		    <label for="datosconstitucionnumrpp" class="clr-control-label">DatosConstitucion_Núm RPP</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- datosconstitucionnumrpp 2-->
+  		        <label for="datosconstitucionnumrpp" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="aportacioninmuebleForm.get('datosconstitucionnumrpp').invalid && (aportacioninmuebleForm.get('datosconstitucionnumrpp').dirty || aportacioninmuebleForm.get('datosconstitucionnumrpp').touched)">
+  		            <input id="datosconstitucionnumrpp" type="text" formControlName="datosconstitucionnumrpp" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                DatosConstitucion_Núm RPP es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ aportacioninmuebleForm.value | json }} </p>
+	<p> Form status {{ aportacioninmuebleForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaAportacioninmueble()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaAportacioninmueble()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Administrador
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Promotor
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+  			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalsubfiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Subfiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+    		        <ng-container *clrDgHideableColumn="{hidden: false}">
+    		            Fideicomiso
+    		        </ng-container>
+    		    </clr-dg-column> 								
+    		<clr-dg-column [clrDgField]="'numero'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Número
+    		        </ng-container>    
+    		    </clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'nombre'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Nombre
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'estatusItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Estatus
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let subfiso of subfisoArray">
+  			<clr-dg-cell><input type="radio" name="subfisoId" [checked]="subfiso.checked" value="{{subfiso.id}}" (click)="setClickedRowSubfiso(i, subfiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.fideicomisoItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.numero}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.nombre}}</clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.estatusItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

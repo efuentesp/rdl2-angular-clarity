@@ -1,0 +1,286 @@
+<!-- PSG Documentosfideicomiso Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Check list de documentos del fideicomiso
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="documentosfideicomisoForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control"><!-- campo 1-->
+  		    <label for="campo" class="clr-control-label">Campo para la definición de toString en RDL</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- campo 2-->
+  		        <label for="campo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="documentosfideicomisoForm.get('campo').invalid && (documentosfideicomisoForm.get('campo').dirty || documentosfideicomisoForm.get('campo').touched)">
+  		            <input id="campo" type="text" formControlName="campo" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Campo para la definición de toString en RDL es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="documentosfideicomisoForm.get('fideicomisoItem').invalid && (documentosfideicomisoForm.get('fideicomisoItem').dirty || documentosfideicomisoForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./fideicomiso 1--> 
+  		<div class="clr-form-control" id="contratofideicomiso">
+  		        <label for="sino" class="clr-control-label"> Contrato de Fideicomiso<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="contratofideicomiso" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="actasconstitutivas">
+  		        <label for="sino" class="clr-control-label"> Actas constitutivas<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="actasconstitutivas" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="cedulafiscal">
+  		        <label for="sino" class="clr-control-label"> Cédula Fiscal o TAX ID<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="cedulafiscal" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="poderes">
+  		        <label for="sino" class="clr-control-label"> Poderes<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="poderes" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="identificadores">
+  		        <label for="sino" class="clr-control-label"> Identificaciones<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="identificadores" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="comprobantesdomicilio">
+  		        <label for="sino" class="clr-control-label"> Comprobantes de domicilio<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="comprobantesdomicilio" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="formatoskyc">
+  		        <label for="sino" class="clr-control-label"> Formatos KYC<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="formatoskyc" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="formatoevaluacionriesgo">
+  		        <label for="sino" class="clr-control-label"> Formato Evaluación de Riesgo para Fideicomiso<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="formatoevaluacionriesgo" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="worldcheck">
+  		        <label for="sino" class="clr-control-label"> Resultado world check<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="worldcheck" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="formatoinformacion">
+  		        <label for="sino" class="clr-control-label"> Formato información del fideicomiso/producto y las personas que ejercen el control<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="formatoinformacion" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="autorizacioncomite">
+  		        <label for="sino" class="clr-control-label"> Autorización de Comité de Nuevos Negocios Fiduciario<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="autorizacioncomite" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="firmascomite">
+  		        <label for="sino" class="clr-control-label"> Registro de firmas del Comité Técnico del Fideicomiso<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="firmascomite" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="curp">
+  		        <label for="sino" class="clr-control-label"> CURP<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="curp" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ documentosfideicomisoForm.value | json }} </p>
+	<p> Form status {{ documentosfideicomisoForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaDocumentosfideicomiso()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaDocumentosfideicomiso()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Administrador
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Promotor
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+  			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

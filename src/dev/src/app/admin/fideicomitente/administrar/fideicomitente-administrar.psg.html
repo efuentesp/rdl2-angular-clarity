@@ -1,0 +1,516 @@
+<!-- PSG Administrar Fideicomitente Html -->
+<div class="card-header">
+Administrar Fideicomitente
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="fideicomitente_create" class="btn btn-icon btn-outline" (click)="getFideicomitente()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'numerofideicomitente'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Número Fideicomitente
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipopersonaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo Persona
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'participante'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Participante/Razón social
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'regimenfiscalItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Régimen Fiscal
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalescontroladorfideicomisoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Beneficiario/Controlador Fideicomiso
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesnacionalidadItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalespaisorigenItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_País de origen
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesactividadItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Actividad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesaportarecursosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Aporta recursos
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalespaisresidenciaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_País de residencia
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesclientescotiabankItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Cliente Scotiabank
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalespepItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_El Cliente es un PEP'S
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesestatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Generales_Grupo o filial
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalescalidadmigratoriaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Calidad Migratoria
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generaleslugaroperacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Lugar de operación
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesoperacuentatercerosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Opera por cuenta de terceros
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesnivelparticipanteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Nivel de participante
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesclienterelacionpepItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_El cliente tiene relación con un PEP'S
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Generales_Grado
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		InfoPldKyc_Honorarios
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkyccomisionesItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Comisiones
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkycotrosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Otros
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkycsueldosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Sueldos
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkycventaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Venta
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkycinversionesItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Inversiones
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkycarrendamientoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Arrendamiento
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		InfoPldKyc_Tipo Patrimonio
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkycinstrumentoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Instrumento
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		InfoPldKyc_Razón apertura del contrato
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		InfoPldKyc_Comentarios sobre el cliete en relación al riesgo de lavado de dinero, experiencia, mitigantes, actividad etc.
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'infopldkycnivelriesgoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        InfoPldKyc_Nivel de riesgo KYC y cálculo PLD
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		InfoPldKyc_Estatus de cálculo PLD
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		InfoPldKyc_Fecha verificación MESA DE CONTROL
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionrfc'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Identificacion_RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_CURP
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_No.serie firma electrónica avanzada
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionpaisresidfisc1Item'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificacion_País de residencia fiscal 1
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionpaisresidfisc2Item'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificacion_País de residencia fiscal 2
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_E-mail
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Identificacion_Fecha Nacimiento/Constitución
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionsexoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificacion_Sexo
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionpaiscasaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificacion_País Casa
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionpaisoficinaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificacion_País Oficina
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionpaiscelularItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificacion_País Celular
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Identificacion_Fecha de inicio de relación de negocios
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_No. identificación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Comprobación de domicilio
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'identificacionactividadempresarialItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Identificacion_Actividad empresarial
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_No. ident. fiscal 1
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_No. ident. fiscal 2
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Clasificación Fatca
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Lada Casa
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Lada Oficina
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Lada Celular
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Número Casa
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Número Oficina
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Número Celular
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Ext Oficina
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Ext Celular
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Identificación oficial vigente
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Identificacion_Vigencia
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Escritura_No. escritura
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'escrituranotarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Escritura_Notario
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Escritura_No. notaría
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Escritura_Ciudad
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Escritura_Teléfono
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Escritura_Email
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Escritura_Fecha
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Escritura_Estado
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_No. de Cuenta 1
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_Tipo de cuenta 1
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_No. de Cuenta 2
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_Tipo de cuenta 2
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_No. de Cuenta 3
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_Tipo de cuenta 3
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_No. de Cuenta 4
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		CuentasKYC_Tipo de cuenta 4
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let fideicomitente of fideicomitenteArray" [clrDgItem]="fideicomitente">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaFideicomitente(i, fideicomitente)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaFideicomitente(i, fideicomitente)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="fideicomitente_update" (click)="setClickedRowEditaFideicomitente(i, fideicomitente)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="fideicomitente_delete" (click)="setClickedRowEliminaFideicomitente(i, fideicomitente)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{fideicomitente.numerofideicomitente}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.tipopersonaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.participante}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.regimenfiscalItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalescontroladorfideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesnacionalidadItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalespaisorigenItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesactividadItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesaportarecursosItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalespaisresidenciaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesclientescotiabankItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalespepItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesestatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesgrupofilial}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalescalidadmigratoriaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generaleslugaroperacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesoperacuentatercerosItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesnivelparticipanteItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesclienterelacionpepItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.generalesgrado}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkychonorarios}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkyccomisionesItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycotrosItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycsueldosItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycventaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycinversionesItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycarrendamientoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkyctipopatrimonio}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycinstrumentoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycrazonapertura}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkyccomentarios}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycnivelriesgoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycestatuscalculopld}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.infopldkycfechaveriffircosoft | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionrfc}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacioncurp}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionnoserieefirma}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionpaisresidfisc1Item}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionpaisresidfisc2Item}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionemail}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionfechaconstitucion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionsexoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionpaiscasaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionpaisoficinaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionpaiscelularItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionfechainiciorelneg | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionnoidentificacion}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacioncomprobaciondomicilio}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionactividadempresarialItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionnoidentfisc1}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionnoidentfisc2}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionclasificacionfatca}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionladacasa}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionladaoficina}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionladacelular}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionnumerocasa}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionnumerooficina}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionnumerocelular}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionextoficina}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionextcelular}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionidentoficialvig}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.identificacionvigencia}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escrituranoescritura}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escrituranotarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escrituranonotaria}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escrituraciudad}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escrituratelefono}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escrituraemail}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escriturafecha | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.escrituraestado}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskycnocuenta1}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskyctipocuenta1}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskycnocuenta2}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskyctipocuenta2}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskycnocuenta3}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskyctipocuenta3}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskycnocuenta4}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomitente.cuentaskyctipocuenta4}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

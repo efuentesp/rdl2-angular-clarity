@@ -1,0 +1,150 @@
+<!-- PSG Administrar Asientoscontables Html -->
+<div class="card-header">
+Administrar Asientos contables
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="asientoscontables_create" class="btn btn-icon btn-outline" (click)="getAsientoscontables()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'folio'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'operacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Operación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fechaalta'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha alta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'transaccionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Transacción
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'fechacontable'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha contable
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'cuenta'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cuenta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'sct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Sct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'ssct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Ssct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'sssct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Sssct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'ssssct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Ssssct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción cta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'aux1'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Aux 1
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'aux2'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Aux 2
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Aux 3
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'cargoabonoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Cargo/Abono
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let asientoscontables of asientoscontablesArray" [clrDgItem]="asientoscontables">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaAsientoscontables(i, asientoscontables)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaAsientoscontables(i, asientoscontables)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="asientoscontables_update" (click)="setClickedRowEditaAsientoscontables(i, asientoscontables)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="asientoscontables_delete" (click)="setClickedRowEliminaAsientoscontables(i, asientoscontables)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{asientoscontables.folio}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.operacion}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.fechaalta}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.transaccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.fechacontable}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.cuenta}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.sct}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.ssct}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.sssct}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.ssssct}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.descripcioncta}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.aux1}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.aux2}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.aux3}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.cargoabonoItem}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.importe}}</clr-dg-cell>
+<clr-dg-cell >{{asientoscontables.descripcion}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

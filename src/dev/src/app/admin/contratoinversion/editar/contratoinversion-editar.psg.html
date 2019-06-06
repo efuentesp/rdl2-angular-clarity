@@ -1,0 +1,502 @@
+<!-- PSG Contratoinversion Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Contratos de inversión
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="contratoinversionForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="contratoinversionForm.get('fideicomisoItem').invalid && (contratoinversionForm.get('fideicomisoItem').dirty || contratoinversionForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./fideicomiso 1--> 
+  		<div class="clr-form-control" id="tipocontrato">
+  		        <label for="tipocontrato" class="clr-control-label">Tipo de contrato</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="tipocontrato">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="CONTRATO1">CUENTA DE CHEQUES SCOTIABANK</option>
+  		<option value="CONTRATO2">CUENTA DE CHEQUES SCOTIABANK PATRIMONIAL</option>
+  		<option value="CONTRATO3">CUENTA DE CHEQUES OTRA INSTITUCION</option>
+  		<option value="CONTRATO4">INVERSION C/INTERFASE</option>
+  		<option value="CONTRATO5">INVERSION S/INTERFASE</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./tipocontrato 1--> 
+  		<div class="clr-form-control" id="intermediario">
+  		        <label for="intermediario" class="clr-control-label">Intermediario</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="intermediario">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="INTERMEDIARIO2">BANCO INBURSA S.A.</option>
+  		<option value="INTERMEDIARIO3">BANSI, S.A.</option>
+  		<option value="INTERMEDIARIO4">BANAMEX, S.A.</option>
+  		<option value="INTERMEDIARIO5">HSBC MEXICO S.A.</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./intermediario 1--> 
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label">Moneda</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./moneda 1--> 
+  		<div class="clr-form-control"><!-- nombrecontacto1 1-->
+  		    <label for="nombrecontacto1" class="clr-control-label">Nombre contacto 1</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrecontacto1 2-->
+  		        <label for="nombrecontacto1" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('nombrecontacto1').invalid && (contratoinversionForm.get('nombrecontacto1').dirty || contratoinversionForm.get('nombrecontacto1').touched)">
+  		            <input id="nombrecontacto1" type="text" formControlName="nombrecontacto1" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Nombre contacto 1 es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- nombrecontacto2 1-->
+  		    <label for="nombrecontacto2" class="clr-control-label">Nombre contacto 2</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrecontacto2 2-->
+  		        <label for="nombrecontacto2" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('nombrecontacto2').invalid && (contratoinversionForm.get('nombrecontacto2').dirty || contratoinversionForm.get('nombrecontacto2').touched)">
+  		            <input id="nombrecontacto2" type="text" formControlName="nombrecontacto2" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Nombre contacto 2 es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="resparamliq">
+  		        <label for="sino" class="clr-control-label">Requiere parámetros de liquidación</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="resparamliq">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="enviorecursosinv">
+  		        <label for="enviorecusosinversion" class="clr-control-label">Envío recursos por inversión</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="enviorecursosinv">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ENV1">FIDEICOMISARIO</option>
+  		<option value="ENV2">FIDEICOMITENTE</option>
+  		<option value="ENV3">TERCERO</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./enviorecusosinversion 1--> 
+  		<div class="clr-form-control" id="transferenciarecdesinver">
+  		        <label for="recepcionrecusosinversion" class="clr-control-label">Transferencia de recursos por desinversión</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="transferenciarecdesinver">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="RECEP1">CUENTA CONCENTRADORA</option>
+  		<option value="RECEP2">CUENTA CONCENTRADORA GENERAL</option>
+  		<option value="RECEP3">CUENTA CONCENTRADORA INDIVIDUAL</option>
+  		<option value="RECEP4">CUENTA PARTICULAR (SCOTIABANK)</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./recepcionrecusosinversion 1--> 
+  		<div class="clr-form-control" id="retenerisr">
+  		        <label for="sino" class="clr-control-label">Retener ISR</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="retenerisr">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		<div class="clr-form-control" id="subfisoId">
+  		        <label for="subfisoItem" class="clr-control-label">Sub fiso</label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="contratoinversionForm.get('subfisoItem').invalid && (contratoinversionForm.get('subfisoItem').dirty || contratoinversionForm.get('subfisoItem').touched)">
+  		                <input id="subfisoId"   type="hidden" formControlName="subfisoId" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="Subfiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Subfiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./subfiso 1--> 
+  		        <div class="clr-form-control">
+  		<label for="fechavencimientoAux" class="clr-control-label">Fecha vencimiento</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechavencimientoAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="contratoinversionForm.get('fechavencimientoAux').invalid && (contratoinversionForm.get('fechavencimientoAux').dirty || contratoinversionForm.get('fechavencimientoAux').touched)">
+  				<input id="fechavencimientoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechavencimientoAux"/>
+  				<span class="tooltip-content">
+  					Fecha vencimiento es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="estatus">
+  		        <label for="estatusparticipante" class="clr-control-label">Estatus</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatus">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusparticipante 1--> 
+  		<div class="clr-form-control"><!-- contratoiversion 1-->
+  		    <label for="contratoiversion" class="clr-control-label">Contrato inversión</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contratoiversion 2-->
+  		        <label for="contratoiversion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contratoiversion').invalid && (contratoinversionForm.get('contratoiversion').dirty || contratoinversionForm.get('contratoiversion').touched)">
+  		            <input id="contratoiversion" type="text" formControlName="contratoiversion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contrato inversión es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- contratootrasinst 1-->
+  		    <label for="contratootrasinst" class="clr-control-label">Contrato otras instituciones</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contratootrasinst 2-->
+  		        <label for="contratootrasinst" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contratootrasinst').invalid && (contratoinversionForm.get('contratootrasinst').dirty || contratoinversionForm.get('contratootrasinst').touched)">
+  		            <input id="contratootrasinst" type="text" formControlName="contratootrasinst" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contrato otras instituciones es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- contacto1lada 1-->
+  		    <label for="contacto1lada" class="clr-control-label">Contacto1 Lada</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contacto1lada 2-->
+  		        <label for="contacto1lada" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contacto1lada').invalid && (contratoinversionForm.get('contacto1lada').dirty || contratoinversionForm.get('contacto1lada').touched)">
+  		            <input id="contacto1lada" type="text" formControlName="contacto1lada" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contacto1 Lada es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- contacto1telefono 1-->
+  		    <label for="contacto1telefono" class="clr-control-label">Contacto1 Telefono</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contacto1telefono 2-->
+  		        <label for="contacto1telefono" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contacto1telefono').invalid && (contratoinversionForm.get('contacto1telefono').dirty || contratoinversionForm.get('contacto1telefono').touched)">
+  		            <input id="contacto1telefono" type="text" formControlName="contacto1telefono" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contacto1 Telefono es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- contacto1ext 1-->
+  		    <label for="contacto1ext" class="clr-control-label">Contacto1 Ext</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contacto1ext 2-->
+  		        <label for="contacto1ext" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contacto1ext').invalid && (contratoinversionForm.get('contacto1ext').dirty || contratoinversionForm.get('contacto1ext').touched)">
+  		            <input id="contacto1ext" type="text" formControlName="contacto1ext" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contacto1 Ext es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- contacto2lada 1-->
+  		    <label for="contacto2lada" class="clr-control-label">Contacto2 Lada</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contacto2lada 2-->
+  		        <label for="contacto2lada" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contacto2lada').invalid && (contratoinversionForm.get('contacto2lada').dirty || contratoinversionForm.get('contacto2lada').touched)">
+  		            <input id="contacto2lada" type="text" formControlName="contacto2lada" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contacto2 Lada es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- contacto2telefono 1-->
+  		    <label for="contacto2telefono" class="clr-control-label">Contacto2 Telefono</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contacto2telefono 2-->
+  		        <label for="contacto2telefono" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contacto2telefono').invalid && (contratoinversionForm.get('contacto2telefono').dirty || contratoinversionForm.get('contacto2telefono').touched)">
+  		            <input id="contacto2telefono" type="text" formControlName="contacto2telefono" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contacto2 Telefono es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- contacto2ext 1-->
+  		    <label for="contacto2ext" class="clr-control-label">Contacto2 Ext</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- contacto2ext 2-->
+  		        <label for="contacto2ext" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('contacto2ext').invalid && (contratoinversionForm.get('contacto2ext').dirty || contratoinversionForm.get('contacto2ext').touched)">
+  		            <input id="contacto2ext" type="text" formControlName="contacto2ext" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Contacto2 Ext es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- nombre 1-->
+  		    <label for="nombre" class="clr-control-label">Nombre</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombre 2-->
+  		        <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('nombre').invalid && (contratoinversionForm.get('nombre').dirty || contratoinversionForm.get('nombre').touched)">
+  		            <input id="nombre" type="text" formControlName="nombre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Nombre es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- cuenta 1-->
+  		    <label for="cuenta" class="clr-control-label">Cuenta</label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- cuenta 2-->
+  		        <label for="cuenta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="contratoinversionForm.get('cuenta').invalid && (contratoinversionForm.get('cuenta').dirty || contratoinversionForm.get('cuenta').touched)">
+  		            <input id="cuenta" type="text" formControlName="cuenta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Cuenta es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="traspasoentresubfiso">
+  		        <label for="sino" class="clr-control-label">Traspaso entre sub fiso</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="traspasoentresubfiso">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="NO">NO</option>
+  		<option value="SI">SI</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./sino 1--> 
+  		        <div class="clr-form-control">
+  		<label for="fechaaperturaAux" class="clr-control-label">Fecha apertura</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechaaperturaAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="contratoinversionForm.get('fechaaperturaAux').invalid && (contratoinversionForm.get('fechaaperturaAux').dirty || contratoinversionForm.get('fechaaperturaAux').touched)">
+  				<input id="fechaaperturaAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaaperturaAux"/>
+  				<span class="tooltip-content">
+  					Fecha apertura es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="origenrecursos">
+  		        <label for="origenrecursos" class="clr-control-label">Origen de los recursos</label>
+  		        
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="origenrecursos">
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ORIGEN1">APORTACIONES SOLIDARIOS</option>
+  		<option value="ORIGEN2">CLIENTES MEXDER</option>
+  		<option value="ORIGEN3">FIDEICOMITENTE A</option>
+  		<option value="ORIGEN4">GOBIERNO ESTATAL</option>
+  		<option value="ORIGEN5">GOBIERNO FEDERAL</option>
+  		<option value="ORIGEN6">GOBIERNO MUNICIPAL</option>
+  		<option value="ORIGEN7">PARTICULARES</option>
+  		<option value="ORIGEN8">RECURSOS DEL CONTRATO</option>
+  		        </select>
+  			</div>
+  		</div>
+  		    </div><!-- ./origenrecursos 1--> 
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ contratoinversionForm.value | json }} </p>
+	<p> Form status {{ contratoinversionForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaContratoinversion()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaContratoinversion()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Administrador
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Promotor
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+  			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalsubfiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Subfiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+    		        <ng-container *clrDgHideableColumn="{hidden: false}">
+    		            Fideicomiso
+    		        </ng-container>
+    		    </clr-dg-column> 								
+    		<clr-dg-column [clrDgField]="'numero'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Número
+    		        </ng-container>    
+    		    </clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'nombre'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Nombre
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'estatusItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Estatus
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let subfiso of subfisoArray">
+  			<clr-dg-cell><input type="radio" name="subfisoId" [checked]="subfiso.checked" value="{{subfiso.id}}" (click)="setClickedRowSubfiso(i, subfiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.fideicomisoItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.numero}}</clr-dg-cell>
+    		<clr-dg-cell>{{subfiso.nombre}}</clr-dg-cell>
+    		<clr-dg-cell >{{subfiso.estatusItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

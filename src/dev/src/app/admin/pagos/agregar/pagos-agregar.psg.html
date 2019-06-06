@@ -1,0 +1,618 @@
+<!-- PSG Pagos Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Pagos
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="pagosForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="instruccionId">
+	        <label for="instruccionItem" class="clr-control-label">
+	        Instrucción
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="instruccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="pagosForm.get('instruccionItem').invalid && (pagosForm.get('instruccionItem').dirty || pagosForm.get('instruccionItem').touched)">
+	                <input id="instruccionId"   type="hidden" formControlName="instruccionId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="instruccionItem" type="text"   formControlName="instruccionItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalinstruccion = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Instrucción es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="pagosForm.get('fideicomisoItem').invalid && (pagosForm.get('fideicomisoItem').dirty || pagosForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="importeinstruccion" class="clr-control-label">
+	    Importe instrucción
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="importeinstruccion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('importeinstruccion').invalid && (pagosForm.get('importeinstruccion').dirty || pagosForm.get('importeinstruccion').touched)">
+	            <input id="importeinstruccion" type="text" formControlName="importeinstruccion" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Importe instrucción es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="movimientos" class="clr-control-label">
+	    Movimientos
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="movimientos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('movimientos').invalid && (pagosForm.get('movimientos').dirty || pagosForm.get('movimientos').touched)">
+	            <input id="movimientos" type="text" formControlName="movimientos" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Movimientos es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="tipopersona">
+	        <label for="tipopersonapagos" class="clr-control-label">
+	        Tipo persona
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipopersona" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="TIPO1">FIDEICOMISARIO</option>
+	<option value="TIPO2">TERCERO</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="conceptopago">
+	        <label for="conceptopago" class="clr-control-label">
+	        Concepto de pago
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="conceptopago" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="CONCEPTO1">APLICACIÓN EFECTIVO DE FIDEICOMISOS EXTINGUIDOS</option>
+	<option value="CONCEPTO2">COMRA DE DIVISAS</option>
+	<option value="CONCEPTO3">ENTERO DE IMPUESTOS</option>
+	<option value="CONCEPTO4">OTROS PAGOS (CAPITAL)</option>
+	<option value="CONCEPTO5">OTROS PAGOS (RESULTADOS)</option>
+	<option value="CONCEPTO6">PAGO A BENEFICIARIOS (CAPITAL)</option>
+	<option value="CONCEPTO7">RETIRO DEL PATRIMONIO</option>
+	<option value="CONCEPTO8">PAGO DE LIQUIDACIÓN DIARIA</option>
+	<option value="CONCEPTO9">PAGO DE IMPUESTOS Y CONTRIBUCIONES</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="clave" class="clr-control-label">
+	    Clave
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="clave" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('clave').invalid && (pagosForm.get('clave').dirty || pagosForm.get('clave').touched)">
+	            <input id="clave" type="text" formControlName="clave" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Clave es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="nombre" class="clr-control-label">
+	    Nombre
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('nombre').invalid && (pagosForm.get('nombre').dirty || pagosForm.get('nombre').touched)">
+	            <input id="nombre" type="text" formControlName="nombre" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Nombre es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="formaliquidacion" class="clr-control-label">
+	    Forma de liquidación
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="formaliquidacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('formaliquidacion').invalid && (pagosForm.get('formaliquidacion').dirty || pagosForm.get('formaliquidacion').touched)">
+	            <input id="formaliquidacion" type="text" formControlName="formaliquidacion" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Forma de liquidación es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="tipopago" class="clr-control-label">
+	    Tipo de pago
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="tipopago" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('tipopago').invalid && (pagosForm.get('tipopago').dirty || pagosForm.get('tipopago').touched)">
+	            <input id="tipopago" type="text" formControlName="tipopago" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Tipo de pago es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="datosconcentradora" class="clr-control-label">
+	    Datos concentradora
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="datosconcentradora" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('datosconcentradora').invalid && (pagosForm.get('datosconcentradora').dirty || pagosForm.get('datosconcentradora').touched)">
+	            <input id="datosconcentradora" type="text" formControlName="datosconcentradora" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Datos concentradora es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="descripcioncomplementaria" class="clr-control-label">
+	    Descripción complementaria
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="descripcioncomplementaria" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('descripcioncomplementaria').invalid && (pagosForm.get('descripcioncomplementaria').dirty || pagosForm.get('descripcioncomplementaria').touched)">
+	            <input id="descripcioncomplementaria" type="text" formControlName="descripcioncomplementaria" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Descripción complementaria es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="subfisoId">
+	        <label for="subfisoItem" class="clr-control-label">
+	        Sub fiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="pagosForm.get('subfisoItem').invalid && (pagosForm.get('subfisoItem').dirty || pagosForm.get('subfisoItem').touched)">
+	                <input id="subfisoId"   type="hidden" formControlName="subfisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Sub fiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="importetotal" class="clr-control-label">
+	    Importe Total
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="importetotal" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('importetotal').invalid && (pagosForm.get('importetotal').dirty || pagosForm.get('importetotal').touched)">
+	            <input id="importetotal" type="text" formControlName="importetotal" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Importe Total es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="estatusoperacion">
+	        <label for="estatusoperacion" class="clr-control-label">
+	        Estatus de operación
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="estatusoperacion" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NORMAL">NORMAL</option>
+	<option value="COTABILIDAD">SOLO CONTABLE</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="importe" class="clr-control-label">
+	    Importe
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="pagosForm.get('importe').invalid && (pagosForm.get('importe').dirty || pagosForm.get('importe').touched)">
+	            <input id="importe" type="text" formControlName="importe" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Importe es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+		        <label for="fechaliquidarAux" class="clr-control-label">
+		        Fecha a liquidar
+		        <span class="required">*</span>
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="fechaliquidarAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+		                    [class.invalid]="pagosForm.get('fechaliquidarAux').invalid && (pagosForm.get('fechaliquidarAux').dirty || pagosForm.get('fechaliquidarAux').touched)">
+		                <input id="fechaliquidarAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaliquidarAux"/>
+		                <span class="tooltip-content">
+		                    Fecha a liquidar es requerido.
+		                </span>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control" id="estatus">
+	        <label for="estatusinstruccion" class="clr-control-label">
+	        Estatus
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="estatus" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="APLI">APLICADO</option>
+	<option value="APLIPAR">APLICADO PARCIAL</option>
+	<option value="CANC">CANCELADO</option>
+	<option value="PROC">EN PROCESO</option>
+	<option value="PEND">PENDIENTE</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+    
+    <!-- <p>Form value {{ pagosForm.value | json }} </p>
+    <p> Form status {{ pagosForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaPagos()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaPagos()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalinstruccion" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Instruccion</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'fechahoracaptura'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha y hora de captura
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Fideicomiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'subfisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Sub fiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'folio'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Folio de la instrucción
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'fechadocumeto'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha del documento
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'clasificacionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Clasificación
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'personalidadsolicitanteItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Personalidad del solicitante
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'fechacambioestatus'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha cambio de estatus
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'subtipoinstruccionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Subtipo de instrucción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'importe'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Importe de la instrucción
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'importeaplicado'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Importe aplicado
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'nombresubfiso'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombre del sub fiso
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'titularfideicomiso'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Titular del fideicomiso
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'fechacompromiso'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Fecha del compromiso
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'formarecepcionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Forma de recepción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'estatusinstruccionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Estatus de la instrucción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'tipoinstruccionItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Tipo de instrucción
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'monedaItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Moneda
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'noeventos'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            No. de eventos
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'noefectuados'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            No. Efectuados
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'infocomplementaria'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Información complementaria
+        		        </ng-container>    
+        		    </clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let instruccion of instruccionArray">
+      			<clr-dg-cell><input type="radio" name="instruccionId" [checked]="instruccion.checked" value="{{instruccion.id}}" (click)="setClickedRowInstruccion(i, instruccion)"></clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechahoracaptura}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.fideicomisoItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.subfisoItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.folio}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechadocumeto}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.clasificacionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.personalidadsolicitanteItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechacambioestatus}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.subtipoinstruccionItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.importe}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.importeaplicado}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.nombresubfiso}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.titularfideicomiso}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.fechacompromiso}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.formarecepcionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.estatusinstruccionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.tipoinstruccionItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{instruccion.monedaItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.noeventos}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.noefectuados}}</clr-dg-cell>
+        		<clr-dg-cell>{{instruccion.infocomplementaria}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalinstruccion = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalinstruccion = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalsubfiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Subfiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Fideicomiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'numero'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Número
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'nombre'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombre
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'estatusItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Estatus
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let subfiso of subfisoArray">
+      			<clr-dg-cell><input type="radio" name="subfisoId" [checked]="subfiso.checked" value="{{subfiso.id}}" (click)="setClickedRowSubfiso(i, subfiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{subfiso.fideicomisoItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{subfiso.numero}}</clr-dg-cell>
+        		<clr-dg-cell>{{subfiso.nombre}}</clr-dg-cell>
+        		<clr-dg-cell >{{subfiso.estatusItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

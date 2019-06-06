@@ -1,0 +1,237 @@
+<!-- PSG Formasliquidacion Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Formas de Liquidación
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="formasliquidacionForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="formasliquidacionForm.get('fideicomisoItem').invalid && (formasliquidacionForm.get('fideicomisoItem').dirty || formasliquidacionForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./fideicomiso 1--> 
+  		<div class="clr-form-control"><!-- participante 1-->
+  		    <label for="participante" class="clr-control-label">Participante<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- participante 2-->
+  		        <label for="participante" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="formasliquidacionForm.get('participante').invalid && (formasliquidacionForm.get('participante').dirty || formasliquidacionForm.get('participante').touched)">
+  		            <input id="participante" type="text" formControlName="participante" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Participante es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="tipo">
+  		        <label for="tipopersona" class="clr-control-label"> Tipo de persona<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="tipo" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="FISICA">FISICA</option>
+  		<option value="GOBIERNO">GOBIERNO</option>
+  		<option value="MORAL">MORAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./tipopersona 1--> 
+  		<div class="clr-form-control"><!-- fideicomisario 1-->
+  		    <label for="fideicomisario" class="clr-control-label">Fideicomisario<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- fideicomisario 2-->
+  		        <label for="fideicomisario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="formasliquidacionForm.get('fideicomisario').invalid && (formasliquidacionForm.get('fideicomisario').dirty || formasliquidacionForm.get('fideicomisario').touched)">
+  		            <input id="fideicomisario" type="text" formControlName="fideicomisario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Fideicomisario es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="formaliquidacion">
+  		        <label for="tiposliquidacion" class="clr-control-label"> Forma de liquidación<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="formaliquidacion" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="TIPO1">ABONO A CUENTA DE CHEQUES SCOTIABANK</option>
+  		<option value="TIPO3">ABONO A CUENTA DE CHEQUES SCOTIABANK REFERENCIADA</option>
+  		<option value="TIPO4">ABONO A CUENTA DE CHEQUES NOMINA SCOTIABANK</option>
+  		<option value="TIPO5">CON GIRO INTERNACIONAL</option>
+  		<option value="TIPO6">CON ORDEN DE PAGO INTERNACIONAL</option>
+  		<option value="TIPO7">CON ORDEN DE PAGO NACIONAL</option>
+  		<option value="TIPO8">EVOLUCIÓN DERECHOS DE COBRO</option>
+  		<option value="TIPO9">HIPOTECARIO</option>
+  		<option value="TIPO10">PAGO A TRAVES DE CUENTAS CONCENTRADORAS DE FIDUCIARIO</option>
+  		<option value="TIPO11">PAGO A TRAVES DE UNA CUENTA CONTABLE OPERATIVA EN LINEA</option>
+  		<option value="TIPO12">PAGO CON CHEQUE DE CAJA SCOTIABANK</option>
+  		<option value="TIPO13">PAGO CON SPEUA</option>
+  		<option value="TIPO14">PAGO POR SIAC</option>
+  		<option value="TIPO16">PAGO POR TRANSFERENCIA INTERBANCARIA TARJETA DE DEBITO</option>
+  		<option value="TIPO17">PAGO POR TRANSFERENCIA INTERBANCARIA</option>
+  		<option value="TIPO18">PAGO TARJETA DE CREDITO</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./tiposliquidacion 1--> 
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label"> Moneda<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./moneda 1--> 
+  		<div class="clr-form-control"><!-- seccuentaseleccionada 1-->
+  		    <label for="seccuentaseleccionada" class="clr-control-label">Sec. Cuenta Seleccionada<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- seccuentaseleccionada 2-->
+  		        <label for="seccuentaseleccionada" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="formasliquidacionForm.get('seccuentaseleccionada').invalid && (formasliquidacionForm.get('seccuentaseleccionada').dirty || formasliquidacionForm.get('seccuentaseleccionada').touched)">
+  		            <input id="seccuentaseleccionada" type="text" formControlName="seccuentaseleccionada" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Sec. Cuenta Seleccionada es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="plprincipal">
+  		        <label for="moneda" class="clr-control-label"> P.L. Principal<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="plprincipal" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./moneda 1--> 
+  		<div class="clr-form-control" id="estado">
+  		        <label for="estatusparticipante" class="clr-control-label"> Estado<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estado" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusparticipante 1--> 
+  		<div class="clr-form-control"><!-- secparamliq 1-->
+  		    <label for="secparamliq" class="clr-control-label">Sec. Param Liq<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- secparamliq 2-->
+  		        <label for="secparamliq" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="formasliquidacionForm.get('secparamliq').invalid && (formasliquidacionForm.get('secparamliq').dirty || formasliquidacionForm.get('secparamliq').touched)">
+  		            <input id="secparamliq" type="text" formControlName="secparamliq" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Sec. Param Liq es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ formasliquidacionForm.value | json }} </p>
+	<p> Form status {{ formasliquidacionForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaFormasliquidacion()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaFormasliquidacion()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Administrador
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Generales_Promotor
+    		    </ng-container> 
+    		</clr-dg-column>	
+  
+  			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+  			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+    		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

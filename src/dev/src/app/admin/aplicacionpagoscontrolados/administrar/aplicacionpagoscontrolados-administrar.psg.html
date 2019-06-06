@@ -1,0 +1,90 @@
+<!-- PSG Administrar Aplicacionpagoscontrolados Html -->
+<div class="card-header">
+Administrar Aplicación de pagos controlados
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="aplicacionpagoscontrolados_create" class="btn btn-icon btn-outline" (click)="getAplicacionpagoscontrolados()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe de pago
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'formapagoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Forma de pago
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipocomisionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de comisión
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		IVA
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let aplicacionpagoscontrolados of aplicacionpagoscontroladosArray" [clrDgItem]="aplicacionpagoscontrolados">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaAplicacionpagoscontrolados(i, aplicacionpagoscontrolados)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaAplicacionpagoscontrolados(i, aplicacionpagoscontrolados)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="aplicacionpagoscontrolados_update" (click)="setClickedRowEditaAplicacionpagoscontrolados(i, aplicacionpagoscontrolados)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="aplicacionpagoscontrolados_delete" (click)="setClickedRowEliminaAplicacionpagoscontrolados(i, aplicacionpagoscontrolados)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{aplicacionpagoscontrolados.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aplicacionpagoscontrolados.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aplicacionpagoscontrolados.importe}}</clr-dg-cell>
+<clr-dg-cell >{{aplicacionpagoscontrolados.importepago}}</clr-dg-cell>
+<clr-dg-cell >{{aplicacionpagoscontrolados.formapagoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aplicacionpagoscontrolados.tipocomisionItem}}</clr-dg-cell>
+<clr-dg-cell >{{aplicacionpagoscontrolados.iva}}</clr-dg-cell>
+<clr-dg-cell >{{aplicacionpagoscontrolados.monedaItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

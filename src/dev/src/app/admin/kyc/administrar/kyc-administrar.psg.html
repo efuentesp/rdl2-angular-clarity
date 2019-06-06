@@ -1,0 +1,84 @@
+<!-- PSG Administrar Kyc Html -->
+<div class="card-header">
+Administrar Generar kyc
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="kyc_create" class="btn btn-icon btn-outline" (click)="getKyc()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Número de Registro
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Oficina
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'conceptoimpresionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Concepto de Impresión
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		CR de la Banca
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let kyc of kycArray" [clrDgItem]="kyc">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaKyc(i, kyc)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaKyc(i, kyc)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="kyc_update" (click)="setClickedRowEditaKyc(i, kyc)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="kyc_delete" (click)="setClickedRowEliminaKyc(i, kyc)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{kyc.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{kyc.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{kyc.numregistro}}</clr-dg-cell>
+<clr-dg-cell >{{kyc.oficina}}</clr-dg-cell>
+<clr-dg-cell >{{kyc.conceptoimpresionItem}}</clr-dg-cell>
+<clr-dg-cell >{{kyc.crbanca}}</clr-dg-cell>
+<clr-dg-cell >{{kyc.folio}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

@@ -1,0 +1,499 @@
+<!-- PSG Parametroscomisiones Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Parámetros de comisiones
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="parametroscomisionesForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="parametroscomisionesForm.get('fideicomisoItem').invalid && (parametroscomisionesForm.get('fideicomisoItem').dirty || parametroscomisionesForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control" id="tipocalculo">
+	        <label for="tipocalculo" class="clr-control-label">
+	        Tipo de cálculo
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipocalculo" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="TIPO1">% Pactado</option>
+	<option value="TIPO2">% al millar</option>
+	<option value="TIPO3">Exento</option>
+	<option value="TIPO4">Importe Fijo</option>
+	<option value="TIPO5">Importe Fijo + % Pactado</option>
+	<option value="TIPO10">Número de Salarios Mínimos</option>
+	<option value="TIPO6">No Aplica</option>
+	<option value="TIPO7">No Automatizado</option>
+	<option value="TIPO8">Pago Único</option>
+	<option value="TIPO9">Tabla de cálculo</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="aquiensecobra">
+	        <label for="aquiensecobra" class="clr-control-label">
+	        A quien se cobra
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="aquiensecobra" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="COB1">CARGO AL EFECTIVO</option>
+	<option value="COB2">CARGO AL FONDO</option>
+	<option value="COB3">FIDEICOMITENTE</option>
+	<option value="COB4">FIDEICOMISARIO</option>
+	<option value="COB5">TERCERO</option>
+	<option value="COB6">VIA GESTION</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="montoaceptacion" class="clr-control-label">Monto de aceptación
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="montoaceptacion">
+	            <input id="montoaceptacion" type="number" formControlName="montoaceptacion" 
+	            placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="importeanualizado" class="clr-control-label">
+	    Importe anualizado $
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="importeanualizado" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="importeanualizado" type="text" formControlName="importeanualizado" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="periodicidad">
+	        <label for="periodicidad" class="clr-control-label">
+	        Periodicidad
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="periodicidad">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="PERIOD1">MENSUAL ADENLANTADA</option>
+	<option value="PERIOD2">TRIMESTRAL ADELANTADA</option>
+	<option value="PERIOD3">SEMESTRAL ADELANTADA</option>
+	<option value="PERIOD4">ANUAL ADELANTADA</option>
+	<option value="PERIOD5">MENSUAL VENCIDA</option>
+	<option value="PERIOD6">TRIMESTRAL VENCIDA</option>
+	<option value="PERIOD7">SEMESTRAL VENCIDA</option>
+	<option value="PERIOD8">ANUAL VENCIDA</option>
+	<option value="PERIOD9">CUATRIMESTRAL ADELANTADA</option>
+	<option value="PERIOD10">CUATRIMESTRAL VENCIDA</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="calculoaldiaprimero">
+	        <label for="sino" class="clr-control-label">
+	        Cálculo al día primero
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="calculoaldiaprimero">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="reevaluacion">
+	        <label for="reevaluacion" class="clr-control-label">
+	        Reevaluación
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="reevaluacion">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="REEVAL1">INFLACION USA</option>
+	<option value="REEVAL2">REVALUCACION AUTOMATICA x INPC</option>
+	<option value="REEVAL3">REVALUCACION MANUAL</option>
+	<option value="REEVAL4">REVISAR EN CONTRATO (10% CADA 2 AÑOS)</option>
+	<option value="REEVAL5">REVISAR EN CONTRATO (10% CADA 3 AÑOS)</option>
+	<option value="REEVAL6">REVISAR EN CONTRATO (10% CADA 4 AÑOS)</option>
+	<option value="REEVAL7">REVISAR EN CONTRATO (10% CADA 5 AÑOS)</option>
+	<option value="REEVAL8">REVISAR EN CONTRATO (2% ANUAL)</option>
+	<option value="REEVAL9">REVISAR EN CONTRATO (2% CADA 2 AÑOS)</option>
+	<option value="REEVAL10">REVISAR EN CONTRATO (2% CADA 3 AÑOS)</option>
+	<option value="REEVAL11">REVISAR EN CONTRATO (3% ANUAL)</option>
+	<option value="REEVAL12">REVISAR EN CONTRATO (4% ANUAL)</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+		        <label for="fechaconstitucionAux" class="clr-control-label">
+		        Fecha de constitución
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="fechaconstitucionAux">
+		                <input id="fechaconstitucionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaconstitucionAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+		        <label for="fechapivoteAux" class="clr-control-label">
+		        Fecha pivote
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="fechapivoteAux">
+		                <input id="fechapivoteAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechapivoteAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+		        <label for="fechaproxcalculoAux" class="clr-control-label">
+		        Fecha próximo cálculo
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="fechaproxcalculoAux">
+		                <input id="fechaproxcalculoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaproxcalculoAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+	    <label for="metodopago" class="clr-control-label">
+	    Método de pago
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="metodopago" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="metodopago" type="text" formControlName="metodopago" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="aquienfactura" class="clr-control-label">
+	    A quien se factura
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="aquienfactura" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="aquienfactura" type="text" formControlName="aquienfactura" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="nombre" class="clr-control-label">
+	    Nombre
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="nombre" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="nombre" type="text" formControlName="nombre" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="comentario" class="clr-control-label">
+	    Comentario
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="comentario" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <textarea id="comentario" formControlName="comentario" rows="5" 
+	            		  placeholder="" 
+	            		  class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="estatus">
+	        <label for="estatuscomisiones" class="clr-control-label">
+	        Estatus
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="estatus">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="ESTCOM1">A PARTIR DEL 2o. AÑO</option>
+	<option value="ESTCOM2">ACTIVO</option>
+	<option value="ESTCOM3">ANORMAL</option>
+	<option value="ESTCOM4">EN TRAMITE DE EXTINCION</option>
+	<option value="ESTCOM5">EXENTO</option>
+	<option value="ESTCOM6">RECONOCIM. VIA GESTION</option>
+	<option value="ESTCOM7">SUSPENDIDO</option>
+	<option value="ESTCOM8">SUSPENDIDO CON INMUEBLES</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="penasconvencionales">
+	        <label for="sino" class="clr-control-label">
+	        Penas convencionales
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="penasconvencionales">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="moneda">
+	        <label for="moneda" class="clr-control-label">
+	        Moneda
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="moneda">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="DLS">DLS. U.S.A.</option>
+	<option value="EURO">EUROS</option>
+	<option value="NACIONAL">MONEDA NACIONAL</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="interes">
+	        <label for="porcentajeinteres" class="clr-control-label">
+	        Porcentaje Interes
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="interes">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="PORINT29">TIIE * 1.5 MENSUAL</option>
+	<option value="PORINT30">TIIE * 2 MENSUAL</option>
+	<option value="PORINT31">TIIE * 2.5 MENSUAL</option>
+	<option value="PORINT32">TIIE * 3 MENSUAL</option>
+	<option value="PORINT33">TIIE + 1.5 MENSUAL</option>
+	<option value="PORINT34">TIIE + 2 MENSUAL</option>
+	<option value="PORINT35">TIIE + 3 MENSUAL</option>
+	<option value="PORINT36">TIIE + 4 MENSUAL</option>
+	<option value="PORINT37">TIIE + 6 MENSUAL</option>
+	<option value="PORINT38">TIIE MENSUAL</option>
+	<option value="PORINT1">CPP * 1.5 MENSUAL</option>
+	<option value="PORINT2">CPP * 2 MENSUAL</option>
+	<option value="PORINT3">CPP * 3 MENSUAL</option>
+	<option value="PORINT4">CPP + 10 MENSUAL</option>
+	<option value="PORINT5">CPP + 10 MENSUAL 1.5%</option>
+	<option value="PORINT6">CPP + 2 MENSUAL</option>
+	<option value="PORINT7">CPP MENSUAL</option>
+	<option value="PORINT8">CPP MENSUAL 1.5%</option>
+	<option value="PORINT9">CPP MENSUAL 2%</option>
+	<option value="PORINT10">CPP MENSUAL 3.5%</option>
+	<option value="PORINT11">INTERES ANUAL 12%</option>
+	<option value="PORINT12">INTERES ANUAL 2%</option>
+	<option value="PORINT13">INTERES ANUAL 24%</option>
+	<option value="PORINT14">INTERES ANUAL 36.98%</option>
+	<option value="PORINT15">INTERES ANUAL 5.3%</option>
+	<option value="PORINT16">INTERES ANUAL 7.9%</option>
+	<option value="PORINT17">INTERES MENSUAL 0.7%</option>
+	<option value="PORINT18">INTERES MENSUAL 1%</option>
+	<option value="PORINT19">INTERES MENSUAL 1.5%</option>
+	<option value="PORINT20">INTERES MENSUAL 2%</option>
+	<option value="PORINT21">INTERES MENSUAL 3%</option>
+	<option value="PORINT22">INTERES MENSUAL 3.5%</option>
+	<option value="PORINT23">INTERES MENSUAL 4%</option>
+	<option value="PORINT24">INTERES MENSUAL 5%</option>
+	<option value="PORINT25">INTERES MENSUAL 6%</option>
+	<option value="PORINT26">INTERES MENSUAL 8%</option>
+	<option value="PORINT27">INTERES MENSUAL 9%</option>
+	<option value="PORINT28">LIBOR * 2</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="tipoiva">
+	        <label for="tipoiva" class="clr-control-label">
+	        Tipo de I.V.A.
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipoiva">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="IVA0">IVA AL 0%</option>
+	<option value="IVA11">IVA AL 11% (FRONTERIZO)</option>
+	<option value="IVA16">IVA AL 16%</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="diacorte" class="clr-control-label">
+	    Día de corte
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="diacorte">
+	            <input id="diacorte" type="number" formControlName="diacorte" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+		        <label for="fechaprimercalculoAux" class="clr-control-label">
+		        Fecha de primer cálculo
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="fechaprimercalculoAux">
+		                <input id="fechaprimercalculoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaprimercalculoAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+		        <label for="fechaultimocalculoAux" class="clr-control-label">
+		        Fecha de último cálculo
+		        </label>
+		        <div class="clr-control-container clr-col-md-12"> 
+		            <label for="fechaultimocalculoAux">
+		                <input id="fechaultimocalculoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaultimocalculoAux"/>
+		            </label>
+		        </div>
+		    </div>
+	<div class="clr-form-control">
+	    <label for="cuentapago" class="clr-control-label">
+	    Cuenta de pago
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="cuentapago" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="cuentapago" type="text" formControlName="cuentapago" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="numero" class="clr-control-label">
+	    Número
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="numero" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="numero" type="text" formControlName="numero" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="situacionmorosidad">
+	        <label for="situacionmorosidad" class="clr-control-label">
+	        Situación de morosidad
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="situacionmorosidad">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MOROSIDAD1">CLIENTE ILOCALIZABLE CON PATRIMONIO</option>
+	<option value="MOROSIDAD2">CLIENTE ILICALIZABLE SIN PATRIMONIO</option>
+	<option value="MOROSIDAD3">CONTRATO SIN EXPEDIENTE</option>
+	<option value="MOROSIDAD4">EN EJECUCION</option>
+	<option value="MOROSIDAD5">EN JUICIO</option>
+	<option value="MOROSIDAD6">EN PROCESO DE EXTINCION</option>
+	<option value="MOROSIDAD7">NEGATIVA DE PAGO</option>
+	<option value="MOROSIDAD8">POR INACTIVIDAD</option>
+	<option value="MOROSIDAD9">NEGATIVA DE PAGO POR FALLECIMIENTO DEL CLIENTE</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+    
+    <!-- <p>Form value {{ parametroscomisionesForm.value | json }} </p>
+    <p> Form status {{ parametroscomisionesForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaParametroscomisiones()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaParametroscomisiones()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

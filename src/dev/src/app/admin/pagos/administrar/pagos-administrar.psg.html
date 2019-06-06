@@ -1,0 +1,150 @@
+<!-- PSG Administrar Pagos Html -->
+<div class="card-header">
+Administrar Pagos
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="pagos_create" class="btn btn-icon btn-outline" (click)="getPagos()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'instruccionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Instrucción
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe instrucción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Movimientos
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipopersonaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo persona
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'conceptopagoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Concepto de pago
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Clave
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Forma de liquidación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Tipo de pago
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Datos concentradora
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción complementaria
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe Total
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusoperacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus de operación
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha a liquidar
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let pagos of pagosArray" [clrDgItem]="pagos">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaPagos(i, pagos)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaPagos(i, pagos)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="pagos_update" (click)="setClickedRowEditaPagos(i, pagos)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="pagos_delete" (click)="setClickedRowEliminaPagos(i, pagos)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{pagos.instruccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.importeinstruccion}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.movimientos}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.tipopersonaItem}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.conceptopagoItem}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.clave}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.formaliquidacion}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.tipopago}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.datosconcentradora}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.descripcioncomplementaria}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.importetotal}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.estatusoperacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.importe}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.fechaliquidar | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{pagos.estatusItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

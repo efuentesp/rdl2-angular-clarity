@@ -1,0 +1,84 @@
+<!-- PSG Administrar Declaracionsat Html -->
+<div class="card-header">
+Administrar Generación archivo sat 32-b
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="declaracionsat_create" class="btn btn-icon btn-outline" (click)="getDeclaracionsat()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+			        <clr-dg-column [clrDgField]="'inicioejerciciofiscal'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Inicio del ejercicio fiscal reportado
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipodeclaracionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de declaración
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fin del ejercicio fiscal reportado
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column [clrDgField]="'fechadeclaracionanterior'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'foliodeclaracionanterior'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'mensajesproceso'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Mensajes del proceso
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'archivo'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Archivo
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let declaracionsat of declaracionsatArray" [clrDgItem]="declaracionsat">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaDeclaracionsat(i, declaracionsat)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaDeclaracionsat(i, declaracionsat)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="declaracionsat_update" (click)="setClickedRowEditaDeclaracionsat(i, declaracionsat)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="declaracionsat_delete" (click)="setClickedRowEliminaDeclaracionsat(i, declaracionsat)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{declaracionsat.inicioejerciciofiscal | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{declaracionsat.tipodeclaracionItem}}</clr-dg-cell>
+<clr-dg-cell >{{declaracionsat.finejerciciofiscal | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{declaracionsat.fechadeclaracionanterior | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{declaracionsat.foliodeclaracionanterior}}</clr-dg-cell>
+<clr-dg-cell >{{declaracionsat.mensajesproceso}}</clr-dg-cell>
+<clr-dg-cell >{{declaracionsat.archivo}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

@@ -1,0 +1,114 @@
+<!-- PSG Administrar Movimiento Html -->
+<div class="card-header">
+Administrar Movimientos
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="movimiento_create" class="btn btn-icon btn-outline" (click)="getMovimiento()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fechacontable'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha contable
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fechaalta'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha alta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'operacion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Operación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'folio'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio de la instrucción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'transaccion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Transacción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'descripcion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Usuario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Factura
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let movimiento of movimientoArray" [clrDgItem]="movimiento">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaMovimiento(i, movimiento)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaMovimiento(i, movimiento)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="movimiento_update" (click)="setClickedRowEditaMovimiento(i, movimiento)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="movimiento_delete" (click)="setClickedRowEliminaMovimiento(i, movimiento)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{movimiento.fechacontable}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.fechaalta}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.operacion}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.folio}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.transaccion}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.descripcion}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.importe}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.usuario}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{movimiento.factura}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

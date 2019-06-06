@@ -1,0 +1,336 @@
+<!-- PSG Tercero Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Tercero
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="terceroForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="fideicomisoId">
+  		        <label for="fideicomisoItem" class="clr-control-label">Fideicomiso<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="terceroForm.get('fideicomisoItem').invalid && (terceroForm.get('fideicomisoItem').dirty || terceroForm.get('fideicomisoItem').touched)">
+  		                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="Fideicomiso" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Fideicomiso es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="notercero" class="clr-control-label">
+  			            No. de tercero
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="notercero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('notercero').invalid && (terceroForm.get('notercero').dirty || terceroForm.get('notercero').touched)">
+  		            <input id="notercero" type="number" formControlName="notercero" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="razonsocial" class="clr-control-label">
+  		    	Razón social
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="razonsocial" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('razonsocial').invalid && (terceroForm.get('razonsocial').dirty || terceroForm.get('razonsocial').touched)">
+  		            <input id="razonsocial" type="text" formControlName="razonsocial" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="nacionalidad">
+  		        <label for="nacionalidad" class="clr-control-label">
+  		        Nacionalidad
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="nacionalidad" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="MEXICANO">MEXICANO</option>
+  		<option value="NORTAM">ESTADOUNIDENSE</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control" id="actividadeconomica">
+  		        <label for="actividad" class="clr-control-label">
+  		        Actividad económica
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="actividadeconomica" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DESC">INGENIERO</option>
+  		<option value="INM">AGENTES INMOBILIARIOS</option>
+  		<option value="ARQ">ARQUITECTO</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="ladacasa" class="clr-control-label">
+  		    	Lada Casa
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="ladacasa" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('ladacasa').invalid && (terceroForm.get('ladacasa').dirty || terceroForm.get('ladacasa').touched)">
+  		            <input id="ladacasa" type="text" formControlName="ladacasa" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="ladaoficina" class="clr-control-label">
+  		    	Lada Oficina
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="ladaoficina" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('ladaoficina').invalid && (terceroForm.get('ladaoficina').dirty || terceroForm.get('ladaoficina').touched)">
+  		            <input id="ladaoficina" type="text" formControlName="ladaoficina" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="ladafax" class="clr-control-label">
+  		    	Lada Fax
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="ladafax" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('ladafax').invalid && (terceroForm.get('ladafax').dirty || terceroForm.get('ladafax').touched)">
+  		            <input id="ladafax" type="text" formControlName="ladafax" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="telefonocasa" class="clr-control-label">
+  		    	Telefono Casa
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="telefonocasa" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('telefonocasa').invalid && (terceroForm.get('telefonocasa').dirty || terceroForm.get('telefonocasa').touched)">
+  		            <input id="telefonocasa" type="text" formControlName="telefonocasa" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="telefonooficina" class="clr-control-label">
+  		    	Telefono Oficina
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="telefonooficina" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('telefonooficina').invalid && (terceroForm.get('telefonooficina').dirty || terceroForm.get('telefonooficina').touched)">
+  		            <input id="telefonooficina" type="text" formControlName="telefonooficina" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="telefonofax" class="clr-control-label">
+  		    	Telefono Fax
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="telefonofax" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('telefonofax').invalid && (terceroForm.get('telefonofax').dirty || terceroForm.get('telefonofax').touched)">
+  		            <input id="telefonofax" type="text" formControlName="telefonofax" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="extoficina" class="clr-control-label">
+  		    	Ext Oficina
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="extoficina" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('extoficina').invalid && (terceroForm.get('extoficina').dirty || terceroForm.get('extoficina').touched)">
+  		            <input id="extoficina" type="text" formControlName="extoficina" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="extfax" class="clr-control-label">
+  		    	Ext Fax
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="extfax" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('extfax').invalid && (terceroForm.get('extfax').dirty || terceroForm.get('extfax').touched)">
+  		            <input id="extfax" type="text" formControlName="extfax" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="estatus">
+  		        <label for="estatusparticipante" class="clr-control-label">
+  		        Estatus
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatus" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		        <div class="clr-form-control">
+  		<label for="fechaverfircosoftAux" class="clr-control-label">
+  			Fecha verificación MESA DE CONTROL
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechaverfircosoftAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="terceroForm.get('fechaverfircosoftAux').invalid && (terceroForm.get('fechaverfircosoftAux').dirty || terceroForm.get('fechaverfircosoftAux').touched)">
+  				<input id="fechaverfircosoftAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechaverfircosoftAux"/>
+  				<span class="tooltip-content">
+  					Fecha verificación MESA DE CONTROL es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="tipopersona">
+  		        <label for="tipopersona" class="clr-control-label">
+  		        Tipo persona
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="tipopersona" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="FISICA">FISICA</option>
+  		<option value="GOBIERNO">GOBIERNO</option>
+  		<option value="MORAL">MORAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="rfc" class="clr-control-label">
+  		    	RFC
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="rfc" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('rfc').invalid && (terceroForm.get('rfc').dirty || terceroForm.get('rfc').touched)">
+  		            <input id="rfc" type="text" formControlName="rfc" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="correo" class="clr-control-label">
+  			            E-mail
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="correo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="terceroForm.get('correo').invalid && (terceroForm.get('correo').dirty || terceroForm.get('correo').touched)">
+  		            <input id="correo" type="text" formControlName="correo" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="calidamigratoria">
+  		        <label for="calidamigratoria" class="clr-control-label">
+  		        Calidad Migratoria
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="calidamigratoria" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="EXRANJERA">EXRANJERA</option>
+  		<option value="INDISTINTA">INDISTINTA</option>
+  		<option value="INMIGRANTE">INMIGRANTE</option>
+  		<option value="INMIGRADO">INMIGRADO</option>
+  		<option value="NACIONAL">NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ terceroForm.value | json }} </p>
+<p> Form status {{ terceroForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaTercero()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaTercero()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="modalfideicomiso" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Fideicomiso</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

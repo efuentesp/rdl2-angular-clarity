@@ -1,0 +1,52 @@
+/* PSG  Comitetecnico Model */
+import { DecimalPipe } from '@angular/common';
+
+export class Comitetecnico {
+  fideicomisoId: string = null;
+  fideicomisoItem: string = null;
+  nombre: string = null;
+  integracion: string = null;
+  facultades: string = null;
+  comentarios: string = null;
+  fechaconstitucion: number = null;
+  fechaconstitucionAux: Date = new Date();
+  miembrosquorum: number = null;
+  estatus: string = null;
+  estatusItem: string = null;
+  nombrepresidentepropietario: string = null;
+  rfcpresidentepropietario: string = null;
+  nacionalidadpresidentepropietario: string = null;
+  nacionalidadpresidentepropietarioItem: string = null;
+  peppresidentepropietario: string = null;
+  peppresidentepropietarioItem: string = null;
+  nombrepresidentesuplente: string = null;
+  rfcpresidentesuplente: string = null;
+  nacionalidadpresidentesuplente: string = null;
+  nacionalidadpresidentesuplenteItem: string = null;
+  peppresidentesuplente: string = null;
+  peppresidentesuplenteItem: string = null;
+  nombresecretariopropietario: string = null;
+  rfcsecretariopropietario: string = null;
+  nacionalidadsecretariopropietario: string = null;
+  nacionalidadsecretariopropietarioItem: string = null;
+  pepsecretariopropietario: string = null;
+  pepsecretariopropietarioItem: string = null;
+  nombresecretariosuplente: string = null;
+  rfcsecretariosuplente: string = null;
+  nacionalidadsecretariosuplente: string = null;
+  nacionalidadsecretariosuplenteItem: string = null;
+  pepsecretariosuplente: string = null;
+  pepsecretariosuplenteItem: string = null;
+  nombrevocalpropietario: string = null;
+  rfcvocalpropietario: string = null;
+  nacionalidadvocalpropietario: string = null;
+  nacionalidadvocalpropietarioItem: string = null;
+  pepvocalpropietario: string = null;
+  pepvocalpropietarioItem: string = null;
+  nombrevocalsuplente: string = null;
+  rfcvocalsuplente: string = null;
+  nacionalidadvocalsuplente: string = null;
+  nacionalidadvocalsuplenteItem: string = null;
+  pepvocalsuplente: string = null;
+  pepvocalsuplenteItem: string = null;
+}

@@ -1,0 +1,2479 @@
+<div *ngIf="(toggleField=='searchMode')">
+
+<!-- PSG Search Mode -->
+<div class="card-header">
+Administrar Prospecto
+</div>
+
+<div class="card-block" >
+	<button type="button"  *ngIf="fideicomiso_create" class="btn btn-icon btn-outline"  (click)="toggle('addMode');">
+		<clr-icon shape="plus"></clr-icon> Agregar
+	</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Generales_Número
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Generales_Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Administrador
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Generales_Promotor
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasformamanejoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Forma de manejo
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicastiponegocioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Tipo de Negocio
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasproductoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Tipo Producto
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasvalfatcaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Vaidaciones FATCA
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Caracteristicas_Monto de Apertura
+		    </ng-container>    
+		</clr-dg-column>	
+		<clr-dg-column [clrDgField]="'caracteristicasmanejosubfisosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Manejo Sub fisos
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicassujetoart151Item'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Sujeto Art. 151
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicascerradoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Cerrado
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasrevocableItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Revocable
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasescontratoejeItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Es contrato eje
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicascomitetecnicoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Comité técnico/facultado
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Caracteristicas_Ofi. BANXICO
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasmanejamonextItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Maneja mon. ext
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasivafronterizoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_IVA fronterizo
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Caracteristicas_Fecha alta
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Caracteristicas_Fecha constitución
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Caracteristicas_Fecha de aprobación
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'caracteristicasestadoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Caracteristicas_Estado del fideicomiso
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalestipoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Tipo de Fideicomiso
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalestipopersonaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Tipo Persona
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalesconactividadempresarialItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Con Actividad Empresarial
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_Permiso SRE
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Adicionales_Fecha permiso SRE
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalesprovsustfiduciariaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Proviene de sustitución Fiduciaria
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalesfondosinterfaseaforeItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Fondos con Interfase AFORE
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_Reg.Nal.Inv.Ext
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Adicionales_Fecha inscripción
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalesformalizacioncontratoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Formalización del contrato
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_No. Escritura
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Adicionales_Fecha de la escritura
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalesnombrenotarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Notario
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_No.
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_Ciudad del notario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_Estado del notario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_País del notario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Adicionales_Folio mercantil registro público de la propiedad
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Adicionales_Fecha de inscripción del fideicomiso ante el registro público de la propiedad
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalesadministracionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Administración
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'adicionalescontabilidaddelegadaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Adicionales_Contabilidad delegada
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_Actividad económica
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_Fiduciario
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_Sector Banxico
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_Localidad Banxico
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_Centro Responsabilidad
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_No.CR
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_RFC del contrato
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosBanxico_Número de cliente
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let fideicomiso of fideicomisoArray" [clrDgItem]="fideicomiso">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaFideicomiso(i, fideicomiso)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaFideicomiso(i, fideicomiso)">Eliminar</button>
+                    </div>
+				<div *ngIf="fideicomisario_read">
+				            <button class="action-item"  (click)="setClickedRowConsultaFideicomisario(i,fideicomiso)">Fideicomisario</button>
+				        </div>
+				<div *ngIf="tercero_read">
+				            <button class="action-item"  (click)="setClickedRowConsultaTercero(i,fideicomiso)">Tercero</button>
+				        </div>
+				<div *ngIf="subfiso_read">
+				            <button class="action-item"  (click)="setClickedRowConsultaSubfiso(i,fideicomiso)">Subfiso</button>
+				        </div>
+				<div *ngIf="contratoinversion_read">
+				            <button class="action-item"  (click)="setClickedRowConsultaContratoinversion(i,fideicomiso)">Contratoinversion</button>
+				        </div>
+				<div *ngIf="cuentacheques_read">
+				            <button class="action-item"  (click)="setClickedRowConsultaCuentacheques(i,fideicomiso)">Cuentacheques</button>
+				        </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="fideicomiso_update" (click)="toggle('editMode');">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="fideicomiso_delete" (click)="toggle('deleteMode');">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+				<div class="line-list"></div>
+				    <button class="action-item" *ngIf="fideicomisario_read" (click)="setClickedRowConsultaFideicomisario(i,fideicomiso)">
+				        <clr-icon shape="flow-chart"></clr-icon> Fideicomisario
+				    </button>
+				<div class="line-list"></div>
+				    <button class="action-item" *ngIf="tercero_read" (click)="setClickedRowConsultaTercero(i,fideicomiso)">
+				        <clr-icon shape="flow-chart"></clr-icon> Tercero
+				    </button>
+				<div class="line-list"></div>
+				    <button class="action-item" *ngIf="subfiso_read" (click)="setClickedRowConsultaSubfiso(i,fideicomiso)">
+				        <clr-icon shape="flow-chart"></clr-icon> Subfiso
+				    </button>
+				<div class="line-list"></div>
+				    <button class="action-item" *ngIf="contratoinversion_read" (click)="setClickedRowConsultaContratoinversion(i,fideicomiso)">
+				        <clr-icon shape="flow-chart"></clr-icon> Contratoinversion
+				    </button>
+				<div class="line-list"></div>
+				    <button class="action-item" *ngIf="cuentacheques_read" (click)="setClickedRowConsultaCuentacheques(i,fideicomiso)">
+				        <clr-icon shape="flow-chart"></clr-icon> Cuentacheques
+				    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{fideicomiso.generalesnumero}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.generalesnombre}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasformamanejoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicastiponegocioItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasproductoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasvalfatcaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasmontoapertura}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasmanejosubfisosItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicassujetoart151Item}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicascerradoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasrevocableItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasescontratoejeItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicascomitetecnicoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasofibanxico}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasmanejamonextItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasivafronterizoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasfechaalta | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasfechaconstitucion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasfechaaprobacion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.caracteristicasestadoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalestipoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalestipopersonaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesconactividadempresarialItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalespermisosre}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesfechapermisosre | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesprovsustfiduciariaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesfondosinterfaseaforeItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesregnalinvext}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesfechainscripcion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesformalizacioncontratoItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesnoescritura}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesfechaescritura | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesnombrenotarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesnonotario}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesciudadnotario}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesestadonotario}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalespaisnotario}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesfolioregistropublico}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesfechainscripcionregpublico | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalesadministracionItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.adicionalescontabilidaddelegadaItem}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxicoactividadeconomica}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxicofiducuario}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxicosectorbancario}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxicolocalidad}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxicocentroresp}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxiconocr}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxicorfccontrato}}</clr-dg-cell>
+<clr-dg-cell >{{fideicomiso.datosbanxiconumerocliente}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>
+<!-- ./PSG Search Mode -->
+</div>
+
+<div #showAddMode *ngIf="(toggleField=='addMode')">
+
+	<!-- head -->
+	<div class="card-header">
+		Agregar Prospecto
+	</div> 
+	<!-- ./head -->
+
+	<!-- form -->
+	<form class="form" [formGroup]="fideicomisoAddForm">
+		<div style="margin: 20px;">
+		<div class="clr-form-control">
+			<label for="generalesnumero" class="clr-control-label">
+			Generales_Número
+			<span class="required">*</span></label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="generalesnumero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+						[class.invalid]="fideicomisoAddForm.get('generalesnumero').invalid && (fideicomisoAddForm.get('generalesnumero').dirty || fideicomisoAddForm.get('generalesnumero').touched)">
+					<input id="generalesnumero" type="number" formControlName="generalesnumero" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+					<span class="tooltip-content">
+						Generales_Número es requerido.
+					</span>
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="generalesnombre" class="clr-control-label">
+			Generales_Nombre
+			<span class="required">*</span></label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="generalesnombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+						[class.invalid]="fideicomisoAddForm.get('generalesnombre').invalid && (fideicomisoAddForm.get('generalesnombre').dirty || fideicomisoAddForm.get('generalesnombre').touched)">
+					<input id="generalesnombre" type="text" formControlName="generalesnombre" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+					<span class="tooltip-content">
+						Generales_Nombre es requerido.
+					</span>
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control" id="generalesadministrador">
+				<label for="administrador" class="clr-control-label">
+				Generales_Administrador
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="generalesadministrador" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="ADMIN1002">ADMINISTRADOR 1002</option>
+		<option value="ADMIN1003">ADMINISTRADOR 1003</option>
+		<option value="ADMIN1004">ADMINISTRADOR 1004</option>
+		<option value="ADMIN1005">ADMINISTRADOR 1005</option>
+		<option value="ADMIN1006">ADMINISTRADOR 1006</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="generalespromotor">
+				<label for="promotor" class="clr-control-label">
+				Generales_Promotor
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="generalespromotor" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="PROMOTOR1002">PROMOTOR 1002</option>
+		<option value="PROMOTOR1003">PROMOTOR 1003</option>
+		<option value="PROMOTOR1004">PROMOTOR 1004</option>
+		<option value="PROMOTOR1005">PROMOTOR 1005</option>
+		<option value="PROMOTOR1006">PROMOTOR 1006</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicasformamanejo">
+				<label for="formamanejo" class="clr-control-label">
+				Caracteristicas_Forma de manejo
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasformamanejo" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="DISCRESTR">DISCRECIONAL RESTRINGIDO</option>
+		<option value="NODISCR">NO DISCRECIONAL</option>
+		<option value="SINMANEJO">SIN MANEJO DE INVERSION</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicastiponegocio">
+				<label for="tiponegocio" class="clr-control-label">
+				Caracteristicas_Tipo de Negocio
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicastiponegocio" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="TIPO1">FIDEICOMISO</option>
+		<option value="TIPO2">MANDATO</option>
+		<option value="TIPO3">COMISIÓN MERCANTIL</option>
+		<option value="TIPO4">DEPÓSITO CONDICIONAL</option>
+		<option value="TIPO5">REPRESENTACIÓN COMÚN</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicasproducto">
+				<label for="producto" class="clr-control-label">
+				Caracteristicas_Tipo Producto
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasproducto" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="PROD1">PLANEACIÓN PATRIMONIAL TESTAMENTARIA</option>
+		<option value="PROD2">ADMINISTRACIÓN DE RECURSOS</option>
+		<option value="PROD3">GARANTÍA</option>
+		<option value="PROD4">FUENTE DE PAGO</option>
+		<option value="PROD5">ZONA RESTRINGIDA</option>
+		<option value="PROD6">MANDATO</option>
+		<option value="PROD7">PENSIONES Y JUBILACIONES</option>
+		<option value="PROD8">DESARROLLO INMOBILIARIO</option>
+		<option value="PROD9">INFRAESTRUCTURA</option>
+		<option value="PROD10">REPRESENTACIÓN COMÚN</option>
+		<option value="PROD11">DEPÓSITO CONDICIONAL (Escrow)</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicasvalfatca">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Vaidaciones FATCA
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasvalfatca" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control">
+			<label for="caracteristicasmontoapertura" class="clr-control-label">Caracteristicas_Monto de Apertura
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasmontoapertura">
+					<input id="caracteristicasmontoapertura" type="number" formControlName="caracteristicasmontoapertura" 
+					placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control" id="caracteristicasmanejosubfisos">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Manejo Sub fisos
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasmanejosubfisos">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicassujetoart151">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Sujeto Art. 151
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicassujetoart151">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicascerrado">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Cerrado
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicascerrado">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicasrevocable">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Revocable
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasrevocable">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicasescontratoeje">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Es contrato eje
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasescontratoeje">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicascomitetecnico">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Comité técnico/facultado
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicascomitetecnico">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control">
+			<label for="caracteristicasofibanxico" class="clr-control-label">
+			Caracteristicas_Ofi. BANXICO
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasofibanxico" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="caracteristicasofibanxico" type="text" formControlName="caracteristicasofibanxico" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control" id="caracteristicasmanejamonext">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_Maneja mon. ext
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasmanejamonext">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="caracteristicasivafronterizo">
+				<label for="sino" class="clr-control-label">
+				Caracteristicas_IVA fronterizo
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasivafronterizo">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control">
+					<label for="caracteristicasfechaaltaAux" class="clr-control-label">
+					Caracteristicas_Fecha alta
+					</label>
+					<div class="clr-control-container clr-col-md-12"> 
+						<label for="caracteristicasfechaaltaAux">
+							<input id="caracteristicasfechaaltaAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaaltaAux"/>
+						</label>
+					</div>
+				</div>
+		<div class="clr-form-control">
+					<label for="caracteristicasfechaconstitucionAux" class="clr-control-label">
+					Caracteristicas_Fecha constitución
+					</label>
+					<div class="clr-control-container clr-col-md-12"> 
+						<label for="caracteristicasfechaconstitucionAux">
+							<input id="caracteristicasfechaconstitucionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaconstitucionAux"/>
+						</label>
+					</div>
+				</div>
+		<div class="clr-form-control">
+					<label for="caracteristicasfechaaprobacionAux" class="clr-control-label">
+					Caracteristicas_Fecha de aprobación
+					</label>
+					<div class="clr-control-container clr-col-md-12"> 
+						<label for="caracteristicasfechaaprobacionAux">
+							<input id="caracteristicasfechaaprobacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaaprobacionAux"/>
+						</label>
+					</div>
+				</div>
+		<div class="clr-form-control" id="caracteristicasestado">
+				<label for="estatus" class="clr-control-label">
+				Caracteristicas_Estado del fideicomiso
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="caracteristicasestado" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="ACTIVO">ACTIVO</option>
+		<option value="CANCELADO">CANCELADO</option>
+		<option value="CONSTITUIDO">CONSTITUIDO</option>
+		<option value="ENVRESULTADOS">ENV. A RESULTADOS</option>
+		<option value="SUSPENDIDO">SUSPENDIDO</option>
+		<option value="ANTEPROYECTO">ANTEPROYECTO</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="adicionalestipo">
+				<label for="tipofideicomiso" class="clr-control-label">
+				Adicionales_Tipo de Fideicomiso
+				</label>
+				
+				<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalestipo" value="PUBLICO"> PUBLICO</clr-radio-wrapper>		
+				<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalestipo" value="PRIVADO"> PRIVADO</clr-radio-wrapper>		
+			</div>
+		<div class="clr-form-control" id="adicionalestipopersona">
+				<label for="tipopersona" class="clr-control-label">
+				Adicionales_Tipo Persona
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="adicionalestipopersona" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="FISICA">FISICA</option>
+		<option value="GOBIERNO">GOBIERNO</option>
+		<option value="MORAL">MORAL</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="adicionalesconactividadempresarial">
+				<label for="sino" class="clr-control-label">
+				Adicionales_Con Actividad Empresarial
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="adicionalesconactividadempresarial">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control">
+			<label for="adicionalespermisosre" class="clr-control-label">
+			Adicionales_Permiso SRE
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalespermisosre" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalespermisosre" type="text" formControlName="adicionalespermisosre" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+					<label for="adicionalesfechapermisosreAux" class="clr-control-label">
+					Adicionales_Fecha permiso SRE
+					</label>
+					<div class="clr-control-container clr-col-md-12"> 
+						<label for="adicionalesfechapermisosreAux">
+							<input id="adicionalesfechapermisosreAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechapermisosreAux"/>
+						</label>
+					</div>
+				</div>
+		<div class="clr-form-control" id="adicionalesprovsustfiduciaria">
+				<label for="sino" class="clr-control-label">
+				Adicionales_Proviene de sustitución Fiduciaria
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="adicionalesprovsustfiduciaria">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="adicionalesfondosinterfaseafore">
+				<label for="sino" class="clr-control-label">
+				Adicionales_Fondos con Interfase AFORE
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="adicionalesfondosinterfaseafore">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control">
+			<label for="adicionalesregnalinvext" class="clr-control-label">
+			Adicionales_Reg.Nal.Inv.Ext
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesregnalinvext" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalesregnalinvext" type="text" formControlName="adicionalesregnalinvext" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+					<label for="adicionalesfechainscripcionAux" class="clr-control-label">
+					Adicionales_Fecha inscripción
+					</label>
+					<div class="clr-control-container clr-col-md-12"> 
+						<label for="adicionalesfechainscripcionAux">
+							<input id="adicionalesfechainscripcionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechainscripcionAux"/>
+						</label>
+					</div>
+				</div>
+		<div class="clr-form-control" id="adicionalesformalizacioncontrato">
+				<label for="formalizacioncontrato" class="clr-control-label">
+				Adicionales_Formalización del contrato
+				</label>
+				
+				<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalesformalizacioncontrato" value="PRIVADO"> Contrato Privado</clr-radio-wrapper>		
+				<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalesformalizacioncontrato" value="ESCPUB"> Escritura Pública</clr-radio-wrapper>		
+			</div>
+		<div class="clr-form-control">
+			<label for="adicionalesnoescritura" class="clr-control-label">
+			Adicionales_No. Escritura
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesnoescritura" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalesnoescritura" type="text" formControlName="adicionalesnoescritura" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+					<label for="adicionalesfechaescrituraAux" class="clr-control-label">
+					Adicionales_Fecha de la escritura
+					</label>
+					<div class="clr-control-container clr-col-md-12"> 
+						<label for="adicionalesfechaescrituraAux">
+							<input id="adicionalesfechaescrituraAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechaescrituraAux"/>
+						</label>
+					</div>
+				</div>
+		<div class="clr-form-control" id="adicionalesnombrenotario">
+				<label for="notario" class="clr-control-label">
+				Adicionales_Notario
+				</label>
+				
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="adicionalesnombrenotario">
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NOTARIO01">NOTARIO 01</option>
+		<option value="NOTARIO02">NOTARIO 02</option>
+		<option value="NOTARIO03">NOTARIO 03</option>
+				</select>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control">
+			<label for="adicionalesnonotario" class="clr-control-label">
+			Adicionales_No.
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesnonotario" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalesnonotario" type="text" formControlName="adicionalesnonotario" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="adicionalesciudadnotario" class="clr-control-label">
+			Adicionales_Ciudad del notario
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesciudadnotario" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalesciudadnotario" type="text" formControlName="adicionalesciudadnotario" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="adicionalesestadonotario" class="clr-control-label">
+			Adicionales_Estado del notario
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesestadonotario" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalesestadonotario" type="text" formControlName="adicionalesestadonotario" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="adicionalespaisnotario" class="clr-control-label">
+			Adicionales_País del notario
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalespaisnotario" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalespaisnotario" type="text" formControlName="adicionalespaisnotario" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="adicionalesfolioregistropublico" class="clr-control-label">
+			Adicionales_Folio mercantil registro público de la propiedad
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfolioregistropublico" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="adicionalesfolioregistropublico" type="text" formControlName="adicionalesfolioregistropublico" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+					<label for="adicionalesfechainscripcionregpublicoAux" class="clr-control-label">
+					Adicionales_Fecha de inscripción del fideicomiso ante el registro público de la propiedad
+					</label>
+					<div class="clr-control-container clr-col-md-12"> 
+						<label for="adicionalesfechainscripcionregpublicoAux">
+							<input id="adicionalesfechainscripcionregpublicoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechainscripcionregpublicoAux"/>
+						</label>
+					</div>
+				</div>
+		<div class="clr-form-control" id="adicionalesadministracion">
+				<label for="tipoadministracion" class="clr-control-label">
+				Adicionales_Administración
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="adicionalesadministracion" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="DELEGADA">ADMINISTRACION DELEGADA</option>
+		<option value="FIDUCIARIA">ADMINISTRACION FIDUCIARIA</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control" id="adicionalescontabilidaddelegada">
+				<label for="sino" class="clr-control-label">
+				Adicionales_Contabilidad delegada
+				<span class="required">*</span>
+				</label>
+					<div class="clr-control-container">
+			<div class="clr-select-wrapper">
+				<select formControlName="adicionalescontabilidaddelegada" required>
+				<option value=""> -- Seleccione un valor -- </option>
+		<option value="NO">NO</option>
+		<option value="SI">SI</option>
+				</select>
+				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+			</div>
+		</div>
+			</div>
+		<div class="clr-form-control">
+			<label for="datosbanxicoactividadeconomica" class="clr-control-label">
+			DatosBanxico_Actividad económica
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxicoactividadeconomica" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxicoactividadeconomica" type="text" formControlName="datosbanxicoactividadeconomica" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="datosbanxicofiducuario" class="clr-control-label">
+			DatosBanxico_Fiduciario
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxicofiducuario" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxicofiducuario" type="text" formControlName="datosbanxicofiducuario" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="datosbanxicosectorbancario" class="clr-control-label">
+			DatosBanxico_Sector Banxico
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxicosectorbancario" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxicosectorbancario" type="text" formControlName="datosbanxicosectorbancario" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="datosbanxicolocalidad" class="clr-control-label">
+			DatosBanxico_Localidad Banxico
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxicolocalidad" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxicolocalidad" type="text" formControlName="datosbanxicolocalidad" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="datosbanxicocentroresp" class="clr-control-label">
+			DatosBanxico_Centro Responsabilidad
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxicocentroresp" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxicocentroresp" type="text" formControlName="datosbanxicocentroresp" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="datosbanxiconocr" class="clr-control-label">
+			DatosBanxico_No.CR
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxiconocr" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxiconocr" type="text" formControlName="datosbanxiconocr" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="datosbanxicorfccontrato" class="clr-control-label">
+			DatosBanxico_RFC del contrato
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxicorfccontrato" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxicorfccontrato" type="text" formControlName="datosbanxicorfccontrato" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		<div class="clr-form-control">
+			<label for="datosbanxiconumerocliente" class="clr-control-label">
+			DatosBanxico_Número de cliente
+			</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="datosbanxiconumerocliente" class="clr-input clr-col-sm-11 clr-col-md-11">
+					<input id="datosbanxiconumerocliente" type="text" formControlName="datosbanxiconumerocliente" 
+						placeholder=""
+						class="clr-input clr-col-sm-12 clr-col-md-12">
+				</label>
+			</div>
+		</div>
+		
+		<!-- <p>Form value {{ fideicomisoForm.value | json }} </p>
+		<p> Form status {{ fideicomisoForm.status | json}} </p> -->
+		<p>
+			<button type="submit" class="btn btn-primary" (click)="guardaFideicomiso(); toggle('searchMode');"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+			<button type="submit" class="btn btn-outline" (click)="regresaFideicomiso()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+		</p>
+		
+		<!-- modals -->
+		<!-- ./modals -->
+				
+		</div>
+	</form>
+	<!-- ./form -->
+	
+</div>
+
+<div *ngIf="(toggleField=='editMode')">
+	<!-- head -->
+	<div class="card-header">
+		Editar Prospecto
+	</div> 
+	<!-- ./head -->
+
+	<!-- form -->    
+	<form class="form" [formGroup]="fideicomisoEditForm">
+		<!-- div -->
+		<div style="margin: 20px;">
+		
+		<!-- fields -->
+			<div class="clr-form-control">
+				<label for="generalesnumero" class="clr-control-label">Generales_Número<span class="required">*</span></label>
+				<div class="clr-control-container clr-col-md-12"> 
+					<label for="generalesnumero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('generalesnumero').invalid && (fideicomisoForm.get('generalesnumero').dirty || fideicomisoForm.get('generalesnumero').touched)">
+						<input id="generalesnumero" type="number" formControlName="generalesnumero" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Generales_Número es requerido.
+						</span>
+					</label>
+				</div>
+			</div> 
+			<div class="clr-form-control"><!-- generalesnombre 1-->
+				<label for="generalesnombre" class="clr-control-label">Generales_Nombre<span class="required">*</span></label>
+				<div class="clr-control-container clr-col-md-12"> <!-- generalesnombre 2-->
+					<label for="generalesnombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('generalesnombre').invalid && (fideicomisoForm.get('generalesnombre').dirty || fideicomisoForm.get('generalesnombre').touched)">
+						<input id="generalesnombre" type="text" formControlName="generalesnombre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Generales_Nombre es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control" id="generalesadministrador">
+					<label for="administrador" class="clr-control-label"> Generales_Administrador<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="generalesadministrador" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="ADMIN1002">ADMINISTRADOR 1002</option>
+			<option value="ADMIN1003">ADMINISTRADOR 1003</option>
+			<option value="ADMIN1004">ADMINISTRADOR 1004</option>
+			<option value="ADMIN1005">ADMINISTRADOR 1005</option>
+			<option value="ADMIN1006">ADMINISTRADOR 1006</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./administrador 1--> 
+			<div class="clr-form-control" id="generalespromotor">
+					<label for="promotor" class="clr-control-label"> Generales_Promotor<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="generalespromotor" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="PROMOTOR1002">PROMOTOR 1002</option>
+			<option value="PROMOTOR1003">PROMOTOR 1003</option>
+			<option value="PROMOTOR1004">PROMOTOR 1004</option>
+			<option value="PROMOTOR1005">PROMOTOR 1005</option>
+			<option value="PROMOTOR1006">PROMOTOR 1006</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./promotor 1--> 
+			<div class="clr-form-control" id="caracteristicasformamanejo">
+					<label for="formamanejo" class="clr-control-label"> Caracteristicas_Forma de manejo<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasformamanejo" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="DISCRESTR">DISCRECIONAL RESTRINGIDO</option>
+			<option value="NODISCR">NO DISCRECIONAL</option>
+			<option value="SINMANEJO">SIN MANEJO DE INVERSION</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./formamanejo 1--> 
+			<div class="clr-form-control" id="caracteristicastiponegocio">
+					<label for="tiponegocio" class="clr-control-label"> Caracteristicas_Tipo de Negocio<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicastiponegocio" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="TIPO1">FIDEICOMISO</option>
+			<option value="TIPO2">MANDATO</option>
+			<option value="TIPO3">COMISIÓN MERCANTIL</option>
+			<option value="TIPO4">DEPÓSITO CONDICIONAL</option>
+			<option value="TIPO5">REPRESENTACIÓN COMÚN</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./tiponegocio 1--> 
+			<div class="clr-form-control" id="caracteristicasproducto">
+					<label for="producto" class="clr-control-label"> Caracteristicas_Tipo Producto<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasproducto" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="PROD1">PLANEACIÓN PATRIMONIAL TESTAMENTARIA</option>
+			<option value="PROD2">ADMINISTRACIÓN DE RECURSOS</option>
+			<option value="PROD3">GARANTÍA</option>
+			<option value="PROD4">FUENTE DE PAGO</option>
+			<option value="PROD5">ZONA RESTRINGIDA</option>
+			<option value="PROD6">MANDATO</option>
+			<option value="PROD7">PENSIONES Y JUBILACIONES</option>
+			<option value="PROD8">DESARROLLO INMOBILIARIO</option>
+			<option value="PROD9">INFRAESTRUCTURA</option>
+			<option value="PROD10">REPRESENTACIÓN COMÚN</option>
+			<option value="PROD11">DEPÓSITO CONDICIONAL (Escrow)</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./producto 1--> 
+			<div class="clr-form-control" id="caracteristicasvalfatca">
+					<label for="sino" class="clr-control-label"> Caracteristicas_Vaidaciones FATCA<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasvalfatca" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control">
+				<label for="caracteristicasmontoapertura" class="clr-control-label">Caracteristicas_Monto de Apertura</label>
+				<div class="clr-control-container clr-col-md-12"> 
+					<label for="caracteristicasmontoapertura" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('caracteristicasmontoapertura').invalid && (fideicomisoForm.get('caracteristicasmontoapertura').dirty || fideicomisoForm.get('caracteristicasmontoapertura').touched)">
+						<input id="caracteristicasmontoapertura" type="number" formControlName="caracteristicasmontoapertura" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Caracteristicas_Monto de Apertura es requerido.
+						</span>
+					</label>
+				</div>
+			</div> 
+			<div class="clr-form-control" id="caracteristicasmanejosubfisos">
+					<label for="sino" class="clr-control-label">Caracteristicas_Manejo Sub fisos</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasmanejosubfisos">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicassujetoart151">
+					<label for="sino" class="clr-control-label">Caracteristicas_Sujeto Art. 151</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicassujetoart151">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicascerrado">
+					<label for="sino" class="clr-control-label">Caracteristicas_Cerrado</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicascerrado">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicasrevocable">
+					<label for="sino" class="clr-control-label">Caracteristicas_Revocable</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasrevocable">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicasescontratoeje">
+					<label for="sino" class="clr-control-label">Caracteristicas_Es contrato eje</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasescontratoeje">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicascomitetecnico">
+					<label for="sino" class="clr-control-label">Caracteristicas_Comité técnico/facultado</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicascomitetecnico">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- caracteristicasofibanxico 1-->
+				<label for="caracteristicasofibanxico" class="clr-control-label">Caracteristicas_Ofi. BANXICO</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- caracteristicasofibanxico 2-->
+					<label for="caracteristicasofibanxico" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('caracteristicasofibanxico').invalid && (fideicomisoForm.get('caracteristicasofibanxico').dirty || fideicomisoForm.get('caracteristicasofibanxico').touched)">
+						<input id="caracteristicasofibanxico" type="text" formControlName="caracteristicasofibanxico" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Caracteristicas_Ofi. BANXICO es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control" id="caracteristicasmanejamonext">
+					<label for="sino" class="clr-control-label">Caracteristicas_Maneja mon. ext</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasmanejamonext">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicasivafronterizo">
+					<label for="sino" class="clr-control-label">Caracteristicas_IVA fronterizo</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasivafronterizo">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+					<div class="clr-form-control">
+			<label for="caracteristicasfechaaltaAux" class="clr-control-label">Caracteristicas_Fecha alta</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasfechaaltaAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('caracteristicasfechaaltaAux').invalid && (fideicomisoForm.get('caracteristicasfechaaltaAux').dirty || fideicomisoForm.get('caracteristicasfechaaltaAux').touched)">
+					<input id="caracteristicasfechaaltaAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaaltaAux"/>
+					<span class="tooltip-content">
+						Caracteristicas_Fecha alta es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+					<div class="clr-form-control">
+			<label for="caracteristicasfechaconstitucionAux" class="clr-control-label">Caracteristicas_Fecha constitución</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasfechaconstitucionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('caracteristicasfechaconstitucionAux').invalid && (fideicomisoForm.get('caracteristicasfechaconstitucionAux').dirty || fideicomisoForm.get('caracteristicasfechaconstitucionAux').touched)">
+					<input id="caracteristicasfechaconstitucionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaconstitucionAux"/>
+					<span class="tooltip-content">
+						Caracteristicas_Fecha constitución es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+					<div class="clr-form-control">
+			<label for="caracteristicasfechaaprobacionAux" class="clr-control-label">Caracteristicas_Fecha de aprobación</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasfechaaprobacionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('caracteristicasfechaaprobacionAux').invalid && (fideicomisoForm.get('caracteristicasfechaaprobacionAux').dirty || fideicomisoForm.get('caracteristicasfechaaprobacionAux').touched)">
+					<input id="caracteristicasfechaaprobacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaaprobacionAux"/>
+					<span class="tooltip-content">
+						Caracteristicas_Fecha de aprobación es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="caracteristicasestado">
+					<label for="estatus" class="clr-control-label"> Caracteristicas_Estado del fideicomiso<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasestado" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="ACTIVO">ACTIVO</option>
+			<option value="CANCELADO">CANCELADO</option>
+			<option value="CONSTITUIDO">CONSTITUIDO</option>
+			<option value="ENVRESULTADOS">ENV. A RESULTADOS</option>
+			<option value="SUSPENDIDO">SUSPENDIDO</option>
+			<option value="ANTEPROYECTO">ANTEPROYECTO</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./estatus 1--> 
+			<div class="clr-form-control" id="adicionalestipo">
+					<label for="tipofideicomiso" class="clr-control-label">Adicionales_Tipo de Fideicomiso</label>
+					
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalestipo" value="PUBLICO"> PUBLICO</clr-radio-wrapper>		
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalestipo" value="PRIVADO"> PRIVADO</clr-radio-wrapper>		
+				</div><!-- ./tipofideicomiso 1--> 
+			<div class="clr-form-control" id="adicionalestipopersona">
+					<label for="tipopersona" class="clr-control-label"> Adicionales_Tipo Persona<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalestipopersona" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="FISICA">FISICA</option>
+			<option value="GOBIERNO">GOBIERNO</option>
+			<option value="MORAL">MORAL</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./tipopersona 1--> 
+			<div class="clr-form-control" id="adicionalesconactividadempresarial">
+					<label for="sino" class="clr-control-label">Adicionales_Con Actividad Empresarial</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesconactividadempresarial">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- adicionalespermisosre 1-->
+				<label for="adicionalespermisosre" class="clr-control-label">Adicionales_Permiso SRE</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalespermisosre 2-->
+					<label for="adicionalespermisosre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalespermisosre').invalid && (fideicomisoForm.get('adicionalespermisosre').dirty || fideicomisoForm.get('adicionalespermisosre').touched)">
+						<input id="adicionalespermisosre" type="text" formControlName="adicionalespermisosre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Permiso SRE es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechapermisosreAux" class="clr-control-label">Adicionales_Fecha permiso SRE</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechapermisosreAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechapermisosreAux').invalid && (fideicomisoForm.get('adicionalesfechapermisosreAux').dirty || fideicomisoForm.get('adicionalesfechapermisosreAux').touched)">
+					<input id="adicionalesfechapermisosreAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechapermisosreAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha permiso SRE es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesprovsustfiduciaria">
+					<label for="sino" class="clr-control-label">Adicionales_Proviene de sustitución Fiduciaria</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesprovsustfiduciaria">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="adicionalesfondosinterfaseafore">
+					<label for="sino" class="clr-control-label">Adicionales_Fondos con Interfase AFORE</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesfondosinterfaseafore">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- adicionalesregnalinvext 1-->
+				<label for="adicionalesregnalinvext" class="clr-control-label">Adicionales_Reg.Nal.Inv.Ext</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesregnalinvext 2-->
+					<label for="adicionalesregnalinvext" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesregnalinvext').invalid && (fideicomisoForm.get('adicionalesregnalinvext').dirty || fideicomisoForm.get('adicionalesregnalinvext').touched)">
+						<input id="adicionalesregnalinvext" type="text" formControlName="adicionalesregnalinvext" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Reg.Nal.Inv.Ext es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechainscripcionAux" class="clr-control-label">Adicionales_Fecha inscripción</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechainscripcionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechainscripcionAux').invalid && (fideicomisoForm.get('adicionalesfechainscripcionAux').dirty || fideicomisoForm.get('adicionalesfechainscripcionAux').touched)">
+					<input id="adicionalesfechainscripcionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechainscripcionAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha inscripción es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesformalizacioncontrato">
+					<label for="formalizacioncontrato" class="clr-control-label">Adicionales_Formalización del contrato</label>
+					
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalesformalizacioncontrato" value="PRIVADO"> Contrato Privado</clr-radio-wrapper>		
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalesformalizacioncontrato" value="ESCPUB"> Escritura Pública</clr-radio-wrapper>		
+				</div><!-- ./formalizacioncontrato 1--> 
+			<div class="clr-form-control"><!-- adicionalesnoescritura 1-->
+				<label for="adicionalesnoescritura" class="clr-control-label">Adicionales_No. Escritura</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesnoescritura 2-->
+					<label for="adicionalesnoescritura" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesnoescritura').invalid && (fideicomisoForm.get('adicionalesnoescritura').dirty || fideicomisoForm.get('adicionalesnoescritura').touched)">
+						<input id="adicionalesnoescritura" type="text" formControlName="adicionalesnoescritura" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_No. Escritura es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechaescrituraAux" class="clr-control-label">Adicionales_Fecha de la escritura</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechaescrituraAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechaescrituraAux').invalid && (fideicomisoForm.get('adicionalesfechaescrituraAux').dirty || fideicomisoForm.get('adicionalesfechaescrituraAux').touched)">
+					<input id="adicionalesfechaescrituraAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechaescrituraAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha de la escritura es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesnombrenotario">
+					<label for="notario" class="clr-control-label">Adicionales_Notario</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesnombrenotario">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NOTARIO01">NOTARIO 01</option>
+			<option value="NOTARIO02">NOTARIO 02</option>
+			<option value="NOTARIO03">NOTARIO 03</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./notario 1--> 
+			<div class="clr-form-control"><!-- adicionalesnonotario 1-->
+				<label for="adicionalesnonotario" class="clr-control-label">Adicionales_No.</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesnonotario 2-->
+					<label for="adicionalesnonotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesnonotario').invalid && (fideicomisoForm.get('adicionalesnonotario').dirty || fideicomisoForm.get('adicionalesnonotario').touched)">
+						<input id="adicionalesnonotario" type="text" formControlName="adicionalesnonotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_No. es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalesciudadnotario 1-->
+				<label for="adicionalesciudadnotario" class="clr-control-label">Adicionales_Ciudad del notario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesciudadnotario 2-->
+					<label for="adicionalesciudadnotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesciudadnotario').invalid && (fideicomisoForm.get('adicionalesciudadnotario').dirty || fideicomisoForm.get('adicionalesciudadnotario').touched)">
+						<input id="adicionalesciudadnotario" type="text" formControlName="adicionalesciudadnotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Ciudad del notario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalesestadonotario 1-->
+				<label for="adicionalesestadonotario" class="clr-control-label">Adicionales_Estado del notario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesestadonotario 2-->
+					<label for="adicionalesestadonotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesestadonotario').invalid && (fideicomisoForm.get('adicionalesestadonotario').dirty || fideicomisoForm.get('adicionalesestadonotario').touched)">
+						<input id="adicionalesestadonotario" type="text" formControlName="adicionalesestadonotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Estado del notario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalespaisnotario 1-->
+				<label for="adicionalespaisnotario" class="clr-control-label">Adicionales_País del notario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalespaisnotario 2-->
+					<label for="adicionalespaisnotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalespaisnotario').invalid && (fideicomisoForm.get('adicionalespaisnotario').dirty || fideicomisoForm.get('adicionalespaisnotario').touched)">
+						<input id="adicionalespaisnotario" type="text" formControlName="adicionalespaisnotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_País del notario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalesfolioregistropublico 1-->
+				<label for="adicionalesfolioregistropublico" class="clr-control-label">Adicionales_Folio mercantil registro público de la propiedad</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesfolioregistropublico 2-->
+					<label for="adicionalesfolioregistropublico" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesfolioregistropublico').invalid && (fideicomisoForm.get('adicionalesfolioregistropublico').dirty || fideicomisoForm.get('adicionalesfolioregistropublico').touched)">
+						<input id="adicionalesfolioregistropublico" type="text" formControlName="adicionalesfolioregistropublico" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Folio mercantil registro público de la propiedad es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechainscripcionregpublicoAux" class="clr-control-label">Adicionales_Fecha de inscripción del fideicomiso ante el registro público de la propiedad</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechainscripcionregpublicoAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechainscripcionregpublicoAux').invalid && (fideicomisoForm.get('adicionalesfechainscripcionregpublicoAux').dirty || fideicomisoForm.get('adicionalesfechainscripcionregpublicoAux').touched)">
+					<input id="adicionalesfechainscripcionregpublicoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechainscripcionregpublicoAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha de inscripción del fideicomiso ante el registro público de la propiedad es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesadministracion">
+					<label for="tipoadministracion" class="clr-control-label"> Adicionales_Administración<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesadministracion" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="DELEGADA">ADMINISTRACION DELEGADA</option>
+			<option value="FIDUCIARIA">ADMINISTRACION FIDUCIARIA</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./tipoadministracion 1--> 
+			<div class="clr-form-control" id="adicionalescontabilidaddelegada">
+					<label for="sino" class="clr-control-label"> Adicionales_Contabilidad delegada<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalescontabilidaddelegada" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- datosbanxicoactividadeconomica 1-->
+				<label for="datosbanxicoactividadeconomica" class="clr-control-label">DatosBanxico_Actividad económica</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicoactividadeconomica 2-->
+					<label for="datosbanxicoactividadeconomica" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicoactividadeconomica').invalid && (fideicomisoForm.get('datosbanxicoactividadeconomica').dirty || fideicomisoForm.get('datosbanxicoactividadeconomica').touched)">
+						<input id="datosbanxicoactividadeconomica" type="text" formControlName="datosbanxicoactividadeconomica" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Actividad económica es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicofiducuario 1-->
+				<label for="datosbanxicofiducuario" class="clr-control-label">DatosBanxico_Fiduciario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicofiducuario 2-->
+					<label for="datosbanxicofiducuario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicofiducuario').invalid && (fideicomisoForm.get('datosbanxicofiducuario').dirty || fideicomisoForm.get('datosbanxicofiducuario').touched)">
+						<input id="datosbanxicofiducuario" type="text" formControlName="datosbanxicofiducuario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Fiduciario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicosectorbancario 1-->
+				<label for="datosbanxicosectorbancario" class="clr-control-label">DatosBanxico_Sector Banxico</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicosectorbancario 2-->
+					<label for="datosbanxicosectorbancario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicosectorbancario').invalid && (fideicomisoForm.get('datosbanxicosectorbancario').dirty || fideicomisoForm.get('datosbanxicosectorbancario').touched)">
+						<input id="datosbanxicosectorbancario" type="text" formControlName="datosbanxicosectorbancario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Sector Banxico es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicolocalidad 1-->
+				<label for="datosbanxicolocalidad" class="clr-control-label">DatosBanxico_Localidad Banxico</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicolocalidad 2-->
+					<label for="datosbanxicolocalidad" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicolocalidad').invalid && (fideicomisoForm.get('datosbanxicolocalidad').dirty || fideicomisoForm.get('datosbanxicolocalidad').touched)">
+						<input id="datosbanxicolocalidad" type="text" formControlName="datosbanxicolocalidad" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Localidad Banxico es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicocentroresp 1-->
+				<label for="datosbanxicocentroresp" class="clr-control-label">DatosBanxico_Centro Responsabilidad</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicocentroresp 2-->
+					<label for="datosbanxicocentroresp" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicocentroresp').invalid && (fideicomisoForm.get('datosbanxicocentroresp').dirty || fideicomisoForm.get('datosbanxicocentroresp').touched)">
+						<input id="datosbanxicocentroresp" type="text" formControlName="datosbanxicocentroresp" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Centro Responsabilidad es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxiconocr 1-->
+				<label for="datosbanxiconocr" class="clr-control-label">DatosBanxico_No.CR</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxiconocr 2-->
+					<label for="datosbanxiconocr" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxiconocr').invalid && (fideicomisoForm.get('datosbanxiconocr').dirty || fideicomisoForm.get('datosbanxiconocr').touched)">
+						<input id="datosbanxiconocr" type="text" formControlName="datosbanxiconocr" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_No.CR es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicorfccontrato 1-->
+				<label for="datosbanxicorfccontrato" class="clr-control-label">DatosBanxico_RFC del contrato</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicorfccontrato 2-->
+					<label for="datosbanxicorfccontrato" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicorfccontrato').invalid && (fideicomisoForm.get('datosbanxicorfccontrato').dirty || fideicomisoForm.get('datosbanxicorfccontrato').touched)">
+						<input id="datosbanxicorfccontrato" type="text" formControlName="datosbanxicorfccontrato" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_RFC del contrato es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxiconumerocliente 1-->
+				<label for="datosbanxiconumerocliente" class="clr-control-label">DatosBanxico_Número de cliente</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxiconumerocliente 2-->
+					<label for="datosbanxiconumerocliente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxiconumerocliente').invalid && (fideicomisoForm.get('datosbanxiconumerocliente').dirty || fideicomisoForm.get('datosbanxiconumerocliente').touched)">
+						<input id="datosbanxiconumerocliente" type="text" formControlName="datosbanxiconumerocliente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Número de cliente es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+		<!-- ./fields -->
+
+		<!-- // Json 	
+		<p>Form value {{ fideicomisoForm.value | json }} </p>
+		<p> Form status {{ fideicomisoForm.status | json}} </p> 
+		-->
+
+		<!-- buttons -->        
+		<p>   
+			<button type="submit" class="btn btn-primary" (click)="editaFideicomiso()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+			<button type="submit" class="btn btn-outline" (click)="regresaFideicomiso()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+		</p>
+		<!-- ./buttons -->
+
+		<!-- modals -->
+		<!-- ./modals -->
+		
+		</div>
+		<!-- ./div -->
+	</form>
+	<!-- ./form --> 
+</div>
+
+<div *ngIf="(toggleField=='deleteMode')">
+	<!-- head -->
+	<div class="card-header">
+		Editar Prospecto
+	</div> 
+	<!-- ./head -->
+
+	<!-- form -->    
+	<form class="form" [formGroup]="fideicomisoForm">
+		<!-- div -->
+		<div style="margin: 20px;">
+		
+		<!-- fields -->
+			<div class="clr-form-control">
+				<label for="generalesnumero" class="clr-control-label">Generales_Número<span class="required">*</span></label>
+				<div class="clr-control-container clr-col-md-12"> 
+					<label for="generalesnumero" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('generalesnumero').invalid && (fideicomisoForm.get('generalesnumero').dirty || fideicomisoForm.get('generalesnumero').touched)">
+						<input id="generalesnumero" type="number" formControlName="generalesnumero" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Generales_Número es requerido.
+						</span>
+					</label>
+				</div>
+			</div> 
+			<div class="clr-form-control"><!-- generalesnombre 1-->
+				<label for="generalesnombre" class="clr-control-label">Generales_Nombre<span class="required">*</span></label>
+				<div class="clr-control-container clr-col-md-12"> <!-- generalesnombre 2-->
+					<label for="generalesnombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('generalesnombre').invalid && (fideicomisoForm.get('generalesnombre').dirty || fideicomisoForm.get('generalesnombre').touched)">
+						<input id="generalesnombre" type="text" formControlName="generalesnombre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Generales_Nombre es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control" id="generalesadministrador">
+					<label for="administrador" class="clr-control-label"> Generales_Administrador<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="generalesadministrador" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="ADMIN1002">ADMINISTRADOR 1002</option>
+			<option value="ADMIN1003">ADMINISTRADOR 1003</option>
+			<option value="ADMIN1004">ADMINISTRADOR 1004</option>
+			<option value="ADMIN1005">ADMINISTRADOR 1005</option>
+			<option value="ADMIN1006">ADMINISTRADOR 1006</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./administrador 1--> 
+			<div class="clr-form-control" id="generalespromotor">
+					<label for="promotor" class="clr-control-label"> Generales_Promotor<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="generalespromotor" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="PROMOTOR1002">PROMOTOR 1002</option>
+			<option value="PROMOTOR1003">PROMOTOR 1003</option>
+			<option value="PROMOTOR1004">PROMOTOR 1004</option>
+			<option value="PROMOTOR1005">PROMOTOR 1005</option>
+			<option value="PROMOTOR1006">PROMOTOR 1006</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./promotor 1--> 
+			<div class="clr-form-control" id="caracteristicasformamanejo">
+					<label for="formamanejo" class="clr-control-label"> Caracteristicas_Forma de manejo<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasformamanejo" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="DISCRESTR">DISCRECIONAL RESTRINGIDO</option>
+			<option value="NODISCR">NO DISCRECIONAL</option>
+			<option value="SINMANEJO">SIN MANEJO DE INVERSION</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./formamanejo 1--> 
+			<div class="clr-form-control" id="caracteristicastiponegocio">
+					<label for="tiponegocio" class="clr-control-label"> Caracteristicas_Tipo de Negocio<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicastiponegocio" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="TIPO1">FIDEICOMISO</option>
+			<option value="TIPO2">MANDATO</option>
+			<option value="TIPO3">COMISIÓN MERCANTIL</option>
+			<option value="TIPO4">DEPÓSITO CONDICIONAL</option>
+			<option value="TIPO5">REPRESENTACIÓN COMÚN</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./tiponegocio 1--> 
+			<div class="clr-form-control" id="caracteristicasproducto">
+					<label for="producto" class="clr-control-label"> Caracteristicas_Tipo Producto<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasproducto" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="PROD1">PLANEACIÓN PATRIMONIAL TESTAMENTARIA</option>
+			<option value="PROD2">ADMINISTRACIÓN DE RECURSOS</option>
+			<option value="PROD3">GARANTÍA</option>
+			<option value="PROD4">FUENTE DE PAGO</option>
+			<option value="PROD5">ZONA RESTRINGIDA</option>
+			<option value="PROD6">MANDATO</option>
+			<option value="PROD7">PENSIONES Y JUBILACIONES</option>
+			<option value="PROD8">DESARROLLO INMOBILIARIO</option>
+			<option value="PROD9">INFRAESTRUCTURA</option>
+			<option value="PROD10">REPRESENTACIÓN COMÚN</option>
+			<option value="PROD11">DEPÓSITO CONDICIONAL (Escrow)</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./producto 1--> 
+			<div class="clr-form-control" id="caracteristicasvalfatca">
+					<label for="sino" class="clr-control-label"> Caracteristicas_Vaidaciones FATCA<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasvalfatca" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control">
+				<label for="caracteristicasmontoapertura" class="clr-control-label">Caracteristicas_Monto de Apertura</label>
+				<div class="clr-control-container clr-col-md-12"> 
+					<label for="caracteristicasmontoapertura" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('caracteristicasmontoapertura').invalid && (fideicomisoForm.get('caracteristicasmontoapertura').dirty || fideicomisoForm.get('caracteristicasmontoapertura').touched)">
+						<input id="caracteristicasmontoapertura" type="number" formControlName="caracteristicasmontoapertura" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Caracteristicas_Monto de Apertura es requerido.
+						</span>
+					</label>
+				</div>
+			</div> 
+			<div class="clr-form-control" id="caracteristicasmanejosubfisos">
+					<label for="sino" class="clr-control-label">Caracteristicas_Manejo Sub fisos</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasmanejosubfisos">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicassujetoart151">
+					<label for="sino" class="clr-control-label">Caracteristicas_Sujeto Art. 151</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicassujetoart151">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicascerrado">
+					<label for="sino" class="clr-control-label">Caracteristicas_Cerrado</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicascerrado">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicasrevocable">
+					<label for="sino" class="clr-control-label">Caracteristicas_Revocable</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasrevocable">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicasescontratoeje">
+					<label for="sino" class="clr-control-label">Caracteristicas_Es contrato eje</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasescontratoeje">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicascomitetecnico">
+					<label for="sino" class="clr-control-label">Caracteristicas_Comité técnico/facultado</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicascomitetecnico">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- caracteristicasofibanxico 1-->
+				<label for="caracteristicasofibanxico" class="clr-control-label">Caracteristicas_Ofi. BANXICO</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- caracteristicasofibanxico 2-->
+					<label for="caracteristicasofibanxico" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('caracteristicasofibanxico').invalid && (fideicomisoForm.get('caracteristicasofibanxico').dirty || fideicomisoForm.get('caracteristicasofibanxico').touched)">
+						<input id="caracteristicasofibanxico" type="text" formControlName="caracteristicasofibanxico" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Caracteristicas_Ofi. BANXICO es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control" id="caracteristicasmanejamonext">
+					<label for="sino" class="clr-control-label">Caracteristicas_Maneja mon. ext</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasmanejamonext">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="caracteristicasivafronterizo">
+					<label for="sino" class="clr-control-label">Caracteristicas_IVA fronterizo</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasivafronterizo">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+					<div class="clr-form-control">
+			<label for="caracteristicasfechaaltaAux" class="clr-control-label">Caracteristicas_Fecha alta</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasfechaaltaAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('caracteristicasfechaaltaAux').invalid && (fideicomisoForm.get('caracteristicasfechaaltaAux').dirty || fideicomisoForm.get('caracteristicasfechaaltaAux').touched)">
+					<input id="caracteristicasfechaaltaAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaaltaAux"/>
+					<span class="tooltip-content">
+						Caracteristicas_Fecha alta es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+					<div class="clr-form-control">
+			<label for="caracteristicasfechaconstitucionAux" class="clr-control-label">Caracteristicas_Fecha constitución</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasfechaconstitucionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('caracteristicasfechaconstitucionAux').invalid && (fideicomisoForm.get('caracteristicasfechaconstitucionAux').dirty || fideicomisoForm.get('caracteristicasfechaconstitucionAux').touched)">
+					<input id="caracteristicasfechaconstitucionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaconstitucionAux"/>
+					<span class="tooltip-content">
+						Caracteristicas_Fecha constitución es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+					<div class="clr-form-control">
+			<label for="caracteristicasfechaaprobacionAux" class="clr-control-label">Caracteristicas_Fecha de aprobación</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="caracteristicasfechaaprobacionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('caracteristicasfechaaprobacionAux').invalid && (fideicomisoForm.get('caracteristicasfechaaprobacionAux').dirty || fideicomisoForm.get('caracteristicasfechaaprobacionAux').touched)">
+					<input id="caracteristicasfechaaprobacionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="caracteristicasfechaaprobacionAux"/>
+					<span class="tooltip-content">
+						Caracteristicas_Fecha de aprobación es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="caracteristicasestado">
+					<label for="estatus" class="clr-control-label"> Caracteristicas_Estado del fideicomiso<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="caracteristicasestado" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="ACTIVO">ACTIVO</option>
+			<option value="CANCELADO">CANCELADO</option>
+			<option value="CONSTITUIDO">CONSTITUIDO</option>
+			<option value="ENVRESULTADOS">ENV. A RESULTADOS</option>
+			<option value="SUSPENDIDO">SUSPENDIDO</option>
+			<option value="ANTEPROYECTO">ANTEPROYECTO</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./estatus 1--> 
+			<div class="clr-form-control" id="adicionalestipo">
+					<label for="tipofideicomiso" class="clr-control-label">Adicionales_Tipo de Fideicomiso</label>
+					
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalestipo" value="PUBLICO"> PUBLICO</clr-radio-wrapper>		
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalestipo" value="PRIVADO"> PRIVADO</clr-radio-wrapper>		
+				</div><!-- ./tipofideicomiso 1--> 
+			<div class="clr-form-control" id="adicionalestipopersona">
+					<label for="tipopersona" class="clr-control-label"> Adicionales_Tipo Persona<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalestipopersona" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="FISICA">FISICA</option>
+			<option value="GOBIERNO">GOBIERNO</option>
+			<option value="MORAL">MORAL</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./tipopersona 1--> 
+			<div class="clr-form-control" id="adicionalesconactividadempresarial">
+					<label for="sino" class="clr-control-label">Adicionales_Con Actividad Empresarial</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesconactividadempresarial">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- adicionalespermisosre 1-->
+				<label for="adicionalespermisosre" class="clr-control-label">Adicionales_Permiso SRE</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalespermisosre 2-->
+					<label for="adicionalespermisosre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalespermisosre').invalid && (fideicomisoForm.get('adicionalespermisosre').dirty || fideicomisoForm.get('adicionalespermisosre').touched)">
+						<input id="adicionalespermisosre" type="text" formControlName="adicionalespermisosre" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Permiso SRE es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechapermisosreAux" class="clr-control-label">Adicionales_Fecha permiso SRE</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechapermisosreAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechapermisosreAux').invalid && (fideicomisoForm.get('adicionalesfechapermisosreAux').dirty || fideicomisoForm.get('adicionalesfechapermisosreAux').touched)">
+					<input id="adicionalesfechapermisosreAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechapermisosreAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha permiso SRE es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesprovsustfiduciaria">
+					<label for="sino" class="clr-control-label">Adicionales_Proviene de sustitución Fiduciaria</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesprovsustfiduciaria">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control" id="adicionalesfondosinterfaseafore">
+					<label for="sino" class="clr-control-label">Adicionales_Fondos con Interfase AFORE</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesfondosinterfaseafore">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- adicionalesregnalinvext 1-->
+				<label for="adicionalesregnalinvext" class="clr-control-label">Adicionales_Reg.Nal.Inv.Ext</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesregnalinvext 2-->
+					<label for="adicionalesregnalinvext" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesregnalinvext').invalid && (fideicomisoForm.get('adicionalesregnalinvext').dirty || fideicomisoForm.get('adicionalesregnalinvext').touched)">
+						<input id="adicionalesregnalinvext" type="text" formControlName="adicionalesregnalinvext" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Reg.Nal.Inv.Ext es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechainscripcionAux" class="clr-control-label">Adicionales_Fecha inscripción</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechainscripcionAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechainscripcionAux').invalid && (fideicomisoForm.get('adicionalesfechainscripcionAux').dirty || fideicomisoForm.get('adicionalesfechainscripcionAux').touched)">
+					<input id="adicionalesfechainscripcionAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechainscripcionAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha inscripción es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesformalizacioncontrato">
+					<label for="formalizacioncontrato" class="clr-control-label">Adicionales_Formalización del contrato</label>
+					
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalesformalizacioncontrato" value="PRIVADO"> Contrato Privado</clr-radio-wrapper>		
+					<clr-radio-wrapper><input type="radio" clrRadio  formControlName="adicionalesformalizacioncontrato" value="ESCPUB"> Escritura Pública</clr-radio-wrapper>		
+				</div><!-- ./formalizacioncontrato 1--> 
+			<div class="clr-form-control"><!-- adicionalesnoescritura 1-->
+				<label for="adicionalesnoescritura" class="clr-control-label">Adicionales_No. Escritura</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesnoescritura 2-->
+					<label for="adicionalesnoescritura" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesnoescritura').invalid && (fideicomisoForm.get('adicionalesnoescritura').dirty || fideicomisoForm.get('adicionalesnoescritura').touched)">
+						<input id="adicionalesnoescritura" type="text" formControlName="adicionalesnoescritura" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_No. Escritura es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechaescrituraAux" class="clr-control-label">Adicionales_Fecha de la escritura</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechaescrituraAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechaescrituraAux').invalid && (fideicomisoForm.get('adicionalesfechaescrituraAux').dirty || fideicomisoForm.get('adicionalesfechaescrituraAux').touched)">
+					<input id="adicionalesfechaescrituraAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechaescrituraAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha de la escritura es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesnombrenotario">
+					<label for="notario" class="clr-control-label">Adicionales_Notario</label>
+					
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesnombrenotario">
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NOTARIO01">NOTARIO 01</option>
+			<option value="NOTARIO02">NOTARIO 02</option>
+			<option value="NOTARIO03">NOTARIO 03</option>
+					</select>
+				</div>
+			</div>
+				</div><!-- ./notario 1--> 
+			<div class="clr-form-control"><!-- adicionalesnonotario 1-->
+				<label for="adicionalesnonotario" class="clr-control-label">Adicionales_No.</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesnonotario 2-->
+					<label for="adicionalesnonotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesnonotario').invalid && (fideicomisoForm.get('adicionalesnonotario').dirty || fideicomisoForm.get('adicionalesnonotario').touched)">
+						<input id="adicionalesnonotario" type="text" formControlName="adicionalesnonotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_No. es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalesciudadnotario 1-->
+				<label for="adicionalesciudadnotario" class="clr-control-label">Adicionales_Ciudad del notario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesciudadnotario 2-->
+					<label for="adicionalesciudadnotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesciudadnotario').invalid && (fideicomisoForm.get('adicionalesciudadnotario').dirty || fideicomisoForm.get('adicionalesciudadnotario').touched)">
+						<input id="adicionalesciudadnotario" type="text" formControlName="adicionalesciudadnotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Ciudad del notario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalesestadonotario 1-->
+				<label for="adicionalesestadonotario" class="clr-control-label">Adicionales_Estado del notario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesestadonotario 2-->
+					<label for="adicionalesestadonotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesestadonotario').invalid && (fideicomisoForm.get('adicionalesestadonotario').dirty || fideicomisoForm.get('adicionalesestadonotario').touched)">
+						<input id="adicionalesestadonotario" type="text" formControlName="adicionalesestadonotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Estado del notario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalespaisnotario 1-->
+				<label for="adicionalespaisnotario" class="clr-control-label">Adicionales_País del notario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalespaisnotario 2-->
+					<label for="adicionalespaisnotario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalespaisnotario').invalid && (fideicomisoForm.get('adicionalespaisnotario').dirty || fideicomisoForm.get('adicionalespaisnotario').touched)">
+						<input id="adicionalespaisnotario" type="text" formControlName="adicionalespaisnotario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_País del notario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- adicionalesfolioregistropublico 1-->
+				<label for="adicionalesfolioregistropublico" class="clr-control-label">Adicionales_Folio mercantil registro público de la propiedad</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- adicionalesfolioregistropublico 2-->
+					<label for="adicionalesfolioregistropublico" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('adicionalesfolioregistropublico').invalid && (fideicomisoForm.get('adicionalesfolioregistropublico').dirty || fideicomisoForm.get('adicionalesfolioregistropublico').touched)">
+						<input id="adicionalesfolioregistropublico" type="text" formControlName="adicionalesfolioregistropublico" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							Adicionales_Folio mercantil registro público de la propiedad es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+					<div class="clr-form-control">
+			<label for="adicionalesfechainscripcionregpublicoAux" class="clr-control-label">Adicionales_Fecha de inscripción del fideicomiso ante el registro público de la propiedad</label>
+			<div class="clr-control-container clr-col-md-12"> 
+				<label for="adicionalesfechainscripcionregpublicoAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+						[class.invalid]="fideicomisoForm.get('adicionalesfechainscripcionregpublicoAux').invalid && (fideicomisoForm.get('adicionalesfechainscripcionregpublicoAux').dirty || fideicomisoForm.get('adicionalesfechainscripcionregpublicoAux').touched)">
+					<input id="adicionalesfechainscripcionregpublicoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="adicionalesfechainscripcionregpublicoAux"/>
+					<span class="tooltip-content">
+						Adicionales_Fecha de inscripción del fideicomiso ante el registro público de la propiedad es requerido.
+					</span>
+				</label>
+			</div>
+					</div>
+			<div class="clr-form-control" id="adicionalesadministracion">
+					<label for="tipoadministracion" class="clr-control-label"> Adicionales_Administración<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalesadministracion" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="DELEGADA">ADMINISTRACION DELEGADA</option>
+			<option value="FIDUCIARIA">ADMINISTRACION FIDUCIARIA</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./tipoadministracion 1--> 
+			<div class="clr-form-control" id="adicionalescontabilidaddelegada">
+					<label for="sino" class="clr-control-label"> Adicionales_Contabilidad delegada<span class="required">*</span></label>
+						<div class="clr-control-container">
+				<div class="clr-select-wrapper">
+					<select formControlName="adicionalescontabilidaddelegada" required>
+					<option value=""> -- Seleccione un valor -- </option>
+			<option value="NO">NO</option>
+			<option value="SI">SI</option>
+					</select>
+					<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+				</div>
+			</div>
+				</div><!-- ./sino 1--> 
+			<div class="clr-form-control"><!-- datosbanxicoactividadeconomica 1-->
+				<label for="datosbanxicoactividadeconomica" class="clr-control-label">DatosBanxico_Actividad económica</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicoactividadeconomica 2-->
+					<label for="datosbanxicoactividadeconomica" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicoactividadeconomica').invalid && (fideicomisoForm.get('datosbanxicoactividadeconomica').dirty || fideicomisoForm.get('datosbanxicoactividadeconomica').touched)">
+						<input id="datosbanxicoactividadeconomica" type="text" formControlName="datosbanxicoactividadeconomica" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Actividad económica es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicofiducuario 1-->
+				<label for="datosbanxicofiducuario" class="clr-control-label">DatosBanxico_Fiduciario</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicofiducuario 2-->
+					<label for="datosbanxicofiducuario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicofiducuario').invalid && (fideicomisoForm.get('datosbanxicofiducuario').dirty || fideicomisoForm.get('datosbanxicofiducuario').touched)">
+						<input id="datosbanxicofiducuario" type="text" formControlName="datosbanxicofiducuario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Fiduciario es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicosectorbancario 1-->
+				<label for="datosbanxicosectorbancario" class="clr-control-label">DatosBanxico_Sector Banxico</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicosectorbancario 2-->
+					<label for="datosbanxicosectorbancario" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicosectorbancario').invalid && (fideicomisoForm.get('datosbanxicosectorbancario').dirty || fideicomisoForm.get('datosbanxicosectorbancario').touched)">
+						<input id="datosbanxicosectorbancario" type="text" formControlName="datosbanxicosectorbancario" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Sector Banxico es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicolocalidad 1-->
+				<label for="datosbanxicolocalidad" class="clr-control-label">DatosBanxico_Localidad Banxico</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicolocalidad 2-->
+					<label for="datosbanxicolocalidad" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicolocalidad').invalid && (fideicomisoForm.get('datosbanxicolocalidad').dirty || fideicomisoForm.get('datosbanxicolocalidad').touched)">
+						<input id="datosbanxicolocalidad" type="text" formControlName="datosbanxicolocalidad" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Localidad Banxico es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicocentroresp 1-->
+				<label for="datosbanxicocentroresp" class="clr-control-label">DatosBanxico_Centro Responsabilidad</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicocentroresp 2-->
+					<label for="datosbanxicocentroresp" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicocentroresp').invalid && (fideicomisoForm.get('datosbanxicocentroresp').dirty || fideicomisoForm.get('datosbanxicocentroresp').touched)">
+						<input id="datosbanxicocentroresp" type="text" formControlName="datosbanxicocentroresp" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Centro Responsabilidad es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxiconocr 1-->
+				<label for="datosbanxiconocr" class="clr-control-label">DatosBanxico_No.CR</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxiconocr 2-->
+					<label for="datosbanxiconocr" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxiconocr').invalid && (fideicomisoForm.get('datosbanxiconocr').dirty || fideicomisoForm.get('datosbanxiconocr').touched)">
+						<input id="datosbanxiconocr" type="text" formControlName="datosbanxiconocr" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_No.CR es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxicorfccontrato 1-->
+				<label for="datosbanxicorfccontrato" class="clr-control-label">DatosBanxico_RFC del contrato</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxicorfccontrato 2-->
+					<label for="datosbanxicorfccontrato" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxicorfccontrato').invalid && (fideicomisoForm.get('datosbanxicorfccontrato').dirty || fideicomisoForm.get('datosbanxicorfccontrato').touched)">
+						<input id="datosbanxicorfccontrato" type="text" formControlName="datosbanxicorfccontrato" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_RFC del contrato es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="clr-form-control"><!-- datosbanxiconumerocliente 1-->
+				<label for="datosbanxiconumerocliente" class="clr-control-label">DatosBanxico_Número de cliente</label>
+				<div class="clr-control-container clr-col-md-12"> <!-- datosbanxiconumerocliente 2-->
+					<label for="datosbanxiconumerocliente" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+							[class.invalid]="fideicomisoForm.get('datosbanxiconumerocliente').invalid && (fideicomisoForm.get('datosbanxiconumerocliente').dirty || fideicomisoForm.get('datosbanxiconumerocliente').touched)">
+						<input id="datosbanxiconumerocliente" type="text" formControlName="datosbanxiconumerocliente" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+						<span class="tooltip-content">
+							DatosBanxico_Número de cliente es requerido.
+						</span>
+					</label>
+				</div>
+			</div>
+		<!-- ./fields -->
+
+		<!-- // Json 	
+		<p>Form value {{ fideicomisoForm.value | json }} </p>
+		<p> Form status {{ fideicomisoForm.status | json}} </p> 
+		-->
+
+		<!-- buttons -->        
+		<p>   
+			<button type="submit" class="btn btn-primary" (click)="editaFideicomiso()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+			<button type="submit" class="btn btn-outline" (click)="regresaFideicomiso()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+		</p>
+		<!-- ./buttons -->
+
+		<!-- modals -->
+		<!-- ./modals -->
+		
+		</div>
+		<!-- ./div -->
+	</form>
+	<!-- ./form --> 
+</div>
+
+
+

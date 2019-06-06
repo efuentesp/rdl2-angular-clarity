@@ -1,0 +1,84 @@
+<!-- PSG Administrar Honorarioadministracion Html -->
+<div class="card-header">
+Administrar Honorario por administración
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="honorarioadministracion_create" class="btn btn-icon btn-outline" (click)="getHonorarioadministracion()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'periodoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Periodo
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Monto de Patrimonio (MXP)
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		De
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		A
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Honorario Actual
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cuota mínima (MXP)
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let honorarioadministracion of honorarioadministracionArray" [clrDgItem]="honorarioadministracion">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaHonorarioadministracion(i, honorarioadministracion)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaHonorarioadministracion(i, honorarioadministracion)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="honorarioadministracion_update" (click)="setClickedRowEditaHonorarioadministracion(i, honorarioadministracion)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="honorarioadministracion_delete" (click)="setClickedRowEliminaHonorarioadministracion(i, honorarioadministracion)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{honorarioadministracion.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioadministracion.periodoItem}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioadministracion.montopatrimonio}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioadministracion.de}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioadministracion.destinatario}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioadministracion.honorarioatual}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioadministracion.cuotaminima}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

@@ -1,0 +1,497 @@
+<!-- PSG Cuentacheques Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Cuenta de cheques
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="cuentachequesForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="cuentachequesForm.get('fideicomisoItem').invalid && (cuentachequesForm.get('fideicomisoItem').dirty || cuentachequesForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control" id="tipopersona">
+	        <label for="tipopersona" class="clr-control-label">
+	        Tipo persona
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipopersona" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="FISICA">FISICA</option>
+	<option value="GOBIERNO">GOBIERNO</option>
+	<option value="MORAL">MORAL</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="fideicomitenteId">
+	        <label for="fideicomitenteItem" class="clr-control-label">
+	        Fideicomitente
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomitenteItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="cuentachequesForm.get('fideicomitenteItem').invalid && (cuentachequesForm.get('fideicomitenteItem').dirty || cuentachequesForm.get('fideicomitenteItem').touched)">
+	                <input id="fideicomitenteId"   type="hidden" formControlName="fideicomitenteId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomitenteItem" type="text"   formControlName="fideicomitenteItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomitente = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomitente es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control" id="tipocuenta">
+	        <label for="tipocuenta" class="clr-control-label">
+	        Tipo de cuenta
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipocuenta" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="SPEUA">SPEUA</option>
+	<option value="CHEQUES">CUENTA DE CHEQUES SCOTIABANK</option>
+	<option value="CIE">CONVENIO CIE</option>
+	<option value="TRANS">TRANSFERENCIA INTERBANCARIA</option>
+	<option value="TARJETACRED">TARJETA DE CREDITO</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="tipopago">
+	        <label for="tipopago" class="clr-control-label">
+	        Tipo de pago
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="tipopago">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="TIPOPAGO1">BANCO A BANCO</option>
+	<option value="TIPOPAGO2">BANCO A TERCEROS FIDEICOMISOS NORMALES</option>
+	<option value="TIPOPAGO3">BANCO A TERCEROS MEXDER</option>
+	<option value="TIPOPAGO4">BANCO A TERCEROS VOSTRO</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="bancospei">
+	        <label for="intermediario" class="clr-control-label">
+	        Banco SPEI
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="bancospei">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="INTERMEDIARIO2">BANCO INBURSA S.A.</option>
+	<option value="INTERMEDIARIO3">BANSI, S.A.</option>
+	<option value="INTERMEDIARIO4">BANAMEX, S.A.</option>
+	<option value="INTERMEDIARIO5">HSBC MEXICO S.A.</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="banco">
+	        <label for="banco" class="clr-control-label">
+	        Banco
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="banco">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="INVERLAT">SCOTIABANK INVERLAT, S.A.</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="dombanco" class="clr-control-label">
+	    Dom.banco
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="dombanco" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="dombanco" type="text" formControlName="dombanco" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="moneda">
+	        <label for="moneda" class="clr-control-label">
+	        Moneda
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="moneda">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="DLS">DLS. U.S.A.</option>
+	<option value="EURO">EUROS</option>
+	<option value="NACIONAL">MONEDA NACIONAL</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="clavevostro">
+	        <label for="clavevostro" class="clr-control-label">
+	        Clave Vostro
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="clavevostro">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="CLAVE1">CLAVE VOSTRO 1</option>
+	<option value="CLAVE2">CLAVE VOSTRO 2</option>
+	<option value="CLAVE3">CLAVE VOSTRO 3</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="numcuenta" class="clr-control-label">
+	    Núm. cuenta
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="numcuenta" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="numcuenta" type="text" formControlName="numcuenta" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="dombeneficiario" class="clr-control-label">
+	    Dom. beneficiario
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="dombeneficiario" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="dombeneficiario" type="text" formControlName="dombeneficiario" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="plazainternacional" class="clr-control-label">
+	    Plaza internacional
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="plazainternacional" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="plazainternacional" type="text" formControlName="plazainternacional" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="pais" class="clr-control-label">
+	    País
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="pais" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="pais" type="text" formControlName="pais" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="clavesiacinst" class="clr-control-label">
+	    Clave SIAC/Inst
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="clavesiacinst" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="clavesiacinst" type="text" formControlName="clavesiacinst" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="conveniociedie" class="clr-control-label">
+	    Convenio CIE/DIE
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="conveniociedie" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="conveniociedie" type="text" formControlName="conveniociedie" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="estatus">
+	        <label for="estatusparticipante" class="clr-control-label">
+	        Estatus
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="estatus">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="ACTIVO">ACTIVO</option>
+	<option value="CANCELADO">CANCELADO</option>
+	<option value="SUSPENDIDO">SUSPENDIDO</option>
+	<option value="BAJA">BAJA</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="clabe" class="clr-control-label">
+	    CLABE
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="clabe" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="clabe" type="text" formControlName="clabe" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="cuentachequera">
+	        <label for="sino" class="clr-control-label">
+	        Cuenta con chequera
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="cuentachequera" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="NO">NO</option>
+	<option value="SI">SI</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="fechavence" class="clr-control-label">
+	    Fecha Vence MMYY
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="fechavence" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="fechavence" type="text" formControlName="fechavence" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="numabbasswift" class="clr-control-label">
+	    Núm ABBAS SWIFT
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="numabbasswift" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="numabbasswift" type="text" formControlName="numabbasswift" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="conceptosiac" class="clr-control-label">
+	    Concepto SIAC
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="conceptosiac" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="conceptosiac" type="text" formControlName="conceptosiac" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="refciedie" class="clr-control-label">
+	    Ref. CIE/DIE
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="refciedie" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="refciedie" type="text" formControlName="refciedie" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="autorizacion">
+	        <label for="autorizacioncuentabancaria" class="clr-control-label">
+	        Autorización
+	        </label>
+	        
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="autorizacion">
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="CARGOS">CARGOS</option>
+	<option value="ABONOS">ABONOS</option>
+	<option value="AMBOS">AMBOS</option>
+	        </select>
+		</div>
+	</div>
+	    </div>
+    
+    <!-- <p>Form value {{ cuentachequesForm.value | json }} </p>
+    <p> Form status {{ cuentachequesForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaCuentacheques()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaCuentacheques()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalfideicomitente" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomitente</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'numerofideicomitente'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Número Fideicomitente
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'participante'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Participante/Razón social
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Fideicomiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'generalesestatusItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Estatus
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'identificacionrfc'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Identificacion_RFC
+        		        </ng-container>    
+        		    </clr-dg-column>
+      
+      			<clr-dg-row *ngFor="let fideicomitente of fideicomitenteArray">
+      			<clr-dg-cell><input type="radio" name="fideicomitenteId" [checked]="fideicomitente.checked" value="{{fideicomitente.id}}" (click)="setClickedRowFideicomitente(i, fideicomitente)"></clr-dg-cell>
+        		<clr-dg-cell>{{fideicomitente.numerofideicomitente}}</clr-dg-cell>
+        		<clr-dg-cell>{{fideicomitente.participante}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomitente.fideicomisoItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomitente.generalesestatusItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{fideicomitente.identificacionrfc}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomitente = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomitente = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

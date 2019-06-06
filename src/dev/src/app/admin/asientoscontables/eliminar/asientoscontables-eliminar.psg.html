@@ -1,0 +1,295 @@
+<!-- PSG Asientoscontables Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Asientos contables
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="asientoscontablesForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control">
+  		    <label for="folio" class="clr-control-label">
+  		    	Folio
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="folio" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('folio').invalid && (asientoscontablesForm.get('folio').dirty || asientoscontablesForm.get('folio').touched)">
+  		            <input id="folio" type="text" formControlName="folio" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="operacion" class="clr-control-label">
+  		    	Operación
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="operacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('operacion').invalid && (asientoscontablesForm.get('operacion').dirty || asientoscontablesForm.get('operacion').touched)">
+  		            <input id="operacion" type="text" formControlName="operacion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="fechaalta" class="clr-control-label">
+  		    	Fecha alta
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fechaalta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('fechaalta').invalid && (asientoscontablesForm.get('fechaalta').dirty || asientoscontablesForm.get('fechaalta').touched)">
+  		            <input id="fechaalta" type="text" formControlName="fechaalta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="transaccionId">
+  		        <label for="transaccionItem" class="clr-control-label">Transaccion<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="transaccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="asientoscontablesForm.get('transaccionItem').invalid && (asientoscontablesForm.get('transaccionItem').dirty || asientoscontablesForm.get('transaccionItem').touched)">
+  		                <input id="transaccionId"   type="hidden" formControlName="transaccionId" placeholder="Transaccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="transaccionItem" type="text"   formControlName="transaccionItem" placeholder="Transaccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modaltransaccion = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Transaccion es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="fechacontable" class="clr-control-label">
+  		    	Fecha contable
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="fechacontable" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('fechacontable').invalid && (asientoscontablesForm.get('fechacontable').dirty || asientoscontablesForm.get('fechacontable').touched)">
+  		            <input id="fechacontable" type="text" formControlName="fechacontable" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="cuenta" class="clr-control-label">
+  		    	Cuenta
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="cuenta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('cuenta').invalid && (asientoscontablesForm.get('cuenta').dirty || asientoscontablesForm.get('cuenta').touched)">
+  		            <input id="cuenta" type="text" formControlName="cuenta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="sct" class="clr-control-label">
+  		    	Sct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="sct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('sct').invalid && (asientoscontablesForm.get('sct').dirty || asientoscontablesForm.get('sct').touched)">
+  		            <input id="sct" type="text" formControlName="sct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="ssct" class="clr-control-label">
+  		    	Ssct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="ssct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('ssct').invalid && (asientoscontablesForm.get('ssct').dirty || asientoscontablesForm.get('ssct').touched)">
+  		            <input id="ssct" type="text" formControlName="ssct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="sssct" class="clr-control-label">
+  		    	Sssct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="sssct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('sssct').invalid && (asientoscontablesForm.get('sssct').dirty || asientoscontablesForm.get('sssct').touched)">
+  		            <input id="sssct" type="text" formControlName="sssct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="ssssct" class="clr-control-label">
+  		    	Ssssct
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="ssssct" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('ssssct').invalid && (asientoscontablesForm.get('ssssct').dirty || asientoscontablesForm.get('ssssct').touched)">
+  		            <input id="ssssct" type="text" formControlName="ssssct" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="descripcioncta" class="clr-control-label">
+  		    	Descripción cta
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="descripcioncta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('descripcioncta').invalid && (asientoscontablesForm.get('descripcioncta').dirty || asientoscontablesForm.get('descripcioncta').touched)">
+  		            <input id="descripcioncta" type="text" formControlName="descripcioncta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label">
+  		        Moneda
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="aux1" class="clr-control-label">
+  		    	Aux 1
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="aux1" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('aux1').invalid && (asientoscontablesForm.get('aux1').dirty || asientoscontablesForm.get('aux1').touched)">
+  		            <input id="aux1" type="text" formControlName="aux1" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="aux2" class="clr-control-label">
+  		    	Aux 2
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="aux2" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('aux2').invalid && (asientoscontablesForm.get('aux2').dirty || asientoscontablesForm.get('aux2').touched)">
+  		            <input id="aux2" type="text" formControlName="aux2" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="aux3" class="clr-control-label">
+  		    	Aux 3
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="aux3" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('aux3').invalid && (asientoscontablesForm.get('aux3').dirty || asientoscontablesForm.get('aux3').touched)">
+  		            <input id="aux3" type="text" formControlName="aux3" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="cargoabono">
+  		        <label for="cargoabono" class="clr-control-label">
+  		        Cargo/Abono
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="cargoabono" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="CARGO">CARGO</option>
+  		<option value="ABONO">ABONO</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="importe" class="clr-control-label">
+  		    	Importe
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('importe').invalid && (asientoscontablesForm.get('importe').dirty || asientoscontablesForm.get('importe').touched)">
+  		            <input id="importe" type="text" formControlName="importe" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control">
+  		    <label for="descripcion" class="clr-control-label">
+  		    	Descripción
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="descripcion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="asientoscontablesForm.get('descripcion').invalid && (asientoscontablesForm.get('descripcion').dirty || asientoscontablesForm.get('descripcion').touched)">
+  		            <textarea id="descripcion" formControlName="descripcion" rows="5" placeholder="" class="clr-textarea clr-col-sm-12 clr-col-md-12"></textarea>
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ asientoscontablesForm.value | json }} </p>
+<p> Form status {{ asientoscontablesForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaAsientoscontables()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaAsientoscontables()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="modaltransaccion" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Transaccion</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modaltransaccion = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modaltransaccion = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

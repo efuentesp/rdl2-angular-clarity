@@ -1,0 +1,303 @@
+<!-- PSG Guia Edit Html -->
+<!-- head -->
+<div class="card-header">
+    Editar Catálogo de guías
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="guiaForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="transaccionId">
+  		        <label for="transaccionItem" class="clr-control-label">Número de Transacción<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="transaccionItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="guiaForm.get('transaccionItem').invalid && (guiaForm.get('transaccionItem').dirty || guiaForm.get('transaccionItem').touched)">
+  		                <input id="transaccionId"   type="hidden" formControlName="transaccionId" placeholder="Transaccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="transaccionItem" type="text"   formControlName="transaccionItem" placeholder="Transaccion" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modaltransaccion = true"><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Transaccion es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div><!-- ./transaccion 1--> 
+  		<div class="clr-form-control"><!-- sec 1-->
+  		    <label for="sec" class="clr-control-label">Sec<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- sec 2-->
+  		        <label for="sec" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('sec').invalid && (guiaForm.get('sec').dirty || guiaForm.get('sec').touched)">
+  		            <input id="sec" type="text" formControlName="sec" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Sec es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- nombrecuenta 1-->
+  		    <label for="nombrecuenta" class="clr-control-label">Nombre de la cuenta<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- nombrecuenta 2-->
+  		        <label for="nombrecuenta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('nombrecuenta').invalid && (guiaForm.get('nombrecuenta').dirty || guiaForm.get('nombrecuenta').touched)">
+  		            <input id="nombrecuenta" type="text" formControlName="nombrecuenta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Nombre de la cuenta es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- ctamayor 1-->
+  		    <label for="ctamayor" class="clr-control-label">Cta.Mayor<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- ctamayor 2-->
+  		        <label for="ctamayor" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('ctamayor').invalid && (guiaForm.get('ctamayor').dirty || guiaForm.get('ctamayor').touched)">
+  		            <input id="ctamayor" type="text" formControlName="ctamayor" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Cta.Mayor es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- scta 1-->
+  		    <label for="scta" class="clr-control-label">SCta<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- scta 2-->
+  		        <label for="scta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('scta').invalid && (guiaForm.get('scta').dirty || guiaForm.get('scta').touched)">
+  		            <input id="scta" type="text" formControlName="scta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SCta es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- sscta 1-->
+  		    <label for="sscta" class="clr-control-label">SsCta<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- sscta 2-->
+  		        <label for="sscta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('sscta').invalid && (guiaForm.get('sscta').dirty || guiaForm.get('sscta').touched)">
+  		            <input id="sscta" type="text" formControlName="sscta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SsCta es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- sssctacopia 1-->
+  		    <label for="sssctacopia" class="clr-control-label">SssCtaCopia<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- sssctacopia 2-->
+  		        <label for="sssctacopia" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('sssctacopia').invalid && (guiaForm.get('sssctacopia').dirty || guiaForm.get('sssctacopia').touched)">
+  		            <input id="sssctacopia" type="text" formControlName="sssctacopia" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SssCtaCopia es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- sssscta 1-->
+  		    <label for="sssscta" class="clr-control-label">SsssCta<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- sssscta 2-->
+  		        <label for="sssscta" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('sssscta').invalid && (guiaForm.get('sssscta').dirty || guiaForm.get('sssscta').touched)">
+  		            <input id="sssscta" type="text" formControlName="sssscta" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                SsssCta es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- auxiliar1 1-->
+  		    <label for="auxiliar1" class="clr-control-label">Auxiliar 1<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- auxiliar1 2-->
+  		        <label for="auxiliar1" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('auxiliar1').invalid && (guiaForm.get('auxiliar1').dirty || guiaForm.get('auxiliar1').touched)">
+  		            <input id="auxiliar1" type="text" formControlName="auxiliar1" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Auxiliar 1 es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- auxiliar2 1-->
+  		    <label for="auxiliar2" class="clr-control-label">Auxiliar 2<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- auxiliar2 2-->
+  		        <label for="auxiliar2" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('auxiliar2').invalid && (guiaForm.get('auxiliar2').dirty || guiaForm.get('auxiliar2').touched)">
+  		            <input id="auxiliar2" type="text" formControlName="auxiliar2" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Auxiliar 2 es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control"><!-- auxiliar3 1-->
+  		    <label for="auxiliar3" class="clr-control-label">Auxiliar 3<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- auxiliar3 2-->
+  		        <label for="auxiliar3" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('auxiliar3').invalid && (guiaForm.get('auxiliar3').dirty || guiaForm.get('auxiliar3').touched)">
+  		            <input id="auxiliar3" type="text" formControlName="auxiliar3" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Auxiliar 3 es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="aplicadato">
+  		        <label for="aplicadato" class="clr-control-label"> Aplica Dato<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="aplicadato" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="APLICADATO1">IMPORTE</option>
+  		<option value="APLICADATO2">IVA</option>
+  		<option value="APLICADATO3">ISR</option>
+  		<option value="APLICADATO4">IPC</option>
+  		<option value="APLICADATO5">IVA COMISIÓN</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./aplicadato 1--> 
+  		<div class="clr-form-control" id="ca">
+  		        <label for="cargoabono" class="clr-control-label"> C/A<span class="required">*</span></label>
+  		        <clr-radio-wrapper> <input type="radio" formControlName="ca" value="CARGO" required> CARGO </clr-radio-wrapper>	
+  		        <clr-radio-wrapper> <input type="radio" formControlName="ca" value="ABONO" required> ABONO </clr-radio-wrapper>	
+  		    </div><!-- ./cargoabono 1--> 
+  		<div class="clr-form-control"><!-- descripcion 1-->
+  		    <label for="descripcion" class="clr-control-label">Descripción<span class="required">*</span></label>
+  		    <div class="clr-control-container clr-col-md-12"> <!-- descripcion 2-->
+  		        <label for="descripcion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="guiaForm.get('descripcion').invalid && (guiaForm.get('descripcion').dirty || guiaForm.get('descripcion').touched)">
+  		            <input id="descripcion" type="text" formControlName="descripcion" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		            <span class="tooltip-content">
+  		                Descripción es requerido.
+  		            </span>
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="estatus">
+  		        <label for="estatusparticipante" class="clr-control-label"> Estatus<span class="required">*</span></label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="estatus" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="ACTIVO">ACTIVO</option>
+  		<option value="CANCELADO">CANCELADO</option>
+  		<option value="SUSPENDIDO">SUSPENDIDO</option>
+  		<option value="BAJA">BAJA</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div><!-- ./estatusparticipante 1--> 
+	<!-- ./fields -->
+
+	<!-- // Json 	
+	<p>Form value {{ guiaForm.value | json }} </p>
+	<p> Form status {{ guiaForm.status | json}} </p> 
+	-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-primary" (click)="editaGuia()"><clr-icon shape="success-standard"></clr-icon> Editar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaGuia()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->
+
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modaltransaccion" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Transaccion</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+		<!--  grid -->
+        <clr-datagrid [clrDgLoading]="loading">
+            <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+            <clr-dg-column>
+            <!-- radio -->     
+            </clr-dg-column>
+  
+    		<clr-dg-column [clrDgField]="'numoperacion'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Número de Operación
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'moduloItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Módulo
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'nombre'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Nombre
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'estatustransItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Estatus transacción
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'notransaccion'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Número de Transacción
+    		        </ng-container>    
+    		    </clr-dg-column>
+    		<clr-dg-column [clrDgField]="'monedaItem'" >
+    		    <ng-container *clrDgHideableColumn="{hidden: false}">
+    		        Moneda
+    		    </ng-container> 
+    		</clr-dg-column>	
+    		<clr-dg-column [clrDgField]="'hora'">
+    		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+    		            Horario límite de ejecución
+    		        </ng-container>    
+    		    </clr-dg-column>
+  
+  			<clr-dg-row *ngFor="let transaccion of transaccionArray">
+  			<clr-dg-cell><input type="radio" name="transaccionId" [checked]="transaccion.checked" value="{{transaccion.id}}" (click)="setClickedRowTransaccion(i, transaccion)"></clr-dg-cell>
+    		<clr-dg-cell>{{transaccion.numoperacion}}</clr-dg-cell>
+    		<clr-dg-cell >{{transaccion.moduloItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{transaccion.nombre}}</clr-dg-cell>
+    		<clr-dg-cell >{{transaccion.estatustransItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{transaccion.notransaccion}}</clr-dg-cell>
+    		<clr-dg-cell >{{transaccion.monedaItem}}</clr-dg-cell>
+    		<clr-dg-cell>{{transaccion.hora}}</clr-dg-cell>
+            </clr-dg-row>
+            
+            <!-- footer -->
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+            <!-- ./footer -->
+        
+        	</clr-datagrid>
+        	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modaltransaccion = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modaltransaccion = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 
+    

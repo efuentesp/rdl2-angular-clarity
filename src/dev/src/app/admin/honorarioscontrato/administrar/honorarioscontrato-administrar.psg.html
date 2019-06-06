@@ -1,0 +1,78 @@
+<!-- PSG Administrar Honorarioscontrato Html -->
+<div class="card-header">
+Administrar Cartera honorarios por contrato
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="honorarioscontrato_create" class="btn btn-icon btn-outline" (click)="getHonorarioscontrato()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'nombre'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'persona'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Persona
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'comisiones'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Comisiones
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'iva'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		IVA
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let honorarioscontrato of honorarioscontratoArray" [clrDgItem]="honorarioscontrato">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaHonorarioscontrato(i, honorarioscontrato)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaHonorarioscontrato(i, honorarioscontrato)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="honorarioscontrato_update" (click)="setClickedRowEditaHonorarioscontrato(i, honorarioscontrato)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="honorarioscontrato_delete" (click)="setClickedRowEliminaHonorarioscontrato(i, honorarioscontrato)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{honorarioscontrato.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioscontrato.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioscontrato.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioscontrato.persona}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioscontrato.comisiones}}</clr-dg-cell>
+<clr-dg-cell >{{honorarioscontrato.iva}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

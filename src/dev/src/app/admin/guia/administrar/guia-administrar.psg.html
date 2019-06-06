@@ -1,0 +1,132 @@
+<!-- PSG Administrar Guia Html -->
+<div class="card-header">
+Administrar Catálogo de guías
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="guia_create" class="btn btn-icon btn-outline" (click)="getGuia()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'transaccionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Número de Transacción
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Sec
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nombrecuenta'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre de la cuenta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'ctamayor'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cta.Mayor
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'scta'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		SCta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		SsCta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		SssCtaCopia
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		SsssCta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'auxiliar1'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Auxiliar 1
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'auxiliar2'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Auxiliar 2
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Auxiliar 3
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'aplicadatoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Aplica Dato
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'caItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        C/A
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let guia of guiaArray" [clrDgItem]="guia">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaGuia(i, guia)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaGuia(i, guia)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="guia_update" (click)="setClickedRowEditaGuia(i, guia)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="guia_delete" (click)="setClickedRowEliminaGuia(i, guia)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{guia.transaccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{guia.sec}}</clr-dg-cell>
+<clr-dg-cell >{{guia.nombrecuenta}}</clr-dg-cell>
+<clr-dg-cell >{{guia.ctamayor}}</clr-dg-cell>
+<clr-dg-cell >{{guia.scta}}</clr-dg-cell>
+<clr-dg-cell >{{guia.sscta}}</clr-dg-cell>
+<clr-dg-cell >{{guia.sssctacopia}}</clr-dg-cell>
+<clr-dg-cell >{{guia.sssscta}}</clr-dg-cell>
+<clr-dg-cell >{{guia.auxiliar1}}</clr-dg-cell>
+<clr-dg-cell >{{guia.auxiliar2}}</clr-dg-cell>
+<clr-dg-cell >{{guia.auxiliar3}}</clr-dg-cell>
+<clr-dg-cell >{{guia.aplicadatoItem}}</clr-dg-cell>
+<clr-dg-cell >{{guia.caItem}}</clr-dg-cell>
+<clr-dg-cell >{{guia.descripcion}}</clr-dg-cell>
+<clr-dg-cell >{{guia.estatusItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

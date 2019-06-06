@@ -1,0 +1,198 @@
+<!-- PSG Administrar Compradirecto Html -->
+<div class="card-header">
+Administrar Instrucción de compra de valores
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="compradirecto_create" class="btn btn-icon btn-outline" (click)="getCompradirecto()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'instruccionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Instrucción
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Fecha valor
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'titulosgarantiaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Títulos en garantía
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'operacionfuturaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Operación Futura
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha de operación
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'activosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Activos
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Tipo movimiento
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Importe
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Custodio
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Comisión
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'mercadoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Mercado
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'instrumentoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Instrumento
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		ISR
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'contratoinversionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Contrato de inversión
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Fecha de Liquidación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'emisionesItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Emisiones
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'serie'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Serie
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		No. Títulos
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Precio
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Descripción complementaria
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Intereses
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'pizarra'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Pizarra/Clave de cotización
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'cupon'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cupón
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let compradirecto of compradirectoArray" [clrDgItem]="compradirecto">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaCompradirecto(i, compradirecto)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaCompradirecto(i, compradirecto)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="compradirecto_update" (click)="setClickedRowEditaCompradirecto(i, compradirecto)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="compradirecto_delete" (click)="setClickedRowEliminaCompradirecto(i, compradirecto)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{compradirecto.instruccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.fechavalor}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.titulosgarantiaItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.operacionfuturaItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.fechaoperacion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.activosItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.tipomovimiento}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.importe}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.custodio}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.comision}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.mercadoItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.instrumentoItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.isr}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.contratoinversionItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.fechaliquidacion}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.emisionesItem}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.serie}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.notitulos}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.precio}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.desccomplementaria}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.intereses}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.pizarra}}</clr-dg-cell>
+<clr-dg-cell >{{compradirecto.cupon}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

@@ -1,0 +1,198 @@
+<!-- PSG Administrar Contratoinversion Html -->
+<div class="card-header">
+Administrar Contratos de inversión
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="contratoinversion_create" class="btn btn-icon btn-outline" (click)="getContratoinversion()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'tipocontratoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de contrato
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'intermediarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Intermediario
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre contacto 1
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Nombre contacto 2
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'resparamliqItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Requiere parámetros de liquidación
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'enviorecursosinvItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Envío recursos por inversión
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'transferenciarecdesinverItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Transferencia de recursos por desinversión
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'retenerisrItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Retener ISR
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha vencimiento
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'contratoiversion'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Contrato inversión
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'contratootrasinst'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Contrato otras instituciones
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Contacto1 Lada
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Contacto1 Telefono
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Contacto1 Ext
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Contacto2 Lada
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Contacto2 Telefono
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Contacto2 Ext
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Cuenta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'traspasoentresubfisoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Traspaso entre sub fiso
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha apertura
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'origenrecursosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Origen de los recursos
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let contratoinversion of contratoinversionArray" [clrDgItem]="contratoinversion">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaContratoinversion(i, contratoinversion)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaContratoinversion(i, contratoinversion)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="contratoinversion_update" (click)="setClickedRowEditaContratoinversion(i, contratoinversion)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="contratoinversion_delete" (click)="setClickedRowEliminaContratoinversion(i, contratoinversion)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{contratoinversion.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.tipocontratoItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.intermediarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.nombrecontacto1}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.nombrecontacto2}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.resparamliqItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.enviorecursosinvItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.transferenciarecdesinverItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.retenerisrItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.fechavencimiento | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contratoiversion}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contratootrasinst}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contacto1lada}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contacto1telefono}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contacto1ext}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contacto2lada}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contacto2telefono}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.contacto2ext}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.cuenta}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.traspasoentresubfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.fechaapertura | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{contratoinversion.origenrecursosItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

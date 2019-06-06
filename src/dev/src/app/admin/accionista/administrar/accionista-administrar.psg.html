@@ -1,0 +1,84 @@
+<!-- PSG Administrar Accionista Html -->
+<div class="card-header">
+Administrar Accionista
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="accionista_create" class="btn btn-icon btn-outline" (click)="getAccionista()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Accionista de
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		RFC
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		% de Participación Accionaria
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipopersonaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de Persona
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'nacionalidadItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Nacionalidad
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'pepItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Persona Políticamente Expuesta (PEP)
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let accionista of accionistaArray" [clrDgItem]="accionista">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaAccionista(i, accionista)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaAccionista(i, accionista)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="accionista_update" (click)="setClickedRowEditaAccionista(i, accionista)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="accionista_delete" (click)="setClickedRowEliminaAccionista(i, accionista)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{accionista.accionistade}}</clr-dg-cell>
+<clr-dg-cell >{{accionista.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{accionista.rfc}}</clr-dg-cell>
+<clr-dg-cell >{{accionista.porcentajeparticipacionaccionaria}}</clr-dg-cell>
+<clr-dg-cell >{{accionista.tipopersonaItem}}</clr-dg-cell>
+<clr-dg-cell >{{accionista.nacionalidadItem}}</clr-dg-cell>
+<clr-dg-cell >{{accionista.pepItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

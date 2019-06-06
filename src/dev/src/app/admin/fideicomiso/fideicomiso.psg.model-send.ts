@@ -1,0 +1,56 @@
+/* PSG  Fideicomiso Model */
+import { DecimalPipe } from '@angular/common';
+
+export class FideicomisoSend {
+  generalesnumero: number = null;
+  generalesnombre: string = null;
+  generalesadministrador: string = null;
+  generalespromotor: string = null;
+  caracteristicasformamanejo: string = null;
+  caracteristicastiponegocio: string = null;
+  caracteristicasproducto: string = null;
+  caracteristicasvalfatca: string = null;
+  caracteristicasmontoapertura: number = null;
+  caracteristicasmanejosubfisos: string = null;
+  caracteristicassujetoart151: string = null;
+  caracteristicascerrado: string = null;
+  caracteristicasrevocable: string = null;
+  caracteristicasescontratoeje: string = null;
+  caracteristicascomitetecnico: string = null;
+  caracteristicasofibanxico: string = null;
+  caracteristicasmanejamonext: string = null;
+  caracteristicasivafronterizo: string = null;
+  caracteristicasfechaalta: number = null;
+  caracteristicasfechaconstitucion: number = null;
+  caracteristicasfechaaprobacion: number = null;
+  caracteristicasestado: string = null;
+  adicionalestipo: string = null;
+  adicionalestipopersona: string = null;
+  adicionalesconactividadempresarial: string = null;
+  adicionalespermisosre: string = null;
+  adicionalesfechapermisosre: number = null;
+  adicionalesprovsustfiduciaria: string = null;
+  adicionalesfondosinterfaseafore: string = null;
+  adicionalesregnalinvext: string = null;
+  adicionalesfechainscripcion: number = null;
+  adicionalesformalizacioncontrato: string = null;
+  adicionalesnoescritura: string = null;
+  adicionalesfechaescritura: number = null;
+  adicionalesnombrenotario: string = null;
+  adicionalesnonotario: string = null;
+  adicionalesciudadnotario: string = null;
+  adicionalesestadonotario: string = null;
+  adicionalespaisnotario: string = null;
+  adicionalesfolioregistropublico: string = null;
+  adicionalesfechainscripcionregpublico: number = null;
+  adicionalesadministracion: string = null;
+  adicionalescontabilidaddelegada: string = null;
+  datosbanxicoactividadeconomica: string = null;
+  datosbanxicofiducuario: string = null;
+  datosbanxicosectorbancario: string = null;
+  datosbanxicolocalidad: string = null;
+  datosbanxicocentroresp: string = null;
+  datosbanxiconocr: string = null;
+  datosbanxicorfccontrato: string = null;
+  datosbanxiconumerocliente: string = null;
+}

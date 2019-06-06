@@ -1,0 +1,150 @@
+<!-- PSG Administrar Aportaciones Html -->
+<div class="card-header">
+Administrar Aportaciones
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="aportaciones_create" class="btn btn-icon btn-outline" (click)="getAportaciones()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'instruccionItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Instrucción
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Total importe
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'destinorecepcionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Destino de la recepción
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'formarecepcionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Forma de la recepción
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusoperacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus de operación
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipopersonaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo persona
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha de contabilización
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Descripción complementaria
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre del fideicomiso
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Eventos realizados/eventos separados
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Total Aplicado
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe de la recepción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'origenrecursosItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Origen recursos
+		    </ng-container> 
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let aportaciones of aportacionesArray" [clrDgItem]="aportaciones">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaAportaciones(i, aportaciones)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaAportaciones(i, aportaciones)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="aportaciones_update" (click)="setClickedRowEditaAportaciones(i, aportaciones)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="aportaciones_delete" (click)="setClickedRowEliminaAportaciones(i, aportaciones)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{aportaciones.instruccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.totalimporte}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.destinorecepcionItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.estatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.formarecepcionItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.estatusoperacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.tipopersonaItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.fechacontabilizacion | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.nombre}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.descripcioncomplementaria}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.nombrefideicomiso}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.eventos}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.totalaplicado}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.importerecepcion}}</clr-dg-cell>
+<clr-dg-cell >{{aportaciones.origenrecursosItem}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

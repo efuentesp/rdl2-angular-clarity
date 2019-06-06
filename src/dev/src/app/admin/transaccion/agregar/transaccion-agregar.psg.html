@@ -1,0 +1,175 @@
+<!-- PSG Transaccion Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Catálogo de transacciones
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="transaccionForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control">
+	    <label for="numoperacion" class="clr-control-label">
+	    Número de Operación
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="numoperacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="transaccionForm.get('numoperacion').invalid && (transaccionForm.get('numoperacion').dirty || transaccionForm.get('numoperacion').touched)">
+	            <input id="numoperacion" type="text" formControlName="numoperacion" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Número de Operación es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="modulo">
+	        <label for="modulo" class="clr-control-label">
+	        Módulo
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="modulo" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="MOD1">OPERACIÓN FIDUCIARIA</option>
+	<option value="MOD2">HONORARIOS</option>
+	<option value="MOD3">INVERSIONES</option>
+	<option value="MOD4">ADMINISTRACIÓN</option>
+	<option value="MOD5">INMUEBLES</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="nombre" class="clr-control-label">
+	    Nombre
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="nombre" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="transaccionForm.get('nombre').invalid && (transaccionForm.get('nombre').dirty || transaccionForm.get('nombre').touched)">
+	            <input id="nombre" type="text" formControlName="nombre" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Nombre es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="costoejecucion" class="clr-control-label">
+	    Costo de ejecución
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="costoejecucion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="transaccionForm.get('costoejecucion').invalid && (transaccionForm.get('costoejecucion').dirty || transaccionForm.get('costoejecucion').touched)">
+	            <input id="costoejecucion" type="text" formControlName="costoejecucion" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Costo de ejecución es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="estatustrans">
+	        <label for="estatusparticipante" class="clr-control-label">
+	        Estatus transacción
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="estatustrans" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="ACTIVO">ACTIVO</option>
+	<option value="CANCELADO">CANCELADO</option>
+	<option value="SUSPENDIDO">SUSPENDIDO</option>
+	<option value="BAJA">BAJA</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="notransaccion" class="clr-control-label">
+	    Número de Transacción
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="notransaccion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="transaccionForm.get('notransaccion').invalid && (transaccionForm.get('notransaccion').dirty || transaccionForm.get('notransaccion').touched)">
+	            <input id="notransaccion" type="text" formControlName="notransaccion" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Número de Transacción es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="moneda">
+	        <label for="moneda" class="clr-control-label">
+	        Moneda
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="moneda" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="DLS">DLS. U.S.A.</option>
+	<option value="EURO">EUROS</option>
+	<option value="NACIONAL">MONEDA NACIONAL</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control" id="columedocuenta">
+	        <label for="columedocuenta" class="clr-control-label">
+	        Columna edo. Cuenta
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="columedocuenta" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="ABONO">ABONO</option>
+	<option value="CARGO">CARGO</option>
+	<option value="COMPRA">COMPRA</option>
+	<option value="VENTA">VENTA</option>
+	<option value="CONTABILIZA">CONTABILIZA</option>
+	<option value="POLIZA">PÓLIZA</option>
+	<option value="CORRECCION">CORRECCIÓN</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="hora" class="clr-control-label">
+	    Horario límite de ejecución
+	    </label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="hora" class="clr-input clr-col-sm-11 clr-col-md-11">
+	            <input id="hora" type="text" formControlName="hora" 
+	            	   placeholder=""
+	            	   class="clr-input clr-col-sm-12 clr-col-md-12">
+	        </label>
+	    </div>
+	</div>
+    
+    <!-- <p>Form value {{ transaccionForm.value | json }} </p>
+    <p> Form status {{ transaccionForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaTransaccion()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaTransaccion()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

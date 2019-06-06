@@ -1,0 +1,132 @@
+<!-- PSG Administrar Saldoscuenta Html -->
+<div class="card-header">
+Administrar Saldos por cuenta
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="saldoscuenta_create" class="btn btn-icon btn-outline" (click)="getSaldoscuenta()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'cuenta'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cuenta
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'sct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Sct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'ssct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Ssct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'sssct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Sssct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'ssssct'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Ssssct
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'auxiliar1'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Auxiliar 1
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'auxiliar2'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Auxiliar 2
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'auxiliar3'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Auxiliar 3
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'saldoinicial'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Saldo inicial
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'cargos'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Cargos
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'abonos'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Abonos
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'saldoactual'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Saldo actual
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let saldoscuenta of saldoscuentaArray" [clrDgItem]="saldoscuenta">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaSaldoscuenta(i, saldoscuenta)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaSaldoscuenta(i, saldoscuenta)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="saldoscuenta_update" (click)="setClickedRowEditaSaldoscuenta(i, saldoscuenta)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="saldoscuenta_delete" (click)="setClickedRowEliminaSaldoscuenta(i, saldoscuenta)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{saldoscuenta.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.cuenta}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.sct}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.ssct}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.sssct}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.ssssct}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.auxiliar1}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.auxiliar2}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.auxiliar3}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.saldoinicial}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.cargos}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.abonos}}</clr-dg-cell>
+<clr-dg-cell >{{saldoscuenta.saldoactual}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

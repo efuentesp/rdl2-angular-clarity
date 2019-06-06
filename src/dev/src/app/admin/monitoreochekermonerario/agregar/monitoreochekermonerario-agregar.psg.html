@@ -1,0 +1,321 @@
+<!-- PSG Monitoreochekermonerario Add Html -->
+<!-- head -->
+<div class="card-header">
+    Agregar Monitoreo de Instrucciones de checker monetario
+</div> 
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="monitoreochekermonerarioForm">
+    <div style="margin: 20px;">
+	<div class="clr-form-control" id="fideicomisoId">
+	        <label for="fideicomisoItem" class="clr-control-label">
+	        Fideicomiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="fideicomisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="monitoreochekermonerarioForm.get('fideicomisoItem').invalid && (monitoreochekermonerarioForm.get('fideicomisoItem').dirty || monitoreochekermonerarioForm.get('fideicomisoItem').touched)">
+	                <input id="fideicomisoId"   type="hidden" formControlName="fideicomisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="fideicomisoItem" type="text"   formControlName="fideicomisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalfideicomiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Fideicomiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control" id="subfisoId">
+	        <label for="subfisoItem" class="clr-control-label">
+	        Sub fiso
+	        <span class="required">*</span>
+	        </label>
+	        <div class="clr-control-container clr-col-md-12"> 
+	            <div class="clr-input-wrapper">
+	            <label for="subfisoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                    [class.invalid]="monitoreochekermonerarioForm.get('subfisoItem').invalid && (monitoreochekermonerarioForm.get('subfisoItem').dirty || monitoreochekermonerarioForm.get('subfisoItem').touched)">
+	                <input id="subfisoId"   type="hidden" formControlName="subfisoId" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <input id="subfisoItem" type="text"   formControlName="subfisoItem" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+	                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalsubfiso = true"><clr-icon shape="search"></clr-icon></button>
+	                <span class="tooltip-content">
+	                	 Sub fiso es requerido.
+	                </span>
+	            </label>
+	            </div>
+	        </div>
+	    </div>
+	<div class="clr-form-control">
+	    <label for="foliooperacion" class="clr-control-label">
+	    Folio de operación
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="foliooperacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('foliooperacion').invalid && (monitoreochekermonerarioForm.get('foliooperacion').dirty || monitoreochekermonerarioForm.get('foliooperacion').touched)">
+	            <input id="foliooperacion" type="text" formControlName="foliooperacion" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Folio de operación es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="importe" class="clr-control-label">
+	    Importe
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('importe').invalid && (monitoreochekermonerarioForm.get('importe').dirty || monitoreochekermonerarioForm.get('importe').touched)">
+	            <input id="importe" type="text" formControlName="importe" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Importe es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="fechaoperacion" class="clr-control-label">
+	    Fecha de operación
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="fechaoperacion" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('fechaoperacion').invalid && (monitoreochekermonerarioForm.get('fechaoperacion').dirty || monitoreochekermonerarioForm.get('fechaoperacion').touched)">
+	            <input id="fechaoperacion" type="text" formControlName="fechaoperacion" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Fecha de operación es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="totalpagos" class="clr-control-label">
+	    Total Pagos
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="totalpagos" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('totalpagos').invalid && (monitoreochekermonerarioForm.get('totalpagos').dirty || monitoreochekermonerarioForm.get('totalpagos').touched)">
+	            <input id="totalpagos" type="text" formControlName="totalpagos" 
+	                   placeholder=""
+	                   class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Total Pagos es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="liquidados" class="clr-control-label">
+	    Liq
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="liquidados" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('liquidados').invalid && (monitoreochekermonerarioForm.get('liquidados').dirty || monitoreochekermonerarioForm.get('liquidados').touched)">
+	            <input id="liquidados" type="number" formControlName="liquidados" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Liq es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="contabilizados" class="clr-control-label">
+	    Cont
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="contabilizados" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('contabilizados').invalid && (monitoreochekermonerarioForm.get('contabilizados').dirty || monitoreochekermonerarioForm.get('contabilizados').touched)">
+	            <input id="contabilizados" type="number" formControlName="contabilizados" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Cont es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="pendientes" class="clr-control-label">
+	    Pend
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="pendientes" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('pendientes').invalid && (monitoreochekermonerarioForm.get('pendientes').dirty || monitoreochekermonerarioForm.get('pendientes').touched)">
+	            <input id="pendientes" type="number" formControlName="pendientes" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Pend es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control">
+	    <label for="error" class="clr-control-label">
+	    Error
+	    <span class="required">*</span></label>
+	    <div class="clr-control-container clr-col-md-12"> 
+	        <label for="error" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+	                [class.invalid]="monitoreochekermonerarioForm.get('error').invalid && (monitoreochekermonerarioForm.get('error').dirty || monitoreochekermonerarioForm.get('error').touched)">
+	            <input id="error" type="number" formControlName="error" placeholder="" class="clr-input clr-col-sm-12 clr-col-md-12">
+	            <span class="tooltip-content">
+	                Error es requerido.
+	            </span>
+	        </label>
+	    </div>
+	</div>
+	<div class="clr-form-control" id="estatus">
+	        <label for="estatusinstruccion" class="clr-control-label">
+	        Estatus
+	        <span class="required">*</span>
+	        </label>
+	            <div class="clr-control-container">
+		<div class="clr-select-wrapper">
+			<select formControlName="estatus" required>
+			<option value=""> -- Seleccione un valor -- </option>
+	<option value="APLI">APLICADO</option>
+	<option value="APLIPAR">APLICADO PARCIAL</option>
+	<option value="CANC">CANCELADO</option>
+	<option value="PROC">EN PROCESO</option>
+	<option value="PEND">PENDIENTE</option>
+	        </select>
+			<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+		</div>
+	</div>
+	    </div>
+    
+    <!-- <p>Form value {{ monitoreochekermonerarioForm.value | json }} </p>
+    <p> Form status {{ monitoreochekermonerarioForm.status | json}} </p> -->
+    <p>
+        <button type="submit" class="btn btn-primary" (click)="guardaMonitoreochekermonerario()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaMonitoreochekermonerario()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    
+	<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalfideicomiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Fideicomiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'generalesadministradorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Administrador
+        		    </ng-container> 
+        		</clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'generalespromotorItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Generales_Promotor
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+      			<clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}" (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        		<clr-dg-cell >{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+        </div>
+</clr-modal>
+<clr-modal [(clrModalOpen)]="modalsubfiso" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Subfiso</h3>
+			
+			<!-- body -->
+    <div class="modal-body">
+    	
+    		<!--  grid -->
+            <clr-datagrid [clrDgLoading]="loading">
+                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+                <clr-dg-column>
+                <!-- radio -->     
+                </clr-dg-column>
+      
+        		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+        		        <ng-container *clrDgHideableColumn="{hidden: false}">
+        		            Fideicomiso
+        		        </ng-container>
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'numero'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Número
+        		        </ng-container>    
+        		    </clr-dg-column>	
+        		<clr-dg-column [clrDgField]="'nombre'">
+        		        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+        		            Nombre
+        		        </ng-container>    
+        		    </clr-dg-column>
+        		<clr-dg-column [clrDgField]="'estatusItem'" >
+        		    <ng-container *clrDgHideableColumn="{hidden: false}">
+        		        Estatus
+        		    </ng-container> 
+        		</clr-dg-column>	
+      
+      			<clr-dg-row *ngFor="let subfiso of subfisoArray">
+      			<clr-dg-cell><input type="radio" name="subfisoId" [checked]="subfiso.checked" value="{{subfiso.id}}" (click)="setClickedRowSubfiso(i, subfiso)"></clr-dg-cell>
+        		<clr-dg-cell >{{subfiso.fideicomisoItem}}</clr-dg-cell>
+        		<clr-dg-cell>{{subfiso.numero}}</clr-dg-cell>
+        		<clr-dg-cell>{{subfiso.nombre}}</clr-dg-cell>
+        		<clr-dg-cell >{{subfiso.estatusItem}}</clr-dg-cell>
+                </clr-dg-row>
+                
+                <!-- footer -->
+                <clr-dg-footer>
+                    <clr-dg-column-toggle>
+                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                    </clr-dg-column-toggle>
+                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                        de {{pagination.totalItems}} registros
+                    </clr-dg-pagination>
+                </clr-dg-footer>
+                <!-- ./footer -->
+        
+            	</clr-datagrid>
+            	<!--  ./grid -->
+        	
+        </div>
+        <!-- ./body -->
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline" (click)="modalsubfiso = false">Regresar</button>
+            <button type="button" class="btn btn-primary" (click)="modalsubfiso = false">Elegir</button>
+        </div>
+</clr-modal>
+    <!-- ./modals -->
+    	    
+    </div>
+</form>
+<!-- ./form -->

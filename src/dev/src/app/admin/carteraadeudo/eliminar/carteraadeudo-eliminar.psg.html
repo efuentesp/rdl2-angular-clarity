@@ -1,0 +1,194 @@
+<!-- PSG Carteraadeudo Delete Html -->
+<!-- head -->
+<div class="card-header">
+    Eliminar Cartera adeudos
+</div> 
+<!-- ./head -->
+
+<!-- form -->    
+<form class="form" [formGroup]="carteraadeudoForm">
+	<!-- div -->
+	<div style="margin: 20px;">
+	
+	<!-- fields -->
+  		<div class="clr-form-control" id="honorarioscontratoId">
+  		        <label for="honorarioscontratoItem" class="clr-control-label">Honorarioscontrato<span class="required">*</span></label>
+  		        <div class="clr-control-container clr-col-md-12"> 
+  		            <div class="clr-input-wrapper">
+  		            <label for="honorarioscontratoItem" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                    [class.invalid]="carteraadeudoForm.get('honorarioscontratoItem').invalid && (carteraadeudoForm.get('honorarioscontratoItem').dirty || carteraadeudoForm.get('honorarioscontratoItem').touched)">
+  		                <input id="honorarioscontratoId"   type="hidden" formControlName="honorarioscontratoId" placeholder="Honorarioscontrato" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <input id="honorarioscontratoItem" type="text"   formControlName="honorarioscontratoItem" placeholder="Honorarioscontrato" class="clr-input clr-col-sm-12 clr-col-md-12" disabled>
+  		                <button type="button" class="btn btn-sm" style="margin-top: -17px" (click)="modalhonorarioscontrato = true" disabled><clr-icon shape="search"></clr-icon></button>
+  		                <span class="tooltip-content">
+  		                    Honorarioscontrato es requerido.
+  		                </span>
+  		            </label>
+  		            </div>
+  		        </div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="folioadeudo" class="clr-control-label">
+  		    	Folio adeudo
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="folioadeudo" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="carteraadeudoForm.get('folioadeudo').invalid && (carteraadeudoForm.get('folioadeudo').dirty || carteraadeudoForm.get('folioadeudo').touched)">
+  		            <input id="folioadeudo" type="text" formControlName="folioadeudo" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+  		<div class="clr-form-control" id="calificacion">
+  		        <label for="calificacion" class="clr-control-label">
+  		        Calificación
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="calificacion" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="PENDIENTE">PENDIENTE</option>
+  		<option value="PAGADO">PAGADO</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		        <div class="clr-form-control">
+  		<label for="fechacalculoAux" class="clr-control-label">
+  			Fecha de cálculo
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="fechacalculoAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="carteraadeudoForm.get('fechacalculoAux').invalid && (carteraadeudoForm.get('fechacalculoAux').dirty || carteraadeudoForm.get('fechacalculoAux').touched)">
+  				<input id="fechacalculoAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="fechacalculoAux"/>
+  				<span class="tooltip-content">
+  					Fecha de cálculo es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		        <div class="clr-form-control">
+  		<label for="delAux" class="clr-control-label">
+  			Del
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="delAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="carteraadeudoForm.get('delAux').invalid && (carteraadeudoForm.get('delAux').dirty || carteraadeudoForm.get('delAux').touched)">
+  				<input id="delAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="delAux"/>
+  				<span class="tooltip-content">
+  					Del es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		        <div class="clr-form-control">
+  		<label for="alAux" class="clr-control-label">
+  			Al
+  		</label>
+  		<div class="clr-control-container clr-col-md-12"> 
+  			<label for="alAux" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm"
+  					[class.invalid]="carteraadeudoForm.get('alAux').invalid && (carteraadeudoForm.get('alAux').dirty || carteraadeudoForm.get('alAux').touched)">
+  				<input id="alAux" placeholder="dd/MM/yyyy" type="date" style="width: 700px" class="clr-input" clrDate formControlName="alAux"/>
+  				<span class="tooltip-content">
+  					Al es requerido.
+  				</span>
+  			</label>
+  		</div>
+  				</div>
+  		<div class="clr-form-control" id="moneda">
+  		        <label for="moneda" class="clr-control-label">
+  		        Moneda
+  		        </label>
+  		            <div class="clr-control-container">
+  			<div class="clr-select-wrapper">
+  				<select formControlName="moneda" required>
+  				<option value=""> -- Seleccione un valor -- </option>
+  		<option value="DLS">DLS. U.S.A.</option>
+  		<option value="EURO">EUROS</option>
+  		<option value="NACIONAL">MONEDA NACIONAL</option>
+  		        </select>
+  				<clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+  			</div>
+  		</div>
+  		    </div>
+  		
+  		<div class="clr-form-control">
+  		    <label for="importe" class="clr-control-label">
+  		    	Importe
+  		    </label>
+  		    <div class="clr-control-container clr-col-md-12"> 
+  		        <label for="importe" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+  		                [class.invalid]="carteraadeudoForm.get('importe').invalid && (carteraadeudoForm.get('importe').dirty || carteraadeudoForm.get('importe').touched)">
+  		            <input id="importe" type="text" formControlName="importe" placeholder="" class="clr-input clr-col-sm-11 clr-col-md-12" >
+  		        </label>
+  		    </div>
+  		</div>
+	<!-- ./fields -->
+
+<!-- // Json 	
+<p>Form value {{ carteraadeudoForm.value | json }} </p>
+<p> Form status {{ carteraadeudoForm.status | json}} </p> 
+-->
+
+    <!-- buttons -->        
+    <p>   
+        <button type="submit" class="btn btn-danger" (click)="eliminaCarteraadeudo()"><clr-icon shape="trash"></clr-icon> Eliminar</button>
+        <button type="submit" class="btn btn-outline" (click)="regresaCarteraadeudo()"><clr-icon shape="undo"></clr-icon> Regresar</button>
+    </p>
+    <!-- ./buttons -->		
+
+<!-- modals -->
+  		<clr-modal [(clrModalOpen)]="modalhonorarioscontrato" class="modal-dialog modal-xl"  style="width: 700px">
+  		    <h3 class="modal-title">Honorarioscontrato</h3>
+  					
+  					<!-- body -->
+  		    <div class="modal-body">
+  		    	<div class="card-block">
+  		    	
+  		    		<!--  grid -->
+  		            <clr-datagrid [clrDgLoading]="loading">
+  		                <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+  		                <clr-dg-column>
+  		                   <!-- radio -->     
+  		                </clr-dg-column>
+  		      
+  		        			
+  		        			
+  		        			
+  		      
+  		        			
+  		        			
+  		        			
+  		                
+  		                <!-- footer -->
+  		                <clr-dg-footer>
+  		                    <clr-dg-column-toggle>
+  		                        <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+  		                        <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+  		                    </clr-dg-column-toggle>
+  		                    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+  		                        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+  		                        de {{pagination.totalItems}} registros
+  		                    </clr-dg-pagination>
+  		                </clr-dg-footer>
+  		                <!-- ./footer -->
+  		        
+  		            	</clr-datagrid>
+  		            	<!--  ./grid -->
+  		        	</div>
+  		        </div>
+  		        <!-- ./body -->
+  		        
+  		        <div class="modal-footer">
+  		            <button type="button" class="btn btn-outline" (click)="modalhonorarioscontrato = false">Regresar</button>
+  		            <button type="button" class="btn btn-primary" (click)="modalhonorarioscontrato = false">Elegir</button>
+  		        </div>
+  		</clr-modal>
+    <!-- ./modals -->
+    
+    </div>
+    <!-- ./div -->
+</form>
+<!-- ./form --> 

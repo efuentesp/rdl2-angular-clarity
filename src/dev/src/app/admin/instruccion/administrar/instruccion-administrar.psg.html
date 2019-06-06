@@ -1,0 +1,174 @@
+<!-- PSG Administrar Instruccion Html -->
+<div class="card-header">
+Administrar Instrucciones
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="instruccion_create" class="btn btn-icon btn-outline" (click)="getInstruccion()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fechahoracaptura'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Fecha y hora de captura
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'folio'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Folio de la instrucción
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha del documento
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'clasificacionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Clasificación
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'personalidadsolicitanteItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Personalidad del solicitante
+		    </ng-container> 
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha cambio de estatus
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'subtipoinstruccionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Subtipo de instrucción
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe de la instrucción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'importeaplicado'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Importe aplicado
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Nombre del fideicomiso
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Nombre del sub fiso
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Titular del fideicomiso
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha del compromiso
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'formarecepcionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Forma de recepción
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'estatusinstruccionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Estatus de la instrucción
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipoinstruccionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de instrucción
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'monedaItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Moneda
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		No. de eventos
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		No. Efectuados
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Información complementaria
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let instruccion of instruccionArray" [clrDgItem]="instruccion">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaInstruccion(i, instruccion)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaInstruccion(i, instruccion)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="instruccion_update" (click)="setClickedRowEditaInstruccion(i, instruccion)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="instruccion_delete" (click)="setClickedRowEliminaInstruccion(i, instruccion)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{instruccion.fechahoracaptura}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.folio}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.fechadocumeto | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.clasificacionItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.personalidadsolicitanteItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.fechacambioestatus | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.subtipoinstruccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.importe}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.importeaplicado}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.nombrefideicomiso}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.nombresubfiso}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.titularfideicomiso}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.fechacompromiso | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.formarecepcionItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.estatusinstruccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.tipoinstruccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.monedaItem}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.noeventos}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.noefectuados}}</clr-dg-cell>
+<clr-dg-cell >{{instruccion.infocomplementaria}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		

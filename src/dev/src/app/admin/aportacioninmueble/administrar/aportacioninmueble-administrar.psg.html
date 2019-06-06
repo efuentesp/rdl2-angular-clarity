@@ -1,0 +1,258 @@
+<!-- PSG Administrar Aportacioninmueble Html -->
+<div class="card-header">
+Administrar Aportación del inmueble
+</div>
+
+<div class="card-block">
+<button type="button"  *ngIf="aportacioninmueble_create" class="btn btn-icon btn-outline" (click)="getAportacioninmueble()">
+    <clr-icon shape="plus"></clr-icon> Agregar
+</button>
+    
+    <clr-datagrid [clrDgLoading]="loading">
+        <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+		<clr-dg-column [clrDgField]="'fideicomisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Fideicomiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'subfisoItem'" >
+		        <ng-container *clrDgHideableColumn="{hidden: false}">
+		            Sub fiso
+		        </ng-container>
+		    </clr-dg-column> 
+		<clr-dg-column [clrDgField]="'tiponegocio'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Tipo negocio
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'producto'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Producto
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'idinmueble'" >
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Id inmueble
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		Fecha alta
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipoinmuebleItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo inmueble
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Árbol
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		Fecha registro
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column [clrDgField]="'tipofraccionItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Tipo de fracción
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Descripción
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_Valor inicial
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_Ubicación
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'inmuebleestadoItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Inmueble_Estado
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_Superficie
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_% Indivisos
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_Días
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_Proyecto ejecutivo
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Inmueble_Valor actual
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Inmueble_Ciudad
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: false}"> 
+		       		Inmueble_Superficie construida
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_%Fraccionamiento Unidad
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_Clave catastral
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		Inmueble_Valor
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'inmuebleestatusItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        Inmueble_Estatus
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'datosconstitucionescrituraItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        DatosConstitucion_Escritura
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosConstitucion_Núm. Escritura
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column [clrDgField]="'datosconstitucionnombrenotarioItem'" >
+		    <ng-container *clrDgHideableColumn="{hidden: false}">
+		        DatosConstitucion_Notario
+		    </ng-container> 
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosConstitucion_Estado
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosConstitucion_Teléfono
+		    </ng-container>    
+		</clr-dg-column>
+			        <clr-dg-column>
+			        <ng-container *clrDgHideableColumn="{hidden: true}"> 
+		DatosConstitucion_Fecha RPP
+			            </ng-container>    
+			        </clr-dg-column>
+			        <clr-dg-column [clrDgField]="'datosconstitucionfechaescritura'" >
+			        <ng-container *clrDgHideableColumn="{hidden: false}"> 
+		DatosConstitucion_Fecha de la escritura
+			            </ng-container>    
+			        </clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosConstitucion_Num. notaría
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosConstitucion_Ciudad
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosConstitucion_Email
+		    </ng-container>    
+		</clr-dg-column>
+		<clr-dg-column>
+		<ng-container *clrDgHideableColumn="{hidden: true}"> 
+		       		DatosConstitucion_Núm RPP
+		    </ng-container>    
+		</clr-dg-column>
+            <clr-dg-row *clrDgItems="let aportacioninmueble of aportacioninmuebleArray" [clrDgItem]="aportacioninmueble">
+                <div hidden="true">
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEditaAportacioninmueble(i, aportacioninmueble)">Editar</button> 
+                    </div>
+                    <div>
+                        <button class="action-item" (click)="setClickedRowEliminaAportacioninmueble(i, aportacioninmueble)">Eliminar</button>
+                    </div>
+                </div>
+                <clr-dg-action-overflow>
+                    <button class="action-item" *ngIf="aportacioninmueble_update" (click)="setClickedRowEditaAportacioninmueble(i, aportacioninmueble)">
+                        <clr-icon shape="note" ></clr-icon> Editar
+                    </button>
+                    <button class="action-item" *ngIf="aportacioninmueble_delete" (click)="setClickedRowEliminaAportacioninmueble(i, aportacioninmueble)">
+                        <clr-icon shape="trash"></clr-icon> Borrar
+                    </button>
+                </clr-dg-action-overflow>
+<clr-dg-cell >{{aportacioninmueble.fideicomisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.subfisoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.tiponegocio}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.producto}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.idinmueble}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.fechaalta | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.tipoinmuebleItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.arbol}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.fecharegistro | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.tipofraccionItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.descripcion}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmueblevalorinicial}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebleubicacion}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebleestadoItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmueblesuperficie}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebleindivisos}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebledias}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebleproyectoejecutivo}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmueblevaloractual}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebleciudad}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmueblesuperficieconstruida}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmueblefraccionamientounidad}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebleclavecatastral}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmueblevalor}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.inmuebleestatusItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionescrituraItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionnumescritura}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionnombrenotarioItem}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionestadonotario}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstituciontelefononotario}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionfecharpp | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionfechaescritura | date: 'dd/MM/yyyy'}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionnumnotaria}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionciudadnotario}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionemailnotario}}</clr-dg-cell>
+<clr-dg-cell >{{aportacioninmueble.datosconstitucionnumrpp}}</clr-dg-cell>
+            </clr-dg-row>
+            <clr-dg-footer>
+                <clr-dg-column-toggle>
+                    <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+                    <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+                </clr-dg-column-toggle>
+                <clr-dg-pagination #pagination [clrDgPageSize]="10">
+                    {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                    de {{pagination.totalItems}} registros
+                </clr-dg-pagination>
+            </clr-dg-footer>
+    	</clr-datagrid>
+</div>		
