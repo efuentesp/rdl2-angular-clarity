@@ -4,14 +4,15 @@
 /dist
 /tmp
 /out-tsc
-/.ng_build
-src/clr-angular/.ng_build
-/tests/tslint/dist
-
-/reports
+# Only exists if Bazel was run
+/bazel-out
 
 # dependencies
 /node_modules
+
+# profiling files
+chrome-profiler-events.json
+speed-measure-plugin.json
 
 # IDEs and editors
 /.idea
@@ -21,35 +22,26 @@ src/clr-angular/.ng_build
 *.launch
 .settings/
 *.sublime-workspace
-*.code-workspace
 
 # IDE - VSCode
 .vscode/*
-# !.vscode/settings.json
-# !.vscode/tasks.json
-# !.vscode/launch.json
-# !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
 # misc
-.awcache
 /.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
 /typings
-/src/clr-angular/package.json
-/src/clr-angular/README.md
-sauceconnect.log
-
-# e2e
-/e2e/*.js
-/e2e/*.map
 
 # System Files
 .DS_Store
 Thumbs.db
-
-# package-lock
 package-lock.json

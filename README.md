@@ -1,138 +1,27 @@
-Clarity Demo
+# NgcFiduciario
 
-Project Clarity is an open source design system that brings together UX guidelines, an HTML/CSS framework, and Angular components. This repository includes everything you need to build, customize, test, and deploy Clarity. For complete documentation
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
 
-## Getting Started
+## Development server
 
-Clarity is published as three npm packages:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-* **@clr/icons.** Contains the custom element icons.
-* **@clr/ui.** Contains the static styles for building HTML components.
-* **@clr/angular.** Contains the Angular components. This package depends on @clr/ui for styles.
+## Code scaffolding
 
-The easiest way to run a sample Angular application with Clarity is to use the [Clarity Seed](https://github.com/vmware/clarity-seed).
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-If you already have an Angular application, you can follow the installation steps below to include and use Clarity in your application.
+## Build
 
-### Installing Clarity Icons
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-1.  Install Clarity Icons package through npm:
+## Running unit tests
 
-    ```bash
-    npm install @clr/icons --save
-    ```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-2.  Install the polyfill for Custom Elements:
+## Running end-to-end tests
 
-    ```bash
-    npm install @webcomponents/custom-elements --save
-    ```
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-3.  Include the clr-icons.min.css and clr-icons.min.js in your HTML. As clr-icons.min.js is dependent on the Custom Elements polyfill, make sure to include it before clr-icons.min.js:
+## Further help
 
-    ```html
-    <link rel="stylesheet" href="path/to/node_modules/@clr/icons/clr-icons.min.css">
-
-    <script src="path/to/node_modules/@webcomponents/custom-elements/custom-elements.min.js"></script>
-    <script src="path/to/node_modules/clr-icons/clr-icons.min.js"></script>
-    ```
-
-    If your site is built with [angular-cli](https://github.com/angular/angular-cli) you can achieve the above by adding the files to the styles array and
-    scripts array in `angular-cli.json`:
-
-    ```js
-    "styles": [
-        ...
-        "../node_modules/@clr/icons/clr-icons.min.css",
-        ...
-    ],
-    "scripts": [
-        ...
-        "../node_modules/@webcomponents/custom-elements/custom-elements.min.js",
-        "../node_modules/@clr/icons/clr-icons.min.js"
-        ...
-    ]
-    ```
-
-### Installing Clarity UI
-
-1.  Install Clarity UI package through npm:
-
-    ```bash
-    npm install @clr/ui --save
-    ```
-
-2.  Include the clr-ui.min.css in your HTML file:
-
-    ```html
-    <link rel="stylesheet" href="path/to/node_modules/@clr/ui/clr-ui.min.css">
-    ```
-
-    If your site is built with [angular-cli](https://github.com/angular/angular-cli), you can achieve the above by adding the file to the styles array in
-    `angular-cli.json`:
-
-    ```js
-    "styles": [
-        ...
-        "../node_modules/@clr/ui/clr-ui.min.css"
-        ...
-    ]
-    ```
-
-3.  Write your HTML with the Clarity CSS class names and markup.
-
-### Installing Clarity Angular
-
-1.  Follow steps above to install Clarity Icons and Clarity UI.
-2.  Install the clarity-angular package through npm:
-
-    ```bash
-    npm install @clr/angular --save
-    ```
-
-3.  Import the ClarityModule into your Angular application's module. Your application's main module might look like this:
-
-    ```typescript
-    import { NgModule } from '@angular/core';
-    import { BrowserModule } from '@angular/platform-browser';
-    import { ClarityModule } from '@clr/angular';
-    import { AppComponent } from './app.component';
-
-    @NgModule({
-        imports: [
-            BrowserModule,
-            ClarityModule,
-            ....
-         ],
-         declarations: [ AppComponent ],
-         bootstrap: [ AppComponent ]
-    })
-    export class AppModule {    }
-    ```
-
-    If your application uses [systemjs](https://github.com/systemjs/systemjs), add the clarity-angular configuration
-    as in the example below.
-
-    ```
-    System.config({
-    	...
-    	map: {
-    	   ...
-    	   '@clr/angular': 'node_modules/@clr/angular/bundles/clr-angular.umd.js',
-    	},
-    	...
-    });
-    ```
-
-## Documentation
-
-For documentation on the Clarity Design System, including a list of components and example usage, see [our website](https://vmware.github.io/clarity).
-
-## Contributing
-
-The Clarity project team welcomes contributions from the community. For more detailed information, see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Licenses
-
-* The Clarity Design System is licensed under the MIT license.
-* The font is licensed under the Open Font License (OFL).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

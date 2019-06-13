@@ -1,9 +1,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist/out-tsc/spec",
-    "types": ["jasmine", "node", "jasmine-expect"]
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node"
+    ]
   },
-  "files": ["tests/tests.entry.ts"],
-  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+  "files": [
+    "src/test.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ]
 }
