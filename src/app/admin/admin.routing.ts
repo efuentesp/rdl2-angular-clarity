@@ -5,10 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 
 /* Security */
-import { AdministracionDemoModule } from './administracion/administracion.psg.module';
-import { UserDemoModule } from './user/user.psg.module';
-import { RolDemoModule } from './rol/rol.psg.module';
-
+import { AdministracionDemoModule } from '../auth/administracion/administracion.psg.module';
+import { UserDemoModule } from '../auth/user/user.psg.module';
+import { RolDemoModule } from '../auth/rol/rol.psg.module';
 
 
 const adminRoutes: Routes = [

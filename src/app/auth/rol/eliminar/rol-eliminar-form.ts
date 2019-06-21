@@ -10,8 +10,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 import Swal from "sweetalert2";
 import { DatePipe } from "@angular/common";
 
-import { Rol } from "../../rol/rol.psg.model";
-import { RolService } from "../../rol/rol.psg.service";
+import { Rol } from "../rol.psg.model";
+import { RolService } from "../rol.psg.service";
 
 @Component({
   selector: "clr-rol-angular",

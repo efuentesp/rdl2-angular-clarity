@@ -13,8 +13,8 @@ import Swal from "sweetalert2";
 import { Router, ActivatedRoute } from "@angular/router";
 import { DatePipe } from "@angular/common";
 
-import { RolService } from "../../rol/rol.psg.service";
-import { Rol } from "../../rol/rol.psg.model";
+import { RolService } from "../rol.psg.service";
+import { Rol } from "../rol.psg.model";
 import { RolSend } from "../rol.psg.model-send";
 
 @Component({

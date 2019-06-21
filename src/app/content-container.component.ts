@@ -11,6 +11,4 @@ import { APP_ROUTES } from "./app.routing";
     </main>
   `
 })
-export class AppContentContainerComponent {
-  //public routes: Route[] = APP_ROUTES;
-}
+export class AppContentContainerComponent {}
