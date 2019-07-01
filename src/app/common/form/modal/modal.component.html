@@ -1,0 +1,57 @@
+<!-- modals -->
+<clr-modal [(clrModalOpen)]="modalname" [clrModalSize]="'xl'">
+  <h3 class="modal-title">Fideicomiso</h3>
+
+  <!-- body -->
+  <div class="modal-body">
+
+    <!--  grid -->
+    <clr-datagrid [clrDgLoading]="loading">
+      <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+      <clr-dg-column>
+        <!-- radio -->
+      </clr-dg-column>
+
+      <clr-dg-column [clrDgField]="'generalesadministradorItem'">
+        <ng-container *clrDgHideableColumn="{hidden: false}">
+          Generales_Administrador
+        </ng-container>
+      </clr-dg-column>
+      <clr-dg-column [clrDgField]="'generalespromotorItem'">
+        <ng-container *clrDgHideableColumn="{hidden: false}">
+          Generales_Promotor
+        </ng-container>
+      </clr-dg-column>
+
+      <clr-dg-row *ngFor="let fideicomiso of fideicomisoArray">
+        <clr-dg-cell><input type="radio" name="fideicomisoId" [checked]="fideicomiso.checked" value="{{fideicomiso.id}}"
+            (click)="setClickedRowFideicomiso(i, fideicomiso)"></clr-dg-cell>
+        <clr-dg-cell>{{fideicomiso.generalesadministradorItem}}</clr-dg-cell>
+        <clr-dg-cell>{{fideicomiso.generalespromotorItem}}</clr-dg-cell>
+      </clr-dg-row>
+
+      <!-- footer -->
+      <clr-dg-footer>
+        <clr-dg-column-toggle>
+          <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
+          <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+        </clr-dg-column-toggle>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+          {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+          de {{pagination.totalItems}} registros
+        </clr-dg-pagination>
+      </clr-dg-footer>
+      <!-- ./footer -->
+
+    </clr-datagrid>
+    <!--  ./grid -->
+
+  </div>
+  <!-- ./body -->
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="modalfideicomiso = false">Regresar</button>
+    <button type="button" class="btn btn-primary" (click)="modalfideicomiso = false">Elegir</button>
+  </div>
+</clr-modal>
+<!-- ./modals -->

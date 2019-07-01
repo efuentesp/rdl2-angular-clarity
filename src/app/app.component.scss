@@ -1,0 +1,167 @@
+/* PSG  Fideicomisario SCSS */
+.clr-example {
+  .card {
+    max-width: 600px;
+  }
+}
+
+.clr-col-1,
+.clr-col-2,
+.clr-col-3,
+.clr-col-4,
+.clr-col-5,
+.clr-col-6,
+.clr-col-7,
+.clr-col-8,
+.clr-col-9,
+.clr-col-10,
+.clr-col-11,
+.clr-col-12,
+.clr-col,
+.clr-col-auto,
+.clr-col-sm-1,
+.clr-col-sm-2,
+.clr-col-sm-3,
+.clr-col-sm-4,
+.clr-col-sm-5,
+.clr-col-sm-6,
+.clr-col-sm-7,
+.clr-col-sm-8,
+.clr-col-sm-9,
+.clr-col-sm-10,
+.clr-col-sm-11,
+.clr-col-sm-12,
+.clr-col-sm,
+.clr-col-sm-auto,
+.clr-col-md-1,
+.clr-col-md-2,
+.clr-col-md-3,
+.clr-col-md-4,
+.clr-col-md-5,
+.clr-col-md-6,
+.clr-col-md-7,
+.clr-col-md-8,
+.clr-col-md-9,
+.clr-col-md-10,
+.clr-col-md-11,
+.clr-col-md-12,
+.clr-col-md,
+.clr-col-md-auto,
+.clr-col-lg-1,
+.clr-col-lg-2,
+.clr-col-lg-3,
+.clr-col-lg-4,
+.clr-col-lg-5,
+.clr-col-lg-6,
+.clr-col-lg-7,
+.clr-col-lg-8,
+.clr-col-lg-9,
+.clr-col-lg-10,
+.clr-col-lg-11,
+.clr-col-lg-12,
+.clr-col-lg,
+.clr-col-lg-auto,
+.clr-col-xl-1,
+.clr-col-xl-2,
+.clr-col-xl-3,
+.clr-col-xl-4,
+.clr-col-xl-5,
+.clr-col-xl-6,
+.clr-col-xl-7,
+.clr-col-xl-8,
+.clr-col-xl-9,
+.clr-col-xl-10,
+.clr-col-xl-11,
+.clr-col-xl-12,
+.clr-col-xl,
+.clr-col-xl-auto {
+  width: 100%;
+  min-height: 1px;
+  padding: 0px !important;
+}
+
+.date-container {
+  width: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.data-container {
+  width: 95% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.line-list {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+}
+
+.required {
+  color: #ff0000;
+}
+
+.Swal2-container:not(.Swal2-top):not(.Swal2-top-start):not(.Swal2-top-end):not(.Swal2-top-left):not(.Swal2-top-right):not(.Swal2-center-start):not(.Swal2-center-end):not(.Swal2-center-left):not(.Swal2-center-right):not(.Swal2-bottom):not(.Swal2-bottom-start):not(.Swal2-bottom-end):not(.Swal2-bottom-left):not(.Swal2-bottom-right):not(.Swal2-grow-fullscreen)
+  > .Swal2-modal {
+  margin: auto;
+  font-size: 10px;
+}
+
+.Swal2-popup .Swal2-modal .Swal2-show {
+  margin: auto;
+  font-size: 10px;
+}
+
+//Vertical Tabs
+::ng-deep {
+  clr-tabs.vertical-tabs {
+    display: flex;
+
+    .nav {
+      flex-direction: column;
+      height: auto;
+      align-items: stretch;
+      box-shadow: none;
+      width: auto;
+      margin-right: 1rem;
+      overflow: auto;
+      flex-shrink: 0;
+
+      .nav-link {
+        text-align: left;
+        padding: 0 .5rem;
+        border-radius: 0 .125rem .125rem 0;
+        margin-bottom: 1px;
+        flex-shrink: 0;
+
+        &.active, 
+        &:hover {
+          box-shadow: inset 3px 0 0 #007cbb;
+          background-color: #eee;
+        }
+      }
+    }
+  }
+
+  .content-area.flexboxified {
+    display: flex;
+    flex-direction: column;
+
+    clr-tabs.vertical-tabs.scrollable {
+      flex: 1 1 auto;
+      clr-tab.activeTab {
+        flex: 1 1 auto;
+        clr-tab-content[aria-hidden="false"] {
+          display: block;
+          position: relative;
+          height: 100%;
+          width: 100%;
+          overflow: auto;
+          padding-right: 1rem; 
+        }
+      }
+    }
+  }
+}
