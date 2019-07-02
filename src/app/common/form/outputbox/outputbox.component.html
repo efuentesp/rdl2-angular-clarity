@@ -1,0 +1,20 @@
+<!-- Output Control -->
+<div [formGroup]="_formGroup">
+  <div class="clr-form-control ">
+    <label for="{{id}}" class="clr-control-label clr-col-md-12">{{label}}</label>
+    <div class="clr-control-container clr-col-md-12">
+      <div class="clr-output-wrapper">
+
+        <clr-icon *ngIf="type==='' || type==='text'" shape="font-size"></clr-icon>
+        <clr-icon *ngIf="type==='password'" shape="eye-hide"></clr-icon>
+        <clr-icon *ngIf="type==='email'" shape="envelope"></clr-icon>
+        <clr-icon *ngIf="type==='decimal'" shape="dollar"></clr-icon>
+        <clr-icon *ngIf="type==='currency' || type==='integer'" shape="calculator"></clr-icon>
+
+        <input id="{{id}}" type="text" formControlName="{{id}}" class="clr-output clr-col-md-11">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ./Output Control -->

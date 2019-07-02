@@ -14,6 +14,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClarityModule } from '@clr/angular';
 import { BrowserModule } from '@angular/platform-browser';
+import { OutputboxComponent } from './form/outputbox/outputbox.component';
 
 registerLocaleData(localeMx, 'es-MX');
 
@@ -33,7 +34,8 @@ registerLocaleData(localeMx, 'es-MX');
     PageComponent,
     DatepickerComponent,
     InputboxComponent,
-    SelectComponent
+    SelectComponent,
+    OutputboxComponent
   ],
   exports: [
     FooterComponent,
@@ -41,7 +43,8 @@ registerLocaleData(localeMx, 'es-MX');
     PageComponent,
     DatepickerComponent,
     InputboxComponent,
-    SelectComponent
+    SelectComponent,
+    OutputboxComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [[{ provide: LOCALE_ID, useValue: 'es-MX' }]]
