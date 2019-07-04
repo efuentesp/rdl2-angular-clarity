@@ -23,7 +23,7 @@ export class OutputboxComponent implements OnInit {
 
   @Input() _formGroup: FormGroup;
   @Input() _formControlName: FormControlName;
-
+  @Input() value: string;
   @Input() id: string;
 
 

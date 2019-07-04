@@ -1,13 +1,9 @@
 <!-- Output Control -->
-<div [formGroup]="_formGroup">
+<div>
   <div class="clr-form-control ">
-    <label for="{{id}}" class="clr-control-label clr-col-md-12">{{label}}</label>
+    <label class="clr-control-label clr-col-md-12">{{label}}</label>
     <div class="clr-control-container clr-col-md-12">
-      <div class="clr-output-wrapper">
-
-        <input id="{{id}}" type="text" formControlName="{{id}}" class="clr-output clr-col-md-11">
-
-      </div>
+      <p class="p2">{{value}}</p>
     </div>
   </div>
 </div>
