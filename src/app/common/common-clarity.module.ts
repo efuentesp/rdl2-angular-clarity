@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClarityModule } from '@clr/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { OutputboxComponent } from './form/outputbox/outputbox.component';
+import { ModalComponent } from './form/modal/modal.component';
 
 registerLocaleData(localeMx, 'es-MX');
 
@@ -35,7 +36,8 @@ registerLocaleData(localeMx, 'es-MX');
     DatepickerComponent,
     InputboxComponent,
     SelectComponent,
-    OutputboxComponent
+    OutputboxComponent,
+    ModalComponent
   ],
   exports: [
     FooterComponent,
@@ -44,7 +46,8 @@ registerLocaleData(localeMx, 'es-MX');
     DatepickerComponent,
     InputboxComponent,
     SelectComponent,
-    OutputboxComponent
+    OutputboxComponent,
+    ModalComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [[{ provide: LOCALE_ID, useValue: 'es-MX' }]]

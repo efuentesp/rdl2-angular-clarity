@@ -10,7 +10,6 @@ export class OutputboxComponent implements OnInit {
 
   constructor() { }
 
-
   @Input() required: boolean = true;
   @Input() type: string = ''
   @Input() label: string;
@@ -26,12 +25,6 @@ export class OutputboxComponent implements OnInit {
   @Input() value: string;
   @Input() id: string;
 
-
-
-  ngOnInit() {
-
-  }
-
-
+  ngOnInit() { }
 
 }

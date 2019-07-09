@@ -1,11 +1,11 @@
 <!-- Input Control -->
-<div *ngIf="2 > linecount" [formGroup]="_formGroup">
+<div *ngIf="2 > linecount && type!=='modal'" [formGroup]="_formGroup">
   <div class="clr-form-control ">
-    <label for="{{id}}" class="clr-control-label clr-col-md-12">{{label}}
+    <label for="{{id}}Id" class="clr-control-label clr-col-md-12">{{label}}
       <span *ngIf="required" class="required"> *</span>
     </label>
     <div class="clr-control-container clr-col-md-12"
-      [class.clr-error]="_formGroup.get(id).invalid && _formGroup.get(id).touched">
+      [class.clr-error]="_formGroup.get(id).invalid && _formGroup.get(id).touched  && type!=='modal'">
       <div class="clr-input-wrapper">
 
         <clr-icon *ngIf="type==='' || type==='text'" shape="font-size"></clr-icon>
@@ -13,6 +13,8 @@
         <clr-icon *ngIf="type==='email'" shape="envelope"></clr-icon>
         <clr-icon *ngIf="type==='decimal'" shape="dollar"></clr-icon>
         <clr-icon *ngIf="type==='currency' || type==='integer'" shape="calculator"></clr-icon>
+        <clr-icon *ngIf="type==='file'" shape="image"></clr-icon>
+        <clr-icon *ngIf="type==='image'" shape="image"></clr-icon>
 
         <input *ngIf="type==='integer'" id="{{id}}" type="text" formControlName="{{id}}" placeholder="{{placeholder}}"
           class="clr-input clr-col-md-11" mask="comma_separator.0">
@@ -20,6 +22,8 @@
           formControlName="{{id}}" placeholder="{{placeholder}}" class="clr-input clr-col-md-11">
         <input *ngIf="type==='decimal' || type==='currency'" id="{{id}}" type="text" formControlName="{{id}}"
           placeholder="{{placeholder}}" class="clr-input clr-col-md-11" mask="comma_separator.5">
+        <input *ngIf="type==='file' || type==='image'" id="{{id}}" type="file" formControlName="{{id}}"
+          placeholder="{{placeholder}}" class="clr-input clr-col-md-11">
 
         <div *ngIf="help===''; else notEmpty"></div>
         <ng-template #notEmpty>
@@ -83,21 +87,23 @@
 </div>
 <!-- ./Textarea Control -->
 
-<!-- File Control -->
-<div *ngIf="type==='file'" [formGroup]="_formGroup">
+
+<!-- Input Control -->
+<div *ngIf="type==='modal'" [formGroup]="_formGroup">
   <div class="clr-form-control ">
-    <label for="{{id}}" class="clr-control-label clr-col-md-12">{{label}}
+    <label for="{{id}}Id" class="clr-control-label clr-col-md-12">{{label}}
       <span *ngIf="required" class="required"> *</span>
     </label>
     <div class="clr-control-container clr-col-md-12"
       [class.clr-error]="_formGroup.get(id).invalid && _formGroup.get(id).touched">
       <div class="clr-input-wrapper">
 
-        <clr-icon *ngIf="type==='file'" shape="image"></clr-icon>
-        <clr-icon *ngIf="type==='image'" shape="image"></clr-icon>
-
-        <input *ngIf="type==='file' || type==='image'" id="{{id}}" type="file" formControlName="{{id}}"
-          placeholder="{{placeholder}}" class="clr-input clr-col-md-11">
+        <clr-icon *ngIf="type==='modal'" shape="organization"></clr-icon>
+        <input *ngIf="type==='modal'" id="{{id}}" type="text" formControlName="{{id}}" class="clr-input clr-col-md-11"
+          disabled>
+        <button type="button" class="btn btn-sm" (click)="openModal()">
+          <clr-icon shape="search"></clr-icon>
+        </button>
 
         <div *ngIf="help===''; else notEmpty"></div>
         <ng-template #notEmpty>
@@ -106,19 +112,18 @@
             <span class="tooltip-content">{{help}}</span>
           </div>
         </ng-template>
-
-        <span class="clr-subtext" *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched">
-          <div *ngIf="error===''; else notEmptyError">
-            <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon> {{label}} es requerido
-          </div>
-          <ng-template #notEmptyError>
-            <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>{{error}}
-          </ng-template>
-          <p></p>
-        </span>
-
       </div>
+
+      <span class="clr-subtext" *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched">
+        <div *ngIf="error===''; else notEmptyError">
+          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon> {{label}} es requerido
+        </div>
+        <ng-template #notEmptyError>
+          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>{{error}}
+        </ng-template>
+      </span>
+
     </div>
   </div>
 </div>
-<!-- ./File Control -->
+<!-- ./Input Control -->
