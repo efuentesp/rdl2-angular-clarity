@@ -9,26 +9,46 @@
       </clr-dg-column>
 
       <div *ngFor="let head of headers;">
-        <div *ngIf="head.filter; else notFilter">
-          <clr-dg-column [clrDgField]="head.description">
-            <ng-container *clrDgHideableColumn="{hidden: false}">
-              {{head.name}}
-            </ng-container>
-          </clr-dg-column>
+        <div *ngIf="head.display; else notDisplay">
+          <div *ngIf="head.filter; else notFilter">
+            <clr-dg-column [clrDgField]="head.description">
+              <ng-container *clrDgHideableColumn="{hidden: false}">
+                {{head.name}}
+              </ng-container>
+            </clr-dg-column>
+          </div>
+          <ng-template #notFilter>
+            <clr-dg-column>
+                <ng-container *clrDgHideableColumn="{hidden: false}">
+                  {{head.name}}
+                </ng-container>
+              </clr-dg-column>
+          </ng-template>
         </div>
-        <ng-template #notFilter>
-          <clr-dg-column>
-            <ng-container *clrDgHideableColumn="{hidden: false}">
-              {{head.name}}
-            </ng-container>
-          </clr-dg-column>
+        <ng-template #notDisplay>
+          <div *ngIf="head.filter; else notFilter">
+            <clr-dg-column [clrDgField]="head.description">
+              <ng-container *clrDgHideableColumn="{hidden: true}">
+                {{head.name}}
+              </ng-container>
+            </clr-dg-column>
+          </div>
+          <ng-template #notFilter>
+            <clr-dg-column>
+                <ng-container *clrDgHideableColumn="{hidden: true}">
+                  {{head.name}}
+                </ng-container>
+              </clr-dg-column>
+          </ng-template>  
         </ng-template>
       </div>
 
-      <clr-dg-row *ngFor="let item of items">
-        <clr-dg-cell style="width: 100px;"><input type="radio" name="item" [checked]="item.checked" value="{{item.id}}"
+      <clr-dg-row *ngFor="let item of items | keyvalue">
+        <clr-dg-cell style="width: 100px;">
+          <input type="radio" name="item" [checked]="item.checked" value="{{item.id}}"
             (click)="getIdValue(item)"></clr-dg-cell>
-        <clr-dg-cell *ngFor="let obj of item | keyvalue">{{obj.value}}</clr-dg-cell>
+        <clr-dg-cell *ngFor="let obj of objectAttrs | keyvalue">{{obj.key}} {{obj.value}} {{item.key}} 
+        </clr-dg-cell>
       </clr-dg-row>
 
       <clr-dg-footer>

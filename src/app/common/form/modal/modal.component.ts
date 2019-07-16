@@ -28,14 +28,13 @@ export class ModalComponent implements OnInit {
   @Input() headers: any[];
 
   @Output() onCancelSelect = new EventEmitter<boolean>();
-  objectAttrs: any[];
+  objectAttrs: any[] = null;
 
   @Output() onSelectElement = new EventEmitter<string>();
 
   ngOnInit() {
-
     this.objectAttrs = this.baseEntity;
-
+    console.log('El objeto es: ', this.objectAttrs);
   }
 
   closeModal() {
