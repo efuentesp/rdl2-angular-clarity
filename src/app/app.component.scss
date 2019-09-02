@@ -1,4 +1,4 @@
-/* PSG  Fideicomisario SCSS */
+/* PSG  Tercero SCSS */
 .clr-example {
   .card {
     max-width: 600px;
@@ -99,10 +99,6 @@
   width: 100%;
 }
 
-.required {
-  color: #ff0000;
-}
-
 .Swal2-container:not(.Swal2-top):not(.Swal2-top-start):not(.Swal2-top-end):not(.Swal2-top-left):not(.Swal2-top-right):not(.Swal2-center-start):not(.Swal2-center-end):not(.Swal2-center-left):not(.Swal2-center-right):not(.Swal2-bottom):not(.Swal2-bottom-start):not(.Swal2-bottom-end):not(.Swal2-bottom-left):not(.Swal2-bottom-right):not(.Swal2-grow-fullscreen)
   > .Swal2-modal {
   margin: auto;
@@ -172,4 +168,24 @@ clr-datagrid {
 
 .required {
   color: #ff0000;
+}
+
+.datagrid{
+  height: 17rem;
+}
+
+::ng-deep .modal-content {
+  height: 26rem;
+}
+
+::ng-deep .datagrid {
+  height: 17rem;
+}
+
+::ng-deep div.datagrid-action-overflow .ng-star-inserted{
+  top: 85px;
+}
+
+::ng-deep .datagrid {
+  overflow: inherit;
 }

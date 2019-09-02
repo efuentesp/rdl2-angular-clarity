@@ -24,8 +24,9 @@ export class ModalComponent implements OnInit {
   @Input() _formControlName: FormControlName;
   @Input() isDialogOpen: boolean = false;
   @Input() items: any[];
-  @Input() baseEntity: any[];
+  @Input() baseEntity: any;
   @Input() headers: any[];
+  @Input() attrs: string[];
 
   @Output() onCancelSelect = new EventEmitter<boolean>();
   objectAttrs: any[] = null;
@@ -34,7 +35,6 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {
     this.objectAttrs = this.baseEntity;
-    console.log('El objeto es: ', this.objectAttrs);
   }
 
   closeModal() {
@@ -43,7 +43,6 @@ export class ModalComponent implements OnInit {
   }
 
   getIdValue(event) {
-    console.log(event);
     this.onSelectElement.emit(event);
   }
 

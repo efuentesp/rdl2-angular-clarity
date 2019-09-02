@@ -101,7 +101,7 @@
         <clr-icon *ngIf="type==='modal'" shape="organization"></clr-icon>
         <input *ngIf="type==='modal'" id="{{id}}" type="text" formControlName="{{id}}" class="clr-input clr-col-md-11"
           disabled>
-        <button type="button" class="btn btn-sm" (click)="openModal()">
+        <button type="button" class="btn btn-sm" (click)="openModal()" id="{{id}}">
           <clr-icon shape="search"></clr-icon>
         </button>
 

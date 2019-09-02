@@ -13,13 +13,18 @@ export class AuthGuard implements CanActivate {
   constructor(
     private router: Router,
     private authService: AuthenticationService
-  ) {}
+  ) { }
   token: string = "";
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     console.log("canActivate() AuthGuard");
     var obj = JSON.parse(localStorage.getItem("currentUser"));
-    this.token = obj["access_token"];
+
+    if (obj["access_token"] === undefined) {
+      this.token = '';
+    } else {
+      this.token = obj["access_token"];
+    }
 
     this.authService.setToken(this.token);
 
