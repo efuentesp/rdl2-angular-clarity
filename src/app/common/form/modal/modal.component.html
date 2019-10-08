@@ -47,7 +47,8 @@
         <clr-dg-cell style="width: 100px;">
           <input type="radio" name="item" [checked]="item.checked" value="{{item.id}}"
             (click)="getIdValue(item)"></clr-dg-cell>
-        <clr-dg-cell *ngFor="let obj of objectAttrs | keyvalue">{{obj.key}} {{obj.value}} {{item.key}} 
+        <clr-dg-cell *ngFor="let attr of attrs">
+          {{ item.value[attr] }}
         </clr-dg-cell>
       </clr-dg-row>
 
