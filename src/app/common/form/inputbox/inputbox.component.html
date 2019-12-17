@@ -17,11 +17,11 @@
         <clr-icon *ngIf="type==='image'" shape="image"></clr-icon>
 
         <input *ngIf="type==='integer'" id="{{id}}" type="text" formControlName="{{id}}" placeholder="{{placeholder}}"
-          class="clr-input clr-col-md-11" mask="comma_separator.0">
+          class="clr-input clr-col-md-11" mask="separator.0" thousandSeparator=",">
         <input *ngIf="type==='' || type==='text' || type==='password' || type==='email'" id="{{id}}" type="{{type}}"
           formControlName="{{id}}" placeholder="{{placeholder}}" class="clr-input clr-col-md-11">
         <input *ngIf="type==='decimal' || type==='currency'" id="{{id}}" type="text" formControlName="{{id}}"
-          placeholder="{{placeholder}}" class="clr-input clr-col-md-11" mask="comma_separator.5">
+          placeholder="{{placeholder}}" class="clr-input clr-col-md-11" mask="separator.5" thousandSeparator=",">
         <input *ngIf="type==='file' || type==='image'" id="{{id}}" type="file" formControlName="{{id}}"
           placeholder="{{placeholder}}" class="clr-input clr-col-md-11">
 
