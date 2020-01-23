@@ -1,73 +1,99 @@
-<clr-modal [(clrModalOpen)]="isDialogOpen" [clrModalSize]="'xl'" (clrModalOpenChange)="closeModal();">
-  <h3 class="modal-title">{{label}}</h3>
+<clr-modal
+  [(clrModalOpen)]="isDialogOpen"
+  [clrModalSize]="'xl'"
+  (clrModalOpenChange)="closeModal()"
+>
+  <h3 class="modal-title">{{ label }}</h3>
 
   <div class="modal-body">
-
     <clr-datagrid [clrDgLoading]="loading">
       <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
-      <clr-dg-column style="width: 100px;">
-      </clr-dg-column>
+      <clr-dg-column style="width: 100px;"> </clr-dg-column>
 
-      <div *ngFor="let head of headers;">
+      <div *ngFor="let head of headers">
         <div *ngIf="head.display; else notDisplay">
           <div *ngIf="head.filter; else notFilter">
             <clr-dg-column [clrDgField]="head.description">
-              <ng-container *clrDgHideableColumn="{hidden: false}">
-                {{head.name}}
+              <ng-container *clrDgHideableColumn="{ hidden: false }">
+                {{ head.name }}
               </ng-container>
             </clr-dg-column>
           </div>
           <ng-template #notFilter>
             <clr-dg-column>
-                <ng-container *clrDgHideableColumn="{hidden: false}">
-                  {{head.name}}
-                </ng-container>
-              </clr-dg-column>
+              <ng-container *clrDgHideableColumn="{ hidden: false }">
+                {{ head.name }}
+              </ng-container>
+            </clr-dg-column>
           </ng-template>
         </div>
         <ng-template #notDisplay>
           <div *ngIf="head.filter; else notFilter">
             <clr-dg-column [clrDgField]="head.description">
-              <ng-container *clrDgHideableColumn="{hidden: true}">
-                {{head.name}}
+              <ng-container *clrDgHideableColumn="{ hidden: true }">
+                {{ head.name }}
               </ng-container>
             </clr-dg-column>
           </div>
           <ng-template #notFilter>
             <clr-dg-column>
-                <ng-container *clrDgHideableColumn="{hidden: true}">
-                  {{head.name}}
-                </ng-container>
-              </clr-dg-column>
-          </ng-template>  
+              <ng-container *clrDgHideableColumn="{ hidden: true }">
+                {{ head.name }}
+              </ng-container>
+            </clr-dg-column>
+          </ng-template>
         </ng-template>
       </div>
 
-      <clr-dg-row *ngFor="let item of items | keyvalue">
+      <clr-dg-row *ngFor="let item of items | keyvalue; let j = index">
         <clr-dg-cell style="width: 100px;">
-          <input type="radio" name="item" [checked]="item.checked" value="{{item.id}}"
-            (click)="getIdValue(item)"></clr-dg-cell>
-        <clr-dg-cell *ngFor="let attr of attrs">
+          <input
+            type="radio"
+            name="item"
+            [checked]="item.checked"
+            value="{{ item.id }}"
+            (click)="getIdValue(item)"
+        /></clr-dg-cell>
+
+        <clr-dg-cell
+          *ngFor="let attr of attrs; let i = index"
+          id="{{ j }}{{ i }}"
+        >
           {{ item.value[attr] }}
         </clr-dg-cell>
       </clr-dg-row>
 
       <clr-dg-footer>
         <clr-dg-column-toggle>
-          <clr-dg-column-toggle-title>Elegir columnas</clr-dg-column-toggle-title>
-          <clr-dg-column-toggle-button>Seleccionar todas</clr-dg-column-toggle-button>
+          <clr-dg-column-toggle-title
+            >Elegir columnas</clr-dg-column-toggle-title
+          >
+          <clr-dg-column-toggle-button
+            >Seleccionar todas</clr-dg-column-toggle-button
+          >
         </clr-dg-column-toggle>
         <clr-dg-pagination #pagination [clrDgPageSize]="10">
-          {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-          de {{pagination.totalItems}} registros
+          {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} de
+          {{ pagination.totalItems }} registros
         </clr-dg-pagination>
       </clr-dg-footer>
     </clr-datagrid>
-
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="isDialogOpen = false; closeModal();">Regresar</button>
-    <button type="button" class="btn btn-primary" (click)="isDialogOpen = false; closeModal();">Elegir</button>
+    <button
+      type="button"
+      class="btn btn-outline"
+      (click)="isDialogOpen = false; closeModal()"
+    >
+      Regresar
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="isDialogOpen = false; closeModal()"
+    >
+      Elegir
+    </button>
   </div>
 </clr-modal>
