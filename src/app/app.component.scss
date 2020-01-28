@@ -1,4 +1,4 @@
-/* PSG  Tercero SCSS */
+/* PSG  Cuentacheques SCSS */
 .clr-example {
   .card {
     max-width: 600px;
@@ -99,6 +99,10 @@
   width: 100%;
 }
 
+.required {
+  color: #ff0000;
+}
+
 .Swal2-container:not(.Swal2-top):not(.Swal2-top-start):not(.Swal2-top-end):not(.Swal2-top-left):not(.Swal2-top-right):not(.Swal2-center-start):not(.Swal2-center-end):not(.Swal2-center-left):not(.Swal2-center-right):not(.Swal2-bottom):not(.Swal2-bottom-start):not(.Swal2-bottom-end):not(.Swal2-bottom-left):not(.Swal2-bottom-right):not(.Swal2-grow-fullscreen)
   > .Swal2-modal {
   margin: auto;
@@ -127,12 +131,12 @@
 
       .nav-link {
         text-align: left;
-        padding: 0 .5rem;
-        border-radius: 0 .125rem .125rem 0;
+        padding: 0 0.5rem;
+        border-radius: 0 0.125rem 0.125rem 0;
         margin-bottom: 1px;
         flex-shrink: 0;
 
-        &.active, 
+        &.active,
         &:hover {
           box-shadow: inset 3px 0 0 #007cbb;
           background-color: #eee;
@@ -155,7 +159,7 @@
           height: 100%;
           width: 100%;
           overflow: auto;
-          padding-right: 1rem; 
+          padding-right: 1rem;
         }
       }
     }
@@ -170,7 +174,7 @@ clr-datagrid {
   color: #ff0000;
 }
 
-.datagrid{
+.datagrid {
   height: 17rem;
 }
 
@@ -182,10 +186,16 @@ clr-datagrid {
   height: 17rem;
 }
 
-::ng-deep div.datagrid-action-overflow .ng-star-inserted{
+::ng-deep div.datagrid-action-overflow .ng-star-inserted {
   top: 85px;
 }
 
 ::ng-deep .datagrid {
   overflow: inherit;
+}
+
+::ng-deep {
+  clr-accordion {
+    padding-top: 1em;
+  }
 }
