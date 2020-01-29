@@ -82,14 +82,24 @@
           class="clr-subtext"
           *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
         >
-          <div *ngIf="error === ''; else notEmptyError">
+          <div *ngIf="error === ''; else showError">
             <clr-icon
               class="clr-validate-icon"
               shape="exclamation-circle"
             ></clr-icon>
-            {{ label }} es requerido
+            <ng-template [ngIf]="_formGroup.get(id).hasError('required')"
+              >{{ label }} es requerido</ng-template
+            >
+            <ng-template [ngIf]="_formGroup.get(id).hasError('maxlength')"
+            >{{ label }} ha excedido la longitud máxima de
+            {{ maxlength }}</ng-template
+          >
+          <ng-template [ngIf]="_formGroup.get(id).hasError('minlength')"
+            >{{ label }} no ha alcanzado la longitud mínima de
+            {{ minlength }}</ng-template
+          >
           </div>
-          <ng-template #notEmptyError>
+          <ng-template #showError>
             <clr-icon
               class="clr-validate-icon"
               shape="exclamation-circle"
@@ -141,14 +151,24 @@
         class="clr-subtext"
         *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
       >
-        <div *ngIf="error === ''; else notEmptyError">
+        <div *ngIf="error === ''; else showError">
           <clr-icon
             class="clr-validate-icon"
             shape="exclamation-circle"
           ></clr-icon>
-          {{ label }} es requerido
+          <ng-template [ngIf]="_formGroup.get(id).hasError('required')"
+            >{{ label }} es requerido</ng-template
+          >
+          <ng-template [ngIf]="_formGroup.get(id).hasError('maxlength')"
+            >{{ label }} ha excedido la longitud máxima de
+            {{ maxlength }}</ng-template
+          >
+          <ng-template [ngIf]="_formGroup.get(id).hasError('minlength')"
+            >{{ label }} no ha alcanzado la longitud mínima de
+            {{ minlength }}</ng-template
+          >
         </div>
-        <ng-template #notEmptyError>
+        <ng-template #showError>
           <clr-icon
             class="clr-validate-icon"
             shape="exclamation-circle"
@@ -207,20 +227,31 @@
         class="clr-subtext"
         *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
       >
-        <div *ngIf="error === ''; else notEmptyError">
+        <div *ngIf="error === ''; else showError">
           <clr-icon
             class="clr-validate-icon"
             shape="exclamation-circle"
           ></clr-icon>
-          {{ label }} es requerido
+          <ng-template [ngIf]="_formGroup.get(id).hasError('required')"
+            >{{ label }} es requerido</ng-template
+          >
+          <ng-template [ngIf]="_formGroup.get(id).hasError('maxlength')"
+            >{{ label }} ha excedido la longitud máxima de
+            {{ maxlength }}</ng-template
+          >
+          <ng-template [ngIf]="_formGroup.get(id).hasError('minlength')"
+            >{{ label }} no ha alcanzado la longitud mínima de
+            {{ minlength }}</ng-template
+          >
         </div>
-        <ng-template #notEmptyError>
+        <ng-template #showError>
           <clr-icon
             class="clr-validate-icon"
             shape="exclamation-circle"
           ></clr-icon
           >{{ error }}
         </ng-template>
+        <p></p>
       </span>
     </div>
   </div>

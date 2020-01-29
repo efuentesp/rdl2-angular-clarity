@@ -1,3 +1,6 @@
 .required {
-    color: #ff0000;
+  color: #ff0000;
+}
+.clr-subtext {
+  margin-top: 0.01rem;
 }
