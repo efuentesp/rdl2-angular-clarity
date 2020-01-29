@@ -1,0 +1,11 @@
+.required {
+  color: #ff0000;
+}
+
+::ng-deep.radioStyle,
+label {
+  font-size: 0.541667rem !important;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5em;
+}
