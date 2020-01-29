@@ -1,31 +1,57 @@
 <!-- SelectList Control -->
-<div *ngIf="type=='selectlist'" [formGroup]="_formGroup">
+<div *ngIf="type == 'selectlist'" [formGroup]="_formGroup">
   <div class="clr-form-control">
-    <label for="{{id}}" class="clr-control-label clr-col-md-12">{{label}}
+    <label for="{{ id }}" class="clr-control-label clr-col-md-12"
+      >{{ label }}
       <span *ngIf="required" class="required">*</span>
     </label>
-    <div class="clr-control-container clr-col-md-12"
-      [class.clr-error]="_formGroup.get(id).invalid && _formGroup.get(id).touched">
+    <div
+      class="clr-control-container clr-col-md-12"
+      [class.clr-error]="
+        _formGroup.get(id).invalid && _formGroup.get(id).touched
+      "
+    >
       <div class="clr-select-wrapper">
-        <select formControlName="{{id}}" class="clr-col-md-11">
+        <select formControlName="{{ id }}" class="clr-col-md-11">
           <option value=""> -- Seleccione un valor -- </option>
-          <option value="{{item.name}}" *ngFor="let item of items">{{item.description}}</option>
+          <option value="{{ item.name }}" *ngFor="let item of items">{{
+            item.description
+          }}</option>
         </select>
         <clr-tooltip>
-          <div *ngIf="help===''; else notEmpty"></div>
+          <div *ngIf="help === ''; else notEmpty"></div>
           <ng-template #notEmpty>
-            <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
-            <clr-tooltip-content clrPosition="top-right" clrSize="sm" *clrIfOpen>
-              <span>{{help}}</span>
+            <clr-icon
+              clrTooltipTrigger
+              shape="info-circle"
+              size="24"
+            ></clr-icon>
+            <clr-tooltip-content
+              clrPosition="top-right"
+              clrSize="sm"
+              *clrIfOpen
+            >
+              <span>{{ help }}</span>
             </clr-tooltip-content>
           </ng-template>
         </clr-tooltip>
-        <span class="clr-subtext" *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched">
-          <div *ngIf="error===''; else notEmptyError">
-            <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon> {{label}} es requerido
+        <span
+          class="clr-subtext"
+          *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
+        >
+          <div *ngIf="error === ''; else notEmptyError">
+            <clr-icon
+              class="clr-validate-icon"
+              shape="exclamation-circle"
+            ></clr-icon>
+            {{ label }} es requerido
           </div>
           <ng-template #notEmptyError>
-            <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>{{error}}
+            <clr-icon
+              class="clr-validate-icon"
+              shape="exclamation-circle"
+            ></clr-icon
+            >{{ error }}
           </ng-template>
           <p></p>
         </span>
@@ -36,30 +62,47 @@
 <!-- ./Select Control -->
 
 <!-- Option Control -->
-<div *ngIf="type=='option'" [formGroup]="_formGroup">
+<div *ngIf="type == 'option'" [formGroup]="_formGroup">
   <div class="clr-form-control">
-    <label for="{{id}}" class="clr-control-label clr-col-md-12">{{label}}
+    <label for="{{ id }}" class="clr-control-label clr-col-md-12"
+      >{{ label }}
       <span *ngIf="required" class="required">*</span>
       <clr-tooltip>
-        <div *ngIf="help===''; else notEmpty"></div>
+        <div *ngIf="help === ''; else notEmpty"></div>
         <ng-template #notEmpty>
           <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
           <clr-tooltip-content clrPosition="top-right" clrSize="sm" *clrIfOpen>
-            <span>{{help}}</span>
+            <span>{{ help }}</span>
           </clr-tooltip-content>
         </ng-template>
       </clr-tooltip>
     </label>
-    <div class="clr-control-container clr-col-md-12"
-      [class.clr-error]="_formGroup.get(id).invalid && _formGroup.get(id).touched">
+    <div
+      class="clr-control-container clr-col-md-12"
+      [class.clr-error]="
+        _formGroup.get(id).invalid && _formGroup.get(id).touched
+      "
+    >
       <div *ngFor="let item of items">
-
-        <input type="radio" value="{{item.name}}" formControlName="{{id}}" class="clrRadio" />
-        <label> {{item.description}}</label>
-
+        <div class="radioStyle items-center">
+          <input
+            type="radio"
+            value="{{ item.name }}"
+            formControlName="{{ id }}"
+            class="clrRadio"
+          />
+          <label> {{ item.description }}</label>
+        </div>
       </div>
-      <span class="clr-subtext" *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched">
-        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>{{error}}
+      <span
+        class="clr-subtext"
+        *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
+      >
+        <clr-icon
+          class="clr-validate-icon"
+          shape="exclamation-circle"
+        ></clr-icon
+        >{{ error }}
       </span>
     </div>
   </div>
@@ -67,31 +110,54 @@
 <!-- ./Option Control -->
 
 <!-- Check Control -->
-<div *ngIf="type=='check'" [formGroup]="_formGroup">
-  <div *ngIf="type=='option'" [formGroup]="_formGroup">
+<div *ngIf="type == 'check'" [formGroup]="_formGroup">
+  <div *ngIf="type == 'option'" [formGroup]="_formGroup">
     <div class="clr-form-control">
-      <label for="{{id}}" class="clr-control-label clr-col-md-12">{{label}}
+      <label for="{{ id }}" class="clr-control-label clr-col-md-12"
+        >{{ label }}
         <span *ngIf="required" class="required">*</span>
         <clr-tooltip>
-          <div *ngIf="help===''; else notEmpty"></div>
+          <div *ngIf="help === ''; else notEmpty"></div>
           <ng-template #notEmpty>
-            <clr-icon clrTooltipTrigger shape="info-circle" size="24"></clr-icon>
-            <clr-tooltip-content clrPosition="top-right" clrSize="sm" *clrIfOpen>
-              <span>{{help}}</span>
+            <clr-icon
+              clrTooltipTrigger
+              shape="info-circle"
+              size="24"
+            ></clr-icon>
+            <clr-tooltip-content
+              clrPosition="top-right"
+              clrSize="sm"
+              *clrIfOpen
+            >
+              <span>{{ help }}</span>
             </clr-tooltip-content>
           </ng-template>
         </clr-tooltip>
       </label>
-      <div class="clr-control-container clr-col-md-12"
-        [class.clr-error]="_formGroup.get(id).invalid && _formGroup.get(id).touched">
+      <div
+        class="clr-control-container clr-col-md-12"
+        [class.clr-error]="
+          _formGroup.get(id).invalid && _formGroup.get(id).touched
+        "
+      >
         <div *ngFor="let item of items">
-
-          <input type="checkbox" value="{{item.name}}" formControlName="{{id}}" class="clrRadio" />
-          <label> {{item.description}}</label>
-
+          <input
+            type="checkbox"
+            value="{{ item.name }}"
+            formControlName="{{ id }}"
+            class="clrRadio"
+          />
+          <label> {{ item.description }}</label>
         </div>
-        <span class="clr-subtext" *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched">
-          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>{{error}}
+        <span
+          class="clr-subtext"
+          *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
+        >
+          <clr-icon
+            class="clr-validate-icon"
+            shape="exclamation-circle"
+          ></clr-icon
+          >{{ error }}
         </span>
       </div>
     </div>

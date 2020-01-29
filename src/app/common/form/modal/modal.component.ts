@@ -1,22 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControlName } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { FormGroup, FormControlName } from "@angular/forms";
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  selector: "app-modal",
+  templateUrl: "./modal.component.html",
+  styleUrls: ["./modal.component.scss"]
 })
 export class ModalComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  @Input() id: string = '';
+  @Input() id: string = "";
   @Input() required: boolean = true;
-  @Input() type: string = ''
-  @Input() label: string = ''
-  @Input() help: string = ''
-  @Input() placeholder: string = ''
-  @Input() error: string = ''
+  @Input() type: string = "";
+  @Input() label: string = "";
+  @Input() help: string = "";
+  @Input() placeholder: string = "";
+  @Input() error: string = "";
   @Input() hidden: boolean = false;
   @Input() disabled: boolean = false;
   @Input() linecount: number = 0;
@@ -45,5 +44,4 @@ export class ModalComponent implements OnInit {
   getIdValue(event) {
     this.onSelectElement.emit(event);
   }
-
 }

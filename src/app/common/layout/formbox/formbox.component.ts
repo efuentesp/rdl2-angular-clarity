@@ -1,21 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ClrLoadingState } from '@clr/angular';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit, Input } from "@angular/core";
+import { ClrLoadingState } from "@clr/angular";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl
+} from "@angular/forms";
 
 @Component({
-  selector: 'app-formbox',
-  templateUrl: './formbox.component.html',
-  styleUrls: ['./formbox.component.css']
+  selector: "app-formbox",
+  templateUrl: "./formbox.component.html",
+  styleUrls: ["./formbox.component.scss"]
 })
 export class FormboxComponent implements OnInit {
-
-  constructor(
-    
-  ) { 
-   
-  }
-
-  
+  constructor() {}
 
   @Input()
   layout: string;
@@ -26,8 +24,7 @@ export class FormboxComponent implements OnInit {
   @Input()
   _formGroup: FormGroup;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   validateBtnState: ClrLoadingState = ClrLoadingState.DEFAULT;
   submitBtnState: ClrLoadingState = ClrLoadingState.DEFAULT;
@@ -43,5 +40,4 @@ export class FormboxComponent implements OnInit {
     //Submit Logic
     this.submitBtnState = ClrLoadingState.DEFAULT;
   }
-
 }

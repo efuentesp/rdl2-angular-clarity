@@ -9,7 +9,7 @@ import {
 @Component({
   selector: "app-inputbox",
   templateUrl: "./inputbox.component.html",
-  styleUrls: ["./inputbox.component.css"]
+  styleUrls: ["./inputbox.component.scss"]
 })
 export class InputboxComponent implements OnInit {
   constructor() {}
