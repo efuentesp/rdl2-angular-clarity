@@ -1,0 +1,444 @@
+<div class="card">
+  <div class="card-header">
+    {{ label }}
+  </div>
+
+  <div *ngIf="!delete">
+    <tr>
+      <td *ngFor="let head of headers">
+        <!-- Input Control -->
+        <div
+          *ngIf="2 > linecount && head.field_type !== 'modal'"
+          [formGroup]="_formGroup"
+        >
+          <div class="clr-form-control ">
+            <label
+              for="{{ head.description }}"
+              class="clr-control-label clr-col-md-12"
+              >{{ head.name }}
+              <span *ngIf="head.field_required" class="required"> *</span>
+            </label>
+            <div
+              class="clr-control-container clr-col-md-12"
+              [class.clr-error]="
+                _formGroup.get(head.description).invalid &&
+                _formGroup.get(head.description).touched &&
+                head.field_type !== 'modal'
+              "
+            >
+              <div class="clr-input-wrapper">
+                <clr-icon
+                  *ngIf="head.field_type === '' || head.field_type === 'text'"
+                  shape="font-size"
+                ></clr-icon>
+                <clr-icon
+                  *ngIf="head.field_type === 'password'"
+                  shape="eye-hide"
+                ></clr-icon>
+                <clr-icon
+                  *ngIf="head.field_type === 'email'"
+                  shape="envelope"
+                ></clr-icon>
+                <clr-icon
+                  *ngIf="head.field_type === 'currency'"
+                  shape="dollar"
+                ></clr-icon>
+                <clr-icon
+                  *ngIf="
+                    head.field_type === 'decimal' ||
+                    head.field_type === 'integer'
+                  "
+                  shape="calculator"
+                ></clr-icon>
+                <clr-icon
+                  *ngIf="head.field_type === 'file'"
+                  shape="image"
+                ></clr-icon>
+                <clr-icon
+                  *ngIf="head.field_type === 'image'"
+                  shape="image"
+                ></clr-icon>
+
+                <input
+                  *ngIf="head.field_type === 'integer'"
+                  id="{{ head.description }}"
+                  type="text"
+                  formControlName="{{ head.description }}"
+                  placeholder="{{ head.name }}"
+                  class="clr-input clr-col-md-11"
+                  mask="separator.0"
+                  thousandSeparator=","
+                />
+                <input
+                  *ngIf="
+                    head.field_type === '' ||
+                    head.field_type === 'text' ||
+                    head.field_type === 'password' ||
+                    head.field_type === 'email'
+                  "
+                  id="{{ head.description }}"
+                  type="head.field_type"
+                  formControlName="{{ head.description }}"
+                  placeholder="{{ head.name }}"
+                  class="clr-input clr-col-md-11"
+                />
+                <input
+                  *ngIf="
+                    head.field_type === 'decimal' ||
+                    head.field_type === 'currency'
+                  "
+                  id="{{ head.description }}"
+                  type="text"
+                  formControlName="{{ head.description }}"
+                  placeholder="{{ head.name }}"
+                  class="clr-input clr-col-md-11"
+                  mask="separator.5"
+                  thousandSeparator=","
+                />
+                <input
+                  *ngIf="
+                    head.field_type === 'file' || head.field_type === 'image'
+                  "
+                  id="{{ head.description }}"
+                  type="file"
+                  formControlName="{{ head.description }}"
+                  placeholder="{{ head.name }}"
+                  class="clr-input clr-col-md-11"
+                />
+                <div *ngIf="help === ''; else notEmpty"></div>
+                <ng-template #notEmpty>
+                  <div
+                    role="tooltip"
+                    aria-haspopup="true"
+                    class="tooltip tooltip-left"
+                  >
+                    <clr-icon shape="info-circle" size="24"></clr-icon>
+                    <span class="tooltip-content">{{ help }}</span>
+                  </div>
+                </ng-template>
+                <span
+                  class="clr-subtext"
+                  *ngIf="
+                    _formGroup.get(head.description).invalid &&
+                    _formGroup.get(head.description).touched
+                  "
+                >
+                  <div *ngIf="error === ''; else showError">
+                    <clr-icon
+                      class="clr-validate-icon"
+                      shape="exclamation-circle"
+                    ></clr-icon>
+                    <ng-template
+                      [ngIf]="
+                        _formGroup.get(head.description).hasError('required')
+                      "
+                      >{{ head.name }} es requerido</ng-template
+                    >
+                    <ng-template
+                      [ngIf]="
+                        _formGroup.get(head.description).hasError('maxlength')
+                      "
+                      >{{ label }} ha excedido la longitud máxima de
+                      {{ maxlength }}</ng-template
+                    >
+                    <ng-template
+                      [ngIf]="
+                        _formGroup.get(head.description).hasError('minlength')
+                      "
+                      >{{ label }} no ha alcanzado la longitud mínima de
+                      {{ minlength }}</ng-template
+                    >
+                  </div>
+                  <ng-template #showError>
+                    <clr-icon
+                      class="clr-validate-icon"
+                      shape="exclamation-circle"
+                    ></clr-icon
+                    >{{ error }}
+                  </ng-template>
+                  <p></p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./Input Control -->
+
+        <!-- Textarea Control -->
+        <div *ngIf="linecount > 1" [formGroup]="_formGroup">
+          <div class="clr-form-control">
+            <label
+              for="{{ head.description }}"
+              class="clr-control-label clr-col-md-12"
+              >{{ head.name }}
+              <span *ngIf="head.field_required" class="required"> *</span>
+            </label>
+            <div
+              class="clr-control-container clr-col-md-12"
+              [class.clr-error]="
+                _formGroup.get(head.description).invalid &&
+                _formGroup.get(head.description).touched
+              "
+            >
+              <div class="clr-textarea-wrapper">
+                <clr-icon shape="text"></clr-icon>
+
+                <textarea
+                  id="{{ head.description }}"
+                  autocomplete="off"
+                  placeholder="{{ head.name }}"
+                  formControlName="{{ head.description }}"
+                  class="clr-textarea clr-col-md-11"
+                ></textarea>
+
+                <div *ngIf="help === ''; else notEmpty"></div>
+                <ng-template #notEmpty>
+                  <div
+                    role="tooltip"
+                    aria-haspopup="true"
+                    class="tooltip tooltip-left"
+                  >
+                    <clr-icon shape="info-circle" size="24"></clr-icon>
+                    <span class="tooltip-content">{{ help }}</span>
+                  </div>
+                </ng-template>
+              </div>
+
+              <span
+                class="clr-subtext"
+                *ngIf="
+                  _formGroup.get(head.description).invalid &&
+                  _formGroup.get(head.description).touched
+                "
+              >
+                <div *ngIf="error === ''; else showError">
+                  <clr-icon
+                    class="clr-validate-icon"
+                    shape="exclamation-circle"
+                  ></clr-icon>
+                  <ng-template
+                    [ngIf]="
+                      _formGroup.get(head.description).hasError('required')
+                    "
+                    >{{ label }} es requerido</ng-template
+                  >
+                  <ng-template
+                    [ngIf]="
+                      _formGroup.get(head.description).hasError('maxlength')
+                    "
+                    >{{ label }} ha excedido la longitud máxima de
+                    {{ maxlength }}</ng-template
+                  >
+                  <ng-template
+                    [ngIf]="
+                      _formGroup.get(head.description).hasError('minlength')
+                    "
+                    >{{ label }} no ha alcanzado la longitud mínima de
+                    {{ minlength }}</ng-template
+                  >
+                </div>
+                <ng-template #showError>
+                  <clr-icon
+                    class="clr-validate-icon"
+                    shape="exclamation-circle"
+                  ></clr-icon
+                  >{{ error }}
+                </ng-template>
+                <p></p>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- ./Textarea Control -->
+
+        <!-- Input Control -->
+        <div *ngIf="type === 'modal'" [formGroup]="_formGroup">
+          <div class="clr-form-control ">
+            <label
+              for="{{ head.description }}"
+              class="clr-control-label clr-col-md-12"
+              >{{ head.name }}
+              <span *ngIf="head.field_required" class="required"> *</span>
+            </label>
+            <div
+              class="clr-control-container clr-col-md-12"
+              [class.clr-error]="
+                _formGroup.get(head.description).invalid &&
+                _formGroup.get(head.description).touched
+              "
+            >
+              <div class="clr-input-wrapper">
+                <clr-icon
+                  *ngIf="head.field_type === 'modal'"
+                  shape="organization"
+                ></clr-icon>
+                <input
+                  *ngIf="type === 'modal'"
+                  id="{{ head.description }}"
+                  type="text"
+                  formControlName="{{ head.description }}"
+                  class="clr-input clr-col-md-11"
+                  disabled
+                />
+                <button
+                  type="button"
+                  class="btn btn-sm"
+                  (click)="openModal()"
+                  id="{{ head.description }}"
+                >
+                  <clr-icon shape="search"></clr-icon>
+                </button>
+
+                <div *ngIf="help === ''; else notEmpty"></div>
+                <ng-template #notEmpty>
+                  <div
+                    role="tooltip"
+                    aria-haspopup="true"
+                    class="tooltip tooltip-left"
+                  >
+                    <clr-icon shape="info-circle" size="24"></clr-icon>
+                    <span class="tooltip-content">{{ help }}</span>
+                  </div>
+                </ng-template>
+              </div>
+
+              <span
+                class="clr-subtext"
+                *ngIf="
+                  _formGroup.get(head.description).invalid &&
+                  _formGroup.get(head.description).touched
+                "
+              >
+                <div *ngIf="error === ''; else showError">
+                  <clr-icon
+                    class="clr-validate-icon"
+                    shape="exclamation-circle"
+                  ></clr-icon>
+                  <ng-template
+                    [ngIf]="
+                      _formGroup.get(head.description).hasError('required')
+                    "
+                    >{{ head.name }} es requerido</ng-template
+                  >
+                  <ng-template [ngIf]="_formGroup.get(id).hasError('maxlength')"
+                    >{{ head.name }} ha excedido la longitud máxima de
+                    {{ maxlength }}</ng-template
+                  >
+                  <ng-template
+                    [ngIf]="
+                      _formGroup.get(head.description).hasError('minlength')
+                    "
+                    >{{ head.name }} no ha alcanzado la longitud mínima de
+                    {{ minlength }}</ng-template
+                  >
+                </div>
+                <ng-template #showError>
+                  <clr-icon
+                    class="clr-validate-icon"
+                    shape="exclamation-circle"
+                  ></clr-icon
+                  >{{ error }}
+                </ng-template>
+                <p></p>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- ./Input Control -->
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-icon"
+          aria-label="home"
+          (click)="addElement()"
+        >
+          <clr-icon shape="plus-circle"></clr-icon>
+        </button>
+      </td>
+    </tr>
+  </div>
+
+  <!-- Grid -->
+  <div class="card-block">
+    <clr-datagrid [clrDgLoading]="loading">
+      <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
+      <div *ngFor="let head of headers">
+        <div *ngIf="head.display; else notDisplay">
+          <div *ngIf="head.filter; else notFilter">
+            <clr-dg-column [clrDgField]="head.description">
+              <ng-container *clrDgHideableColumn="{ hidden: false }">
+                {{ head.name }}
+              </ng-container>
+            </clr-dg-column>
+          </div>
+          <ng-template #notFilter>
+            <clr-dg-column>
+              <ng-container *clrDgHideableColumn="{ hidden: false }">
+                {{ head.name }}
+              </ng-container>
+            </clr-dg-column>
+          </ng-template>
+        </div>
+        <ng-template #notDisplay>
+          <div *ngIf="head.filter; else notFilter">
+            <clr-dg-column [clrDgField]="head.description">
+              <ng-container *clrDgHideableColumn="{ hidden: true }">
+                {{ head.name }}
+              </ng-container>
+            </clr-dg-column>
+          </div>
+          <ng-template #notFilter>
+            <clr-dg-column>
+              <ng-container *clrDgHideableColumn="{ hidden: true }">
+                {{ head.name }}
+              </ng-container>
+            </clr-dg-column>
+          </ng-template>
+        </ng-template>
+      </div>
+      <clr-dg-column>
+        <ng-container> </ng-container>
+      </clr-dg-column>
+
+      <clr-dg-row *ngFor="let item of items | keyvalue; let j = index">
+        <clr-dg-cell>
+          {{ j }}
+        </clr-dg-cell>
+        <clr-dg-cell
+          *ngFor="let attr of attrs; let i = index"
+          id="{{ j }}{{ i }}"
+        >
+          {{ item.value[attr] }}
+        </clr-dg-cell>
+        <div *ngIf="!delete">
+          <clr-dg-cell>
+            <button
+              type="button"
+              class="btn btn-icon"
+              aria-label="home"
+              (click)="deleteElement(j)"
+            >
+              <clr-icon shape="minus-circle"></clr-icon>
+            </button>
+          </clr-dg-cell>
+        </div>
+      </clr-dg-row>
+
+      <clr-dg-footer>
+        <clr-dg-column-toggle>
+          <clr-dg-column-toggle-title
+            >Elegir columnas</clr-dg-column-toggle-title
+          >
+          <clr-dg-column-toggle-button
+            >Seleccionar todas</clr-dg-column-toggle-button
+          >
+        </clr-dg-column-toggle>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+          {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} de
+          {{ pagination.totalItems }} registros
+        </clr-dg-pagination>
+      </clr-dg-footer>
+    </clr-datagrid>
+  </div>
+</div>
