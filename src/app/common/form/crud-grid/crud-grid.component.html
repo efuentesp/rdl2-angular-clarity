@@ -402,9 +402,6 @@
       </clr-dg-column>
 
       <clr-dg-row *ngFor="let item of items | keyvalue; let j = index">
-        <clr-dg-cell>
-          {{ j }}
-        </clr-dg-cell>
         <clr-dg-cell
           *ngFor="let attr of attrs; let i = index"
           id="{{ j }}{{ i }}"
