@@ -251,8 +251,12 @@
         </div>
         <!-- ./Textarea Control -->
 
-        <!-- Input Control -->
-        <div *ngIf="type === 'modal'" [formGroup]="_formGroup">
+        <!-- Grid Control -->
+        <div
+          *ngIf="head.field_type === 'modal'"
+          [formGroup]="_formGroup"
+          style="margin-right: 50px;"
+        >
           <div class="clr-form-control ">
             <label
               for="{{ head.description }}"
@@ -273,7 +277,7 @@
                   shape="organization"
                 ></clr-icon>
                 <input
-                  *ngIf="type === 'modal'"
+                  *ngIf="head.field_type === 'modal'"
                   id="{{ head.description }}"
                   type="text"
                   formControlName="{{ head.description }}"
@@ -344,7 +348,7 @@
             </div>
           </div>
         </div>
-        <!-- ./Input Control -->
+        <!-- ./Grid Control -->
       </td>
       <td>
         <button
@@ -359,7 +363,7 @@
     </tr>
   </div>
 
-  <!-- Grid -->
+  <!-- Principal Grid -->
   <div class="card-block">
     <clr-datagrid [clrDgLoading]="loading">
       <clr-dg-placeholder>No se encontró información.</clr-dg-placeholder>
