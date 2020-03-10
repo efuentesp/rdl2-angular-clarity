@@ -12,7 +12,7 @@
       "
     >
       <div class="clr-select-wrapper">
-        <select formControlName="{{ id }}" class="clr-col-md-11">
+        <select id="{{ id }}" formControlName="{{ id }}" class="clr-col-md-11">
           <option value=""> -- Seleccione un valor -- </option>
           <option value="{{ item.name }}" *ngFor="let item of items">{{
             item.description
