@@ -99,11 +99,20 @@
         class="clr-subtext"
         *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
       >
-        <clr-icon
-          class="clr-validate-icon"
-          shape="exclamation-circle"
-        ></clr-icon
-        >{{ error }}
+        <div *ngIf="error === ''; else notEmptyError">
+          <clr-icon
+            class="clr-validate-icon"
+            shape="exclamation-circle"
+          ></clr-icon>
+          {{ label }} es requerido
+        </div>
+        <ng-template #notEmptyError>
+          <clr-icon
+            class="clr-validate-icon"
+            shape="exclamation-circle"
+          ></clr-icon
+          >{{ error }}
+        </ng-template>
       </span>
     </div>
   </div>
