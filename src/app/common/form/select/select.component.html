@@ -63,7 +63,7 @@
 
 <!-- Option Control -->
 <div *ngIf="type == 'option'" [formGroup]="_formGroup">
-  <div class="clr-form-control">
+  <div class="clr-form-control" id="{{ id }}">
     <label for="{{ id }}" class="clr-control-label clr-col-md-12"
       >{{ label }}
       <span *ngIf="required" class="required">*</span>
