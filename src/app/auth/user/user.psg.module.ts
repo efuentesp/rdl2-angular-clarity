@@ -15,6 +15,7 @@ import { UserAgregarFormDemo } from "./agregar/user-agregar-form";
 // import { RolService } from '../rol/rol.psg.service';
 import { UserEditarFormDemo } from "./editar/user-editar-form";
 import { UserEliminarFormDemo } from "./eliminar/user-eliminar-form";
+import { RolService } from "../rol/rol.psg.service";
 
 @NgModule({
   imports: [
@@ -39,11 +40,7 @@ import { UserEliminarFormDemo } from "./eliminar/user-eliminar-form";
     UserEditarFormDemo,
     UserEliminarFormDemo
   ],
-  providers: [
-    ValidationService,
-    UserService
-    // RolService
-  ],
+  providers: [ValidationService, UserService, RolService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UserDemoModule {}

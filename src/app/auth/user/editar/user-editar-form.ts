@@ -1,22 +1,20 @@
 /* PSG  User Edita Ts */
 import { Component, OnInit } from "@angular/core";
-import { ValidationService } from "../../../_validation/validation.service";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   FormBuilder,
   FormGroup,
-  FormControl,
   Validators,
-  FormArray,
-  ValidatorFn
+  FormControl
 } from "@angular/forms";
+import { Location, DatePipe } from "@angular/common";
 import Swal from "sweetalert2";
-import { Router, ActivatedRoute } from "@angular/router";
-import { DatePipe } from "@angular/common";
 
 import { User } from "../user.psg.model";
 import { UserSend } from "../user.psg.model-send";
 import { UserService } from "../user.psg.service";
 import { Rol } from "../../rol/rol.psg.model";
+import { RolService } from "../../rol/rol.psg.service";
 
 // import { RolService } from '../../rol/rol.psg.service';
 // import { Rol } from '../../rol/rol.psg.model';
@@ -37,10 +35,11 @@ export class UserEditarFormDemo implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private validationService: ValidationService,
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService // private rolService: RolService
+    private userService: UserService,
+    private rolService: RolService,
+    private location: Location
   ) {
     this.userForm = this.fb.group({
       username: new FormControl("", Validators.required),
@@ -54,7 +53,7 @@ export class UserEditarFormDemo implements OnInit {
 
   ngOnInit() {
     this.recuperaUser();
-    // this.cargaRoles();
+    this.cargaRoles();
   }
 
   recuperaUser() {
@@ -64,14 +63,24 @@ export class UserEditarFormDemo implements OnInit {
     this.userForm.controls["email"].setValue(this.user.email);
     this.userForm.controls["enabled"].setValue(this.user.enabled);
     this.userForm.controls["password"].setValue(this.user.password);
-    // this.userForm.controls['rol'].setValue(this.user.roleId);
+    this.userForm.controls["rol"].setValue(this.user.roleId);
   }
 
   editaUser() {
     this.submitted = true;
 
     if (this.userForm.invalid) {
-      return;
+      Object.keys(this.userForm.controls).forEach(field => {
+        const control = this.userForm.get(field);
+        if (control.valid == false) {
+          control.markAsTouched({ onlySelf: true });
+          Swal.fire(
+            "Error...",
+            "User has fields to fill - (" + field + ")",
+            "error"
+          );
+        }
+      });
     } else {
       this.route.params.subscribe(params => {
         this.idUser = params["id"];
@@ -84,33 +93,47 @@ export class UserEditarFormDemo implements OnInit {
       this.userSend.password = this.userForm.controls["password"].value;
       this.userSend.roleId = this.userForm.controls["rol"].value;
 
-      this.userService
-        .updateEditaUser(this.userSend, this.idUser)
-        .subscribe(res => {
+      this.userService.updateEditaUser(this.userSend, this.idUser).subscribe(
+        res => {
           if (res) {
             Swal.fire("Success...", "User save successfully.", "success");
-            this.router.navigate(["../../administrar"], {
-              relativeTo: this.route
-            });
-          } else {
-            Swal.fire("Error...", "User save unsuccessfully.", "error");
+            this.location.back();
           }
-        });
+        },
+        error => {
+          let errorMessage = "";
+          if (error.error instanceof ErrorEvent) {
+            errorMessage = `Error: ${error.error.message}`;
+          } else {
+            errorMessage = `Error Code: ${error.status}\n Message: ${error.message}`;
+          }
+
+          Swal.fire(
+            "Error...",
+            "User save unsuccessfully." + errorMessage,
+            "error"
+          );
+        }
+      );
     }
   }
 
-  // cargaRoles() {
-  //   this.rolService.getRecuperaRol().subscribe(
-  //     res => {
-  //       if (res) {
-  //         //this.rolesArray = res;
-  //       }
-  //     },
-  //     error => {
-  //       //Swal.fire('Error...', 'An error occurred while calling the direccions.', 'error');
-  //     }
-  //   );
-  // }
+  cargaRoles() {
+    this.rolService.getRecuperaRol().subscribe(
+      res => {
+        if (res) {
+          this.rolesArray = res;
+        }
+      },
+      error => {
+        Swal.fire(
+          "Error...",
+          "An error occurred while calling the direccions.",
+          "error"
+        );
+      }
+    );
+  }
 
   regresaUser() {
     this.router.navigate(["../../administrar"], { relativeTo: this.route });
