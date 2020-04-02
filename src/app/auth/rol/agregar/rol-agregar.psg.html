@@ -1,62 +1,93 @@
 <!-- PSG User Edit Html -->
 <!-- head -->
 <div class="card-header">
-		Agregar Rol
-	</div> 
-	<!-- ./head -->
-	
-	<!-- form -->    
-	<form class="form" [formGroup]="rolForm">
-		<!-- div -->
-		<div style="margin: 20px;">
-		
-		<!-- fields -->
-			  <div class="clr-form-control">
-				  <label for="nss" class="clr-control-label">Nombre<span class="required">*</span></label>
-				  <div class="clr-control-container clr-col-md-12"> 
-					  <label for="name" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-							  [class.invalid]="rolForm.get('name').invalid && (rolForm.get('name').dirty || rolForm.get('name').touched)">
-						  <input id="name" type="text" formControlName="name" placeholder="name" class="clr-input clr-col-sm-11 clr-col-md-12" >
-						  <span class="tooltip-content">
-							  Nombre es requerido.
-						  </span>
-					  </label>
-				  </div>
-			  </div>
-			  <div class="clr-form-control">
-				  <label for="nss" class="clr-control-label">Descripción<span class="required">*</span></label>
-				  <div class="clr-control-container clr-col-md-12"> 
-					  <label for="description" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-							  [class.invalid]="rolForm.get('description').invalid && (rolForm.get('description').dirty || rolForm.get('description').touched)">
-						  <input id="description" type="text" formControlName="description" placeholder="description" class="clr-input clr-col-sm-11 clr-col-md-12" >
-						  <span class="tooltip-content">
-							  Descripción es requerido.
-						  </span>
-					  </label>
-				  </div>
-			  </div>  
-			  <div class="clr-form-control" id="enabled">
-					  <label for="enabled" class="clr-control-label">Asignado<span class="required">*</span></label>
-					  <clr-radio-wrapper><input type="radio" formControlName="enabled" value="true" required> Activo</clr-radio-wrapper>		
-					  <clr-radio-wrapper><input type="radio" formControlName="enabled" value="false" required> Inactivo</clr-radio-wrapper>		
-				  </div>
-		<!-- ./fields -->	
-		<!-- <p>Form value {{ rolForm.value | json }} </p>
-		<p> Form status {{ rolForm.status | json}} </p>  -->
-		
-		<!-- buttons -->        
-		<p>   
-			<button type="submit" class="btn btn-primary" (click)="guardaUser()"><clr-icon shape="success-standard"></clr-icon> Agregar</button>
-			<button type="submit" class="btn btn-outline" [routerLink]="['../administrar']" ><clr-icon shape="undo"></clr-icon> Regresar</button>
-		</p>
-		<!-- ./buttons -->
-	
-		<!-- modals -->
-		<!-- ./modals -->
-		
-		</div>
-		<!-- ./div -->
-	</form>
-	<!-- ./form --> 
-		
-	
+  Agregar Rol
+</div>
+<!-- ./head -->
+
+<!-- form -->
+<form class="form" [formGroup]="rolForm">
+  <!-- div -->
+  <div style="margin: 20px;">
+    <!-- fields -->
+    <div class="clr-form-control">
+      <label for="nss" class="clr-control-label"
+        >Nombre<span class="required">*</span></label
+      >
+      <div class="clr-control-container clr-col-md-12">
+        <label
+          for="name"
+          aria-haspopup="true"
+          role="tooltip"
+          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+          [class.invalid]="rolForm.get('name').invalid && (rolForm.get('name').dirty || rolForm.get('name').touched)"
+        >
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="name"
+            class="clr-input clr-col-sm-11 clr-col-md-12"
+          />
+          <span class="tooltip-content">
+            Nombre es requerido.
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="clr-form-control">
+      <label for="nss" class="clr-control-label"
+        >Descripción<span class="required">*</span></label
+      >
+      <div class="clr-control-container clr-col-md-12">
+        <label
+          for="description"
+          aria-haspopup="true"
+          role="tooltip"
+          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
+          [class.invalid]="rolForm.get('description').invalid && (rolForm.get('description').dirty || rolForm.get('description').touched)"
+        >
+          <input
+            id="description"
+            type="text"
+            formControlName="description"
+            placeholder="description"
+            class="clr-input clr-col-sm-11 clr-col-md-12"
+          />
+          <span class="tooltip-content">
+            Descripción es requerido.
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="clr-form-control">
+      <label for="enabled" class="clr-control-label"
+        >Asignado<span class="required">*</span></label
+      >
+      <div class="clr-select-wrapper">
+        <select id="enabled" formControlName="enabled" class="clr-col-md-11">
+          <option value="true"> Activo </option>
+          <option value="false">Inactivo</option>
+        </select>
+      </div>
+    </div>
+    <!-- ./fields -->
+
+    <!-- buttons -->
+    <p>
+      <button type="submit" class="btn btn-primary" (click)="guardaUser()">
+        <clr-icon shape="success-standard"></clr-icon> Agregar
+      </button>
+      <button
+        type="submit"
+        class="btn btn-outline"
+        [routerLink]="['../administrar']"
+      >
+        <clr-icon shape="undo"></clr-icon> Regresar
+      </button>
+    </p>
+    <!-- ./buttons -->
+  </div>
+  <!-- ./div -->
+</form>
+<!-- ./form -->

@@ -1,16 +1,13 @@
+/* PSG  User Agregar Ts */
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl,
-  ValidatorFn,
-  FormArray
+  FormControl
 } from "@angular/forms";
-
 import Swal from "sweetalert2";
-import { ValidationService } from "../../../_validation/validation.service";
 
 import { RolSend } from "../rol.psg.model-send";
 import { RolService } from "../rol.psg.service";
@@ -27,7 +24,6 @@ export class RoleAgregarFormDemo implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private validationService: ValidationService,
     private router: Router,
     private route: ActivatedRoute,
     private rolService: RolService
@@ -47,7 +43,17 @@ export class RoleAgregarFormDemo implements OnInit {
     this.submitted = true;
 
     if (this.rolForm.invalid) {
-      return;
+      Object.keys(this.rolForm.controls).forEach(field => {
+        const control = this.rolForm.get(field);
+        if (control.valid == false) {
+          control.markAsTouched({ onlySelf: true });
+          Swal.fire(
+            "Error...",
+            "Rol has fields to fill - (" + field + ")",
+            "error"
+          );
+        }
+      });
     } else {
       this.rolSend.name = this.rolForm.controls["name"].value;
       this.rolSend.description = this.rolForm.controls["description"].value;

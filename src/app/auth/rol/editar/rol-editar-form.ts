@@ -1,17 +1,13 @@
 /* PSG  User Edita Ts */
 import { Component, OnInit } from "@angular/core";
-import { ValidationService } from "../../../_validation/validation.service";
+import { ActivatedRoute, Router } from "@angular/router";
 import {
   FormBuilder,
   FormGroup,
-  FormControl,
   Validators,
-  FormArray,
-  ValidatorFn
+  FormControl
 } from "@angular/forms";
 import Swal from "sweetalert2";
-import { Router, ActivatedRoute } from "@angular/router";
-import { DatePipe } from "@angular/common";
 
 import { RolService } from "../rol.psg.service";
 import { Rol } from "../rol.psg.model";
@@ -26,14 +22,12 @@ export class RolEditarFormDemo implements OnInit {
   public rolForm: FormGroup;
   public submitted = false;
   public idRol: string;
-  public datePipe = new DatePipe("en-US");
   public rolesArray: Rol[];
   public rolSend: RolSend = new RolSend();
   public rol: Rol;
 
   constructor(
     private fb: FormBuilder,
-    private validationService: ValidationService,
     private router: Router,
     private route: ActivatedRoute,
     private rolService: RolService
@@ -60,7 +54,19 @@ export class RolEditarFormDemo implements OnInit {
     this.submitted = true;
 
     if (this.rolForm.invalid) {
-      return;
+      Object.keys(this.rolForm.controls).forEach(field => {
+        const control = this.rolForm.get(field);
+        if (control.valid == false) {
+          control.markAsTouched({ onlySelf: true });
+          Swal.fire(
+            "Error...",
+            "Instrucción de venta de valores has fields to fill - (" +
+              field +
+              ")",
+            "error"
+          );
+        }
+      });
     } else {
       this.route.params.subscribe(params => {
         this.idRol = params["id"];
