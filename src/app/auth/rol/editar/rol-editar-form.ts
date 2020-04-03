@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import { RolService } from "../rol.psg.service";
 import { Rol } from "../rol.psg.model";
 import { RolSend } from "../rol.psg.model-send";
+import { Enabled } from "../rol.psg.model.enabled";
 
 @Component({
   selector: "clr-rol-not-closable-psg-angular",
@@ -25,6 +26,7 @@ export class RolEditarFormDemo implements OnInit {
   public rolesArray: Rol[];
   public rolSend: RolSend = new RolSend();
   public rol: Rol;
+  enabledArray: Enabled[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -40,6 +42,17 @@ export class RolEditarFormDemo implements OnInit {
   }
 
   ngOnInit() {
+    let elementA = new Enabled();
+    let elementB = new Enabled();
+
+    elementA.name = "true";
+    elementA.description = "Activo";
+
+    elementB.name = "false";
+    elementB.description = "Inactivo";
+
+    this.enabledArray.push(elementA);
+    this.enabledArray.push(elementB);
     this.recuperaUser();
   }
 
