@@ -90,8 +90,10 @@ export class RolEditarFormDemo implements OnInit {
 
       if (this.rolForm.controls["enabled"].value === "true") {
         this.rolSend.enabled = true;
-      } else {
+      } else if (this.rolForm.controls["enabled"].value === "false") {
         this.rolSend.enabled = false;
+      } else {
+        this.rolSend.enabled = true;
       }
 
       this.rolService

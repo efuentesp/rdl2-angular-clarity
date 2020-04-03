@@ -95,8 +95,10 @@ export class UserEditarFormDemo implements OnInit {
 
       if (this.userForm.controls["enabled"].value === "true") {
         this.userSend.enabled = true;
-      } else {
+      } else if (this.userForm.controls["enabled"].value === "false") {
         this.userSend.enabled = false;
+      } else {
+        this.userSend.enabled = true;
       }
 
       this.userService.updateEditaUser(this.userSend, this.idUser).subscribe(
