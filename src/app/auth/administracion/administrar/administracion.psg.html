@@ -1,38 +1,43 @@
 <!-- PSG Administrar Afiliado Html -->
 <div class="card-header">
-Administrar Permisos
+  Administrar Permisos
 </div>
 
 <div class="card-block">
-	<table class="table">
-		<thead>
-				<tr style="height: 1rem;">
-					<th class="header-content">RESOURCE</th>
-					<th class="header-content">ACTION</th>
-					<!-- <div *ngFor="let  adminPermiso of adminPermisoList; let b = index">
-						<div *ngFor="let rol of adminPermiso.roles; let j = index" >
-							<div *ngIf="b==0">
-								<th class="rotate">{{ rol.name| uppercase}}</th>
-							</div>
-						</div>
-					</div> -->
-				</tr>
-			</thead>
-			<tbody>
-					 <tr *ngFor="let adminPermiso of adminPermisoList; let k = index" >
-					
-						<td> {{adminPermiso.permission.resource | uppercase}}</td>
-						<td> {{adminPermiso.permission.action | uppercase}}</td>
-						
-						<td *ngFor="let rol of adminPermiso.roles; let j = index" >
-							<div *ngIf= "rol.name == 'administrator'">
-								<input type="checkbox" disabled [checked] = "rol.assigned" (change)= "saveData(adminPermiso, rol)" value="rol.assigned" />
-							</div>
-							<div *ngIf= "rol.name != 'administrator'">
-								<input type="checkbox" [checked] = "rol.assigned" (change)= "saveData(adminPermiso, rol)" value="rol.assigned" />
-							</div>
-						</td>
-					</tr> 
-			</tbody>
-	</table>	
-</div>		
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let adminPermiso of adminPermisoList|slice:0:1">
+        <td class="header-content">RESOURCE</td>
+        <td class="header-content">ACTION</td>
+        <td *ngFor="let rol of adminPermiso.roles; let j = index">
+          <div>{{ rol.name| uppercase}}</div>
+        </td>
+      </tr>
+
+      <tr *ngFor="let adminPermiso of adminPermisoList; let k = index">
+        <td>{{adminPermiso.permission.resource | uppercase}}</td>
+        <td>{{adminPermiso.permission.action | uppercase}}</td>
+
+        <td *ngFor="let rol of adminPermiso.roles; let j = index">
+          <div *ngIf="rol.name == 'administrator'">
+            <input
+              type="checkbox"
+              disabled
+              [checked]="rol.assigned"
+              (change)="saveData(adminPermiso, rol)"
+              value="rol.assigned"
+            />
+          </div>
+          <div *ngIf="rol.name != 'administrator'">
+            <input
+              type="checkbox"
+              [checked]="rol.assigned"
+              (change)="saveData(adminPermiso, rol)"
+              value="rol.assigned"
+            />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
