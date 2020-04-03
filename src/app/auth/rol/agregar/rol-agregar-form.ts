@@ -8,9 +8,12 @@ import {
   FormControl
 } from "@angular/forms";
 import Swal from "sweetalert2";
+import { Location, DatePipe } from "@angular/common";
 
 import { RolSend } from "../rol.psg.model-send";
 import { RolService } from "../rol.psg.service";
+import { Enabled } from "../rol.psg.model.enabled";
+import { element } from "protractor";
 
 @Component({
   selector: "clr-alert-not-closable-demo-angular",
@@ -21,12 +24,14 @@ export class RoleAgregarFormDemo implements OnInit {
   rolForm: FormGroup;
   submitted = false;
   public rolSend: RolSend = new RolSend();
+  enabledArray: Enabled[] = [];
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private rolService: RolService
+    private rolService: RolService,
+    private location: Location
   ) {
     this.rolForm = this.fb.group({
       name: new FormControl("", Validators.required),
@@ -36,10 +41,20 @@ export class RoleAgregarFormDemo implements OnInit {
   }
 
   ngOnInit() {
-    //this.cargaRoles();
+    let elementA = new Enabled();
+    let elementB = new Enabled();
+
+    elementA.name = "true";
+    elementA.description = "Activo";
+
+    elementB.name = "false";
+    elementB.description = "Inactivo";
+
+    this.enabledArray.push(elementA);
+    this.enabledArray.push(elementB);
   }
 
-  guardaUser() {
+  guardaRol() {
     this.submitted = true;
 
     if (this.rolForm.invalid) {
@@ -68,5 +83,9 @@ export class RoleAgregarFormDemo implements OnInit {
         }
       });
     }
+  }
+
+  regresaRol() {
+    this.location.back();
   }
 }
