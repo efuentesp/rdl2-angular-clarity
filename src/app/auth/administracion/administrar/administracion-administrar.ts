@@ -38,7 +38,6 @@ export class AdministracionAdministrarDemo {
       data => {
         if (data) {
           this.adminPermisoList = data;
-          console.log("Los permisos: ", this.adminPermisoList);
         }
       },
       error => {

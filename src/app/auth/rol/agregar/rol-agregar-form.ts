@@ -72,7 +72,12 @@ export class RoleAgregarFormDemo implements OnInit {
     } else {
       this.rolSend.name = this.rolForm.controls["name"].value;
       this.rolSend.description = this.rolForm.controls["description"].value;
-      this.rolSend.enabled = this.rolForm.controls["enabled"].value;
+
+      if (this.rolForm.controls["enabled"].value === "true") {
+        this.rolSend.enabled = true;
+      } else {
+        this.rolSend.enabled = false;
+      }
 
       this.rolService.postGuardaRol(this.rolSend).subscribe(res => {
         if (res) {

@@ -93,6 +93,12 @@ export class UserEditarFormDemo implements OnInit {
       this.userSend.password = this.userForm.controls["password"].value;
       this.userSend.roleId = this.userForm.controls["rol"].value;
 
+      if (this.userForm.controls["enabled"].value === "true") {
+        this.userSend.enabled = true;
+      } else {
+        this.userSend.enabled = false;
+      }
+
       this.userService.updateEditaUser(this.userSend, this.idUser).subscribe(
         res => {
           if (res) {

@@ -83,7 +83,12 @@ export class UserAgregarFormDemo implements OnInit {
       this.userSend.display_name = this.userForm.controls["display_name"].value;
       this.userSend.email = this.userForm.controls["email"].value;
       this.userSend.password = this.userForm.controls["password"].value;
-      this.userSend.enabled = this.userForm.controls["enabled"].value;
+
+      if (this.userForm.controls["enabled"].value === "true") {
+        this.userSend.enabled = true;
+      } else {
+        this.userSend.enabled = false;
+      }
 
       this.rolesArray.forEach(element => {
         if (element.name === this.userForm.controls["rol"].value) {
