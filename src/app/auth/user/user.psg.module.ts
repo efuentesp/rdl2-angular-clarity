@@ -16,6 +16,7 @@ import { UserAgregarFormDemo } from "./agregar/user-agregar-form";
 import { UserEditarFormDemo } from "./editar/user-editar-form";
 import { UserEliminarFormDemo } from "./eliminar/user-eliminar-form";
 import { RolService } from "../rol/rol.psg.service";
+import { CommonClarityModule } from "src/app/common/common-clarity.module";
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { RolService } from "../rol/rol.psg.service";
     ROUTING,
     HttpModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonClarityModule
   ],
   declarations: [
     UserDemo,

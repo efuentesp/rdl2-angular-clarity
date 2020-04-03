@@ -16,6 +16,7 @@ import { UserSend } from "../user.psg.model-send";
 import { UserService } from "../user.psg.service";
 import { Rol } from "../../administracion/rol.psg.model";
 import { RolService } from "../../rol/rol.psg.service";
+import { Enabled } from "../../rol/rol.psg.model.enabled";
 
 @Component({
   selector: "clr-alert-not-closable-demo-angular",
@@ -28,6 +29,7 @@ export class UserAgregarFormDemo implements OnInit {
   public user: User = new User();
   public userSend: UserSend = new UserSend();
   public rolesArray: Rol[];
+  public enabledArray: Enabled[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -47,6 +49,18 @@ export class UserAgregarFormDemo implements OnInit {
 
   ngOnInit() {
     this.cargaRoles();
+
+    let elementA = new Enabled();
+    let elementB = new Enabled();
+
+    elementA.name = "true";
+    elementA.description = "Activo";
+
+    elementB.name = "false";
+    elementB.description = "Inactivo";
+
+    this.enabledArray.push(elementA);
+    this.enabledArray.push(elementB);
   }
 
   guardaUser() {
@@ -70,7 +84,12 @@ export class UserAgregarFormDemo implements OnInit {
       this.userSend.email = this.userForm.controls["email"].value;
       this.userSend.password = this.userForm.controls["password"].value;
       this.userSend.enabled = this.userForm.controls["enabled"].value;
-      this.userSend.roleId = this.userForm.controls["rol"].value;
+
+      this.rolesArray.forEach(element => {
+        if (element.name === this.userForm.controls["rol"].value) {
+          this.userSend.roleId = element.id;
+        }
+      });
 
       // Save
       this.userService.postGuardaUser(this.userSend).subscribe(
@@ -113,5 +132,9 @@ export class UserAgregarFormDemo implements OnInit {
         );
       }
     );
+  }
+
+  regresaUser() {
+    this.location.back();
   }
 }

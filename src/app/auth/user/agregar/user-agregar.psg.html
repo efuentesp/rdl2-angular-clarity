@@ -1,160 +1,85 @@
-<!-- PSG User Edit Html -->
-<!-- head -->
-<div class="card-header">
-  Agregar User
-</div>
-<!-- ./head -->
-
-<!-- form -->
-<form class="form" [formGroup]="userForm">
-  <!-- div -->
-  <div style="margin: 20px;">
-    <!-- fields -->
-    <div class="clr-form-control">
-      <label for="nss" class="clr-control-label"
-        >Nombre Usuario<span class="required">*</span></label
-      >
-      <div class="clr-control-container clr-col-md-12">
-        <label
-          for="username"
-          aria-haspopup="true"
-          role="tooltip"
-          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-          [class.invalid]="userForm.get('username').invalid && (userForm.get('username').dirty || userForm.get('username').touched)"
+<!-- PSG User Add Html -->
+<app-page [title]="'Agregar Usuario'">
+  <div class="clr-row">
+    <div class="clr-col">
+      <span>
+        <app-formbox
+          [type]="'add'"
+          [_formGroup]="userForm"
+          [orientacion]="horizontal"
         >
-          <input
-            id="username"
-            type="text"
-            formControlName="username"
-            placeholder="Username"
-            class="clr-input clr-col-sm-11 clr-col-md-12"
-          />
-          <span class="tooltip-content">
-            Username es requerido.
-          </span>
-        </label>
-      </div>
-    </div>
-    <div class="clr-form-control">
-      <label for="nss" class="clr-control-label"
-        >Display<span class="required">*</span></label
-      >
-      <div class="clr-control-container clr-col-md-12">
-        <label
-          for="display_name"
-          aria-haspopup="true"
-          role="tooltip"
-          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-          [class.invalid]="userForm.get('display_name').invalid && (userForm.get('display_name').dirty || userForm.get('display_name').touched)"
-        >
-          <input
-            id="display_name"
-            type="text"
-            formControlName="display_name"
-            placeholder="Display_name"
-            class="clr-input clr-col-sm-11 clr-col-md-12"
-          />
-          <span class="tooltip-content">
-            Display_name es requerido.
-          </span>
-        </label>
-      </div>
-    </div>
-    <div class="clr-form-control">
-      <label for="nss" class="clr-control-label"
-        >email<span class="required">*</span></label
-      >
-      <div class="clr-control-container clr-col-md-12">
-        <label
-          for="email"
-          aria-haspopup="true"
-          role="tooltip"
-          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-          [class.invalid]="userForm.get('email').invalid && (userForm.get('email').dirty || userForm.get('email').touched)"
-        >
-          <input
-            id="email"
-            type="text"
-            formControlName="email"
-            placeholder="email"
-            class="clr-input clr-col-sm-11 clr-col-md-12"
-          />
-          <span class="tooltip-content">
-            Email es requerido.
-          </span>
-        </label>
-      </div>
-    </div>
-    <div class="clr-form-control">
-      <label for="nss" class="clr-control-label"
-        >Password<span class="required">*</span></label
-      >
-      <div class="clr-control-container clr-col-md-12">
-        <label
-          for="password"
-          aria-haspopup="true"
-          role="tooltip"
-          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-          [class.invalid]="userForm.get('password').invalid && (userForm.get('password').dirty || userForm.get('password').touched)"
-        >
-          <input
-            id="password"
-            type="text"
-            formControlName="password"
-            placeholder="password"
-            class="clr-input clr-col-sm-11 clr-col-md-12"
-          />
-          <span class="tooltip-content">
-            Password es requerido.
-          </span>
-        </label>
-      </div>
-    </div>
-    <div class="clr-form-control">
-      <label class="clr-control-label ">Rol</label>
-      <div class="clr-control-container">
-        <div class="clr-select-wrapper">
-          <select formControlName="rol">
-            <option value=""> -- Selecciona -- </option>
-            <option [ngValue]="rol.id" *ngFor="let rol of rolesArray"
-              >{{rol.name}}</option
+          <app-inputbox
+            [_formGroup]="userForm"
+            [_formControlName]="username"
+            [id]="'username'"
+            [required]="true"
+            [type]="'text'"
+            label="Nombre Usuario"
+            [placeholder]="'username'"
+          ></app-inputbox>
+          <app-inputbox
+            [_formGroup]="userForm"
+            [_formControlName]="display_name"
+            [id]="'display_name'"
+            [required]="true"
+            [type]="'text'"
+            label="Display"
+            [placeholder]="'display name'"
+          ></app-inputbox>
+          <app-inputbox
+            [_formGroup]="userForm"
+            [_formControlName]="email"
+            [id]="'email'"
+            [required]="true"
+            [type]="'text'"
+            label="Email"
+            [placeholder]="'email'"
+          ></app-inputbox>
+          <app-inputbox
+            [_formGroup]="userForm"
+            [_formControlName]="password"
+            [id]="'password'"
+            [required]="true"
+            [type]="'text'"
+            label="Password"
+            [placeholder]="'password'"
+          ></app-inputbox>
+          <app-select
+            [_formGroup]="userForm"
+            [_formControlName]="rol"
+            [id]="'rol'"
+            [required]="true"
+            [type]="'selectlist'"
+            label="Rol"
+            [items]="rolesArray"
+          ></app-select>
+          <app-select
+            [_formGroup]="userForm"
+            [_formControlName]="enabled"
+            [id]="'enabled'"
+            [required]="true"
+            [type]="'selectlist'"
+            label="Asignado"
+            [items]="enabledArray"
+          ></app-select>
+          <p>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="guardaUser()"
             >
-          </select>
-          <clr-icon
-            class="clr-validate-icon"
-            shape="exclamation-circle"
-          ></clr-icon>
-        </div>
-      </div>
+              <clr-icon shape="success-standard"></clr-icon> Agregar
+            </button>
+            <button
+              type="submit"
+              class="btn btn-outline"
+              (click)="regresaUser()"
+            >
+              <clr-icon shape="undo"></clr-icon> Regresar
+            </button>
+          </p>
+        </app-formbox>
+      </span>
     </div>
-    <div class="clr-form-control">
-      <label for="enabled" class="clr-control-label"
-        >Asignado<span class="required">*</span></label
-      >
-      <div class="clr-select-wrapper">
-        <select id="enabled" formControlName="enabled" class="clr-col-md-11">
-          <option value=""> -- Selecciona -- </option>
-          <option value="true"> Activo </option>
-          <option value="false">Inactivo</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- buttons -->
-    <p>
-      <button type="submit" class="btn btn-primary" (click)="guardaUser()">
-        <clr-icon shape="success-standard"></clr-icon> Agregar
-      </button>
-      <button
-        type="submit"
-        class="btn btn-outline"
-        [routerLink]="['../administrar']"
-      >
-        <clr-icon shape="undo"></clr-icon> Regresar
-      </button>
-    </p>
-    <!-- ./buttons -->
   </div>
-  <!-- ./div -->
-</form>
-<!-- ./form -->
+</app-page>
