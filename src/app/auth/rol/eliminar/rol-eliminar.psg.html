@@ -1,89 +1,30 @@
-<!-- PSG User Delete Html -->
-<!-- head -->
-<div class="card-header">
-  Eliminar User
-</div>
-<!-- ./head -->
-
-<!-- form -->
-<form class="form" [formGroup]="rolForm">
-  <!-- div -->
-  <div style="margin: 20px;">
-    <!-- fields -->
-    <div class="clr-form-control">
-      <label for="nss" class="clr-control-label"
-        >Nombre<span class="required">*</span></label
-      >
-      <div class="clr-control-container clr-col-md-12">
-        <label
-          for="name"
-          aria-haspopup="true"
-          role="tooltip"
-          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-          [class.invalid]="rolForm.get('name').invalid && (rolForm.get('name').dirty || rolForm.get('name').touched)"
-        >
-          <input
-            id="name"
-            type="text"
-            formControlName="name"
-            placeholder="name"
-            class="clr-input clr-col-sm-11 clr-col-md-12"
-          />
-          <span class="tooltip-content">
-            Nombre es requerido.
-          </span>
-        </label>
-      </div>
+<!-- PSG Rol Delete Html -->
+<app-page [title]="'Eliminar Rol'">
+  <div class="clr-row">
+    <div class="clr-col">
+      <app-outputbox
+        value="{{rol.name}}"
+        [id]="'name'"
+        label="Nombre"
+      ></app-outputbox>
+      <app-outputbox
+        value="{{rol.description}}"
+        [id]="'subfisoItem'"
+        label="Descripción"
+      ></app-outputbox>
+      <app-outputbox
+        value="{{rol.enabled}}"
+        [id]="'enabled'"
+        label="Asignado"
+      ></app-outputbox>
+      <p>
+        <button type="submit" class="btn btn-danger" (click)="eliminaRol()">
+          <clr-icon shape="trash"></clr-icon> Eliminar
+        </button>
+        <button type="submit" class="btn btn-outline" (click)="regresaRol()">
+          <clr-icon shape="undo"></clr-icon> Regresar
+        </button>
+      </p>
     </div>
-    <div class="clr-form-control">
-      <label for="nss" class="clr-control-label"
-        >Descripción<span class="required">*</span></label
-      >
-      <div class="clr-control-container clr-col-md-12">
-        <label
-          for="description"
-          aria-haspopup="true"
-          role="tooltip"
-          class="tooltip tooltip-validation tooltip-sm clr-input clr-col-sm-11 clr-col-md-11"
-          [class.invalid]="rolForm.get('description').invalid && (rolForm.get('description').dirty || rolForm.get('description').touched)"
-        >
-          <input
-            id="description"
-            type="text"
-            formControlName="description"
-            placeholder="description"
-            class="clr-input clr-col-sm-11 clr-col-md-12"
-          />
-          <span class="tooltip-content">
-            Descripción es requerido.
-          </span>
-        </label>
-      </div>
-    </div>
-
-    <!-- ./fields -->
-    <div class="clr-form-control">
-      <label for="enabled" class="clr-control-label"
-        >Asignado<span class="required">*</span></label
-      >
-      <div class="clr-select-wrapper">
-        <select id="enabled" formControlName="enabled" class="clr-col-md-11">
-          <option value="true"> Activo </option>
-          <option value="false">Inactivo</option>
-        </select>
-      </div>
-    </div>
-    <!-- buttons -->
-    <p>
-      <button type="submit" class="btn btn-danger" (click)="eliminaRol()">
-        <clr-icon shape="trash"></clr-icon> Eliminar
-      </button>
-      <button type="submit" class="btn btn-outline" (click)="regresaRol()">
-        <clr-icon shape="undo"></clr-icon> Regresar
-      </button>
-    </p>
-    <!-- ./buttons -->
   </div>
-  <!-- ./div -->
-</form>
-<!-- ./form -->
+</app-page>
