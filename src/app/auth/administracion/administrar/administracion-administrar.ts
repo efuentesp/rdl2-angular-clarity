@@ -43,7 +43,7 @@ export class AdministracionAdministrarDemo {
       error => {
         Swal.fire(
           "Error...",
-          "An error occurred while calling the beneficiarios.",
+          "An error occurred while calling the privileges.",
           "error"
         );
       }
@@ -63,7 +63,7 @@ export class AdministracionAdministrarDemo {
         error => {
           Swal.fire(
             "Error...",
-            "An error occurred while calling the beneficiarios.",
+            "An error occurred while calling the privileges.",
             "error"
           );
         }
@@ -76,7 +76,7 @@ export class AdministracionAdministrarDemo {
         error => {
           Swal.fire(
             "Error...",
-            "An error occurred while calling the beneficiarios.",
+            "An error occurred while calling the privileges.",
             "error"
           );
         }
