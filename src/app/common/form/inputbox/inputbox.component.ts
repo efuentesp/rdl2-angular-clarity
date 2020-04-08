@@ -3,13 +3,13 @@ import {
   ControlValueAccessor,
   FormGroup,
   FormControl,
-  FormControlName
+  FormControlName,
 } from "@angular/forms";
 
 @Component({
   selector: "app-inputbox",
   templateUrl: "./inputbox.component.html",
-  styleUrls: ["./inputbox.component.scss"]
+  styleUrls: ["./inputbox.component.scss"],
 })
 export class InputboxComponent implements OnInit {
   constructor() {}
@@ -28,7 +28,7 @@ export class InputboxComponent implements OnInit {
   @Input() _formControlName: FormControlName;
   @Input() flag: boolean = false;
   @Input() minlength: number = 0;
-  @Input() maxlength: number = 0;
+  @Input() maxlength: number = 150;
   @Output() showModal = new EventEmitter<boolean>();
 
   ngOnInit() {}
