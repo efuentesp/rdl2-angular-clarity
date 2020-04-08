@@ -1,6 +1,6 @@
 <!-- Input Control -->
 <div *ngIf="2 > linecount && type !== 'modal'" [formGroup]="_formGroup">
-  <div class="clr-form-control ">
+  <div class="clr-form-control">
     <label for="{{ id }}Id" class="clr-control-label clr-col-md-12"
       >{{ label }}
       <span *ngIf="required" class="required"> *</span>
@@ -39,12 +39,17 @@
           thousandSeparator=","
         />
         <input
-          *ngIf="
-            type === '' ||
-            type === 'text' ||
-            type === 'password' ||
-            type === 'email'
-          "
+          *ngIf="type === '' || type === 'text' || type === 'password'"
+          id="{{ id }}"
+          type="{{ type }}"
+          formControlName="{{ id }}"
+          placeholder="{{ placeholder }}"
+          class="clr-input clr-col-md-11"
+          maxlength="{{ maxlength }}"
+          minlength="{{ minlength }}"
+        />
+        <input
+          *ngIf="type === 'email'"
           id="{{ id }}"
           type="{{ type }}"
           formControlName="{{ id }}"
@@ -91,13 +96,13 @@
               >{{ label }} es requerido</ng-template
             >
             <ng-template [ngIf]="_formGroup.get(id).hasError('maxlength')"
-            >{{ label }} ha excedido la longitud máxima de
-            {{ maxlength }}</ng-template
-          >
-          <ng-template [ngIf]="_formGroup.get(id).hasError('minlength')"
-            >{{ label }} no ha alcanzado la longitud mínima de
-            {{ minlength }}</ng-template
-          >
+              >{{ label }} ha excedido la longitud máxima de
+              {{ maxlength }}</ng-template
+            >
+            <ng-template [ngIf]="_formGroup.get(id).hasError('minlength')"
+              >{{ label }} no ha alcanzado la longitud mínima de
+              {{ minlength }}</ng-template
+            >
           </div>
           <ng-template #showError>
             <clr-icon
@@ -184,7 +189,7 @@
 
 <!-- Input Control -->
 <div *ngIf="type === 'modal'" [formGroup]="_formGroup">
-  <div class="clr-form-control ">
+  <div class="clr-form-control">
     <label for="{{ id }}Id" class="clr-control-label clr-col-md-12"
       >{{ label }}
       <span *ngIf="required" class="required"> *</span>

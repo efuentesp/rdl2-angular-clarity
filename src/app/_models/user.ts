@@ -6,4 +6,5 @@
   display_name: string;
   roleId: string;
   enabled: boolean;
+  role: string;
 }
