@@ -19,7 +19,7 @@
         <td>{{adminPermiso.permission.action | uppercase}}</td>
 
         <td *ngFor="let rol of adminPermiso.roles; let j = index">
-          <div *ngIf="rol.name == 'administrator'">
+          <div *ngIf="rol.name == 'administrator' || rol.name == 'ADMIN'">
             <input
               type="checkbox"
               disabled
@@ -28,7 +28,7 @@
               value="rol.assigned"
             />
           </div>
-          <div *ngIf="rol.name != 'administrator'">
+          <div *ngIf="rol.name != 'administrator' && rol.name != 'ADMIN'">
             <input
               type="checkbox"
               [checked]="rol.assigned"
