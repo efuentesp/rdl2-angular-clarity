@@ -1,0 +1,80 @@
+<!-- Datepicker Control -->
+<div [formGroup]="_formGroup">
+  <div class="clr-form-control">
+    <div
+      class="clr-control-container clr-col-md-12"
+      [class.clr-error]="
+        _formGroup.get(id).invalid && _formGroup.get(id).touched
+      "
+    >
+      <clr-date-container>
+        <label for="{{ id }}" class="clr-control-label"
+          >{{ label }}
+          <span *ngIf="required" class="required">*</span>
+        </label>
+        <input
+          type="date"
+          [(clrDate)]="date"
+          formControlName="{{ id }}"
+          id="{{ id }}"
+          [disabled]="disabled"
+          placeholder="{{ placeholder }}"
+          disabled
+        />
+        <!--mask="00/00/0000"-->
+        <div *ngIf="help === ''; else notEmpty"></div>
+        <ng-template #notEmpty>
+          <div role="tooltip" aria-haspopup="true" class="tooltip tooltip-left">
+            <clr-icon shape="info-circle" size="24"></clr-icon>
+            <span class="tooltip-content">{{ help }}</span>
+          </div>
+        </ng-template>
+
+        <span
+          class="clr-subtext"
+          *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
+        >
+          <div *ngIf="error === ''; else notEmptyError">
+            <clr-icon
+              class="clr-validate-icon"
+              shape="exclamation-circle"
+            ></clr-icon>
+            {{ label }} es requerido
+          </div>
+          <ng-template #notEmptyError>
+            <clr-icon
+              class="clr-validate-icon"
+              shape="exclamation-circle"
+            ></clr-icon
+            >{{ error }}
+          </ng-template>
+        </span>
+      </clr-date-container>
+      <div class="clr-select-wrapper" style="width: 50px;">
+        <select
+          id="{{ id }}Hour"
+          formControlName="{{ id }}Hour"
+          class="clr-col-md-11"
+          ><option value="">00</option>
+          <option value="{{ hour.id }}" *ngFor="let hour of hours">{{
+            hour.value
+          }}</option>
+        </select>
+      </div>
+      :
+      <div class="clr-select-wrapper" style="width: 50px;">
+        <select
+          id="{{ id }}Minute"
+          formControlName="{{ id }}Minute"
+          class="clr-col-md-11"
+        >
+          <option value="">00</option>
+          <option value="{{ minute.id }}" *ngFor="let minute of minutes">{{
+            minute.value
+          }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ./Datepicker Control -->

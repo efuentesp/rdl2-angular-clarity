@@ -17,6 +17,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { OutputboxComponent } from "./form/outputbox/outputbox.component";
 import { ModalComponent } from "./form/modal/modal.component";
 import { CrudGridComponent } from "./form/crud-grid/crud-grid.component";
+import { DatetimepickerComponent } from "./form/datetimepicker/datetimepicker.component";
 
 registerLocaleData(localeMx, "es-MX");
 
@@ -28,7 +29,7 @@ registerLocaleData(localeMx, "es-MX");
     HttpModule,
     FormsModule,
     NgxMaskModule.forRoot(),
-    ClarityModule
+    ClarityModule,
   ],
   declarations: [
     FooterComponent,
@@ -39,7 +40,8 @@ registerLocaleData(localeMx, "es-MX");
     SelectComponent,
     OutputboxComponent,
     ModalComponent,
-    CrudGridComponent
+    CrudGridComponent,
+    DatetimepickerComponent,
   ],
   exports: [
     FooterComponent,
@@ -50,9 +52,10 @@ registerLocaleData(localeMx, "es-MX");
     SelectComponent,
     OutputboxComponent,
     ModalComponent,
-    CrudGridComponent
+    CrudGridComponent,
+    DatetimepickerComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [[{ provide: LOCALE_ID, useValue: "es-MX" }]]
+  providers: [[{ provide: LOCALE_ID, useValue: "es-MX" }]],
 })
 export class CommonClarityModule {}
