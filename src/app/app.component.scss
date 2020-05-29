@@ -1,4 +1,4 @@
-/* PSG  Cuentacheques SCSS */
+/* PSG  Aplicacionpagoscontrolados SCSS */
 .clr-example {
   .card {
     max-width: 600px;
@@ -131,12 +131,12 @@
 
       .nav-link {
         text-align: left;
-        padding: 0 .5rem;
-        border-radius: 0 .125rem .125rem 0;
+        padding: 0 0.5rem;
+        border-radius: 0 0.125rem 0.125rem 0;
         margin-bottom: 1px;
         flex-shrink: 0;
 
-        &.active, 
+        &.active,
         &:hover {
           box-shadow: inset 3px 0 0 #007cbb;
           background-color: #eee;
@@ -159,7 +159,7 @@
           height: 100%;
           width: 100%;
           overflow: auto;
-          padding-right: 1rem; 
+          padding-right: 1rem;
         }
       }
     }
@@ -188,10 +188,6 @@ clr-datagrid {
 
 ::ng-deep div.datagrid-action-overflow .ng-star-inserted {
   top: 85px;
-}
-
-::ng-deep .datagrid {
-  overflow: inherit;
 }
 
 ::ng-deep {
