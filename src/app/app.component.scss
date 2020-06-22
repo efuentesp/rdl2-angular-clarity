@@ -195,3 +195,15 @@ clr-datagrid {
     padding-top: 1em;
   }
 }
+
+.list-header {
+  display: flex;
+}
+
+.list-actions {
+  margin-left: auto;
+  margin-top: auto;
+  .btn-group {
+    margin-right: 0rem;
+  }
+}
