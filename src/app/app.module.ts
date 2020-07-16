@@ -3,10 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ClarityModule } from "@clr/angular";
 import { AppComponent } from "./app.component";
-// import { AuthGuard } from "./_guards";
-// import { AlertService, AuthenticationService, UserService } from "./_services";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-// import { JwtInterceptor, ErrorInterceptor } from "./_helpers";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app.routing";
 import { BrowserModule } from "@angular/platform-browser";
@@ -34,14 +31,8 @@ import { AuthInterceptor } from "./interceptors/auth.interceptor";
     FormsModule,
   ],
   providers: [
-    // AuthGuard,
-    // AlertService,
-    // AuthenticationService,
-    // UserService,
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     [
-      { provide: LOCALE_ID, useValue: "es" },
+      { provide: LOCALE_ID, useValue: "es-MX" },
       { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     ],

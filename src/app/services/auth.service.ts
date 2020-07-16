@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Usuario } from "../models/usuario";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: "root",
@@ -36,23 +37,9 @@ export class AuthService {
   }
 
   login(usuario: Usuario): Observable<any> {
-    console.log(usuario);
-    const urlEndpoint = "http://localhost:3000/api/v1/auth/login";
-
-    const credenciales = btoa("angularapp" + ":" + "12345");
-
-    // const httpHeaders = new HttpHeaders({
-    //   "Content-Type": "application/x-www-form-urlencoded",
-    //   Authorization: "Basic " + credenciales,
-    // });
+    const urlEndpoint = `${environment.apiUrl}/auth/login`;
     const headers = new HttpHeaders();
     headers.set("Content-Type", "application/json; charset=utf-8");
-
-    // let params = new URLSearchParams();
-    // params.set("grant_type", "password");
-    // params.set("email", usuario.email);
-    // params.set("password", usuario.password);
-    // console.log(params.toString());
     return this.http.post<any>(
       urlEndpoint,
       { email: usuario.email, password: usuario.password },
@@ -63,22 +50,12 @@ export class AuthService {
   }
 
   getProfile(accessToken: string) {
-    console.log("Guarda Token:" + accessToken);
+    const urlEndpoint = `${environment.apiUrl}/auth/profile`;
 
-    const urlEndpoint = "http://localhost:3000/api/v1/auth/profile";
-    // const headers = new HttpHeaders();
-    // headers.set("Content-Type", "application/json; charset=utf-8");
-    // headers.set("Authorization", "Bearer " + accessToken + "");
-    // let params = new URLSearchParams();
-    // params.set("grant_type", "password");
-    // params.set("email", usuario.email);
-    // params.set("password", usuario.password);
-    // console.log(params.toString());
     let headers = new HttpHeaders().set(
       "Authorization",
       "Bearer " + accessToken + ""
     );
-    console.log("Headers:" + JSON.stringify(headers));
     return this.http.get<any>(urlEndpoint, {
       headers: headers,
     });
@@ -100,7 +77,6 @@ export class AuthService {
   guardarToken(accessToken: string): void {
     this._token = accessToken;
     sessionStorage.setItem("token", accessToken);
-    console.log("Storage:" + sessionStorage.getItem("token"));
   }
 
   isAuthenticated(): boolean {
