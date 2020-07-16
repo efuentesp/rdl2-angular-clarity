@@ -1,11 +1,7 @@
-<div class="clr-login-demo">
+<div class="login">
   <div class="login-wrapper">
-    <div style="margin: 20px">
-      <form
-        [formGroup]="loginForm"
-        (ngSubmit)="onSubmit()"
-        style="width: 20rem"
-      >
+    <div style="margin: 20px;">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" style="width: 20rem;">
         <section class="title">
           <h3 class="welcome">Bienvenido a</h3>
           PSG - Softtek
@@ -55,9 +51,91 @@
           <div style="text-align: left;">
             <img src="../../assets/Softtek.png" width="100px" height="50px" />
           </div>
-          <p style="font-size: 8px">©2018 All Rights Reserved. Softtek</p>
+          <p style="font-size: 8px;">©2018 All Rights Reserved. Softtek</p>
         </div>
       </form>
     </div>
   </div>
 </div>
+<!-- <div class="card border-primary text-center">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+      <form method="post">
+        <div class="form-group col-sm-6">
+          <input
+            [(ngModel)]="usuario.email"
+            type="text"
+            class="form-control"
+            name="email"
+            id="email"
+            placeholder="Username"
+            autofocus
+            required
+          />
+        </div>
+
+        <div class="form-group col-sm-6">
+          <input
+            [(ngModel)]="usuario.password"
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <div class="form-group col-sm-6">
+          <input
+            (click)="login()"
+            type="submit"
+            class="btn btn-lg btn-primary btn-block"
+            value="Login"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="card border-primary text-center">
+  <div class="card-header">{{titulo}}</div>
+  <div class="card-body">
+    <form method="post">
+      <div class="form-group col-sm-6">
+        <input
+          [(ngModel)]="usuario.username"
+          type="text"
+          class="form-control"
+          name="username"
+          id="username"
+          placeholder="Username"
+          autofocus
+          required
+        />
+      </div>
+
+      <div class="form-group col-sm-6">
+        <input
+          [(ngModel)]="usuario.password"
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+
+      <div class="form-group col-sm-6">
+        <input
+          (click)="login()"
+          type="submit"
+          class="btn btn-lg btn-primary btn-block"
+          value="Login"
+        />
+      </div>
+    </form>
+  </div>
+</div> -->

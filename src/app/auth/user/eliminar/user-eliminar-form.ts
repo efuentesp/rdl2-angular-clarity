@@ -3,9 +3,8 @@ import {
   FormGroup,
   FormBuilder,
   FormControl,
-  Validators
+  Validators,
 } from "@angular/forms";
-import { ValidationService } from "../../../_validation/validation.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import Swal from "sweetalert2";
 import { DatePipe } from "@angular/common";
@@ -18,7 +17,7 @@ import { RolService } from "../../rol/rol.psg.service";
 @Component({
   selector: "clr-user-angular",
   styleUrls: ["../user.psg.scss"],
-  templateUrl: "./user-eliminar.psg.html"
+  templateUrl: "./user-eliminar.psg.html",
 })
 export class UserEliminarFormDemo {
   userForm: FormGroup;
@@ -30,7 +29,6 @@ export class UserEliminarFormDemo {
 
   constructor(
     private fb: FormBuilder,
-    private validationService: ValidationService,
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
@@ -42,7 +40,7 @@ export class UserEliminarFormDemo {
       email: new FormControl({ value: "", disabled: true }),
       enabled: new FormControl({ value: "", disabled: true }),
       rol: new FormControl({ value: "", disabled: true }),
-      password: new FormControl({ value: "", disabled: true })
+      password: new FormControl({ value: "", disabled: true }),
     });
   }
 
@@ -64,7 +62,7 @@ export class UserEliminarFormDemo {
   eliminaUser() {
     this.submitted = true;
 
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.idUser = params["id"];
     });
 
@@ -75,11 +73,11 @@ export class UserEliminarFormDemo {
       showCancelButton: true,
       confirmButtonColor: "#DD6B55",
       confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, cancel!"
-    }).then(isConfirm => {
+      cancelButtonText: "No, cancel!",
+    }).then((isConfirm) => {
       if (isConfirm.value) {
         this.userService.deleteUser(this.idUser).subscribe(
-          res => {
+          (res) => {
             if (res) {
               Swal.fire(
                 "Success...",
@@ -87,13 +85,13 @@ export class UserEliminarFormDemo {
                 "success"
               );
               this.router.navigate(["../../administrar"], {
-                relativeTo: this.route
+                relativeTo: this.route,
               });
             } else {
               Swal.fire("Error...", "User save unsuccessfully.", "error");
             }
           },
-          error => {
+          (error) => {
             if (error.status == 500) {
               Swal.fire(
                 "Warning...",
@@ -111,12 +109,12 @@ export class UserEliminarFormDemo {
 
   cargaRoles() {
     this.rolService.getRecuperaRol().subscribe(
-      res => {
+      (res) => {
         if (res) {
           this.rolesArray = res;
         }
       },
-      error => {
+      (error) => {
         Swal.fire(
           "Error...",
           "An error occurred while calling the direccions.",

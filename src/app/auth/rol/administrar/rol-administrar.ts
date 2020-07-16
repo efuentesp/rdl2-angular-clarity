@@ -1,12 +1,9 @@
 /* PSG  Rol Administrar Ts */
 import { Component } from "@angular/core";
-import "@clr/icons/shapes/social-shapes";
-import "@clr/icons/shapes/essential-shapes";
 import { Router, ActivatedRoute } from "@angular/router";
 import Swal from "sweetalert2";
-import { style } from "@angular/animations";
-import { Permission } from "../../../_models/permission";
-import { User } from "../../../_models";
+// import { Permission } from "../../../_models/permission";
+// import { User } from "../../../_models";
 
 import { RolService } from "../rol.psg.service";
 import { Rol } from "../rol.psg.model";
@@ -14,14 +11,14 @@ import { Rol } from "../rol.psg.model";
 @Component({
   selector: "clr-rol-demo-styles",
   styleUrls: ["../rol.psg.scss"],
-  templateUrl: "./rol-administrar.psg.html"
+  templateUrl: "./rol-administrar.psg.html",
 })
 export class RolAdministrarDemo {
   // Permisos
   loading = false;
   token: string;
-  user: User;
-  permissions: Permission[];
+  // user: User;
+  // permissions: Permission[];
   rolArray: Rol[];
 
   roles_update: boolean = false;
@@ -43,13 +40,13 @@ export class RolAdministrarDemo {
 
   cargaRoles() {
     this.rolService.getRecuperaRol().subscribe(
-      res => {
+      (res) => {
         if (res) {
           console.log("Roles:", res);
           this.rolArray = res;
         }
       },
-      error => {
+      (error) => {
         //Swal.fire('Error...', 'An error occurred while calling the direccions.', 'error');
       }
     );
@@ -70,43 +67,38 @@ export class RolAdministrarDemo {
   }
 
   getUser() {
-    var obj = JSON.parse(localStorage.getItem("currentUser"));
-    this.token = obj["access_token"];
-    this.permissions = obj["permissions"];
-    this.user = obj["user"];
+    // var obj = JSON.parse(localStorage.getItem("currentUser"));
+    // this.token = obj["access_token"];
+    // this.permissions = obj["permissions"];
+    // this.user = obj["user"];
   }
 
   setButtons() {
-    this.permissions.forEach(element => {
-      if (element.code == "*:*") {
-        this.roles_update = true;
-        this.roles_delete = true;
-        this.roles_create = true;
-        this.roles_read = true;
-      }
-
-      if (element.code == "ROLES:UPDATE") {
-        this.roles_update = true;
-      }
-
-      if (element.code == "ROLES:DELETE") {
-        this.roles_delete = true;
-      }
-
-      if (element.code == "ROLES:READ") {
-        this.roles_read = true;
-      }
-
-      if (element.code == "ROLES:CREATE") {
-        this.roles_create = true;
-      }
-
-      if (element.code == "ROLES:*") {
-        this.roles_update = true;
-        this.roles_delete = true;
-        this.roles_create = true;
-        this.roles_read = true;
-      }
-    });
+    // this.permissions.forEach((element) => {
+    //   if (element.code == "*:*") {
+    //     this.roles_update = true;
+    //     this.roles_delete = true;
+    //     this.roles_create = true;
+    //     this.roles_read = true;
+    //   }
+    //   if (element.code == "ROLES:UPDATE") {
+    //     this.roles_update = true;
+    //   }
+    //   if (element.code == "ROLES:DELETE") {
+    //     this.roles_delete = true;
+    //   }
+    //   if (element.code == "ROLES:READ") {
+    //     this.roles_read = true;
+    //   }
+    //   if (element.code == "ROLES:CREATE") {
+    //     this.roles_create = true;
+    //   }
+    //   if (element.code == "ROLES:*") {
+    //     this.roles_update = true;
+    //     this.roles_delete = true;
+    //     this.roles_create = true;
+    //     this.roles_read = true;
+    //   }
+    // });
   }
 }

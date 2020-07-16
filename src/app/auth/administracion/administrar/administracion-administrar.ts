@@ -1,11 +1,8 @@
 /* PSG  Afiliado Administrar Ts */
 import { Component } from "@angular/core";
-import "@clr/icons/shapes/social-shapes";
-import "@clr/icons/shapes/essential-shapes";
 import { Router, ActivatedRoute } from "@angular/router";
 import Swal from "sweetalert2";
-import { style } from "@angular/animations";
-import { User } from "../../../_models";
+// import { User } from "../../../_models";
 
 import { AdminPermission } from "../administracion.psg.model";
 import { PermissionSend } from "../administracion.psg.model-send";
@@ -14,12 +11,12 @@ import { PermissionService } from "../../permission/permission.psg.service";
 @Component({
   selector: "clr-administracion-demo-styles",
   styleUrls: ["../administracion.psg.scss"],
-  templateUrl: "./administracion.psg.html"
+  templateUrl: "./administracion.psg.html",
 })
 export class AdministracionAdministrarDemo {
   // Permisos
   token: string;
-  user: User;
+  // user: User;
   adminPermisoList: AdminPermission[];
   permission: PermissionSend;
 
@@ -35,12 +32,12 @@ export class AdministracionAdministrarDemo {
 
   loadAdminPermiso() {
     this.permissionService.getAllPrivilege().subscribe(
-      data => {
+      (data) => {
         if (data) {
           this.adminPermisoList = data;
         }
       },
-      error => {
+      (error) => {
         Swal.fire(
           "Error...",
           "An error occurred while calling the privileges.",
@@ -57,10 +54,10 @@ export class AdministracionAdministrarDemo {
 
     if (rol.assigned) {
       this.permissionService.removePermission(this.permission).subscribe(
-        data => {
+        (data) => {
           console.log("Resultado:", data);
         },
-        error => {
+        (error) => {
           Swal.fire(
             "Error...",
             "An error occurred while calling the privileges.",
@@ -70,10 +67,10 @@ export class AdministracionAdministrarDemo {
       );
     } else {
       this.permissionService.assignPermission(this.permission).subscribe(
-        data => {
+        (data) => {
           console.log("Resultado:", data);
         },
-        error => {
+        (error) => {
           Swal.fire(
             "Error...",
             "An error occurred while calling the privileges.",

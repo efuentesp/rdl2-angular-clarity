@@ -3,9 +3,8 @@ import {
   FormGroup,
   FormBuilder,
   FormControl,
-  Validators
+  Validators,
 } from "@angular/forms";
-import { ValidationService } from "../../../_validation/validation.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import Swal from "sweetalert2";
 import { DatePipe } from "@angular/common";
@@ -16,7 +15,7 @@ import { RolService } from "../rol.psg.service";
 @Component({
   selector: "clr-rol-angular",
   styleUrls: ["../rol.psg.scss"],
-  templateUrl: "./rol-eliminar.psg.html"
+  templateUrl: "./rol-eliminar.psg.html",
 })
 export class RolEliminarFormDemo {
   rolForm: FormGroup;
@@ -28,7 +27,6 @@ export class RolEliminarFormDemo {
 
   constructor(
     private fb: FormBuilder,
-    private validationService: ValidationService,
     private router: Router,
     private route: ActivatedRoute,
     private rolService: RolService
@@ -36,7 +34,7 @@ export class RolEliminarFormDemo {
     this.rolForm = this.fb.group({
       name: new FormControl({ value: "", disabled: true }),
       description: new FormControl({ value: "", disabled: true }),
-      enabled: new FormControl({ value: "", disabled: true })
+      enabled: new FormControl({ value: "", disabled: true }),
     });
   }
 
@@ -53,7 +51,7 @@ export class RolEliminarFormDemo {
 
   eliminaRol() {
     this.submitted = true;
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.idRol = params["id"];
     });
 
@@ -64,11 +62,11 @@ export class RolEliminarFormDemo {
       showCancelButton: true,
       confirmButtonColor: "#DD6B55",
       confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, cancel!"
-    }).then(isConfirm => {
+      cancelButtonText: "No, cancel!",
+    }).then((isConfirm) => {
       if (isConfirm.value) {
         this.rolService.deleteRol(this.idRol).subscribe(
-          res => {
+          (res) => {
             if (res) {
               Swal.fire(
                 "Success...",
@@ -76,13 +74,13 @@ export class RolEliminarFormDemo {
                 "success"
               );
               this.router.navigate(["../../administrar"], {
-                relativeTo: this.route
+                relativeTo: this.route,
               });
             } else {
               Swal.fire("Error...", "User save unsuccessfully.", "error");
             }
           },
-          error => {
+          (error) => {
             if (error.status == 500) {
               Swal.fire(
                 "Warning...",

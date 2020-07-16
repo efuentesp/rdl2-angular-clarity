@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { ClarityModule } from "@clr/angular";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { ValidationService } from "../../_validation/validation.service";
 import { HttpModule } from "@angular/http";
 
 import { ROUTING } from "./user.psg.routing";
@@ -26,23 +25,23 @@ import { CommonClarityModule } from "src/app/common/common-clarity.module";
     HttpModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonClarityModule
+    CommonClarityModule,
   ],
   declarations: [
     UserDemo,
     UserAdministrarDemo,
     UserAgregarFormDemo,
     UserEditarFormDemo,
-    UserEliminarFormDemo
+    UserEliminarFormDemo,
   ],
   exports: [
     UserDemo,
     UserAdministrarDemo,
     UserAgregarFormDemo,
     UserEditarFormDemo,
-    UserEliminarFormDemo
+    UserEliminarFormDemo,
   ],
-  providers: [ValidationService, UserService, RolService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [UserService, RolService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UserDemoModule {}
