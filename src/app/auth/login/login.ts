@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   title: string = "PSG - Softtek";
   usuario: Usuario;
   token: string = "";
+  year = new Date().getFullYear();
 
   constructor(private authService: AuthService, private router: Router) {
     this.usuario = new Usuario();

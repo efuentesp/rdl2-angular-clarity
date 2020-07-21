@@ -8,7 +8,7 @@ import { NopagefoundComponent } from "./nonpagefound/nopagefound.component";
 import { NgModule } from "@angular/core";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/begin", pathMatch: "full" },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: NopagefoundComponent },
 ];
 

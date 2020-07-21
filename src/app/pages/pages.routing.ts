@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { PagesComponent } from "./pages.component";
 import { AdminComponent } from "../admin/admin.component";
-import { BeginComponent } from "./begin/begin.component";
+import { HomeComponent } from "./home/home.component";
 import { AuthGuard } from "../guards/auth.guard";
 
 const routes: Routes = [
@@ -13,9 +13,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "begin",
+    path: "home",
     component: PagesComponent,
-    children: [{ path: "", component: BeginComponent }],
+    children: [{ path: "", component: HomeComponent }],
   },
 ];
 

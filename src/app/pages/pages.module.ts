@@ -8,12 +8,12 @@ import { HttpModule } from "@angular/http";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { ClarityModule } from "@clr/angular";
 import { HttpClientModule } from "@angular/common/http";
-import { BeginComponent } from "./begin/begin.component";
+import { HomeComponent } from "./home/home.component";
 import { AdminModule } from "../admin/admin.module";
 
 @NgModule({
-  declarations: [BeginComponent, PagesComponent],
-  exports: [BeginComponent, PagesComponent],
+  declarations: [HomeComponent, PagesComponent],
+  exports: [HomeComponent, PagesComponent],
   imports: [
     CommonModule,
     SharedModule,
