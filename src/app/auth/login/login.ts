@@ -3,13 +3,13 @@ import { Router } from "@angular/router";
 import { Validators, FormGroup, FormControl } from "@angular/forms";
 import { ClrForm } from "@clr/angular";
 import Swal from "sweetalert2";
-import { AuthService } from "../services/auth.service";
-import { Usuario } from "../models/usuario";
+import { AuthService } from "src/app/services/auth.service";
+import { Usuario } from "src/app/models/usuario";
 
 @Component({
   selector: "login",
   templateUrl: "login.html",
-  styleUrls: ["../app.component.scss"],
+  styleUrls: ["../../app.component.scss"],
 })
 export class LoginComponent implements OnInit {
   @ViewChild(ClrForm, { static: true }) clrForm;

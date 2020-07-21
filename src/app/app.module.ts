@@ -7,16 +7,18 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app.routing";
 import { BrowserModule } from "@angular/platform-browser";
-import { LoginComponent } from "./login/login";
 
 import localeES from "@angular/common/locales/es";
 import { TokenInterceptor } from "./interceptors/token.interceptor";
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
+import { NopagefoundComponent } from "./nonpagefound/nopagefound.component";
+import { PagesModule } from "./pages/pages.module";
+import { AuthModule } from "./auth/auth.module";
 // import { HeaderComponent } from "./header/header.component";
 // import { FooterComponent } from "./footer/footer.component";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, NopagefoundComponent],
 
   imports: [
     // HeaderComponent,
@@ -29,6 +31,8 @@ import { AuthInterceptor } from "./interceptors/auth.interceptor";
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    PagesModule,
+    AuthModule,
   ],
   providers: [
     [
