@@ -58,6 +58,8 @@ export class LoginComponent implements OnInit {
         this.token = response.access_token;
         this.authService.getProfile(this.token).subscribe(
           (response) => {
+            this.loginForm.controls.email == null;
+            this.loginForm.controls.password == null;
             this.authService.guardarUsuario(response, this.token);
             this.router.navigate(["/admin"]);
           },
