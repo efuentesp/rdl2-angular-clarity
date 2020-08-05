@@ -42,11 +42,8 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     console.log(this.usuario);
-    if (
-      this.loginForm.controls.email == null ||
-      this.loginForm.controls.password == null
-    ) {
-      console.log("Username o password vacías!");
+    if (this.loginForm.invalid) {
+      Swal.fire("Error...", "¡Username o password vacías!!", "error");
       return;
     } else {
       this.usuario.email = this.loginForm.controls.email.value;
