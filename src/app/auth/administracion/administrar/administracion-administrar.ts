@@ -35,6 +35,7 @@ export class AdministracionAdministrarDemo {
       (data) => {
         if (data) {
           this.adminPermisoList = data;
+          this.orderPermission(this.adminPermisoList);
         }
       },
       (error) => {
@@ -79,5 +80,10 @@ export class AdministracionAdministrarDemo {
         }
       );
     }
+  }
+
+  orderPermission(adminPermisoList: AdminPermission[]){
+    adminPermisoList.sort((a, b) => a.permission.resource.localeCompare(b.permission.resource))
+    adminPermisoList.sort((a, b) => a.permission.action.localeCompare(b.permission.action))
   }
 }
