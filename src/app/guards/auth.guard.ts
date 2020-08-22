@@ -27,14 +27,16 @@ export class AuthGuard implements CanActivate {
       }
       return true;
     }
-    this.router.navigate(["/login"]);
-    return false;
   }
 
   isTokenExpirado(): boolean {
     let token = this.authService.token;
     const decoded = jwt_decode(token);
     let now = new Date().getTime() / 1000;
+    //console.log("now " + now);
+    //console.log("decoded.exp " + decoded.exp);
+    // decoded.exp = 1598078295.331;
+    // now = 1598081608;
     if (decoded.exp < now) {
       return true;
     }
