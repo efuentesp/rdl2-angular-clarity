@@ -3,6 +3,7 @@ import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import Swal from "sweetalert2";
 // import { Permission } from "../../../_models/permission";
+import { Usuario } from "../../../models/usuario";
 import { UserService } from "../user.psg.service";
 import { User } from "../user.psg.model";
 
@@ -14,10 +15,14 @@ import { User } from "../user.psg.model";
 export class UserAdministrarDemo {
   // Permisos
   loading = false;
-  token: string;
-  // permissions: Permission[];
+
+  // Permisos
   public userArray: User;
-  user: User;
+
+  // Seguridad
+  token: string;
+  user: Usuario;
+  permissions: any[];
 
   users_update: boolean = false;
   users_delete: boolean = false;
@@ -68,38 +73,38 @@ export class UserAdministrarDemo {
   }
 
   getUsers() {
-    // var obj = JSON.parse(localStorage.getItem("currentUser"));
-    // this.token = obj["access_token"];
-    // this.permissions = obj["permissions"];
-    // this.user = obj["user"];
+    var obj = JSON.parse(sessionStorage.getItem("usuario"));
+    this.token = sessionStorage.getItem("token");
+    this.permissions = obj["permissions"];
+    this.user = obj["user"];
   }
 
   setButtons() {
-    // this.permissions.forEach((element) => {
-    //   if (element.code == "*:*") {
-    //     this.users_update = true;
-    //     this.users_delete = true;
-    //     this.users_create = true;
-    //     this.users_read = true;
-    //   }
-    //   if (element.code == "USERS:UPDATE") {
-    //     this.users_update = true;
-    //   }
-    //   if (element.code == "USERS:DELETE") {
-    //     this.users_delete = true;
-    //   }
-    //   if (element.code == "USERS:READ") {
-    //     this.users_read = true;
-    //   }
-    //   if (element.code == "USERS:CREATE") {
-    //     this.users_create = true;
-    //   }
-    //   if (element.code == "USERS:*") {
-    //     this.users_update = true;
-    //     this.users_delete = true;
-    //     this.users_create = true;
-    //     this.users_read = true;
-    //   }
-    // });
+    this.permissions.forEach((element) => {
+      if (element.code == "*:*") {
+        this.users_update = true;
+        this.users_delete = true;
+        this.users_create = true;
+        this.users_read = true;
+      }
+      if (element.code == "USERS:UPDATE") {
+        this.users_update = true;
+      }
+      if (element.code == "USERS:DELETE") {
+        this.users_delete = true;
+      }
+      if (element.code == "USERS:READ") {
+        this.users_read = true;
+      }
+      if (element.code == "USERS:CREATE") {
+        this.users_create = true;
+      }
+      if (element.code == "USERS:*") {
+        this.users_update = true;
+        this.users_delete = true;
+        this.users_create = true;
+        this.users_read = true;
+      }
+    });
   }
 }
