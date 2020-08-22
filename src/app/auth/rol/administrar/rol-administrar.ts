@@ -2,9 +2,7 @@
 import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import Swal from "sweetalert2";
-// import { Permission } from "../../../_models/permission";
-// import { User } from "../../../_models";
-
+import { Usuario } from "../../../models/usuario";
 import { RolService } from "../rol.psg.service";
 import { Rol } from "../rol.psg.model";
 
@@ -16,11 +14,14 @@ import { Rol } from "../rol.psg.model";
 export class RolAdministrarDemo {
   // Permisos
   loading = false;
-  token: string;
-  // user: User;
-  // permissions: Permission[];
   rolArray: Rol[];
 
+  // Seguridad
+  token: string;
+  user: Usuario;
+  permissions: any[];
+
+  // Botones
   roles_update: boolean = false;
   roles_delete: boolean = false;
   roles_create: boolean = false;
@@ -67,38 +68,38 @@ export class RolAdministrarDemo {
   }
 
   getUser() {
-    // var obj = JSON.parse(localStorage.getItem("currentUser"));
-    // this.token = obj["access_token"];
-    // this.permissions = obj["permissions"];
-    // this.user = obj["user"];
+    var obj = JSON.parse(sessionStorage.getItem("usuario"));
+    this.token = sessionStorage.getItem("token");
+    this.permissions = obj["permissions"];
+    this.user = obj["user"];
   }
 
   setButtons() {
-    // this.permissions.forEach((element) => {
-    //   if (element.code == "*:*") {
-    //     this.roles_update = true;
-    //     this.roles_delete = true;
-    //     this.roles_create = true;
-    //     this.roles_read = true;
-    //   }
-    //   if (element.code == "ROLES:UPDATE") {
-    //     this.roles_update = true;
-    //   }
-    //   if (element.code == "ROLES:DELETE") {
-    //     this.roles_delete = true;
-    //   }
-    //   if (element.code == "ROLES:READ") {
-    //     this.roles_read = true;
-    //   }
-    //   if (element.code == "ROLES:CREATE") {
-    //     this.roles_create = true;
-    //   }
-    //   if (element.code == "ROLES:*") {
-    //     this.roles_update = true;
-    //     this.roles_delete = true;
-    //     this.roles_create = true;
-    //     this.roles_read = true;
-    //   }
-    // });
+    this.permissions.forEach((element) => {
+      if (element.code == "*:*") {
+        this.roles_update = true;
+        this.roles_delete = true;
+        this.roles_create = true;
+        this.roles_read = true;
+      }
+      if (element.code == "ROLES:UPDATE") {
+        this.roles_update = true;
+      }
+      if (element.code == "ROLES:DELETE") {
+        this.roles_delete = true;
+      }
+      if (element.code == "ROLES:READ") {
+        this.roles_read = true;
+      }
+      if (element.code == "ROLES:CREATE") {
+        this.roles_create = true;
+      }
+      if (element.code == "ROLES:*") {
+        this.roles_update = true;
+        this.roles_delete = true;
+        this.roles_create = true;
+        this.roles_read = true;
+      }
+    });
   }
 }
