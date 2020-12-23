@@ -1,4 +1,4 @@
-/* PSG  Aplicacionpagoscontrolados SCSS */
+/* PSG  Solicitudcontratacionproyecto SCSS */
 .clr-example {
   .card {
     max-width: 600px;
@@ -205,5 +205,11 @@ clr-datagrid {
   margin-top: auto;
   .btn-group {
     margin-right: 0rem;
+  }
+}
+
+::ng-deep {
+  .swal2-popup {
+    font-size: 14px !important;
   }
 }
