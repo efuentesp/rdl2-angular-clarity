@@ -18,7 +18,8 @@ import { OutputboxComponent } from "./form/outputbox/outputbox.component";
 import { ModalComponent } from "./form/modal/modal.component";
 import { CrudGridComponent } from "./form/crud-grid/crud-grid.component";
 import { DatetimepickerComponent } from "./form/datetimepicker/datetimepicker.component";
-import { ToggleswitchComponent } from './form/toggleswitch/toggleswitch.component';
+import { TimepickerComponent } from "./form/timepicker/timepicker.component";
+import { ToggleswitchComponent } from "./form/toggleswitch/toggleswitch.component";
 
 registerLocaleData(localeMx, "es-MX");
 
@@ -37,26 +38,30 @@ registerLocaleData(localeMx, "es-MX");
     FormboxComponent,
     PageComponent,
     DatepickerComponent,
+    DatetimepickerComponent,
+    TimepickerComponent,
     InputboxComponent,
     SelectComponent,
     OutputboxComponent,
     ModalComponent,
     CrudGridComponent,
     DatetimepickerComponent,
-    ToggleswitchComponent
+    ToggleswitchComponent,
   ],
   exports: [
     FooterComponent,
     FormboxComponent,
     PageComponent,
     DatepickerComponent,
+    DatetimepickerComponent,
+    TimepickerComponent,
     InputboxComponent,
     SelectComponent,
     OutputboxComponent,
     ModalComponent,
     CrudGridComponent,
     DatetimepickerComponent,
-    ToggleswitchComponent
+    ToggleswitchComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [[{ provide: LOCALE_ID, useValue: "es-MX" }]],

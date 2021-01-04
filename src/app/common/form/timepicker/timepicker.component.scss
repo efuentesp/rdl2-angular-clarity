@@ -1,0 +1,9 @@
+.required {
+  color: #ff0000;
+}
+
+::ng-deep {
+  clr-date-container.clr-form-control {
+    margin-top: 0.3rem;
+  }
+}
