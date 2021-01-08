@@ -113,6 +113,9 @@
                 >{{ label }} no ha alcanzado la longitud mínima de
                 {{ minlength }}</ng-template
               >
+              <ng-template [ngIf]="_formGroup.get(id).hasError('email')"
+                >{{ label }} no tiene el formato adecuado
+              </ng-template>
             </div>
             <ng-template #showError>
               <clr-icon
@@ -221,6 +224,9 @@
                 >{{ label }} no ha alcanzado la longitud mínima de
                 {{ minlength }}</ng-template
               >
+              <ng-template [ngIf]="_formGroup.get(id).hasError('email')"
+                >{{ label }} no tiene el formato adecuado
+              </ng-template>
             </div>
             <ng-template #showError>
               <clr-icon
@@ -296,6 +302,9 @@
               >{{ label }} no ha alcanzado la longitud mínima de
               {{ minlength }}</ng-template
             >
+            <ng-template [ngIf]="_formGroup.get(id).hasError('email')"
+              >{{ label }} no tiene el formato adecuado
+            </ng-template>
           </div>
           <ng-template #showError>
             <clr-icon
@@ -352,6 +361,9 @@
               >{{ label }} no ha alcanzado la longitud mínima de
               {{ minlength }}</ng-template
             >
+            <ng-template [ngIf]="_formGroup.get(id).hasError('email')"
+              >{{ label }} no tiene el formato adecuado
+            </ng-template>
           </div>
           <ng-template #showError>
             <clr-icon
@@ -451,7 +463,7 @@
         class="clr-subtext"
         *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
       >
-        <div *ngIf="error === ''; else showError" style="margin-top: 0.6em;">
+        <div *ngIf="error === ''; else showError" style="margin-top: 0.6em">
           <clr-icon
             class="clr-validate-icon"
             shape="exclamation-circle"
