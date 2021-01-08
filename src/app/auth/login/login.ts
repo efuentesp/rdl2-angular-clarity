@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log(this.usuario);
     if (this.loginForm.invalid) {
       Swal.fire("Error...", "¡Username o password vacías!!", "error");
       return;
@@ -68,8 +67,10 @@ export class LoginComponent implements OnInit {
         );
       },
       (err) => {
-        if (err.status == 400) {
+        if (err.status == 401) {
           Swal.fire("Error...", "¡Usuario o claves incorrectas!", "error");
+        } else {
+          Swal.fire("Error...", "¡El servidor no responde!", "error");
         }
       }
     );
