@@ -9,8 +9,7 @@ import { SelectComponent } from "./form/select/select.component";
 import localeMx from "@angular/common/locales/es-MX";
 import { registerLocaleData } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
-import { NgxMaskModule } from "ngx-mask";
+import { NgxMaskModule, IConfig } from "ngx-mask";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ClarityModule } from "@clr/angular";
 import { BrowserModule } from "@angular/platform-browser";
@@ -23,12 +22,15 @@ import { ToggleswitchComponent } from "./form/toggleswitch/toggleswitch.componen
 
 registerLocaleData(localeMx, "es-MX");
 
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpModule,
     FormsModule,
     NgxMaskModule.forRoot(),
     ClarityModule,

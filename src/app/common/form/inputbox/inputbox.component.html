@@ -15,6 +15,7 @@
     >
       <div *ngIf="disabled === true; else notDisabled">
         <div class="clr-input-wrapper">
+          <!-- Icon -->
           <clr-icon
             *ngIf="type === '' || type === 'text'"
             shape="font-size"
@@ -28,7 +29,9 @@
           ></clr-icon>
           <clr-icon *ngIf="type === 'file'" shape="image"></clr-icon>
           <clr-icon *ngIf="type === 'image'" shape="image"></clr-icon>
+          <!-- ./Icon -->
 
+          <!-- disabled -->
           <input
             *ngIf="type === 'integer'"
             id="{{ id }}"
@@ -37,6 +40,8 @@
             placeholder="{{ placeholder }}"
             class="clr-input clr-col-md-11"
             mask="separator.0"
+            separatorLimit="999999999999"
+            allowNegativeNumbers="true"
             thousandSeparator=","
             disabled
           />
@@ -61,13 +66,26 @@
             disabled
           />
           <input
-            *ngIf="type === 'decimal' || type === 'currency'"
+            *ngIf="type === 'decimal'"
             id="{{ id }}"
             type="text"
             formControlName="{{ id }}"
             placeholder="{{ placeholder }}"
             class="clr-input clr-col-md-11"
             mask="separator.5"
+            thousandSeparator=","
+            disabled
+          />
+          <input
+            *ngIf="type === 'currency'"
+            id="{{ id }}"
+            type="text"
+            formControlName="{{ id }}"
+            placeholder="{{ placeholder }}"
+            class="clr-input clr-col-md-11"
+            mask="separator.4"
+            separatorLimit="999999999999"
+            allowNegativeNumbers="true"
             thousandSeparator=","
             disabled
           />
@@ -80,57 +98,13 @@
             class="clr-input clr-col-md-11"
             disabled
           />
-
-          <div *ngIf="help === ''; else notEmpty"></div>
-          <ng-template #notEmpty>
-            <div
-              role="tooltip"
-              aria-haspopup="true"
-              class="tooltip tooltip-left"
-            >
-              <clr-icon shape="info-circle" size="24"></clr-icon>
-              <span class="tooltip-content">{{ help }}</span>
-            </div>
-          </ng-template>
-
-          <span
-            class="clr-subtext"
-            *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
-          >
-            <div *ngIf="error === ''; else showError">
-              <clr-icon
-                class="clr-validate-icon"
-                shape="exclamation-circle"
-              ></clr-icon>
-              <ng-template [ngIf]="_formGroup.get(id).hasError('required')"
-                >{{ label }} es requerido</ng-template
-              >
-              <ng-template [ngIf]="_formGroup.get(id).hasError('maxlength')"
-                >{{ label }} ha excedido la longitud máxima de
-                {{ maxlength }}</ng-template
-              >
-              <ng-template [ngIf]="_formGroup.get(id).hasError('minlength')"
-                >{{ label }} no ha alcanzado la longitud mínima de
-                {{ minlength }}</ng-template
-              >
-              <ng-template [ngIf]="_formGroup.get(id).hasError('email')"
-                >{{ label }} no tiene el formato adecuado
-              </ng-template>
-            </div>
-            <ng-template #showError>
-              <clr-icon
-                class="clr-validate-icon"
-                shape="exclamation-circle"
-              ></clr-icon
-              >{{ error }}
-            </ng-template>
-            <p></p>
-          </span>
         </div>
       </div>
 
+      <!-- notDisabled -->
       <ng-template #notDisabled>
         <div class="clr-input-wrapper">
+          <!-- Icon -->
           <clr-icon
             *ngIf="type === '' || type === 'text'"
             shape="font-size"
@@ -144,6 +118,7 @@
           ></clr-icon>
           <clr-icon *ngIf="type === 'file'" shape="image"></clr-icon>
           <clr-icon *ngIf="type === 'image'" shape="image"></clr-icon>
+          <!-- ./Icon -->
 
           <input
             *ngIf="type === 'integer'"
@@ -153,6 +128,8 @@
             placeholder="{{ placeholder }}"
             class="clr-input clr-col-md-11"
             mask="separator.0"
+            separatorLimit="999999999999"
+            allowNegativeNumbers="true"
             thousandSeparator=","
           />
           <input
@@ -174,13 +151,25 @@
             class="clr-input clr-col-md-11"
           />
           <input
-            *ngIf="type === 'decimal' || type === 'currency'"
+            *ngIf="type === 'decimal'"
             id="{{ id }}"
             type="text"
             formControlName="{{ id }}"
             placeholder="{{ placeholder }}"
             class="clr-input clr-col-md-11"
             mask="separator.5"
+            thousandSeparator=","
+          />
+          <input
+            *ngIf="type === 'currency'"
+            id="{{ id }}"
+            type="text"
+            formControlName="{{ id }}"
+            placeholder="{{ placeholder }}"
+            class="clr-input clr-col-md-11"
+            mask="separator.4"
+            separatorLimit="999999999999"
+            allowNegativeNumbers="true"
             thousandSeparator=","
           />
           <input
@@ -193,6 +182,8 @@
           />
 
           <div *ngIf="help === ''; else notEmpty"></div>
+
+          <!-- with help -->
           <ng-template #notEmpty>
             <div
               role="tooltip"
@@ -203,7 +194,9 @@
               <span class="tooltip-content">{{ help }}</span>
             </div>
           </ng-template>
+          <!--  ./with help -->
 
+          <!-- span -->
           <span
             class="clr-subtext"
             *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
@@ -237,8 +230,10 @@
             </ng-template>
             <p></p>
           </span>
+          <!-- ./span -->
         </div>
       </ng-template>
+      <!-- ./notDisabled -->
     </div>
   </div>
 </div>
@@ -269,62 +264,20 @@
             class="clr-textarea clr-col-md-11"
             disabled
           ></textarea>
-
-          <div *ngIf="help === ''; else notEmpty"></div>
-          <ng-template #notEmpty>
-            <div
-              role="tooltip"
-              aria-haspopup="true"
-              class="tooltip tooltip-left"
-            >
-              <clr-icon shape="info-circle" size="24"></clr-icon>
-              <span class="tooltip-content">{{ help }}</span>
-            </div>
-          </ng-template>
         </div>
-        <span
-          class="clr-subtext"
-          *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
-        >
-          <div *ngIf="error === ''; else showError">
-            <clr-icon
-              class="clr-validate-icon"
-              shape="exclamation-circle"
-            ></clr-icon>
-            <ng-template [ngIf]="_formGroup.get(id).hasError('required')"
-              >{{ label }} es requerido</ng-template
-            >
-            <ng-template [ngIf]="_formGroup.get(id).hasError('maxlength')"
-              >{{ label }} ha excedido la longitud máxima de
-              {{ maxlength }}</ng-template
-            >
-            <ng-template [ngIf]="_formGroup.get(id).hasError('minlength')"
-              >{{ label }} no ha alcanzado la longitud mínima de
-              {{ minlength }}</ng-template
-            >
-            <ng-template [ngIf]="_formGroup.get(id).hasError('email')"
-              >{{ label }} no tiene el formato adecuado
-            </ng-template>
-          </div>
-          <ng-template #showError>
-            <clr-icon
-              class="clr-validate-icon"
-              shape="exclamation-circle"
-            ></clr-icon
-            >{{ error }}
-          </ng-template>
-          <p></p>
-        </span>
       </div>
+
+      <!-- notDisabled -->
       <ng-template #notDisabled>
         <div class="clr-textarea-wrapper">
           <clr-icon shape="text"></clr-icon>
-
           <textarea
             id="{{ id }}"
             autocomplete="off"
             placeholder="{{ placeholder }}"
             formControlName="{{ id }}"
+            maxlength="{{ maxlength }}"
+            minlength="{{ minlength }}"
             class="clr-textarea clr-col-md-11"
           ></textarea>
 
@@ -375,6 +328,7 @@
           <p></p>
         </span>
       </ng-template>
+      <!-- ./notDisabled -->
     </div>
   </div>
 </div>
