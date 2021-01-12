@@ -84,16 +84,17 @@
       "
     >
       <div *ngFor="let item of items">
-        <div class="radioStyle items-center">
+        <clr-radio-wrapper>
           <input
             type="radio"
             value="{{ item.name }}"
             formControlName="{{ id }}"
             class="clrRadio"
             id="{{ item.name }}"
+            clrRadio
           />
           <label> {{ item.description }}</label>
-        </div>
+        </clr-radio-wrapper>
       </div>
       <span
         class="clr-subtext"
@@ -142,23 +143,36 @@
       "
     >
       <div *ngFor="let item of items">
-        <input
-          type="checkbox"
-          value="{{ item.name }}"
-          formControlName="{{ id }}"
-          class="clrRadio"
-        />
-        <label> {{ item.description }}</label>
+        <clr-checkbox-wrapper>
+          <input
+            type="checkbox"
+            value="{{ item.name }}"
+            formControlName="{{ id }}"
+            class="clrRadio"
+            id="{{ item.name }}"
+            clrCheckbox
+          />
+          <label> {{ item.description }}</label>
+        </clr-checkbox-wrapper>
       </div>
       <span
         class="clr-subtext"
         *ngIf="_formGroup.get(id).invalid && _formGroup.get(id).touched"
       >
-        <clr-icon
-          class="clr-validate-icon"
-          shape="exclamation-circle"
-        ></clr-icon
-        >{{ error }}
+        <div *ngIf="error === ''; else notEmptyError">
+          <clr-icon
+            class="clr-validate-icon"
+            shape="exclamation-circle"
+          ></clr-icon>
+          {{ label }} es requerido
+        </div>
+        <ng-template #notEmptyError>
+          <clr-icon
+            class="clr-validate-icon"
+            shape="exclamation-circle"
+          ></clr-icon
+          >{{ error }}
+        </ng-template>
       </span>
     </div>
   </div>
